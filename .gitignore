@@ -19,3 +19,8 @@ logs/
 
 # MkDocs build output
 site/
+
+.mcp*
+scratch/
+
+.claude

@@ -97,6 +97,16 @@ models:
     config:
       docs:
         node_color: "#9E85AC"
+      # Warehouse Search for dbt-mcp contract, read at query time by
+      # .agents/skills/knowledge-base-search. version is the contract format
+      # version. content_source is user_generated because the corpus mixes
+      # staff-written and customer text and the contract allows one value.
+      meta:
+        mcp_search:
+          version: 1
+          shape: knowledge_base
+          content_source: user_generated
+          embedding_model: "{{ var('embedding_model') }}"
     columns:
       - name: source_id
         tests: [not_null]

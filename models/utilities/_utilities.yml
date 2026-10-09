@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: time_spine_daily
+    description: "Daily time spine used by the Semantic Layer for metric offsets."
+    time_spine:
+      standard_granularity_column: date_day
+    columns:
+      - name: date_day
+        granularity: day
+        tests: [unique, not_null]

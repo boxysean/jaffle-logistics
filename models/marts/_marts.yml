@@ -32,20 +32,86 @@ models:
 
   - name: fct_shipments
     description: "Shipment fact (grain: shipment) with touchpoint counts."
+    semantic_model:
+      enabled: true
+      name: shipments
+    agg_time_dimension: created_at
     columns:
       - name: shipment_id
         tests: [unique, not_null]
+        entity:
+          type: primary
+          name: shipment
       - name: client_id
         tests:
           - relationships:
               arguments:
                 to: ref('dim_clients')
                 field: client_id
+        entity:
+          type: foreign
+          name: client
       - name: status
         tests:
           - accepted_values:
               arguments:
                 values: ['delivered', 'delayed', 'failed', 'returned']
+        dimension:
+          type: categorical
+      - name: client_name
+        dimension:
+          type: categorical
+      - name: client_tier
+        dimension:
+          type: categorical
+      - name: origin_city
+        dimension:
+          type: categorical
+      - name: service_level
+        dimension:
+          type: categorical
+      - name: created_at
+        granularity: day
+        dimension:
+          type: time
+    metrics:
+      - name: shipments
+        label: Shipments
+        description: "Count of shipments, bucketed by the day each shipment was created."
+        type: simple
+        agg: count
+        expr: shipment_id
+      - name: on_time_shipments
+        label: On-time shipments
+        description: "Shipments with status delivered. Late arrivals carry status delayed and are excluded."
+        type: simple
+        agg: sum
+        expr: case when is_ontime then 1 else 0 end
+      - name: on_time_rate
+        label: On-time %
+        description: >
+          Share of shipments with status delivered. A shipment that arrived late
+          carries status delayed, and one that never arrived is failed or
+          returned, so only delivered counts as on time. The data has no
+          promised-delivery date, so lateness comes from that status flag and
+          not from a date comparison. It is the same definition
+          int_client_monthly_sla uses for ontime_pct, expressed as a fraction.
+        type: ratio
+        numerator: on_time_shipments
+        denominator: shipments
+      - name: on_time_rate_change_vs_prior_quarter_pts
+        label: On-time % change vs prior quarter (pts)
+        description: >
+          On-time % minus the on-time % one quarter earlier, in percentage
+          points. Query at quarter grain. At any other grain the one-quarter
+          offset still applies, so the comparison is against three months back.
+        type: derived
+        expr: (on_time_rate - on_time_rate_prior_quarter) * 100
+        input_metrics:
+          - name: on_time_rate
+          - name: on_time_rate
+            alias: on_time_rate_prior_quarter
+            offset_window: 1 quarter
 
   - name: fct_incidents
     description: "Incident fact (grain: incident) with report/work-order flags."
