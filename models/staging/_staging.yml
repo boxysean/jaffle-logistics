@@ -387,7 +387,7 @@ models:
         tests:
           - accepted_values:
               arguments:
-                values: ['onboarding', 'disciplinary', 'training']
+                values: ['onboarding', 'disciplinary', 'training', 'review', 'certification', 'exit']
 
   - name: stg_call_transcripts
     description: "One row per CRM call transcript, linked to the crm_note it transcribes."
