@@ -173,3 +173,213 @@ INC-2025-00259,delay,2,,,,,HUB-CMH,2025-11-07T14:50:00,Delay event (severity 2) 
 INC-2025-00260,delay,1,,,,,HUB-CIN,2025-11-13T09:58:00,Delay event (severity 1) at Cincinnati.
 INC-2025-00417,accident,3,SHP-202501-900001,RTE-CHI-20250115-201,DRV-01017,VEH-0015,HUB-CHI,2025-01-15T08:40:00,"Jackknifed semi on an icy ramp near the Chicago hub; no injuries, load held."
 INC-2025-02233,mispick,3,SHP-202505-950001,,,,HUB-IND,2025-05-13T10:15:00,Cluster of wrong-delivery errors traced to a mislabeled pick bin at the Indianapolis warehouse.
+INC-2023-00001,mispick,2,SHP-202309-000048,RTE-CMH-20230926-001,DRV-01015,VEH-0035,HUB-CMH,2023-09-26T15:56:54,Mispick event (severity 2) at Columbus.
+INC-2023-00002,weather,2,SHP-202306-000100,RTE-IND-20230627-003,DRV-01032,VEH-0023,HUB-IND,2023-06-27T19:08:52,Weather event (severity 2) at Indianapolis.
+INC-2023-00003,delay,1,,RTE-IND-20230418-002,DRV-01024,VEH-0034,HUB-IND,2023-04-18T10:33:22,Delay event (severity 1) at Indianapolis.
+INC-2023-00004,delay,1,,RTE-IND-20230217-002,DRV-01031,VEH-0043,HUB-IND,2023-02-17T06:33:51,Delay at the Indianapolis hub disrupted 3 routes; driver recovered resolved within the week.
+INC-2023-00005,delay,2,,,,,HUB-IND,2023-10-08T10:37:02,Delay event (severity 2) at Indianapolis.
+INC-2023-00006,mispick,1,,RTE-CMH-20230104-001,DRV-01015,VEH-0031,HUB-CMH,2023-01-04T07:17:08,Mispick event (severity 1) at Columbus.
+INC-2023-00007,delay,2,,RTE-DET-20230629-001,DRV-01014,VEH-0022,HUB-DET,2023-06-29T15:21:51,Delay at the Detroit hub disrupted 2 routes; load re-sequenced resolved within the week.
+INC-2023-00008,delay,2,SHP-202307-000025,RTE-CIN-20230726-001,DRV-01019,VEH-0036,HUB-CIN,2023-07-26T16:09:53,Delay event (severity 2) at Cincinnati.
+INC-2023-00009,weather,1,,RTE-DET-20230202-001,DRV-01021,VEH-0024,HUB-DET,2023-02-02T10:55:24,Weather event (severity 1) at Detroit.
+INC-2023-00010,weather,1,SHP-202307-000093,,,,HUB-CIN,2023-07-09T15:30:31,Weather event (severity 1) at Cincinnati.
+INC-2023-00011,weather,1,SHP-202311-000108,RTE-DET-20231110-003,DRV-01037,VEH-0022,HUB-DET,2023-11-10T06:11:01,Weather event (severity 1) at Detroit.
+INC-2023-00012,mispick,1,,RTE-CHI-20230523-001,DRV-01035,VEH-0002,HUB-CHI,2023-05-23T15:01:57,Mispick event (severity 1) at Chicago.
+INC-2023-00013,accident,1,SHP-202308-000157,,,,HUB-CHI,2023-08-29T13:28:52,Accident event (severity 1) at Chicago.
+INC-2023-00014,damage,2,,,,,HUB-CMH,2023-07-11T08:53:09,Damage event (severity 2) at Columbus.
+INC-2023-00015,damage,2,SHP-202309-000125,RTE-CIN-20230921-003,DRV-01002,VEH-0026,HUB-CIN,2023-09-21T17:52:53,Damage event (severity 2) at Cincinnati.
+INC-2023-00016,accident,1,,RTE-CIN-20231101-002,DRV-01019,VEH-0025,HUB-CIN,2023-10-31T06:05:40,Accident event (severity 1) at Cincinnati.
+INC-2023-00017,accident,1,,RTE-DET-20230810-002,DRV-01021,VEH-0022,HUB-DET,2023-08-10T13:39:17,Accident event (severity 1) at Detroit.
+INC-2023-00018,weather,2,SHP-202307-000161,RTE-IND-20230720-003,DRV-01045,VEH-0023,HUB-IND,2023-07-20T11:30:28,Weather at the Indianapolis hub disrupted 4 routes; load re-sequenced resolved within the week.
+INC-2023-00019,weather,1,,RTE-DET-20230919-004,DRV-01046,VEH-0029,HUB-DET,2023-09-17T10:53:30,Weather event (severity 1) at Detroit.
+INC-2023-00020,mispick,1,,,,,HUB-CHI,2023-03-31T18:46:47,Mispick event (severity 1) at Chicago.
+INC-2023-00021,weather,2,,RTE-CIN-20230525-002,DRV-01027,VEH-0026,HUB-CIN,2023-05-25T08:02:26,Weather event (severity 2) at Cincinnati.
+INC-2023-00022,delay,1,SHP-202306-000110,RTE-CHI-20230607-003,DRV-01007,VEH-0042,HUB-CHI,2023-06-07T15:25:20,Delay event (severity 1) at Chicago.
+INC-2023-00023,delay,1,,RTE-CIN-20231101-001,DRV-01025,VEH-0020,HUB-CIN,2023-11-01T14:36:56,Delay event (severity 1) at Cincinnati.
+INC-2023-00024,weather,2,SHP-202301-000089,RTE-CIN-20230117-001,DRV-01027,VEH-0020,HUB-CIN,2023-01-17T20:27:39,Weather event (severity 2) at Cincinnati.
+INC-2023-00025,weather,2,SHP-202303-000123,,,,HUB-CIN,2023-03-01T11:56:55,Weather event (severity 2) at Cincinnati.
+INC-2023-00026,accident,2,,RTE-CIN-20230208-003,DRV-01041,VEH-0027,HUB-CIN,2023-02-08T11:54:38,Accident event (severity 2) at Cincinnati.
+INC-2023-00027,delay,2,SHP-202303-000036,,,,HUB-CIN,2023-03-29T11:35:32,Delay event (severity 2) at Cincinnati.
+INC-2023-00028,accident,2,,,,,HUB-CMH,2023-05-23T14:46:37,Accident event (severity 2) at Columbus.
+INC-2023-00029,accident,1,,RTE-IND-20231017-001,DRV-01032,VEH-0043,HUB-IND,2023-10-17T17:11:56,Accident event (severity 1) at Indianapolis.
+INC-2023-00030,dispute,1,,RTE-IND-20231218-002,DRV-01006,VEH-0008,HUB-IND,2023-12-18T08:07:22,Dispute event (severity 1) at Indianapolis.
+INC-2023-00031,damage,1,SHP-202308-000023,RTE-CIN-20230803-003,DRV-01041,VEH-0026,HUB-CIN,2023-08-03T06:58:36,Damage event (severity 1) at Cincinnati.
+INC-2023-00032,weather,1,,RTE-CIN-20230825-001,DRV-01027,VEH-0026,HUB-CIN,2023-08-25T16:02:33,Weather event (severity 1) at Cincinnati.
+INC-2023-00033,weather,1,SHP-202308-000143,RTE-CMH-20230824-001,DRV-01043,VEH-0007,HUB-CMH,2023-08-24T15:13:45,Weather event (severity 1) at Columbus.
+INC-2023-00034,weather,2,SHP-202301-000088,RTE-IND-20230120-003,DRV-01024,VEH-0016,HUB-IND,2023-01-20T19:14:44,Weather event (severity 2) at Indianapolis.
+INC-2023-00035,delay,1,,,,,HUB-CIN,2023-11-01T18:17:17,Delay event (severity 1) at Cincinnati.
+INC-2023-00036,weather,1,,,,,HUB-CMH,2023-06-29T15:35:41,Weather event (severity 1) at Columbus.
+INC-2023-00037,accident,1,,RTE-DET-20230117-001,DRV-01021,VEH-0024,HUB-DET,2023-01-17T17:49:04,Accident event (severity 1) at Detroit.
+INC-2023-00038,delay,2,SHP-202303-000140,,,,HUB-CMH,2023-03-07T10:56:19,Delay event (severity 2) at Columbus.
+INC-2023-00039,delay,1,SHP-202303-000074,RTE-CHI-20230315-003,DRV-01048,VEH-0002,HUB-CHI,2023-03-15T08:23:22,Delay event (severity 1) at Chicago.
+INC-2023-00040,delay,1,,RTE-IND-20230301-002,DRV-01033,VEH-0008,HUB-IND,2023-03-01T16:14:56,Delay at the Indianapolis hub disrupted 1 routes; driver recovered resolved within the week.
+INC-2023-00041,weather,1,,RTE-DET-20231212-002,DRV-01046,VEH-0022,HUB-DET,2023-12-12T09:39:26,Weather event (severity 1) at Detroit.
+INC-2023-00042,weather,2,,RTE-CIN-20231107-002,DRV-01008,VEH-0020,HUB-CIN,2023-11-07T08:46:04,Weather event (severity 2) at Cincinnati.
+INC-2023-00043,dispute,1,,,,,HUB-IND,2023-09-15T13:42:13,Dispute at the Indianapolis hub disrupted 1 routes; load re-sequenced resolved within the week.
+INC-2023-00044,weather,1,SHP-202301-000121,RTE-CIN-20230201-001,DRV-01041,VEH-0027,HUB-CIN,2023-02-01T11:11:00,Weather event (severity 1) at Cincinnati.
+INC-2023-00045,dispute,3,SHP-202305-000137,RTE-CMH-20230501-001,DRV-01040,VEH-0003,HUB-CMH,2023-05-01T20:46:30,Dispute event (severity 3) at Columbus.
+INC-2023-00046,weather,2,SHP-202303-000135,RTE-CMH-20230331-001,DRV-01028,VEH-0028,HUB-CMH,2023-03-31T09:53:12,Weather event (severity 2) at Columbus.
+INC-2023-00047,mispick,1,SHP-202312-000103,,,,HUB-CMH,2023-12-06T14:01:08,Mispick at the Columbus hub disrupted 2 routes; driver recovered resolved within the week.
+INC-2023-00048,weather,1,,RTE-CMH-20230724-004,DRV-01036,VEH-0035,HUB-CMH,2023-07-23T16:06:02,Weather event (severity 1) at Columbus.
+INC-2023-00049,dispute,1,,,,,HUB-CMH,2023-08-09T09:56:58,Dispute event (severity 1) at Columbus.
+INC-2023-00050,damage,1,,RTE-DET-20231017-001,DRV-01021,VEH-0024,HUB-DET,2023-10-17T07:06:58,Damage event (severity 1) at Detroit.
+INC-2023-00051,weather,1,SHP-202310-000055,RTE-CMH-20231012-004,DRV-01040,VEH-0031,HUB-CMH,2023-10-12T15:29:47,Weather event (severity 1) at Columbus.
+INC-2023-00052,delay,1,,RTE-DET-20230810-002,DRV-01021,VEH-0022,HUB-DET,2023-08-09T07:29:38,Delay at the Detroit hub disrupted 1 routes; load re-sequenced resolved within the week.
+INC-2023-00053,weather,1,,RTE-CHI-20230412-005,DRV-01047,VEH-0005,HUB-CHI,2023-04-12T20:11:02,Weather event (severity 1) at Chicago.
+INC-2023-00054,accident,1,SHP-202312-000182,RTE-CIN-20231221-002,DRV-01023,VEH-0027,HUB-CIN,2023-12-21T16:09:26,Accident event (severity 1) at Cincinnati.
+INC-2023-00055,weather,2,,RTE-IND-20230417-002,DRV-01045,VEH-0008,HUB-IND,2023-04-17T12:25:49,Weather event (severity 2) at Indianapolis.
+INC-2023-00056,weather,1,SHP-202311-000168,RTE-IND-20231113-003,DRV-01045,VEH-0016,HUB-IND,2023-11-13T18:44:29,Weather event (severity 1) at Indianapolis.
+INC-2023-00057,delay,1,SHP-202307-000167,RTE-CMH-20230713-002,DRV-01028,VEH-0033,HUB-CMH,2023-07-13T07:06:32,Delay event (severity 1) at Columbus.
+INC-2023-00058,weather,2,,,,,HUB-DET,2023-02-10T12:06:35,Weather event (severity 2) at Detroit.
+INC-2023-00059,dispute,1,SHP-202308-000078,,,,HUB-DET,2023-08-21T07:20:22,Dispute event (severity 1) at Detroit.
+INC-2023-00060,mispick,2,,,,,HUB-CMH,2023-08-10T17:26:05,Mispick event (severity 2) at Columbus.
+INC-2023-00061,damage,2,,RTE-CMH-20231214-002,DRV-01013,VEH-0038,HUB-CMH,2023-12-13T11:25:46,Damage event (severity 2) at Columbus.
+INC-2023-00062,weather,2,SHP-202312-000135,,,,HUB-CMH,2023-12-01T08:48:35,Weather event (severity 2) at Columbus.
+INC-2023-00063,dispute,2,SHP-202311-000036,RTE-CHI-20231130-001,DRV-01012,VEH-0004,HUB-CHI,2023-11-30T15:37:26,Dispute event (severity 2) at Chicago.
+INC-2023-00064,accident,1,,RTE-IND-20230920-001,DRV-01031,VEH-0013,HUB-IND,2023-09-20T07:48:17,Accident event (severity 1) at Indianapolis.
+INC-2023-00065,delay,3,,RTE-CIN-20230508-002,DRV-01027,VEH-0036,HUB-CIN,2023-05-08T07:31:18,Delay event (severity 3) at Cincinnati.
+INC-2023-00066,dispute,2,,RTE-CIN-20230928-001,DRV-01041,VEH-0032,HUB-CIN,2023-09-28T09:27:26,Dispute event (severity 2) at Cincinnati.
+INC-2023-00067,delay,1,,,,,HUB-DET,2023-03-28T19:21:16,Delay event (severity 1) at Detroit.
+INC-2023-00068,weather,1,,RTE-CHI-20231106-001,DRV-01020,VEH-0005,HUB-CHI,2023-11-06T15:06:10,Weather event (severity 1) at Chicago.
+INC-2023-00069,weather,1,SHP-202305-000127,RTE-CHI-20230531-002,DRV-01190,VEH-0005,HUB-CHI,2023-05-30T09:45:40,Weather event (severity 1) at Chicago.
+INC-2023-00070,delay,2,SHP-202302-000133,RTE-CIN-20230202-002,DRV-01008,VEH-0018,HUB-CIN,2023-02-02T18:53:09,Delay event (severity 2) at Cincinnati.
+INC-2023-00071,accident,4,SHP-202308-000114,RTE-CMH-20230807-002,DRV-01013,VEH-0007,HUB-CMH,2023-08-07T10:37:21,Accident event (severity 4) at Columbus.
+INC-2023-00072,delay,1,,RTE-CMH-20230913-002,DRV-01049,VEH-0031,HUB-CMH,2023-09-13T20:06:37,Delay event (severity 1) at Columbus.
+INC-2023-00073,delay,1,SHP-202303-000045,,,,HUB-CIN,2023-03-30T07:54:52,Delay at the Cincinnati hub disrupted 4 routes; vehicle swapped resolved within the week.
+INC-2023-00074,delay,1,SHP-202310-000087,RTE-CMH-20231011-001,DRV-01013,VEH-0001,HUB-CMH,2023-10-11T14:03:28,Delay at the Columbus hub disrupted 3 routes; load re-sequenced resolved within the week.
+INC-2023-00075,weather,1,,RTE-CIN-20230112-003,DRV-01019,VEH-0032,HUB-CIN,2023-01-12T11:09:41,Weather event (severity 1) at Cincinnati.
+INC-2023-00076,delay,2,,,,,HUB-CIN,2023-08-04T11:44:46,Delay event (severity 2) at Cincinnati.
+INC-2023-00077,weather,1,,RTE-CMH-20230216-001,DRV-01028,VEH-0021,HUB-CMH,2023-02-16T06:27:32,Weather event (severity 1) at Columbus.
+INC-2023-00078,delay,1,,RTE-CIN-20230614-001,DRV-01002,VEH-0020,HUB-CIN,2023-06-14T12:51:09,Delay event (severity 1) at Cincinnati.
+INC-2023-00079,delay,1,SHP-202306-000094,RTE-DET-20230605-001,DRV-01014,VEH-0024,HUB-DET,2023-06-05T13:35:07,Delay event (severity 1) at Detroit.
+INC-2023-00080,accident,1,SHP-202308-000037,RTE-CHI-20230809-004,DRV-01020,VEH-0004,HUB-CHI,2023-08-09T19:21:41,Accident event (severity 1) at Chicago.
+INC-2023-00081,accident,1,SHP-202304-000013,RTE-DET-20230414-007,DRV-01022,VEH-0024,HUB-DET,2023-04-14T14:42:52,Accident event (severity 1) at Detroit.
+INC-2023-00082,weather,1,,,,,HUB-IND,2023-07-01T10:42:35,Weather event (severity 1) at Indianapolis.
+INC-2023-00083,weather,1,,RTE-IND-20230820-001,DRV-01188,VEH-0016,HUB-IND,2023-08-20T18:52:33,Weather event (severity 1) at Indianapolis.
+INC-2023-00084,accident,1,SHP-202310-000120,RTE-CMH-20231020-004,DRV-01015,VEH-0035,HUB-CMH,2023-10-20T10:03:31,Accident event (severity 1) at Columbus.
+INC-2023-00085,accident,2,SHP-202303-000095,RTE-CHI-20230314-001,DRV-01017,VEH-0006,HUB-CHI,2023-03-14T15:31:11,Accident event (severity 2) at Chicago.
+INC-2023-00086,mispick,2,SHP-202310-000167,,,,HUB-DET,2023-10-09T20:37:02,Mispick event (severity 2) at Detroit.
+INC-2023-00087,delay,1,SHP-202306-000011,,,,HUB-DET,2023-06-12T16:15:09,Delay event (severity 1) at Detroit.
+INC-2023-00088,weather,1,,RTE-CMH-20230821-001,DRV-01016,VEH-0038,HUB-CMH,2023-08-20T15:57:14,Weather event (severity 1) at Columbus.
+INC-2023-00089,weather,1,,,,,HUB-DET,2023-06-03T07:57:52,Weather event (severity 1) at Detroit.
+INC-2023-00090,delay,2,SHP-202310-000106,,,,HUB-CHI,2023-10-30T16:57:06,Delay event (severity 2) at Chicago.
+INC-2023-00091,delay,3,,RTE-DET-20230417-002,DRV-01046,VEH-0024,HUB-DET,2023-04-17T16:11:08,Delay event (severity 3) at Detroit.
+INC-2023-00092,mispick,4,SHP-202301-000100,,,,HUB-CIN,2023-01-26T12:30:12,Mispick event (severity 4) at Cincinnati.
+INC-2023-00093,delay,2,SHP-202307-000054,RTE-CMH-20230728-002,DRV-01016,VEH-0021,HUB-CMH,2023-07-28T16:01:54,Delay event (severity 2) at Columbus.
+INC-2023-00094,weather,1,,RTE-IND-20230111-001,DRV-01188,VEH-0023,HUB-IND,2023-01-11T08:38:28,Weather event (severity 1) at Indianapolis.
+INC-2023-00095,delay,1,,RTE-CIN-20230619-001,DRV-01025,VEH-0036,HUB-CIN,2023-06-19T15:06:41,Delay event (severity 1) at Cincinnati.
+INC-2023-00096,damage,1,SHP-202309-000081,RTE-IND-20230920-001,DRV-01031,VEH-0013,HUB-IND,2023-09-20T17:25:23,Damage event (severity 1) at Indianapolis.
+INC-2023-00097,delay,1,SHP-202309-000042,RTE-CHI-20230905-002,DRV-01012,VEH-0002,HUB-CHI,2023-09-05T17:05:32,Delay event (severity 1) at Chicago.
+INC-2023-00098,dispute,1,,,,,HUB-CHI,2023-05-10T15:31:03,Dispute event (severity 1) at Chicago.
+INC-2023-00099,damage,2,SHP-202308-000031,RTE-DET-20230829-003,DRV-01037,VEH-0022,HUB-DET,2023-08-29T20:32:04,Damage event (severity 2) at Detroit.
+INC-2023-00100,accident,1,SHP-202311-000053,RTE-DET-20231120-003,DRV-01046,VEH-0044,HUB-DET,2023-11-19T16:01:25,Accident at the Detroit hub disrupted 4 routes; vehicle swapped resolved within the week.
+INC-2024-00001,delay,1,SHP-202404-000044,RTE-CMH-20240417-001,DRV-01016,VEH-0041,HUB-CMH,2024-04-17T17:48:48,Delay event (severity 1) at Columbus.
+INC-2024-00002,damage,2,SHP-202407-000079,RTE-DET-20240703-002,DRV-01037,VEH-0029,HUB-DET,2024-07-03T10:10:28,Damage event (severity 2) at Detroit.
+INC-2024-00003,weather,3,,RTE-CMH-20240812-002,DRV-01013,VEH-0041,HUB-CMH,2024-08-12T15:37:17,Weather event (severity 3) at Columbus.
+INC-2024-00004,weather,1,,RTE-CHI-20240701-001,DRV-01190,VEH-0004,HUB-CHI,2024-07-01T13:19:47,Weather event (severity 1) at Chicago.
+INC-2024-00005,delay,1,SHP-202410-000069,,,,HUB-CMH,2024-10-11T15:00:24,Delay event (severity 1) at Columbus.
+INC-2024-00006,delay,1,,,,,HUB-IND,2024-05-26T16:30:37,Delay event (severity 1) at Indianapolis.
+INC-2024-00007,delay,1,,RTE-CMH-20241023-001,DRV-01039,VEH-0033,HUB-CMH,2024-10-22T15:59:40,Delay event (severity 1) at Columbus.
+INC-2024-00008,accident,2,,,,,HUB-CHI,2024-09-18T20:51:53,Accident event (severity 2) at Chicago.
+INC-2024-00009,weather,1,,RTE-IND-20240825-001,DRV-01033,VEH-0023,HUB-IND,2024-08-24T06:12:03,Weather event (severity 1) at Indianapolis.
+INC-2024-00010,dispute,2,,RTE-CIN-20240917-001,DRV-01034,VEH-0025,HUB-CIN,2024-09-17T18:13:35,Dispute event (severity 2) at Cincinnati.
+INC-2024-00011,dispute,2,SHP-202402-000044,RTE-IND-20240219-001,DRV-01006,VEH-0016,HUB-IND,2024-02-19T16:41:32,Dispute event (severity 2) at Indianapolis.
+INC-2024-00012,delay,1,,,,,HUB-DET,2024-10-13T16:29:39,Delay event (severity 1) at Detroit.
+INC-2024-00013,mispick,2,SHP-202402-000142,RTE-IND-20240201-002,DRV-01033,VEH-0034,HUB-IND,2024-02-01T19:18:42,Mispick event (severity 2) at Indianapolis.
+INC-2024-00014,delay,1,,,,,HUB-IND,2024-05-30T15:11:15,Delay event (severity 1) at Indianapolis.
+INC-2024-00015,accident,1,,RTE-CMH-20240502-001,DRV-01039,VEH-0021,HUB-CMH,2024-05-02T11:16:42,Accident event (severity 1) at Columbus.
+INC-2024-00016,delay,1,,RTE-IND-20240205-002,DRV-01006,VEH-0013,HUB-IND,2024-02-05T20:30:20,Delay at the Indianapolis hub disrupted 2 routes; vehicle swapped resolved within the week.
+INC-2024-00017,weather,2,SHP-202405-000018,RTE-CHI-20240501-003,DRV-01012,VEH-0006,HUB-CHI,2024-05-01T19:28:48,Weather event (severity 2) at Chicago.
+INC-2024-00018,accident,2,,RTE-CMH-20240620-001,DRV-01018,VEH-0001,HUB-CMH,2024-06-20T13:51:12,Accident event (severity 2) at Columbus.
+INC-2024-00019,accident,2,SHP-202410-000045,RTE-IND-20241008-004,DRV-01042,VEH-0013,HUB-IND,2024-10-08T19:22:32,Accident event (severity 2) at Indianapolis.
+INC-2024-00020,weather,1,SHP-202404-000044,RTE-CMH-20240418-001,DRV-01039,VEH-0007,HUB-CMH,2024-04-18T11:51:42,Weather event (severity 1) at Columbus.
+INC-2024-00021,damage,2,,RTE-CMH-20240524-001,DRV-01043,VEH-0033,HUB-CMH,2024-05-24T08:34:17,Damage event (severity 2) at Columbus.
+INC-2024-00022,dispute,1,,RTE-CHI-20241220-001,DRV-01048,VEH-0037,HUB-CHI,2024-12-20T20:07:49,Dispute at the Chicago hub disrupted 3 routes; load re-sequenced resolved within the week.
+INC-2024-00023,delay,1,,,,,HUB-CHI,2024-07-30T10:49:59,Delay event (severity 1) at Chicago.
+INC-2024-00024,delay,4,,RTE-CIN-20240117-001,DRV-01034,VEH-0036,HUB-CIN,2024-01-17T15:30:45,Delay event (severity 4) at Cincinnati.
+INC-2024-00025,weather,3,,,,,HUB-CHI,2024-11-03T11:21:09,Weather event (severity 3) at Chicago.
+INC-2024-00026,delay,1,,RTE-CIN-20240206-004,DRV-01025,VEH-0036,HUB-CIN,2024-02-06T20:02:40,Delay event (severity 1) at Cincinnati.
+INC-2024-00027,weather,3,SHP-202402-000035,RTE-CIN-20240216-002,DRV-01003,VEH-0020,HUB-CIN,2024-02-15T16:13:35,Weather event (severity 3) at Cincinnati.
+INC-2024-00028,accident,1,,RTE-IND-20240102-001,DRV-01033,VEH-0016,HUB-IND,2024-01-02T07:27:35,Accident event (severity 1) at Indianapolis.
+INC-2024-00029,weather,1,SHP-202406-000130,RTE-CMH-20240604-001,DRV-01013,VEH-0021,HUB-CMH,2024-06-04T11:52:35,Weather event (severity 1) at Columbus.
+INC-2024-00030,delay,3,,RTE-CIN-20240628-001,DRV-01027,VEH-0027,HUB-CIN,2024-06-28T06:40:15,Delay event (severity 3) at Cincinnati.
+INC-2024-00031,damage,2,SHP-202409-000033,,,,HUB-CHI,2024-09-12T10:44:37,Damage event (severity 2) at Chicago.
+INC-2024-00032,dispute,1,,RTE-IND-20241010-001,DRV-01031,VEH-0008,HUB-IND,2024-10-09T12:38:25,Dispute event (severity 1) at Indianapolis.
+INC-2024-00033,weather,1,SHP-202403-000032,,,,HUB-IND,2024-03-13T12:42:26,Weather event (severity 1) at Indianapolis.
+INC-2024-00034,delay,3,SHP-202411-000111,,,,HUB-CHI,2024-11-16T07:21:50,Delay event (severity 3) at Chicago.
+INC-2024-00035,damage,2,,,,,HUB-CMH,2024-09-13T15:41:37,Damage event (severity 2) at Columbus.
+INC-2024-00036,weather,1,SHP-202402-000129,,,,HUB-DET,2024-02-07T19:17:00,Weather event (severity 1) at Detroit.
+INC-2024-00037,weather,1,,RTE-DET-20240924-002,DRV-01014,VEH-0029,HUB-DET,2024-09-24T10:49:50,Weather event (severity 1) at Detroit.
+INC-2024-00038,delay,3,,RTE-IND-20241016-001,DRV-01031,VEH-0034,HUB-IND,2024-10-16T19:37:27,Delay event (severity 3) at Indianapolis.
+INC-2024-00039,delay,1,SHP-202406-000116,RTE-IND-20240619-002,DRV-01188,VEH-0043,HUB-IND,2024-06-19T13:00:25,Delay event (severity 1) at Indianapolis.
+INC-2024-00040,damage,1,SHP-202402-000076,,,,HUB-CHI,2024-02-23T13:54:47,Damage event (severity 1) at Chicago.
+INC-2024-00041,delay,4,SHP-202404-000135,,,,HUB-DET,2024-04-08T18:39:16,Delay event (severity 4) at Detroit.
+INC-2024-00042,weather,1,,RTE-DET-20240327-001,DRV-01014,VEH-0022,HUB-DET,2024-03-27T06:43:36,Weather event (severity 1) at Detroit.
+INC-2024-00043,delay,4,,RTE-CIN-20240604-005,DRV-01027,VEH-0027,HUB-CIN,2024-06-04T07:59:28,Delay event (severity 4) at Cincinnati.
+INC-2024-00044,weather,1,SHP-202409-000004,RTE-CMH-20240920-001,DRV-01010,VEH-0003,HUB-CMH,2024-09-20T15:33:47,Weather event (severity 1) at Columbus.
+INC-2024-00045,weather,1,,RTE-DET-20241121-001,DRV-01037,VEH-0029,HUB-DET,2024-11-21T15:04:01,Weather event (severity 1) at Detroit.
+INC-2024-00046,delay,2,SHP-202410-000032,RTE-CMH-20241023-001,DRV-01039,VEH-0033,HUB-CMH,2024-10-22T14:29:45,Delay event (severity 2) at Columbus.
+INC-2024-00047,delay,2,SHP-202404-000002,,,,HUB-IND,2024-04-03T19:19:42,Delay at the Indianapolis hub disrupted 3 routes; vehicle swapped resolved within the week.
+INC-2024-00048,weather,1,,RTE-IND-20241107-002,DRV-01045,VEH-0013,HUB-IND,2024-11-07T16:10:26,Weather event (severity 1) at Indianapolis.
+INC-2024-00049,accident,1,SHP-202401-000115,,,,HUB-CMH,2024-01-01T15:26:06,Accident event (severity 1) at Columbus.
+INC-2024-00050,mispick,1,SHP-202406-000052,RTE-CMH-20240607-002,DRV-01009,VEH-0003,HUB-CMH,2024-06-07T17:38:46,Mispick event (severity 1) at Columbus.
+INC-2024-00051,weather,1,,RTE-CHI-20241204-001,DRV-01007,VEH-0015,HUB-CHI,2024-12-04T16:00:24,Weather event (severity 1) at Chicago.
+INC-2024-00052,weather,3,,RTE-CMH-20241106-001,DRV-01049,VEH-0033,HUB-CMH,2024-11-06T16:18:55,Weather event (severity 3) at Columbus.
+INC-2024-00053,delay,1,SHP-202401-000115,,,,HUB-CMH,2024-01-01T16:44:01,Delay event (severity 1) at Columbus.
+INC-2024-00054,damage,2,SHP-202410-000054,RTE-IND-20241023-002,DRV-01188,VEH-0034,HUB-IND,2024-10-23T20:41:14,Damage event (severity 2) at Indianapolis.
+INC-2024-00055,weather,1,,RTE-CIN-20240913-005,DRV-01034,VEH-0036,HUB-CIN,2024-09-13T14:08:06,Weather event (severity 1) at Cincinnati.
+INC-2024-00056,weather,1,,RTE-DET-20240131-001,DRV-01021,VEH-0029,HUB-DET,2024-01-31T14:00:25,Weather event (severity 1) at Detroit.
+INC-2024-00057,delay,1,SHP-202405-000010,,,,HUB-DET,2024-05-25T14:36:39,Delay at the Detroit hub disrupted 3 routes; vehicle swapped resolved within the week.
+INC-2024-00058,weather,2,,RTE-IND-20240102-003,DRV-01031,VEH-0017,HUB-IND,2024-01-02T14:12:25,Weather event (severity 2) at Indianapolis.
+INC-2024-00059,delay,2,SHP-202409-000040,RTE-CIN-20240905-001,DRV-01019,VEH-0018,HUB-CIN,2024-09-05T12:52:43,Delay event (severity 2) at Cincinnati.
+INC-2024-00060,mispick,1,,,,,HUB-CMH,2024-01-17T13:25:22,Mispick at the Columbus hub disrupted 4 routes; driver recovered resolved within the week.
+INC-2024-00061,mispick,1,SHP-202404-000044,,,,HUB-CMH,2024-04-17T12:09:32,Mispick at the Columbus hub disrupted 1 routes; driver recovered resolved within the week.
+INC-2024-00062,weather,1,SHP-202403-000124,RTE-DET-20240325-002,DRV-01014,VEH-0022,HUB-DET,2024-03-25T10:18:15,Weather event (severity 1) at Detroit.
+INC-2024-00063,weather,2,,,,,HUB-CIN,2024-10-27T09:17:32,Weather event (severity 2) at Cincinnati.
+INC-2024-00064,delay,1,SHP-202404-000009,RTE-DET-20240401-001,DRV-01004,VEH-0022,HUB-DET,2024-04-01T13:55:22,Delay event (severity 1) at Detroit.
+INC-2024-00065,dispute,4,,RTE-IND-20241217-002,DRV-01024,VEH-0008,HUB-IND,2024-12-17T15:18:46,Dispute event (severity 4) at Indianapolis.
+INC-2024-00066,accident,1,,RTE-IND-20240507-001,DRV-01024,VEH-0013,HUB-IND,2024-05-07T15:08:34,Accident event (severity 1) at Indianapolis.
+INC-2024-00067,accident,2,,RTE-DET-20240704-002,DRV-01022,VEH-0044,HUB-DET,2024-07-04T16:02:21,Accident event (severity 2) at Detroit.
+INC-2024-00068,delay,1,,RTE-CMH-20240219-001,DRV-01001,VEH-0007,HUB-CMH,2024-02-19T18:35:27,Delay event (severity 1) at Columbus.
+INC-2024-00069,delay,2,,,,,HUB-DET,2024-08-28T13:23:36,Delay event (severity 2) at Detroit.
+INC-2024-00070,weather,3,SHP-202407-000088,RTE-CMH-20240730-002,DRV-01043,VEH-0007,HUB-CMH,2024-07-28T17:03:49,Weather event (severity 3) at Columbus.
+INC-2024-00071,dispute,1,SHP-202409-000069,RTE-IND-20240923-006,DRV-01191,VEH-0009,HUB-IND,2024-09-23T16:23:33,Dispute event (severity 1) at Indianapolis.
+INC-2024-00072,accident,2,,RTE-CHI-20240125-002,DRV-01048,VEH-0019,HUB-CHI,2024-01-25T20:18:10,Accident event (severity 2) at Chicago.
+INC-2024-00073,mispick,1,,RTE-CMH-20241004-001,DRV-01044,VEH-0028,HUB-CMH,2024-10-04T19:48:55,Mispick event (severity 1) at Columbus.
+INC-2024-00074,weather,1,SHP-202408-000118,,,,HUB-IND,2024-08-15T07:32:20,Weather event (severity 1) at Indianapolis.
+INC-2024-00075,mispick,1,SHP-202404-000008,,,,HUB-IND,2024-04-25T12:34:35,Mispick event (severity 1) at Indianapolis.
+INC-2024-00076,mispick,2,SHP-202402-000122,,,,HUB-CMH,2024-02-04T12:24:20,Mispick event (severity 2) at Columbus.
+INC-2024-00077,weather,1,SHP-202403-000109,RTE-CMH-20240320-001,DRV-01044,VEH-0038,HUB-CMH,2024-03-20T15:15:46,Weather event (severity 1) at Columbus.
+INC-2024-00078,weather,1,SHP-202405-000048,,,,HUB-CHI,2024-05-14T11:03:55,Weather event (severity 1) at Chicago.
+INC-2024-00079,weather,1,SHP-202403-000047,RTE-DET-20240308-003,DRV-01014,VEH-0024,HUB-DET,2024-03-08T09:11:10,Weather event (severity 1) at Detroit.
+INC-2024-00080,accident,2,,RTE-DET-20241009-002,DRV-01193,VEH-0044,HUB-DET,2024-10-08T18:19:30,Accident event (severity 2) at Detroit.
+INC-2024-00081,damage,1,SHP-202409-000154,RTE-CHI-20240925-003,DRV-01047,VEH-0037,HUB-CHI,2024-09-25T20:27:33,Damage at the Chicago hub disrupted 3 routes; load re-sequenced resolved within the week.
+INC-2024-00082,weather,1,,,,,HUB-CHI,2024-05-07T06:01:48,Weather event (severity 1) at Chicago.
+INC-2024-00083,weather,1,,RTE-CMH-20240419-003,DRV-01044,VEH-0031,HUB-CMH,2024-04-19T15:46:52,Weather event (severity 1) at Columbus.
+INC-2024-00084,mispick,1,,,,,HUB-DET,2024-05-01T09:46:55,Mispick event (severity 1) at Detroit.
+INC-2024-00085,mispick,1,SHP-202412-000198,RTE-DET-20241216-001,DRV-01037,VEH-0024,HUB-DET,2024-12-16T15:39:57,Mispick event (severity 1) at Detroit.
+INC-2024-00086,mispick,1,SHP-202404-000042,RTE-DET-20240415-001,DRV-01004,VEH-0029,HUB-DET,2024-04-15T16:43:28,Mispick event (severity 1) at Detroit.
+INC-2024-00087,mispick,1,SHP-202410-000043,RTE-CIN-20241016-002,DRV-01019,VEH-0020,HUB-CIN,2024-10-16T17:38:15,Mispick at the Cincinnati hub disrupted 1 routes; vehicle swapped resolved within the week.
+INC-2024-00088,damage,1,,,,,HUB-CIN,2024-04-26T20:15:17,Damage event (severity 1) at Cincinnati.
+INC-2024-00089,weather,1,,,,,HUB-CMH,2024-03-20T06:51:31,Weather event (severity 1) at Columbus.
+INC-2024-00090,delay,1,SHP-202405-000104,RTE-DET-20240502-003,DRV-01004,VEH-0022,HUB-DET,2024-05-02T12:10:59,Delay event (severity 1) at Detroit.
+INC-2024-00091,delay,1,SHP-202411-000120,RTE-IND-20241105-001,DRV-01024,VEH-0016,HUB-IND,2024-11-05T10:38:58,Delay event (severity 1) at Indianapolis.
+INC-2024-00092,delay,1,,,,,HUB-CMH,2024-06-18T09:11:35,Delay event (severity 1) at Columbus.
+INC-2024-00093,dispute,1,,RTE-CIN-20240828-002,DRV-01023,VEH-0025,HUB-CIN,2024-08-28T11:08:00,Dispute event (severity 1) at Cincinnati.
+INC-2024-00094,accident,1,,RTE-CMH-20241107-002,DRV-01049,VEH-0033,HUB-CMH,2024-11-07T20:01:45,Accident event (severity 1) at Columbus.
+INC-2024-00095,delay,1,SHP-202407-000059,RTE-IND-20240723-001,DRV-01042,VEH-0043,HUB-IND,2024-07-22T16:22:35,Delay event (severity 1) at Indianapolis.
+INC-2024-00096,delay,1,,,,,HUB-IND,2024-12-30T14:54:52,Delay event (severity 1) at Indianapolis.
+INC-2024-00097,mispick,2,,RTE-DET-20240619-001,DRV-01022,VEH-0022,HUB-DET,2024-06-19T12:48:30,Mispick event (severity 2) at Detroit.
+INC-2024-00098,weather,3,,RTE-CHI-20240617-001,DRV-01005,VEH-0037,HUB-CHI,2024-06-17T12:56:13,Weather at the Chicago hub disrupted 1 routes; driver recovered resolved within the week.
+INC-2024-00099,weather,1,SHP-202401-000122,,,,HUB-IND,2024-01-27T12:45:44,Weather event (severity 1) at Indianapolis.
+INC-2024-00100,weather,1,,RTE-CIN-20240301-001,DRV-01023,VEH-0036,HUB-CIN,2024-02-29T13:02:25,Weather event (severity 1) at Cincinnati.
+INC-2024-00101,delay,2,SHP-202412-000198,RTE-DET-20241216-001,DRV-01037,VEH-0024,HUB-DET,2024-12-16T12:09:28,Delay event (severity 2) at Detroit.
+INC-2024-00102,weather,1,SHP-202409-000129,RTE-CHI-20240919-003,DRV-01047,VEH-0006,HUB-CHI,2024-09-19T11:12:36,Weather at the Chicago hub disrupted 3 routes; vehicle swapped resolved within the week.
+INC-2024-00103,dispute,2,,RTE-CIN-20240502-001,DRV-01026,VEH-0020,HUB-CIN,2024-05-02T17:48:45,Dispute event (severity 2) at Cincinnati.
+INC-2024-00104,weather,1,,RTE-DET-20240320-001,DRV-01004,VEH-0029,HUB-DET,2024-03-19T09:27:55,Weather event (severity 1) at Detroit.
+INC-2024-00105,accident,2,,RTE-IND-20240410-001,DRV-01031,VEH-0017,HUB-IND,2024-04-10T11:52:05,Accident event (severity 2) at Indianapolis.
+INC-2024-00106,delay,1,SHP-202408-000079,RTE-CMH-20240805-003,DRV-01043,VEH-0001,HUB-CMH,2024-08-05T11:13:40,Delay event (severity 1) at Columbus.
+INC-2024-00107,delay,2,,,,,HUB-CHI,2024-01-13T19:52:37,Delay event (severity 2) at Chicago.
+INC-2024-00108,delay,1,,RTE-CMH-20240110-001,DRV-01016,VEH-0021,HUB-CMH,2024-01-10T15:33:41,Delay event (severity 1) at Columbus.
+INC-2024-00109,weather,1,,RTE-CMH-20240715-003,DRV-01036,VEH-0003,HUB-CMH,2024-07-15T19:05:56,Weather event (severity 1) at Columbus.
+INC-2024-00110,delay,2,,RTE-IND-20240610-001,DRV-01031,VEH-0013,HUB-IND,2024-06-09T10:51:50,Delay event (severity 2) at Indianapolis.

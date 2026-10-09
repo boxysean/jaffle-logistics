@@ -39,3 +39,7 @@ VEH-0037,HUB-CHI,box_truck,active,147029
 VEH-0038,HUB-CMH,box_truck,active,37325
 VEH-0039,HUB-IND,semi,maintenance,88612
 VEH-0040,HUB-CHI,van,maintenance,28645
+VEH-0041,HUB-CMH,van,active,58920
+VEH-0042,HUB-CHI,box_truck,active,41250
+VEH-0043,HUB-IND,box_truck,active,77310
+VEH-0044,HUB-DET,van,active,33180

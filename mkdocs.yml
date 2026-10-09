@@ -49,6 +49,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - The problem: the-problem.md
+  - The data: history.md
   - Context engineering: context-engineering.md
   - Comparison: comparison.md
   - Governance: governance.md
