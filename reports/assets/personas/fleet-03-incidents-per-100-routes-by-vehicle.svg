@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="797" viewBox="0 0 960 797" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="797" fill="#ffffff"/>
+<text x="480.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">2025 incidents per 100 routes, by vehicle (ranked)</text>
+<text x="480.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">120 attributable incidents on 3,629 routes; fleet average 3.31. Shaded = chance band for each vehicle's route count (fleet rate ± 2σ).</text>
+<line x1="230.0" y1="101.0" x2="230.0" y2="717.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="230.0" y="733.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">0</text>
+<line x1="335.0" y1="101.0" x2="335.0" y2="717.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="335.0" y="733.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">2</text>
+<line x1="440.0" y1="101.0" x2="440.0" y2="717.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="440.0" y="733.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">4</text>
+<line x1="545.0" y1="101.0" x2="545.0" y2="717.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="545.0" y="733.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">6</text>
+<line x1="650.0" y1="101.0" x2="650.0" y2="717.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="650.0" y="733.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">8</text>
+<line x1="755.0" y1="101.0" x2="755.0" y2="717.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="755.0" y="733.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">10</text>
+<line x1="860.0" y1="101.0" x2="860.0" y2="717.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="860.0" y="733.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">12</text>
+<text x="545.0" y="753.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal">Incidents per 100 routes (attributable incidents ÷ routes run, 2025)</text>
+<rect x="230.0" y="106.0" width="381.9" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="109.0" width="500.0" height="9.0" fill="#c0392b" stroke="none"/>
+<text x="222.0" y="117.0" font-size="10.5" fill="#c0392b" text-anchor="end" font-weight="bold">VEH-0040  van · CHI</text>
+<text x="735.0" y="117.0" font-size="10" fill="#c0392b" text-anchor="start" font-weight="bold">9.52  (8/84)</text>
+<rect x="230.0" y="123.0" width="367.5" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="126.0" width="324.7" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="134.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0010  box truck · IND</text>
+<text x="559.7" y="134.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">6.19  (6/97)</text>
+<rect x="230.0" y="140.0" width="381.9" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="143.0" width="312.5" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="151.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0003  box truck · CMH</text>
+<text x="547.5" y="151.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">5.95  (5/84)</text>
+<rect x="250.2" y="157.0" width="306.7" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="160.0" width="304.8" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="168.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0029  box truck · DET</text>
+<text x="539.8" y="168.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">5.81  (9/155)</text>
+<rect x="230.0" y="174.0" width="371.6" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="177.0" width="282.3" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="185.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0018  box truck · CIN</text>
+<text x="517.3" y="185.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">5.38  (5/93)</text>
+<rect x="230.0" y="191.0" width="385.8" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="194.0" width="259.3" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="202.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0038  box truck · CMH</text>
+<text x="494.3" y="202.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">4.94  (4/81)</text>
+<rect x="230.0" y="208.0" width="362.7" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="211.0" width="257.4" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="219.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0019  van · CHI</text>
+<text x="492.4" y="219.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">4.90  (5/102)</text>
+<rect x="230.0" y="225.0" width="384.5" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="228.0" width="256.1" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="236.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0005  box truck · CHI</text>
+<text x="491.1" y="236.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">4.88  (4/82)</text>
+<rect x="250.2" y="242.0" width="306.7" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="245.0" width="237.1" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="253.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0011  box truck · DET</text>
+<text x="472.1" y="253.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">4.52  (7/155)</text>
+<rect x="230.0" y="259.0" width="374.9" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="262.0" width="233.3" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="270.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0032  box truck · CIN</text>
+<text x="468.3" y="270.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">4.44  (4/90)</text>
+<rect x="230.0" y="276.0" width="400.2" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="279.0" width="221.8" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="287.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0031  box truck · CMH</text>
+<text x="456.8" y="287.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">4.23  (3/71)</text>
+<rect x="230.0" y="293.0" width="398.6" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="296.0" width="218.8" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="304.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0028  van · CMH</text>
+<text x="453.8" y="304.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">4.17  (3/72)</text>
+<rect x="230.0" y="310.0" width="397.1" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="313.0" width="215.8" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="321.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0007  box truck · CMH</text>
+<text x="450.8" y="321.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">4.11  (3/73)</text>
+<rect x="230.0" y="327.0" width="366.5" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="330.0" width="214.3" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="338.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0016  van · IND</text>
+<text x="449.3" y="338.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">4.08  (4/98)</text>
+<rect x="230.0" y="344.0" width="359.1" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="347.0" width="198.1" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="355.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0020  van · CIN</text>
+<text x="433.1" y="355.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">3.77  (4/106)</text>
+<rect x="230.0" y="361.0" width="358.2" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="364.0" width="196.3" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="372.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0013  box truck · IND</text>
+<text x="431.3" y="372.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">3.74  (4/107)</text>
+<rect x="230.0" y="378.0" width="354.0" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="381.0" width="187.5" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="389.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0025  box truck · CIN</text>
+<text x="422.5" y="389.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">3.57  (4/112)</text>
+<rect x="230.0" y="395.0" width="351.6" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="398.0" width="182.6" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="406.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0017  box truck · IND</text>
+<text x="417.6" y="406.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">3.48  (4/115)</text>
+<rect x="230.0" y="412.0" width="378.3" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="415.0" width="181.0" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="423.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0021  van · CMH</text>
+<text x="416.0" y="423.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">3.45  (3/87)</text>
+<rect x="230.0" y="429.0" width="374.9" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="432.0" width="175.0" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="440.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0001  van · CMH</text>
+<text x="410.0" y="440.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">3.33  (3/90)</text>
+<rect x="230.0" y="446.0" width="367.5" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="449.0" width="162.4" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="457.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0027  van · CIN</text>
+<text x="397.4" y="457.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">3.09  (3/97)</text>
+<rect x="237.4" y="463.0" width="332.4" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="466.0" width="159.1" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="474.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0022  van · DET</text>
+<text x="394.1" y="474.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">3.03  (4/132)</text>
+<rect x="230.0" y="480.0" width="359.9" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="483.0" width="150.0" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="491.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0009  van · IND</text>
+<text x="385.0" y="491.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">2.86  (3/105)</text>
+<rect x="242.8" y="497.0" width="321.6" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="500.0" width="111.7" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="508.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0030  box truck · DET</text>
+<text x="346.7" y="508.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">2.13  (3/141)</text>
+<rect x="230.0" y="514.0" width="367.5" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="517.0" width="108.2" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="525.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0023  van · IND</text>
+<text x="343.2" y="525.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">2.06  (2/97)</text>
+<rect x="230.0" y="531.0" width="365.5" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="534.0" width="106.1" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="542.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0004  van · CHI</text>
+<text x="341.1" y="542.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">2.02  (2/99)</text>
+<rect x="230.0" y="548.0" width="361.7" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="551.0" width="101.9" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="559.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0037  box truck · CHI</text>
+<text x="336.9" y="559.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">1.94  (2/103)</text>
+<rect x="230.0" y="565.0" width="360.8" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="568.0" width="101.0" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="576.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0036  box truck · CIN</text>
+<text x="336.0" y="576.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">1.92  (2/104)</text>
+<rect x="230.0" y="582.0" width="400.2" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="585.0" width="73.9" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="593.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0033  van · CMH</text>
+<text x="308.9" y="593.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">1.41  (1/71)</text>
+<rect x="251.7" y="599.0" width="303.8" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="602.0" width="66.5" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="610.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0024  van · DET</text>
+<text x="301.5" y="610.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">1.27  (2/158)</text>
+<rect x="230.0" y="616.0" width="387.1" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="619.0" width="65.6" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="627.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0012  box truck · CMH</text>
+<text x="300.6" y="627.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">1.25  (1/80)</text>
+<rect x="230.0" y="633.0" width="379.5" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="636.0" width="61.0" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="644.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0006  van · CHI</text>
+<text x="296.0" y="644.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">1.16  (1/86)</text>
+<rect x="230.0" y="650.0" width="364.5" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="653.0" width="52.5" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="661.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0008  van · IND</text>
+<text x="287.5" y="661.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">1.00  (1/100)</text>
+<rect x="230.0" y="667.0" width="354.8" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="670.0" width="47.3" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="678.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0002  box truck · CHI</text>
+<text x="282.3" y="678.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">0.90  (1/111)</text>
+<rect x="230.0" y="684.0" width="355.7" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="687.0" width="0.0" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="695.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0026  van · CIN</text>
+<text x="235.0" y="695.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">0.00  (0/110)</text>
+<rect x="230.0" y="701.0" width="385.8" height="15.0" fill="#eef1f5" stroke="none"/>
+<rect x="230.0" y="704.0" width="0.0" height="9.0" fill="#2c6fbb" stroke="none"/>
+<text x="222.0" y="712.0" font-size="10.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">VEH-0014  box truck · CHI</text>
+<text x="235.0" y="712.0" font-size="10" fill="#555555" text-anchor="start" font-weight="normal">0.00  (0/81)</text>
+<line x1="403.6" y1="87.0" x2="403.6" y2="717.0" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="407.6" y="97.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold">fleet average 3.31</text>
+<text x="860.0" y="83.0" font-size="10.5" fill="#c0392b" text-anchor="end" font-weight="normal">VEH-0040: only bar outside its band; p≈0.008 alone,</text>
+<text x="860.0" y="97.0" font-size="10.5" fill="#c0392b" text-anchor="end" font-weight="normal">but ≈25% chance one of 36 vehicles does this by luck</text>
+<rect x="230.0" y="771.0" width="14.0" height="10.0" fill="#eef1f5" stroke="none"/>
+<text x="250.0" y="780.0" font-size="11" fill="#555555" text-anchor="start" font-weight="normal">chance band (±2σ)</text>
+<text x="400.0" y="780.0" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">8 idle vehicles (0 routes) not shown: VEH-0015, VEH-0034, VEH-0035, VEH-0039, …</text>
+</svg>
