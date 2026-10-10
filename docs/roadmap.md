@@ -123,9 +123,9 @@ need. Four specific decisions are unresolved:
   `table`, so every build fully drops and rewrites them by scanning the
   entire upstream `*_embed` and `*_classify` tables, not just what
   changed. `embed()`'s incremental delta only bounds the embedding
-  layer's own cost; the downstream join and five-way union still pay
+  layer's own cost; the downstream join and seven-way union still pay
   for a full corpus rewrite every time. Whether these should become
-  incremental themselves, and what an incremental union across five
+  incremental themselves, and what an incremental union across seven
   independently-refreshed sources would even mean, hasn't been
   designed.
 - **The `*_hashed` layer is a view, recomputed on every read.** Each

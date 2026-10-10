@@ -1,10 +1,15 @@
--- Phase 4: one account-scoped knowledge base over five independently
+-- Phase 4: one account-scoped knowledge base over seven independently
 -- hashed/classified/embedded sources, in the package's common shape
 -- (source_type, source_id, account_key, text, embedding, ts, citation_url,
 -- classification). This is what makes "everything about Jaffle Equipment
 -- across systems" a single vector search. Pure portable SQL (union + common-
--- shape casts); zero AI-function cost itself, but it reads all five
+-- shape casts); zero AI-function cost itself, but it reads all seven
 -- embedding/classification models, so build those first.
+--
+-- The last two are the ops floor (dispatch notes, Slack threads). Neither
+-- carries a client_id of its own: their *_records_meta models derive it
+-- through the route attribution bridge (a note's route, or the CLI-/RTE-/
+-- INC- id a thread cites), and leave it null where it can't be derived.
 --
 -- This is knowledge_base's actual documented job (dbt_context_engineering
 -- ADR-0006, ADR-0014): union many pre-embedded, independently-maintained
@@ -22,7 +27,7 @@
 -- account_assessment / contract_reference / weather_disruption /
 -- vehicle_or_driver_incident / handling_or_warehouse_error /
 -- routine_status). This is a worked example, so one shared taxonomy and
--- prompt across all five sources is deliberate; a real system with
+-- prompt across all seven sources is deliberate; a real system with
 -- genuinely different content per source would diverge the prompt per
 -- source instead. It's the fix for what plain cosine similarity gets wrong
 -- here: see docs/comparison.md and docs/governance.md for the real,
@@ -47,6 +52,14 @@
      'text': 'chunk_text', 'embedding': 'embedding', 'timestamp': 'artifact_ts',
      'citation_url': 'citation_url', 'classification': 'classification'},
     {'relation': ref('support_tickets_embedded_classified'), 'source_type': 'Support Ticket',
+     'source_id': 'chunk_id', 'account_key': 'client_id',
+     'text': 'chunk_text', 'embedding': 'embedding', 'timestamp': 'artifact_ts',
+     'citation_url': 'citation_url', 'classification': 'classification'},
+    {'relation': ref('dispatch_notes_embedded_classified'), 'source_type': 'Dispatch Note',
+     'source_id': 'chunk_id', 'account_key': 'client_id',
+     'text': 'chunk_text', 'embedding': 'embedding', 'timestamp': 'artifact_ts',
+     'citation_url': 'citation_url', 'classification': 'classification'},
+    {'relation': ref('slack_threads_embedded_classified'), 'source_type': 'Slack Thread',
      'source_id': 'chunk_id', 'account_key': 'client_id',
      'text': 'chunk_text', 'embedding': 'embedding', 'timestamp': 'artifact_ts',
      'citation_url': 'citation_url', 'classification': 'classification'}

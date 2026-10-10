@@ -48,13 +48,14 @@ models:
     context:
       # Up-to-meta phase (chunk/reshape through the *_meta models): blue.
       # Overridden to cyan below for the ai/ subfolder (up-to-knowledge-base),
-      # and per-model for the five *_hashed models, which sit between the two.
+      # and per-model for the seven *_hashed models, which sit between the two.
       +docs:
         node_color: "#7C93B0"
       ai:
-        # Real cloud AI-function-cost layer (embed()/classify() calls): five
+        # Real cloud AI-function-cost layer (embed()/classify() calls): seven
         # independent per-source chains (legal_docs/incident_reports/crm_notes/
-        # call_transcripts/support_tickets)_{classify,embed,embedded_classified},
+        # call_transcripts/support_tickets/dispatch_notes/slack_threads)
+        # _{classify,embed,embedded_classified},
         # plus knowledge_base and search. Their upstream *_hashed helpers stay
         # outside this gate (models/context/) since they only compute a hash
         # column, no AI call.

@@ -7,9 +7,9 @@ version: 2
 # (ai_functions_enabled var in dbt_project.yml); build them only after AI-function
 # spend is explicitly approved.
 #
-# Five sources, five independent hash -> classify -> embed -> embedded_classified
+# Seven sources, seven independent hash -> classify -> embed -> embedded_classified
 # chains (legal_docs, incident_reports, crm_notes, call_transcripts,
-# support_tickets), unioned only at knowledge_base. Each source keeps its own
+# support_tickets, dispatch_notes, slack_threads), unioned only at knowledge_base. Each source keeps its own
 # end-to-end path instead of a shared corpus, reflecting that in a real
 # system these would arrive via different systems on different schedules.
 # ===========================================================================
@@ -85,14 +85,44 @@ models:
                 to: ref('support_tickets_hashed')
                 field: chunk_id
 
+  - name: dispatch_notes_embed
+    description: >
+      Governed incremental embeddings of whole dispatch-note records (embed()). Same
+      whole-record pattern as support_tickets_embed: each note body is one atomic
+      operational record, never chunk()ed.
+    columns:
+      - name: chunk_id
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dispatch_notes_hashed')
+                field: chunk_id
+
+  - name: slack_threads_embed
+    description: >
+      Governed incremental embeddings of whole Slack-thread records (embed()). Same
+      whole-record pattern as support_tickets_embed: each thread body is one atomic
+      operational record, never chunk()ed.
+    columns:
+      - name: chunk_id
+        tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('slack_threads_hashed')
+                field: chunk_id
+
   # ------------------------------------------------ knowledge base + search
   - name: knowledge_base
     description: >
       Account-scoped KB in the package common shape (source_type, source_id,
-      account_key, text, embedding, ts, citation_url) unioning all five
+      account_key, text, embedding, ts, citation_url) unioning all seven
       independently-embedded sources. source_type is a real per-source label
       (Legal Document / Incident Report / CRM Notes / Call Transcript / Support
-      Ticket); the finer-grained artifact id is preserved in citation_url and
+      Ticket / Dispatch Note / Slack Thread); the finer-grained artifact id is preserved in citation_url and
       source_id.
     config:
       docs:
@@ -114,7 +144,7 @@ models:
         tests:
           - accepted_values:
               arguments:
-                values: ['Legal Document', 'Incident Report', 'CRM Notes', 'Call Transcript', 'Support Ticket']
+                values: ['Legal Document', 'Incident Report', 'CRM Notes', 'Call Transcript', 'Support Ticket', 'Dispatch Note', 'Slack Thread']
 
   - name: search
     description: "Retrieval demos: Jaffle Equipment account-scoped story + Chicago-storm thematic vector search (each embeds its query once)."
