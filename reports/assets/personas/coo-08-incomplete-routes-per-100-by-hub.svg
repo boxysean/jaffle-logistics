@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="460" viewBox="0 0 960 460" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="460" fill="#ffffff"/>
+<text x="480.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">Routes not completed (partial + canceled) per 100 routes, by hub</text>
+<text x="480.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">stg_routes.status by year of service_date. Dashed = the other four hubs in 2025 (286 of 2,881 routes).</text>
+<line x1="100.0" y1="380.0" x2="920.0" y2="380.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="384.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">0</text>
+<line x1="100.0" y1="310.0" x2="920.0" y2="310.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="314.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">4</text>
+<line x1="100.0" y1="240.0" x2="920.0" y2="240.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="244.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">8</text>
+<line x1="100.0" y1="170.0" x2="920.0" y2="170.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="174.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">12</text>
+<line x1="100.0" y1="100.0" x2="920.0" y2="100.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="104.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">16</text>
+<text x="45.0" y="240.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal" transform="rotate(-90 45.0 240.0)">Partial or canceled routes per 100 routes</text>
+<rect x="119.7" y="191.0" width="39.4" height="189.0" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="139.4" y="186.0" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">10.8</text>
+<rect x="163.0" y="190.1" width="39.4" height="189.9" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="182.7" y="185.1" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">10.9</text>
+<rect x="206.4" y="132.0" width="39.4" height="248.0" fill="#c0392b" stroke="none" stroke-width="1"/>
+<text x="226.1" y="127.0" font-size="10.5" fill="#c0392b" text-anchor="middle" font-weight="bold">14.2</text>
+<text x="182.0" y="400.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Chicago</text>
+<text x="182.0" y="416.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CHI</text>
+<rect x="283.7" y="192.1" width="39.4" height="187.9" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="303.4" y="187.1" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">10.7</text>
+<rect x="327.0" y="189.1" width="39.4" height="190.9" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="346.7" y="184.1" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">10.9</text>
+<rect x="370.4" y="210.4" width="39.4" height="169.6" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<text x="390.1" y="205.4" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">9.7</text>
+<text x="346.0" y="400.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Cincinnati</text>
+<text x="346.0" y="416.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CIN</text>
+<rect x="447.7" y="177.7" width="39.4" height="202.3" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="467.4" y="172.7" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">11.6</text>
+<rect x="491.0" y="164.5" width="39.4" height="215.5" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="510.7" y="159.5" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">12.3</text>
+<rect x="534.4" y="207.2" width="39.4" height="172.8" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<text x="554.1" y="202.2" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">9.9</text>
+<text x="510.0" y="400.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Columbus</text>
+<text x="510.0" y="416.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CMH</text>
+<rect x="611.7" y="170.9" width="39.4" height="209.1" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="631.4" y="165.9" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">11.9</text>
+<rect x="655.0" y="185.8" width="39.4" height="194.2" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="674.7" y="180.8" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">11.1</text>
+<rect x="698.4" y="207.6" width="39.4" height="172.4" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<text x="718.1" y="202.6" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">9.9</text>
+<text x="674.0" y="400.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Detroit</text>
+<text x="674.0" y="416.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-DET</text>
+<rect x="775.7" y="148.8" width="39.4" height="231.2" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="795.4" y="143.8" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">13.2</text>
+<rect x="819.0" y="202.3" width="39.4" height="177.7" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="838.7" y="197.3" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">10.2</text>
+<rect x="862.4" y="199.9" width="39.4" height="180.1" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<text x="882.1" y="194.9" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">10.3</text>
+<text x="838.0" y="400.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Indianapolis</text>
+<text x="838.0" y="416.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-IND</text>
+<line x1="100.0" y1="206.3" x2="920.0" y2="206.3" stroke="#3d3d3d" stroke-width="1.2" stroke-dasharray="6,4"/>
+<rect x="100.0" y="66.0" width="14.0" height="12.0" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="120.0" y="76.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2023</text>
+<rect x="180.0" y="66.0" width="14.0" height="12.0" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="200.0" y="76.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2024</text>
+<rect x="260.0" y="66.0" width="14.0" height="12.0" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<text x="280.0" y="76.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2025</text>
+<line x1="340.0" y1="72.0" x2="364.0" y2="72.0" stroke="#3d3d3d" stroke-width="1.2" stroke-dasharray="6,4"/>
+<text x="370.0" y="76.0" font-size="12" fill="#3d3d3d" text-anchor="start" font-weight="normal">other four hubs, 2025: 9.9</text>
+<text x="570.0" y="76.0" font-size="12" fill="#c0392b" text-anchor="start" font-weight="bold">Chicago 2025 (red): 90 + 16 = 106 of 748</text>
+</svg>
