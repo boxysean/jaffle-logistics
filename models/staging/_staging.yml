@@ -127,8 +127,19 @@ models:
           - accepted_values:
               arguments:
                 values: ['standard', 'expedited', 'freight']
+      - name: created_at
+        description: >
+          When the shipment was created. Buckets shipments into months in
+          int_client_monthly_sla and is fct_shipments' agg_time_dimension, so a
+          null here silently drops the shipment from every time series.
+        tests: [not_null]
       - name: status
+        description: >
+          Final outcome. Drives the on-time rule (only 'delivered' is on time);
+          not_null because accepted_values ignores nulls, and a null status would
+          count toward shipments but toward neither delivered nor not_ontime.
         tests:
+          - not_null
           - accepted_values:
               arguments:
                 values: ['delivered', 'delayed', 'failed', 'returned']
@@ -226,6 +237,9 @@ models:
               arguments:
                 to: ref('stg_vehicles')
                 field: vehicle_id
+      - name: occurred_at
+        description: "When the incident happened. Buckets incidents into months in fct_account_health and fct_incidents.occurred_month; a null drops the incident from those counts."
+        tests: [not_null]
       - name: incident_type
         tests:
           - accepted_values:
@@ -339,6 +353,9 @@ models:
               arguments:
                 to: ref('stg_shipments')
                 field: shipment_id
+      - name: opened_at
+        description: "When the ticket was opened. Buckets tickets into months for fct_account_health.ticket_count; a null drops the ticket from that count."
+        tests: [not_null]
       - name: status
         tests:
           - accepted_values:

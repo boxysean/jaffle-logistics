@@ -7,5 +7,6 @@ models:
       standard_granularity_column: date_day
     columns:
       - name: date_day
+        description: "One row per calendar day from 2024-01-01 through 2026-12-31 (dbt.date_spine's end date is exclusive). Hardcoded range: data beyond it falls off the spine."
         granularity: day
         tests: [unique, not_null]

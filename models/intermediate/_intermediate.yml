@@ -3,12 +3,15 @@ version: 2
 models:
   - name: int_shipment_touchpoints
     description: >
-      Every artifact that references a shipment, unioned into one long table —
-      from typed columns (tickets, incidents) and from free text via regex
-      (dispatch notes, Slack, CRM notes, incident reports). Grain: one row per
-      (source, artifact, shipment_id).
+      Every artifact that references a shipment, unioned into one long table.
+      Support tickets, incidents, CRM notes and incident reports carry a typed
+      shipment_id column; call transcripts inherit theirs from the CRM note they
+      transcribe; dispatch notes are the one free-text source, with the shipment
+      ID extracted by regex (regex_first / has_match). Slack threads are not a
+      source. Grain: one row per (source, artifact, shipment_id).
     columns:
       - name: touchpoint_key
+        description: "Surrogate key: source || ':' || artifact_id || ':' || shipment_id."
         tests: [unique, not_null]
       - name: shipment_id
         description: "Extracted/joined shipment ID; must resolve to a real shipment."
@@ -19,19 +22,34 @@ models:
                 to: ref('stg_shipments')
                 field: shipment_id
       - name: source
-        tests:
-          - accepted_values:
-              arguments:
-                values: ['support_ticket', 'incident', 'crm_note',
-                         'incident_report', 'call_transcript', 'dispatch_note']
+        # No accepted_values test: each CTE in the union assigns this as a string
+        # literal, so such a test can only ever pass. Regressions in the union or
+        # regex logic need a unit test instead (see reports/dbt-best-practices-audit.md).
+        description: >
+          Artifact type the row came from: support_ticket, incident, crm_note,
+          incident_report, call_transcript or dispatch_note. Hardcoded per union
+          branch in the model SQL.
+      - name: artifact_id
+        description: "ID of the source artifact in its own staging model (ticket_id, incident_id, note_id, report_id or transcript_id, depending on source)."
 
   - name: int_client_monthly_sla
     description: "Monthly on-time performance per client. Grain: (client, month)."
     columns:
       - name: client_id
+        description: "Client whose shipments are counted (stg_shipments.client_id)."
         tests:
           - not_null
           - relationships:
               arguments:
                 to: ref('stg_clients')
                 field: client_id
+      - name: month
+        description: "First day of the calendar month the shipments were created in (date_trunc of stg_shipments.created_at)."
+      - name: shipments
+        description: "Shipments the client created in the month, across every status."
+      - name: delivered
+        description: "Shipments in the month with status 'delivered'. This is the on-time count; fct_shipments.is_ontime uses the same rule."
+      - name: not_ontime
+        description: "Shipments in the month with status delayed, failed or returned. Equals shipments minus delivered only while those four are the only statuses, which stg_shipments.status's accepted_values test enforces."
+      - name: ontime_pct
+        description: "delivered / shipments x 100, rounded to 1 decimal (0-100 scale, not a fraction)."
