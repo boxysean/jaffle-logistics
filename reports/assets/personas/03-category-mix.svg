@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="380" viewBox="0 0 960 380" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="380" fill="#ffffff"/>
+<text x="480.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">What customers wrote about, 2023–2025</text>
+<text x="480.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">Whole book, all 403 tickets, by machine-graded category (eval_ticket_triage.true_category).</text>
+<line x1="190.0" y1="80.0" x2="190.0" y2="310.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="190.0" y="328.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">0</text>
+<line x1="324.0" y1="80.0" x2="324.0" y2="310.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="324.0" y="328.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">50</text>
+<line x1="458.0" y1="80.0" x2="458.0" y2="310.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="458.0" y="328.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">100</text>
+<line x1="592.0" y1="80.0" x2="592.0" y2="310.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="592.0" y="328.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">150</text>
+<line x1="726.0" y1="80.0" x2="726.0" y2="310.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="726.0" y="328.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">200</text>
+<line x1="860.0" y1="80.0" x2="860.0" y2="310.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="860.0" y="328.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">250</text>
+<text x="525.0" y="352.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal">Tickets (count)</text>
+<rect x="190.0" y="90.3" width="552.1" height="36.8" fill="#2c6fbb" stroke="none"/>
+<text x="180.0" y="114.3" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">general_inquiry</text>
+<text x="750.1" y="114.3" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="bold">206</text>
+<rect x="190.0" y="147.8" width="316.2" height="36.8" fill="#2c6fbb" stroke="none"/>
+<text x="180.0" y="171.8" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">delivery_delay</text>
+<text x="514.2" y="171.8" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="bold">118</text>
+<rect x="190.0" y="205.3" width="163.5" height="36.8" fill="#2c6fbb" stroke="none"/>
+<text x="180.0" y="229.3" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">delivery_failed</text>
+<text x="361.5" y="229.3" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="bold">61</text>
+<rect x="190.0" y="262.9" width="48.2" height="36.8" fill="#2c6fbb" stroke="none"/>
+<text x="180.0" y="286.8" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">wrong_item</text>
+<text x="246.2" y="286.8" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="bold">18</text>
+<text x="180.0" y="70.0" font-size="12" fill="#555555" text-anchor="end" font-weight="normal">Category</text>
+</svg>
