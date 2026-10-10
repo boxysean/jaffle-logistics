@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="460" viewBox="0 0 960 460" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="460" fill="#ffffff"/>
+<text x="480.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">Average dock staging time, by hub — 2023 / 2024 / 2025</text>
+<text x="480.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">stg_dock_bay_events, event_type 'staging': avg(minutes_at_bay). A throughput proxy, not a measured dock cycle time.</text>
+<line x1="100.0" y1="380.0" x2="920.0" y2="380.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="384.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">0</text>
+<line x1="100.0" y1="333.3" x2="920.0" y2="333.3" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="337.3" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">10</text>
+<line x1="100.0" y1="286.7" x2="920.0" y2="286.7" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="290.7" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">20</text>
+<line x1="100.0" y1="240.0" x2="920.0" y2="240.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="244.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">30</text>
+<line x1="100.0" y1="193.3" x2="920.0" y2="193.3" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="197.3" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">40</text>
+<line x1="100.0" y1="146.7" x2="920.0" y2="146.7" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="150.7" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">50</text>
+<line x1="100.0" y1="100.0" x2="920.0" y2="100.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="104.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">60</text>
+<text x="45.0" y="240.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal" transform="rotate(-90 45.0 240.0)">Minutes at bay per staging event</text>
+<rect x="119.7" y="190.1" width="39.4" height="189.9" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="139.4" y="185.1" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">40.7</text>
+<rect x="163.0" y="187.7" width="39.4" height="192.3" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="182.7" y="182.7" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">41.2</text>
+<rect x="206.4" y="186.3" width="39.4" height="193.7" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<text x="226.1" y="181.3" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">41.5</text>
+<text x="182.0" y="400.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Chicago</text>
+<text x="182.0" y="416.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CHI</text>
+<rect x="283.7" y="189.6" width="39.4" height="190.4" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="303.4" y="184.6" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">40.8</text>
+<rect x="327.0" y="187.7" width="39.4" height="192.3" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="346.7" y="182.7" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">41.2</text>
+<rect x="370.4" y="189.6" width="39.4" height="190.4" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<text x="390.1" y="184.6" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">40.8</text>
+<text x="346.0" y="400.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Cincinnati</text>
+<text x="346.0" y="416.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CIN</text>
+<rect x="447.7" y="158.8" width="39.4" height="221.2" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="467.4" y="153.8" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">47.4</text>
+<rect x="491.0" y="160.2" width="39.4" height="219.8" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="510.7" y="155.2" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">47.1</text>
+<rect x="534.4" y="142.0" width="39.4" height="238.0" fill="#c0392b" stroke="none" stroke-width="1"/>
+<text x="554.1" y="137.0" font-size="10.5" fill="#c0392b" text-anchor="middle" font-weight="bold">51.0</text>
+<text x="510.0" y="400.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Columbus</text>
+<text x="510.0" y="416.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CMH</text>
+<rect x="611.7" y="187.3" width="39.4" height="192.7" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="631.4" y="182.3" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">41.3</text>
+<rect x="655.0" y="186.3" width="39.4" height="193.7" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="674.7" y="181.3" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">41.5</text>
+<rect x="698.4" y="188.2" width="39.4" height="191.8" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<text x="718.1" y="183.2" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">41.1</text>
+<text x="674.0" y="400.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Detroit</text>
+<text x="674.0" y="416.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-DET</text>
+<rect x="775.7" y="188.2" width="39.4" height="191.8" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="795.4" y="183.2" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">41.1</text>
+<rect x="819.0" y="188.2" width="39.4" height="191.8" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="838.7" y="183.2" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">41.1</text>
+<rect x="862.4" y="185.4" width="39.4" height="194.6" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<text x="882.1" y="180.4" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">41.7</text>
+<text x="838.0" y="400.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Indianapolis</text>
+<text x="838.0" y="416.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-IND</text>
+<rect x="100.0" y="66.0" width="14.0" height="12.0" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="120.0" y="76.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2023</text>
+<rect x="180.0" y="66.0" width="14.0" height="12.0" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="200.0" y="76.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2024</text>
+<rect x="260.0" y="66.0" width="14.0" height="12.0" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<text x="280.0" y="76.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2025</text>
+<text x="360.0" y="76.0" font-size="12" fill="#c0392b" text-anchor="start" font-weight="bold">Columbus 2025 in red: slowest dock, and slower than its own 2023–24</text>
+</svg>
