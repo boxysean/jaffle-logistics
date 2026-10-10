@@ -144,3 +144,83 @@ models:
               arguments:
                 to: ref('dim_clients')
                 field: client_id
+
+  - name: fct_account_revenue
+    description: >
+      Monthly account-revenue fact (grain: client-month, 2020-01 .. 2025-12). Gross,
+      contract credits and net revenue by account, with the trailing-12-month on-time
+      rate the credits are assessed on. Puts a dollar figure on the 2025 Jaffle
+      Equipment service failure. Pre-2023 rows are imputed (measurement_basis
+      no_shipment_record); see stg_revenue_ledger for the model and the
+      predecessor-SLA caveat.
+    semantic_model:
+      enabled: true
+      name: account_revenue
+    agg_time_dimension: revenue_month
+    columns:
+      - name: revenue_month_key
+        tests: [unique, not_null]
+        entity:
+          type: primary
+          name: account_month
+      - name: client_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_clients')
+                field: client_id
+        entity:
+          type: foreign
+          name: client
+      - name: client_name
+        dimension:
+          type: categorical
+      - name: tier
+        dimension:
+          type: categorical
+      - name: health
+        dimension:
+          type: categorical
+      - name: measurement_basis
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['no_shipment_record', 'partial_history', 'trailing_12m']
+        dimension:
+          type: categorical
+      - name: revenue_month
+        granularity: month
+        dimension:
+          type: time
+    metrics:
+      - name: gross_revenue
+        label: Gross revenue
+        description: "Contracted base revenue plus accessorials, before contract credits."
+        type: simple
+        agg: sum
+        expr: gross_revenue
+      - name: net_revenue
+        label: Net revenue
+        description: "Gross revenue less contract service credits."
+        type: simple
+        agg: sum
+        expr: net_revenue
+      - name: accessorial_revenue
+        label: Accessorial revenue
+        description: "Surcharges: expedited premiums, liftgate/waiting time, redelivery and return handling."
+        type: simple
+        agg: sum
+        expr: accessorial_revenue
+      - name: credited_amount
+        label: Contract credits
+        description: "SLA service credits issued (positive amounts, subtracted from gross)."
+        type: simple
+        agg: sum
+        expr: credited_amount
+      - name: credit_rate
+        label: Credit rate
+        description: "Contract credits as a share of gross revenue, as a fraction."
+        type: ratio
+        numerator: credited_amount
+        denominator: gross_revenue

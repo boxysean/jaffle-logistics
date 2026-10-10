@@ -106,6 +106,21 @@ seeds:
       # (portable: harmless on Snowflake/DuckDB/Databricks, which infer it correctly).
       +column_types:
         sla_ontime_pct: "{{ 'float64' if target.type == 'bigquery' else 'float' }}"
+    revenue_ledger:
+      # Same autodetect hazard as contracts: whole-dollar months ("97.0", "41590.00") and
+      # blank pre-2023 measurement columns leave the inference to chance. Money is fixed
+      # 2dp so net_revenue reconciles to the cent; percentages are floats.
+      +column_types:
+        revenue_month: date
+        contracted_base_revenue: "{{ 'numeric' if target.type == 'bigquery' else 'decimal(18, 2)' }}"
+        accessorial_revenue: "{{ 'numeric' if target.type == 'bigquery' else 'decimal(18, 2)' }}"
+        credited_amount: "{{ 'numeric' if target.type == 'bigquery' else 'decimal(18, 2)' }}"
+        net_revenue: "{{ 'numeric' if target.type == 'bigquery' else 'decimal(18, 2)' }}"
+        invoice_count: integer
+        shipment_count: integer
+        ontime_pct: "{{ 'float64' if target.type == 'bigquery' else 'float' }}"
+        trailing_12m_ontime_pct: "{{ 'float64' if target.type == 'bigquery' else 'float' }}"
+        sla_ontime_pct: "{{ 'float64' if target.type == 'bigquery' else 'float' }}"
 
   # Mirrors the models: dbt_context_engineering: monitoring: +enabled override above. The
   # package ships this seed disabled by default, paired with its own monitoring +enabled: false;
