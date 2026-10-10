@@ -140,6 +140,17 @@ seeds:
         promised_delivery_at: timestamp
         hours_late: "{{ 'int64' if target.type == 'bigquery' else 'integer' }}"
         late_bucket: "{{ 'string' if target.type == 'bigquery' else 'varchar' }}"
+    dock_bay_events:
+      # scripts/generate_dock_bay_events.py. route/vehicle/driver are blank on the
+      # non-route dock work and incident_id on all but ~55 damage_found rows, so
+      # autodetect could guess anything for them; pin those plus the timestamp and dwell.
+      +column_types:
+        event_at: timestamp
+        minutes_at_bay: "{{ 'int64' if target.type == 'bigquery' else 'integer' }}"
+        route_id: "{{ 'string' if target.type == 'bigquery' else 'varchar' }}"
+        vehicle_id: "{{ 'string' if target.type == 'bigquery' else 'varchar' }}"
+        driver_id: "{{ 'string' if target.type == 'bigquery' else 'varchar' }}"
+        incident_id: "{{ 'string' if target.type == 'bigquery' else 'varchar' }}"
 
   # Mirrors the models: dbt_context_engineering: monitoring: +enabled override above. The
   # package ships this seed disabled by default, paired with its own monitoring +enabled: false;
