@@ -1,5 +1,6 @@
 -- Shipment fact (grain: one row per shipment), enriched with client/hub context,
--- an on-time flag, and a count of stitched touchpoints across all artifact types.
+-- an on-time flag, the promised-delivery clock (promised_delivery_at, hours_late,
+-- late_bucket), and a count of stitched touchpoints across all artifact types.
 with shipments as (
     select * from {{ ref('stg_shipments') }}
 ),
@@ -26,6 +27,9 @@ select
     (s.status = 'delivered')                        as is_ontime,
     s.created_at,
     s.delivered_at,
+    s.promised_delivery_at,
+    s.hours_late,
+    s.late_bucket,
     {{ dbt.date_trunc('month', 's.created_at') }}    as created_month,
     s.route_id,
     coalesce(t.touchpoint_count, 0)                 as touchpoint_count

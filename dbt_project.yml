@@ -131,6 +131,15 @@ seeds:
         gross_pay: "{{ 'numeric' if target.type == 'bigquery' else 'decimal(18, 2)' }}"
         overtime_hours: "{{ 'numeric' if target.type == 'bigquery' else 'decimal(18, 2)' }}"
         total_cost: "{{ 'numeric' if target.type == 'bigquery' else 'decimal(18, 2)' }}"
+    shipments:
+      # The promised-delivery clock (scripts/generate_promised_delivery.py): hours_late is
+      # blank on all but the delayed rows and late_bucket blank on failed/returned, so
+      # autodetect could guess anything. Pin the three new columns; the original ones
+      # keep their inferred types.
+      +column_types:
+        promised_delivery_at: timestamp
+        hours_late: "{{ 'int64' if target.type == 'bigquery' else 'integer' }}"
+        late_bucket: "{{ 'string' if target.type == 'bigquery' else 'varchar' }}"
 
   # Mirrors the models: dbt_context_engineering: monitoring: +enabled override above. The
   # package ships this seed disabled by default, paired with its own monitoring +enabled: false;
