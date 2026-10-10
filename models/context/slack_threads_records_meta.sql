@@ -10,7 +10,11 @@
 --   1. an explicit CLI-#### id;
 --   2. else the dominant client of the cited RTE-... route;
 --   3. else the dominant client of the cited INC-... incident's route;
---   4. else null, never guessed.
+--   4. else the client of the cited INC-... incident's shipment_id, resolved
+--      directly via stg_shipments.client_id (the same shipment->client
+--      resolution int_incident_reports_documents.sql uses for incident reports);
+--      covers incidents with no route_id;
+--   5. else null, never guessed.
 -- Dominant client = most exceptions attributed, then largest stop share, the same
 -- convention as tests/assert_columbus_2025_damage_attributed_to_equipment.sql.
 -- regex_first returns '' on no match under duckdb, hence the nullif()s.
@@ -43,7 +47,7 @@ threads as (
         c.thread_id,
         c.body,
         c.started_at,
-        coalesce(c.cited_client_id, rd.client_id, id.client_id) as client_id
+        coalesce(c.cited_client_id, rd.client_id, id.client_id, s.client_id) as client_id
     from cited c
     left join dominant_client rd
         on  rd.route_id = c.cited_route_id
@@ -53,6 +57,8 @@ threads as (
     left join dominant_client id
         on  id.route_id = i.route_id
         and id._client_rank = 1
+    left join {{ ref('stg_shipments') }} s
+        on  s.shipment_id = i.shipment_id
 )
 
 select
