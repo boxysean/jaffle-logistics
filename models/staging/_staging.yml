@@ -342,6 +342,32 @@ models:
                 to: ref('stg_incidents')
                 field: incident_id
 
+  - name: stg_cost_ledger
+    description: >
+      One row per hub-month of non-labour operating cost, 2020-01 .. 2025-12.
+      maintenance_cost equals the sum of that hub-month's fleet work orders
+      (enforced by tests/assert_cost_ledger_maintenance_reconciles.sql); it is
+      zero before 2023-01, which is where fleet_work_orders begins. The other
+      lines are modelled: fuel tracks route volume shaped by a seasonal diesel
+      index, subcontractor cover spikes in months a hub's exception load exceeds
+      its 2023-2024 worst month, facility and technology scale with the hub's
+      function and fleet. cost_per_route = total_cost / that month's routes (null
+      before 2023, when no routes are recorded) so hubs can be compared by size.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [cost_month, hub_id]
+    columns:
+      - name: cost_month
+        tests: [not_null]
+      - name: hub_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_hubs')
+                field: hub_id
+
   - name: stg_slack_threads
     description: "One row per Slack thread."
     columns:
