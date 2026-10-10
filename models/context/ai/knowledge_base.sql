@@ -1,7 +1,7 @@
 -- Phase 4: one account-scoped knowledge base over seven independently
 -- hashed/classified/embedded sources, in the package's common shape
 -- (source_type, source_id, account_key, text, embedding, ts, citation_url,
--- classification). This is what makes "everything about Jaffle Equipment
+-- classification). This is what makes "everything about Jaffle Werke
 -- across systems" a single vector search. Pure portable SQL (union + common-
 -- shape casts); zero AI-function cost itself, but it reads all seven
 -- embedding/classification models, so build those first.

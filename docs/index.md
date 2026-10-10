@@ -11,7 +11,7 @@ it in a sentence of free text. Some don't reference a shipment at all;
 they reference an incident that itself references a shipment.
 
 Ask a targeted question, "what contributed to poor delivery performance
-for the Jaffle Equipment account this year," and the honest answer is
+for the Jaffle Werke account this year," and the honest answer is
 spread across every one of those systems, in a mix of structured columns
 and prose nobody indexed for this purpose.
 

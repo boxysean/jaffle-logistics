@@ -67,12 +67,12 @@ model lands, whether that row was chunked to get there or not. Nothing
 unions across sources yet; that happens once, at the very end, in
 [combine](#combine-a-real-union-of-seven-independent-sources).
 
-A real example, the Jaffle Equipment QBR transcript from
+A real example, the Jaffle Werke QBR transcript from
 [comparison](comparison.md), split across an actual chunk boundary:
 
 | chunk_id | client_id | source_type | chunk_text (excerpt) |
 |---|---|---|---|
-| `CT-99001::1` | `CLI-0042` | call_transcript | Marcus Trent: Janet, thanks for taking this. I know the last two weeks have been rough, I want to own it.\nJanet Feld: Rough is generous, Marcus. The Chicago storm buried a whole batch of our freight.\nMarcus Trent: I know, and it's documented on our side... |
+| `CT-99001::1` | `CLI-0042` | call_transcript | Marcus Trent: Janet, thanks for taking this. I know the last two weeks have been rough, I want to own it.\nJanet Feld: Rough is generous, Marcus. The Paris storm buried a whole batch of our freight.\nMarcus Trent: I know, and it's documented on our side... |
 | `CT-99001::2` | `CLI-0042` | call_transcript | Janet Feld: It did. My question is whether you can actually handle our peak volume, because right now I'm not sure.\nMarcus Trent: Fair. Two things: we're issuing an SLA credit for January per your contract... |
 
 The boundary lands on a turn. `chunk_transcripts` and the three
@@ -214,7 +214,7 @@ attributed, so account-scoped search misses it.
 
 Run it yourself:
 [`03_knowledge_base.sql`](https://github.com/dbt-labs/jaffle-logistics/blob/main/analyses/the_pattern/03_knowledge_base.sql)
-shows the unioned rows for Jaffle Equipment (`CLI-0042`) across all seven sources.
+shows the unioned rows for Jaffle Werke (`CLI-0042`) across all seven sources.
 
 ## Search: by meaning, then by category
 
@@ -226,7 +226,7 @@ embeds a query once, then runs cosine similarity against
 - **Account-scoped**: "late deliveries and what is driving them,"
   filtered to `account_key = 'CLI-0042'`; the classified run adds
   `classification = 'account_assessment'`.
-- **Whole-corpus**: "truck accident during the Chicago winter storm," no
+- **Whole-corpus**: "truck accident during the Paris winter storm," no
   account filter, the kind of question a join can't answer since
   there's no ID to join on; the classified run adds
   `classification = 'weather_disruption'`.

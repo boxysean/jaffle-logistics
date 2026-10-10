@@ -1,6 +1,6 @@
 client_id,name,tier,line_of_business,region,health
-CLI-0042,Jaffle Equipment,strategic,LTL,IL,at-risk
-CLI-0007,Jaffle Storefronts,strategic,last-mile,OH,healthy
-CLI-0155,Jaffle Crew Outfitters,mid,last-mile,IN,healthy
-CLI-0169,Jaffle Beverage Co,mid,warehousing,OH,watch
-CLI-0201,Jaffle Paper & Packaging,small,LTL,KY,healthy
+CLI-0042,Jaffle Werke,strategic,LTL,Île-de-France,at-risk
+CLI-0007,Jaffle Warenhuis,strategic,last-mile,Noord-Holland,healthy
+CLI-0155,Jaffle Maison,mid,last-mile,Berlin,healthy
+CLI-0169,Jaffle Getränke,mid,warehousing,Noord-Holland,watch
+CLI-0201,Jaffle Papier,small,LTL,Wien,healthy

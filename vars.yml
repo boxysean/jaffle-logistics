@@ -56,3 +56,7 @@ vars:
   # Snowflake-only: VECTOR's dimension is part of its type, so this must be a literal
   # matching embedding_model's output dimension (768 for snowflake-arctic-embed-m-v1.5).
   embedding_canary_vector_dimension: 768
+
+  # Reporting currency is EUR. Zürich-local costs (HUB-ZRH) are invoiced in CHF.
+  # FIXED SYNTHETIC ASSUMPTION — not a market rate, never a live lookup.
+  chf_to_eur_rate: 0.95

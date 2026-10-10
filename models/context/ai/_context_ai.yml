@@ -147,7 +147,7 @@ models:
                 values: ['Legal Document', 'Incident Report', 'CRM Notes', 'Call Transcript', 'Support Ticket', 'Dispatch Note', 'Slack Thread']
 
   - name: search
-    description: "Retrieval demos: Jaffle Equipment account-scoped story + Chicago-storm thematic vector search (each embeds its query once)."
+    description: "Retrieval demos: Jaffle Werke account-scoped story + Paris-storm thematic vector search (each embeds its query once)."
     config:
       docs:
         node_color: null

@@ -16,7 +16,7 @@
 --      covers incidents with no route_id;
 --   5. else null, never guessed.
 -- Dominant client = most exceptions attributed, then largest stop share, the same
--- convention as tests/assert_columbus_2025_damage_attributed_to_equipment.sql.
+-- convention as tests/assert_amsterdam_2025_damage_attributed_to_werke.sql.
 -- regex_first returns '' on no match under duckdb, hence the nullif()s.
 {{ config(materialized='table') }}
 

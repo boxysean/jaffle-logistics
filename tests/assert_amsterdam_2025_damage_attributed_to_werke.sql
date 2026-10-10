@@ -1,7 +1,7 @@
--- The 2025 handling-damage incidents must land on Jaffle Equipment (CLI-0042) through
+-- The 2025 handling-damage incidents must land on Jaffle Werke (CLI-0042) through
 -- the attribution bridge: incident -> route -> the route's dominant client (most
 -- exceptions attributed, then largest stop share). Covers every 2025 damage incident
--- with a route, the HUB-CMH bay-3 cluster included. Zero rows expected; each row is an
+-- with a route, the HUB-AMS bay-3 cluster included. Zero rows expected; each row is an
 -- incident whose route is led by another account.
 with damage as (
     select incident_id, route_id, hub_id, occurred_at

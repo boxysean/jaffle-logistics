@@ -1,7 +1,7 @@
 # The history behind the data
 
 The warehouse holds a fictional operator, **Jaffle Logistics**, with five
-hubs (Columbus, Chicago, Indianapolis, Detroit, Cincinnati) and five
+hubs (Amsterdam, Paris, Berlin, Vienna, Zürich) and five
 customers. The seed data was originally a single operating year, **2025**,
 which made every "how are we doing?" question impossible to answer: with
 one year there is nothing to compare against. The dataset has since been
@@ -11,7 +11,7 @@ with a visible past.
 
 ## Three years, two stories
 
-| Year | On-time delivery | Jaffle Equipment (`CLI-0042`) | What it is |
+| Year | On-time delivery | Jaffle Werke (`CLI-0042`) | What it is |
 |---|---|---|---|
 | 2023 | ≈ 97.5% | ≈ 98% | Quiet, healthy year |
 | 2024 | ≈ 97.2% | ≈ 98% | Quiet, healthy year |
@@ -20,12 +20,12 @@ with a visible past.
 **2023 and 2024 are the baseline.** Ordinary operations, ordinary
 weather, an occasional incident resolved inside the week. Whole-book
 on-time delivery sits at or just above the 97% contractual target in both
-years, and Jaffle Equipment is a *good* account in that period, close to
+years, and Jaffle Werke is a *good* account in that period, close to
 98% on time.
 
-**2025 is the year the story is about.** The January Chicago storm, a
-recurring handling-damage pattern at the Columbus hub (`HUB-CMH`, bay 3
-staging), and Jaffle Equipment's decline to roughly 79% on time all live
+**2025 is the year the story is about.** The January Paris storm, a
+recurring handling-damage pattern at the Amsterdam hub (`HUB-AMS`, bay 3
+staging), and Jaffle Werke's decline to roughly 79% on time all live
 in 2025 and nowhere earlier. Every analysis written about 2025 still
 holds; what changed is that it now has two calm years to be measured
 against.
@@ -52,7 +52,7 @@ January, exactly as the original data already does).
 - `dock_bay_events` (new, `DBE-NNNNNN`) is the bay-level dock record: every
   bay at every hub, every day of 2023–2025, with one `damage_found` row per
   damage incident. `incident_reports` gained a report for every severity 1–2
-  incident and every Columbus damage incident that lacked one (`IR-7067` on).
+  incident and every Amsterdam damage incident that lacked one (`IR-7067` on).
 
 The quiet years were generated deliberately, not uniformly at random:
 their on-time rates, incident mix and severity were chosen to match the
@@ -84,10 +84,10 @@ appears. Two singular tests enforce this:
 The mix starts from the evidence: every client with a shipment on the route.
 Shipments are only a sample of a route's stops, so the mix is topped up from
 each account's shipment volume at that hub that month. On every route
-carrying a 2025 damage incident, Jaffle Equipment (`CLI-0042`) holds the
+carrying a 2025 damage incident, Jaffle Werke (`CLI-0042`) holds the
 largest share of exceptions, so incidents traced through the bridge land the
-Columbus handling-damage cluster on that account
-(`assert_columbus_2025_damage_attributed_to_equipment`). The 2023–2024
+Amsterdam handling-damage cluster on that account
+(`assert_amsterdam_2025_damage_attributed_to_werke`). The 2023–2024
 damage routes are led by other accounts.
 
 `fct_client_cost_attribution` uses the bridge to give cost per client by
@@ -113,8 +113,8 @@ existing columns are byte-identical.
 The promise is `created_at` plus the account's committed transit. That is a
 service-level base (expedited 36h, standard 60h, freight 84h), plus hours
 for a looser contract SLA (6h per point below 97%), plus a lane offset
-from the origin hub's state to the client's region (0h same state, 12h
-neighbouring state, 24h farther), plus a small seeded jitter.
+from the origin hub to the client's region (0h local, 12h neighbouring
+region, 24h farther), plus a small seeded jitter.
 
 **The clock agrees with the flag.** A delivered shipment's promise lands at
 or after its delivery. A delayed shipment's promise is reconstructed as
@@ -124,7 +124,7 @@ promise that was made, with no lateness. The singular test
 
 **It tells the 2025 story in hours.** Late shipments in 2023 and 2024 were
 barely late, 2–10 hours. In 2025 they run a day or more: multi-day during
-the January Chicago storm and on Jaffle Equipment's (`CLI-0042`) freight,
+the January Paris storm and on Jaffle Werke's (`CLI-0042`) freight,
 and one to two days elsewhere. The `late_hours` metric on the `shipments`
 semantic model sums it.
 
@@ -145,7 +145,7 @@ place. Two things were wrong with the extended data:
   each of 2023, 2024 and 2025. With identical volumes no analysis can tell
   a volume effect apart from a reliability effect.
 - **`service_level` was degenerate in 2025**: every 2025 `freight`
-  shipment belonged to Jaffle Equipment (`CLI-0042`), so "freight" was just
+  shipment belonged to Jaffle Werke (`CLI-0042`), so "freight" was just
   another name for that account.
 
 What changed:

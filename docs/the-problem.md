@@ -33,10 +33,10 @@ Here's what the actual output looks like, an early slice of
 
 | shipment_id | source | artifact_id | occurred_at | snippet |
 |---|---|---|---|---|
-| SHP-202508-000053 | incident | INC-2025-00021 | 2025-01-01 14:30 | Weather event (severity 1) at Indianapolis. |
+| SHP-202508-000053 | incident | INC-2025-00021 | 2025-01-01 14:30 | Weather event (severity 1) at Berlin. |
 | SHP-202501-000177 | support_ticket | TKT-200228 | 2025-01-03 17:06 | Following up on SHP-202501-000177, could you send the POD once it's delivered... |
 | SHP-202501-000308 | support_ticket | TKT-200018 | 2025-01-05 15:53 | Extremely disappointed. SHP-202501-000308 was marked delayed with... |
-| SHP-202509-000289 | incident | INC-2025-00139 | 2025-01-09 14:32 | Mispick event (severity 3) at Indianapolis. |
+| SHP-202509-000289 | incident | INC-2025-00139 | 2025-01-09 14:32 | Mispick event (severity 3) at Berlin. |
 
 Ordinary rows, each one an exact match on a structured column.
 
@@ -45,8 +45,8 @@ Ordinary rows, each one an exact match on a structured column.
 A dispatch note's raw body, before extraction:
 
 ```
-[01/13 15:26] RTE-IND-20250113-002 / DRV-01006 @ IND
-Bad address on SHP-202501-000070. Geocode off by ~3mi. Held for dispatch correction.
+[01/13 15:26] RTE-BER-20250113-002 / DRV-01006 @ BER
+Bad address on SHP-202501-000070; street does not match postcode 10115. Geocode off by ~5km. Held for dispatch correction.
 ```
 
 Run through `{{ regex_first('body', 'SHP-[0-9]{6}-[0-9]{6}') }}`, that
@@ -54,7 +54,7 @@ becomes one clean touchpoint row:
 
 | shipment_id | source | artifact_id | occurred_at | snippet |
 |---|---|---|---|---|
-| SHP-202501-000070 | dispatch_note | DN-100003 | 2025-01-13 15:26 | [01/13 15:26] RTE-IND-20250113-002 / DRV-01006 @ IND. Bad address on SHP-202501-000070... |
+| SHP-202501-000070 | dispatch_note | DN-100003 | 2025-01-13 15:26 | [01/13 15:26] RTE-BER-20250113-002 / DRV-01006 @ BER. Bad address on SHP-202501-000070... |
 
 That works because the ID pattern is fixed and always spelled out
 verbatim. Anything the note describes without naming an ID this way, a
@@ -69,7 +69,7 @@ transcribes (`CRM-9001`):
 
 | shipment_id | source | artifact_id | occurred_at | snippet |
 |---|---|---|---|---|
-| SHP-202501-900001 | call_transcript | CT-99001 | 2025-01-21 | [CALL TRANSCRIPT — Jaffle Equipment (CLI-0042) \| QBR 2025-01-21 \| ref CRM-9001] [Marcus Trent — Jaffle Logistics]: Janet, thanks for taking this... |
+| SHP-202501-900001 | call_transcript | CT-99001 | 2025-01-21 | [CALL TRANSCRIPT — Jaffle Werke (CLI-0042) \| QBR 2025-01-21 \| ref CRM-9001] [Marcus Trent — Jaffle Logistics]: Janet, thanks for taking this... |
 
 One more join hop than the tickets and incidents needed, and still built
 entirely on an exact key match (`crm_note_id`), not on anything read from
@@ -79,10 +79,10 @@ the transcript's actual words.
 
 [`jaffle_equipment_narrative.sql`](https://github.com/dbt-labs/jaffle-logistics/blob/main/analyses/jaffle_equipment_narrative.sql)
 is the payoff of that baseline: every artifact touching the Jaffle
-Equipment account (`CLI-0042`), in date order, reconstructed purely from
+Werke account (`CLI-0042`), in date order, reconstructed purely from
 joins and a regex. It combines two things:
 
-1. Artifacts stitched to a Jaffle Equipment shipment via
+1. Artifacts stitched to a Jaffle Werke shipment via
    `int_shipment_touchpoints`.
 2. Artifacts tied to the account directly, no shipment involved: CRM
    notes, legal docs, support tickets, and call transcripts filtered on

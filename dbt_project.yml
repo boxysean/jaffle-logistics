@@ -108,7 +108,7 @@ seeds:
       +column_types:
         sla_ontime_pct: "{{ 'float64' if target.type == 'bigquery' else 'float' }}"
     revenue_ledger:
-      # Same autodetect hazard as contracts: whole-dollar months ("97.0", "41590.00") and
+      # Same autodetect hazard as contracts: whole-euro months ("97.0", "41590.00") and
       # blank pre-2023 measurement columns leave the inference to chance. Money is fixed
       # 2dp so net_revenue reconciles to the cent; percentages are floats.
       +column_types:
@@ -123,7 +123,7 @@ seeds:
         trailing_12m_ontime_pct: "{{ 'float64' if target.type == 'bigquery' else 'float' }}"
         sla_ontime_pct: "{{ 'float64' if target.type == 'bigquery' else 'float' }}"
     payroll_monthly:
-      # Same hazard: whole-hour and whole-dollar values ("45.0", "1250.00") leave the
+      # Same hazard: whole-hour and whole-euro values ("45.0", "1250.00") leave the
       # inference to chance. Fixed 2dp so gross_pay and total_cost reconcile to the cent.
       +column_types:
         payroll_month: date

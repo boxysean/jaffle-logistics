@@ -6,9 +6,9 @@
 --
 -- Two demos, each run twice (raw, then filtered on knowledge_base's classification
 -- column), unioned with a `demo` tag:
---   (a) account-scoped: the Jaffle Equipment story across systems (filter on
+--   (a) account-scoped: the Jaffle Werke story across systems (filter on
 --       account_key), "late deliveries and what is driving them".
---   (b) thematic (whole corpus): the Chicago winter storm.
+--   (b) thematic (whole corpus): the Paris winter storm.
 -- The raw runs are kept, not replaced, on purpose: docs/comparison.md's claim is a
 -- real before/after, not just an after. The filtered runs use knowledge_base's
 -- classification column (a real classify() label, one flat enum: account_assessment /
@@ -34,11 +34,11 @@
 -- project-wide on duckdb.
 {% set is_duckdb = target.type == 'duckdb' %}
 {% set performance_query = "cast([0.0, 0.0, 0.0] as double[3])" if is_duckdb else dbt_context_engineering.embed("'late deliveries and what is driving them'") %}
-{% set chicago_storm_query = "cast([0.0, 0.0, 0.0] as double[3])" if is_duckdb else dbt_context_engineering.embed("'truck accident during the Chicago winter storm'") %}
+{% set paris_storm_query = "cast([0.0, 0.0, 0.0] as double[3])" if is_duckdb else dbt_context_engineering.embed("'truck accident during the Paris winter storm'") %}
 {{ config(materialized='table') }}
 
-with jaffle_equipment as (
-    select 'jaffle_equipment_performance_issues' as demo, s.*
+with jaffle_werke as (
+    select 'jaffle_werke_performance_issues' as demo, s.*
     from (
         {{ dbt_context_engineering.vector_search(
             relation=ref('knowledge_base'),
@@ -52,8 +52,8 @@ with jaffle_equipment as (
     ) s
 ),
 
-jaffle_equipment_classified as (
-    select 'jaffle_equipment_performance_issues_classified' as demo, s.*
+jaffle_werke_classified as (
+    select 'jaffle_werke_performance_issues_classified' as demo, s.*
     from (
         {{ dbt_context_engineering.vector_search(
             relation=ref('knowledge_base'),
@@ -67,13 +67,13 @@ jaffle_equipment_classified as (
     ) s
 ),
 
-chicago_storm as (
-    select 'chicago_winter_storm' as demo, s.*
+paris_storm as (
+    select 'paris_winter_storm' as demo, s.*
     from (
         {{ dbt_context_engineering.vector_search(
             relation=ref('knowledge_base'),
             embedding_column='embedding',
-            query_embedding=chicago_storm_query,
+            query_embedding=paris_storm_query,
             top_k=10,
             id_column='source_id',
             select_columns=['source_type', 'citation_url', 'ts', 'text', 'classification']
@@ -81,13 +81,13 @@ chicago_storm as (
     ) s
 ),
 
-chicago_storm_classified as (
-    select 'chicago_winter_storm_classified' as demo, s.*
+paris_storm_classified as (
+    select 'paris_winter_storm_classified' as demo, s.*
     from (
         {{ dbt_context_engineering.vector_search(
             relation=ref('knowledge_base'),
             embedding_column='embedding',
-            query_embedding=chicago_storm_query,
+            query_embedding=paris_storm_query,
             top_k=10,
             id_column='source_id',
             select_columns=['source_type', 'citation_url', 'ts', 'text', 'classification'],
@@ -96,10 +96,10 @@ chicago_storm_classified as (
     ) s
 )
 
-select * from jaffle_equipment
+select * from jaffle_werke
 union all
-select * from jaffle_equipment_classified
+select * from jaffle_werke_classified
 union all
-select * from chicago_storm
+select * from paris_storm
 union all
-select * from chicago_storm_classified
+select * from paris_storm_classified

@@ -1,9 +1,9 @@
 -- Every damage incident has exactly one damage_found dock event, and vice versa:
--- same count per (hub_id, year) on both sides, and HUB-CMH 2025 = 15 (the Columbus
--- cluster in reports/columbus-damage-forensics.md). Zero rows expected. Each failing
+-- same count per (hub_id, year) on both sides, and HUB-AMS 2025 = 15 (the Amsterdam
+-- cluster in reports/amsterdam-damage-forensics.md). Zero rows expected. Each failing
 -- row names the check it broke:
 --   count_mismatch   dock damage_found count != damage incident count for a hub-year
---   cmh_2025_not_15  HUB-CMH 2025 damage_found count is not 15
+--   ams_2025_not_15  HUB-AMS 2025 damage_found count is not 15
 with dock as (
     select
         hub_id,
@@ -39,15 +39,15 @@ checks as (
 
     union all
 
-    -- Separate from the join so it fires even if HUB-CMH 2025 is missing on both sides.
+    -- Separate from the join so it fires even if HUB-AMS 2025 is missing on both sides.
     select
-        'HUB-CMH'                       as hub_id,
+        'HUB-AMS'                       as hub_id,
         2025                            as yr,
-        coalesce((select n from dock where hub_id = 'HUB-CMH' and yr = 2025), 0),
-        coalesce((select n from incidents where hub_id = 'HUB-CMH' and yr = 2025), 0),
+        coalesce((select n from dock where hub_id = 'HUB-AMS' and yr = 2025), 0),
+        coalesce((select n from incidents where hub_id = 'HUB-AMS' and yr = 2025), 0),
         case
-            when coalesce((select n from dock where hub_id = 'HUB-CMH' and yr = 2025), 0) != 15
-                then 'cmh_2025_not_15'
+            when coalesce((select n from dock where hub_id = 'HUB-AMS' and yr = 2025), 0) != 15
+                then 'ams_2025_not_15'
         end
 )
 select *
