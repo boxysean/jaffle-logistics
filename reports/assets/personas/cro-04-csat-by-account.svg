@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="470" viewBox="0 0 960 470" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="470" fill="#ffffff"/>
+<text x="480.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">2025 CSAT by account: how many tickets got each score</text>
+<text x="480.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">stg_support_tickets.csat, tickets opened in 2025. Dot area is proportional to the count; 'no score' = CSAT null.</text>
+<text x="279.2" y="96.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">1</text>
+<line x1="279.2" y1="106.0" x2="279.2" y2="390.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="377.5" y="96.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">2</text>
+<line x1="377.5" y1="106.0" x2="377.5" y2="390.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="475.8" y="96.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">3</text>
+<line x1="475.8" y1="106.0" x2="475.8" y2="390.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="574.2" y="96.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">4</text>
+<line x1="574.2" y1="106.0" x2="574.2" y2="390.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="672.5" y="96.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">5</text>
+<line x1="672.5" y1="106.0" x2="672.5" y2="390.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="770.8" y="96.0" font-size="12.5" fill="#555555" text-anchor="middle" font-weight="bold">no score</text>
+<line x1="770.8" y1="106.0" x2="770.8" y2="390.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="475.8" y="76.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal">CSAT score (1 = worst, 5 = best)</text>
+<line x1="721.7" y1="80.0" x2="721.7" y2="390.0" stroke="#8c8c8c" stroke-width="1" stroke-dasharray="3,3"/>
+<text x="890.0" y="96.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">avg</text>
+<line x1="230.0" y1="138.0" x2="820.0" y2="138.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="220.0" y="138.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Storefronts</text>
+<text x="220.0" y="153.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0007 · 23 tickets</text>
+<circle cx="279.2" cy="138.0" r="11.5" fill="#c0392b" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="294.7" y="142.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">4</text>
+<circle cx="377.5" cy="138.0" r="5.8" fill="#c0392b" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="387.3" y="142.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">1</text>
+<text x="475.8" y="142.0" font-size="11" fill="#8c8c8c" text-anchor="middle" font-weight="normal">0</text>
+<circle cx="574.2" cy="138.0" r="12.9" fill="#3d3d3d" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="591.0" y="142.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">5</text>
+<circle cx="672.5" cy="138.0" r="19.1" fill="#3d3d3d" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="695.6" y="142.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">11</text>
+<circle cx="770.8" cy="138.0" r="8.1" fill="none" fill-opacity="0.85" stroke="#8c8c8c" stroke-width="1.2"/>
+<text x="783.0" y="142.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">2</text>
+<text x="890.0" y="142.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">3.86</text>
+<line x1="230.0" y1="194.0" x2="820.0" y2="194.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="220.0" y="194.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Equipment</text>
+<text x="220.0" y="209.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0042 · 72 tickets</text>
+<circle cx="279.2" cy="194.0" r="25.1" fill="#c0392b" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="308.3" y="198.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">19</text>
+<circle cx="377.5" cy="194.0" r="23.0" fill="#c0392b" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="404.5" y="198.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">16</text>
+<circle cx="475.8" cy="194.0" r="11.5" fill="#3d3d3d" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="491.4" y="198.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">4</text>
+<circle cx="574.2" cy="194.0" r="14.1" fill="#3d3d3d" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="592.3" y="198.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">6</text>
+<circle cx="672.5" cy="194.0" r="25.8" fill="#3d3d3d" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="702.3" y="198.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">20</text>
+<circle cx="770.8" cy="194.0" r="15.2" fill="none" fill-opacity="0.85" stroke="#8c8c8c" stroke-width="1.2"/>
+<text x="790.1" y="198.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">7</text>
+<text x="890.0" y="198.0" font-size="12.5" fill="#c0392b" text-anchor="middle" font-weight="bold">2.88</text>
+<line x1="230.0" y1="250.0" x2="820.0" y2="250.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="220.0" y="250.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Crew Outfitters</text>
+<text x="220.0" y="265.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0155 · 24 tickets</text>
+<text x="279.2" y="254.0" font-size="11" fill="#8c8c8c" text-anchor="middle" font-weight="normal">0</text>
+<circle cx="377.5" cy="250.0" r="8.1" fill="#c0392b" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="389.6" y="254.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">2</text>
+<circle cx="475.8" cy="250.0" r="8.1" fill="#3d3d3d" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="488.0" y="254.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">2</text>
+<circle cx="574.2" cy="250.0" r="16.3" fill="#3d3d3d" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="594.5" y="254.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">8</text>
+<circle cx="672.5" cy="250.0" r="17.3" fill="#3d3d3d" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="693.8" y="254.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">9</text>
+<circle cx="770.8" cy="250.0" r="10.0" fill="none" fill-opacity="0.85" stroke="#8c8c8c" stroke-width="1.2"/>
+<text x="784.8" y="254.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">3</text>
+<text x="890.0" y="254.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">4.14</text>
+<line x1="230.0" y1="306.0" x2="820.0" y2="306.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="220.0" y="306.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Beverage Co</text>
+<text x="220.0" y="321.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0169 · 35 tickets</text>
+<circle cx="279.2" cy="306.0" r="8.1" fill="#c0392b" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="291.3" y="310.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">2</text>
+<circle cx="377.5" cy="306.0" r="8.1" fill="#c0392b" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="389.6" y="310.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">2</text>
+<circle cx="475.8" cy="306.0" r="12.9" fill="#3d3d3d" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="492.7" y="310.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">5</text>
+<circle cx="574.2" cy="306.0" r="14.1" fill="#3d3d3d" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="592.3" y="310.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">6</text>
+<circle cx="672.5" cy="306.0" r="25.1" fill="#3d3d3d" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="701.6" y="310.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">19</text>
+<circle cx="770.8" cy="306.0" r="5.8" fill="none" fill-opacity="0.85" stroke="#8c8c8c" stroke-width="1.2"/>
+<text x="780.6" y="310.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">1</text>
+<text x="890.0" y="310.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">4.12</text>
+<line x1="230.0" y1="362.0" x2="820.0" y2="362.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="220.0" y="362.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Paper &amp; Packaging</text>
+<text x="220.0" y="377.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0201 · 35 tickets</text>
+<circle cx="279.2" cy="362.0" r="8.1" fill="#c0392b" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="291.3" y="366.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">2</text>
+<circle cx="377.5" cy="362.0" r="10.0" fill="#c0392b" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="391.5" y="366.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">3</text>
+<circle cx="475.8" cy="362.0" r="12.9" fill="#3d3d3d" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="492.7" y="366.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">5</text>
+<circle cx="574.2" cy="362.0" r="11.5" fill="#3d3d3d" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="589.7" y="366.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">4</text>
+<circle cx="672.5" cy="362.0" r="24.4" fill="#3d3d3d" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
+<text x="700.9" y="366.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">18</text>
+<circle cx="770.8" cy="362.0" r="10.0" fill="none" fill-opacity="0.85" stroke="#8c8c8c" stroke-width="1.2"/>
+<text x="784.8" y="366.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">3</text>
+<text x="890.0" y="366.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">4.03</text>
+<text x="230.0" y="456.0" font-size="11" fill="#555555" text-anchor="start" font-weight="normal">Red = scores 1–2 (dissatisfied). Grey = 3–5. Open circle = ticket with no score.</text>
+</svg>
