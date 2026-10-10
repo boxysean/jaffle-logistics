@@ -224,3 +224,50 @@ models:
         type: ratio
         numerator: credited_amount
         denominator: gross_revenue
+
+  - name: fct_client_cost_attribution
+    description: >
+      Monthly client cost-attribution fact (grain: client-month, 2023-01 .. 2025-12).
+      Puts route-level cost on accounts through the route-to-client attribution
+      bridge (stg_route_client_attribution): route exceptions are summed from
+      exception_attributed, and each hub-month's fleet work-order cost (equal to
+      stg_cost_ledger maintenance_cost) is spread across clients by their share of
+      that hub-month's attributed stops (stop_count x stop_share). Route, stop and
+      shipment volume and ledger revenue are carried for context. Caveat: the
+      allocation is by share and is therefore an approximation. The bridge records
+      which accounts a route carried and in what proportion, not which account caused
+      a given breakdown or exception, so read allocated cost as each account's
+      proportional exposure, not as cost it caused.
+    columns:
+      - name: client_month_key
+        tests: [unique, not_null]
+      - name: client_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_clients')
+                field: client_id
+      - name: month
+        tests: [not_null]
+      - name: route_count
+        description: "Routes the client was attributed to this month (any share)."
+      - name: attributed_stops
+        description: "Sum of stop_count x stop_share over the client's routes."
+      - name: shipment_count
+        description: "Shipments created this month for the client (stg_shipments)."
+      - name: attributed_exceptions
+        description: "Sum of exception_attributed over the client's routes."
+      - name: allocated_maintenance_cost
+        description: >
+          Fleet work-order cost allocated by attributed-stop share within each
+          hub-month; an approximation, not a causal assignment. Summed over clients it
+          equals total maintenance_cost.
+      - name: maintenance_cost_per_stop
+        description: "allocated_maintenance_cost / attributed_stops."
+      - name: gross_revenue
+        description: "Contracted base plus accessorials (stg_revenue_ledger)."
+      - name: net_revenue
+        description: "Gross revenue less contract credits (stg_revenue_ledger)."
+      - name: maintenance_pct_of_gross
+        description: "Allocated maintenance as a percentage of gross revenue."
