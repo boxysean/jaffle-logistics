@@ -14,7 +14,7 @@ the cent under the warehouse's own decimal round().
 Design:
 
 * ``hub_id`` is the driver's drivers.csv hub, constant for the driver. Every one of the
-  10,887 routes.csv rows carries the driver's drivers.csv hub_id, so no driver moves hub
+  10,488 routes.csv rows carries the driver's drivers.csv hub_id, so no driver moves hub
   anywhere in the record. The schema would support a mid-tenure move (a new hub_id from the
   month it happened), but the corpus records none, so none is modelled.
 * ``hours_worked`` is NOT modelled for 2023-01 .. 2025-12, where the routes record exists:
