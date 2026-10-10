@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="440" viewBox="0 0 960 440" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="440" fill="#ffffff"/>
+<text x="480.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">2025 service credits as % of each account's gross revenue</text>
+<text x="480.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">Solid = credited_amount recorded in fct_account_revenue (trailing-12-month basis). Open = calendar-month cross-check.</text>
+<line x1="230.0" y1="94.0" x2="230.0" y2="360.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="230.0" y="378.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">0%</text>
+<line x1="356.0" y1="94.0" x2="356.0" y2="360.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="356.0" y="378.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">2%</text>
+<line x1="482.0" y1="94.0" x2="482.0" y2="360.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="482.0" y="378.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">4%</text>
+<line x1="608.0" y1="94.0" x2="608.0" y2="360.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="608.0" y="378.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">6%</text>
+<line x1="734.0" y1="94.0" x2="734.0" y2="360.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="734.0" y="378.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">8%</text>
+<line x1="860.0" y1="94.0" x2="860.0" y2="360.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="860.0" y="378.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">10%</text>
+<text x="545.0" y="402.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal">Credited as % of 2025 gross revenue</text>
+<rect x="230.0" y="106.2" width="335.2" height="18.7" fill="#c0392b" stroke="none" stroke-width="1"/>
+<text x="573.2" y="120.3" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="bold">5.32%  ·  $51,269 recorded</text>
+<rect x="230.0" y="128.0" width="529.2" height="12.5" fill="none" stroke="#8c8c8c" stroke-width="1.2"/>
+<text x="767.2" y="137.9" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">8.40%  ·  $80,949 cross-check</text>
+<text x="220.0" y="121.8" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Equipment</text>
+<text x="220.0" y="136.8" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0042</text>
+<rect x="230.0" y="158.2" width="18.4" height="18.7" fill="#c0392b" stroke="none" stroke-width="1"/>
+<text x="256.4" y="172.3" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="bold">0.29%  ·  $1,302 recorded</text>
+<rect x="230.0" y="180.0" width="86.1" height="12.5" fill="none" stroke="#8c8c8c" stroke-width="1.2"/>
+<text x="324.1" y="189.9" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">1.37%  ·  $6,081 cross-check</text>
+<text x="220.0" y="173.8" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Storefronts</text>
+<text x="220.0" y="188.8" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0007</text>
+<rect x="230.0" y="210.2" width="5.0" height="18.7" fill="#c0392b" stroke="none" stroke-width="1"/>
+<text x="243.0" y="224.3" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="bold">0.08%  ·  $384 recorded</text>
+<rect x="230.0" y="232.0" width="100.3" height="12.5" fill="none" stroke="#8c8c8c" stroke-width="1.2"/>
+<text x="338.3" y="241.9" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">1.59%  ·  $7,769 cross-check</text>
+<text x="220.0" y="225.8" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Beverage Co</text>
+<text x="220.0" y="240.8" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0169</text>
+<rect x="230.0" y="262.2" width="1.5" height="18.7" fill="#c0392b" stroke="none" stroke-width="1"/>
+<text x="239.5" y="276.3" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="bold">0.00%  ·  $0 recorded</text>
+<rect x="230.0" y="284.0" width="60.4" height="12.5" fill="none" stroke="#8c8c8c" stroke-width="1.2"/>
+<text x="298.4" y="293.9" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">0.96%  ·  $4,398 cross-check</text>
+<text x="220.0" y="277.8" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Crew Outfitters</text>
+<text x="220.0" y="292.8" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0155</text>
+<rect x="230.0" y="314.2" width="1.5" height="18.7" fill="#c0392b" stroke="none" stroke-width="1"/>
+<text x="239.5" y="328.3" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="bold">0.00%  ·  $0 recorded</text>
+<rect x="230.0" y="336.0" width="40.9" height="12.5" fill="none" stroke="#8c8c8c" stroke-width="1.2"/>
+<text x="278.9" y="345.9" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">0.65%  ·  $3,402 cross-check</text>
+<text x="220.0" y="329.8" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Paper &amp; Packaging</text>
+<text x="220.0" y="344.8" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0201</text>
+<line x1="345.8" y1="88.0" x2="345.8" y2="360.0" stroke="#1a1a1a" stroke-width="1.2" stroke-dasharray="3,3"/>
+<text x="349.8" y="86.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="normal">whole book 1.84% ($52,955)</text>
+</svg>

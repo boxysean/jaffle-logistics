@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="440" viewBox="0 0 960 440" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="440" fill="#ffffff"/>
+<text x="480.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">2025 gross revenue by account, with the service credits taken out of it</text>
+<text x="480.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">fct_account_revenue, 2025. Grey = net revenue kept; red = credited_amount. Right column = share of 2025 shipments.</text>
+<line x1="230.0" y1="84.0" x2="230.0" y2="360.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="230.0" y="378.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">$0k</text>
+<line x1="348.0" y1="84.0" x2="348.0" y2="360.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="348.0" y="378.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">$200k</text>
+<line x1="466.0" y1="84.0" x2="466.0" y2="360.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="466.0" y="378.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">$400k</text>
+<line x1="584.0" y1="84.0" x2="584.0" y2="360.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="584.0" y="378.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">$600k</text>
+<line x1="702.0" y1="84.0" x2="702.0" y2="360.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="702.0" y="378.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">$800k</text>
+<line x1="820.0" y1="84.0" x2="820.0" y2="360.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="820.0" y="378.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">$1,000k</text>
+<text x="525.0" y="402.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal">2025 gross revenue (USD)</text>
+<text x="890.0" y="78.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="bold">ship share</text>
+<rect x="230.0" y="100.8" width="538.3" height="32.4" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<rect x="768.3" y="100.8" width="30.2" height="32.4" fill="#c0392b" stroke="none" stroke-width="1"/>
+<text x="760.3" y="121.9" font-size="11.5" fill="#ffffff" text-anchor="end" font-weight="bold">$963,695 · 33.5% of revenue · $51,269 credited</text>
+<text x="220.0" y="115.4" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Equipment</text>
+<text x="220.0" y="130.4" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0042</text>
+<text x="890.0" y="121.9" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">20.7%</text>
+<rect x="230.0" y="154.8" width="309.3" height="32.4" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="545.3" y="175.9" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">$524,260 · 18.2% of revenue</text>
+<text x="220.0" y="169.4" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Paper &amp; Packaging</text>
+<text x="220.0" y="184.4" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0201</text>
+<text x="890.0" y="175.9" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">20.6%</text>
+<rect x="230.0" y="208.8" width="287.6" height="32.4" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<rect x="517.6" y="208.8" width="1.5" height="32.4" fill="#c0392b" stroke="none" stroke-width="1"/>
+<text x="523.8" y="229.9" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">$487,795 · 16.9% of revenue · $384 credited</text>
+<text x="220.0" y="223.4" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Beverage Co</text>
+<text x="220.0" y="238.4" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0169</text>
+<text x="890.0" y="229.9" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">19.6%</text>
+<rect x="230.0" y="262.8" width="270.7" height="32.4" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="506.7" y="283.9" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">$458,802 · 15.9% of revenue</text>
+<text x="220.0" y="277.4" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Crew Outfitters</text>
+<text x="220.0" y="292.4" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0155</text>
+<text x="890.0" y="283.9" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">19.8%</text>
+<rect x="230.0" y="316.8" width="261.9" height="32.4" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<rect x="491.9" y="316.8" width="1.5" height="32.4" fill="#c0392b" stroke="none" stroke-width="1"/>
+<text x="498.7" y="337.9" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">$445,180 · 15.5% of revenue · $1,302 credited</text>
+<text x="220.0" y="331.4" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Storefronts</text>
+<text x="220.0" y="346.4" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0007</text>
+<text x="890.0" y="337.9" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">19.3%</text>
+</svg>

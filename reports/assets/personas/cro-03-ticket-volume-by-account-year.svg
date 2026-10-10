@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="500" fill="#ffffff"/>
+<text x="480.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">Support tickets by account, 2023 / 2024 / 2025</text>
+<text x="480.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">Count of stg_support_tickets by year opened. 107 + 107 + 189 = 403 tickets.</text>
+<line x1="100.0" y1="410.0" x2="920.0" y2="410.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="414.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">0</text>
+<line x1="100.0" y1="330.0" x2="920.0" y2="330.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="334.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">20</text>
+<line x1="100.0" y1="250.0" x2="920.0" y2="250.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="254.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">40</text>
+<line x1="100.0" y1="170.0" x2="920.0" y2="170.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="174.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">60</text>
+<line x1="100.0" y1="90.0" x2="920.0" y2="90.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="94.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">80</text>
+<text x="40.0" y="250.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal" transform="rotate(-90 40.0 250.0)">Tickets opened (count)</text>
+<rect x="119.7" y="294.0" width="39.4" height="116.0" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="139.4" y="289.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">29</text>
+<rect x="163.0" y="346.0" width="39.4" height="64.0" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="182.7" y="341.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">16</text>
+<rect x="206.4" y="318.0" width="39.4" height="92.0" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<text x="226.1" y="313.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">23</text>
+<text x="182.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Storefronts</text>
+<text x="182.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0007</text>
+<rect x="283.7" y="342.0" width="39.4" height="68.0" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="303.4" y="337.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">17</text>
+<rect x="327.0" y="342.0" width="39.4" height="68.0" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="346.7" y="337.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">17</text>
+<rect x="370.4" y="122.0" width="39.4" height="288.0" fill="#c0392b" stroke="none" stroke-width="1"/>
+<text x="390.1" y="117.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">72</text>
+<text x="346.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Equipment</text>
+<text x="346.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0042</text>
+<rect x="447.7" y="334.0" width="39.4" height="76.0" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="467.4" y="329.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">19</text>
+<rect x="491.0" y="342.0" width="39.4" height="68.0" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="510.7" y="337.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">17</text>
+<rect x="534.4" y="314.0" width="39.4" height="96.0" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<text x="554.1" y="309.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">24</text>
+<text x="510.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Crew Outfitters</text>
+<text x="510.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0155</text>
+<rect x="611.7" y="334.0" width="39.4" height="76.0" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="631.4" y="329.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">19</text>
+<rect x="655.0" y="290.0" width="39.4" height="120.0" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="674.7" y="285.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">30</text>
+<rect x="698.4" y="270.0" width="39.4" height="140.0" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<text x="718.1" y="265.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">35</text>
+<text x="674.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Beverage Co</text>
+<text x="674.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0169</text>
+<rect x="775.7" y="318.0" width="39.4" height="92.0" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="795.4" y="313.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">23</text>
+<rect x="819.0" y="302.0" width="39.4" height="108.0" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="838.7" y="297.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">27</text>
+<rect x="862.4" y="270.0" width="39.4" height="140.0" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<text x="882.1" y="265.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">35</text>
+<text x="838.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Paper &amp; Packaging</text>
+<text x="838.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0201</text>
+<rect x="100.0" y="62.0" width="14.0" height="12.0" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="120.0" y="72.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2023</text>
+<rect x="180.0" y="62.0" width="14.0" height="12.0" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="200.0" y="72.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2024</text>
+<rect x="260.0" y="62.0" width="14.0" height="12.0" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<text x="280.0" y="72.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2025</text>
+<text x="350.0" y="72.0" font-size="11.5" fill="#c0392b" text-anchor="start" font-weight="normal">(Equipment 2025 in red: the only year-on-year break)</text>
+<text x="510.0" y="490.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal">Account (Jaffle Logistics)</text>
+</svg>

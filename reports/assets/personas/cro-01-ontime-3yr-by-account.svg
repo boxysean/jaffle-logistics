@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="540" fill="#ffffff"/>
+<text x="480.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">On-time rate by account, 2023 / 2024 / 2025, against contract</text>
+<text x="480.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">stg_shipments, on time = status 'delivered'. Red dashed = 97% whole-book yardstick; black bar = the account's own SLA.</text>
+<line x1="100.0" y1="420.0" x2="920.0" y2="420.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="424.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">80%</text>
+<line x1="100.0" y1="340.0" x2="920.0" y2="340.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="344.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">85%</text>
+<line x1="100.0" y1="260.0" x2="920.0" y2="260.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="264.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">90%</text>
+<line x1="100.0" y1="180.0" x2="920.0" y2="180.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="184.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">95%</text>
+<line x1="100.0" y1="100.0" x2="920.0" y2="100.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="104.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">100%</text>
+<text x="40.0" y="260.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal" transform="rotate(-90 40.0 260.0)">Shipments delivered on time (%)</text>
+<text x="92.0" y="434.0" font-size="9.5" fill="#555555" text-anchor="end" font-weight="normal">(axis starts at 80%)</text>
+<rect x="123.0" y="136.2" width="36.1" height="283.8" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<rect x="163.0" y="147.4" width="36.1" height="272.6" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<rect x="203.1" y="153.8" width="36.1" height="266.2" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<line x1="117.0" y1="148.0" x2="245.2" y2="148.0" stroke="#1a1a1a" stroke-width="3"/>
+<text x="182.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Storefronts</text>
+<text x="182.0" y="456.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0007</text>
+<text x="182.0" y="472.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">SLA 97%</text>
+<rect x="287.0" y="135.7" width="36.1" height="284.3" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<rect x="327.0" y="132.6" width="36.1" height="287.4" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<rect x="367.1" y="357.8" width="36.1" height="62.2" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<line x1="281.0" y1="148.0" x2="409.2" y2="148.0" stroke="#1a1a1a" stroke-width="3"/>
+<text x="346.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Equipment</text>
+<text x="346.0" y="456.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0042</text>
+<text x="346.0" y="472.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">SLA 97%</text>
+<rect x="451.0" y="137.8" width="36.1" height="282.2" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<rect x="491.0" y="146.6" width="36.1" height="273.4" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<rect x="531.1" y="148.3" width="36.1" height="271.7" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<line x1="445.0" y1="180.0" x2="573.2" y2="180.0" stroke="#1a1a1a" stroke-width="3"/>
+<text x="510.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Crew Outfitters</text>
+<text x="510.0" y="456.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0155</text>
+<text x="510.0" y="472.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">SLA 95%</text>
+<rect x="615.0" y="143.8" width="36.1" height="276.2" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<rect x="655.0" y="152.3" width="36.1" height="267.7" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<rect x="695.1" y="185.3" width="36.1" height="234.7" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<line x1="609.0" y1="180.0" x2="737.2" y2="180.0" stroke="#1a1a1a" stroke-width="3"/>
+<text x="674.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Beverage Co</text>
+<text x="674.0" y="456.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0169</text>
+<text x="674.0" y="472.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">SLA 95%</text>
+<rect x="779.0" y="145.3" width="36.1" height="274.7" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<rect x="819.0" y="142.9" width="36.1" height="277.1" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<rect x="859.1" y="185.0" width="36.1" height="235.0" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<line x1="773.0" y1="228.0" x2="901.2" y2="228.0" stroke="#1a1a1a" stroke-width="3"/>
+<text x="838.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Paper &amp; Packaging</text>
+<text x="838.0" y="456.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0201</text>
+<text x="838.0" y="472.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">SLA 92%</text>
+<line x1="100.0" y1="148.0" x2="920.0" y2="148.0" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="141.0" y="131.2" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.7</text>
+<text x="181.1" y="142.4" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.0</text>
+<text x="221.2" y="148.8" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">96.6</text>
+<text x="305.0" y="130.7" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.8</text>
+<text x="345.1" y="127.6" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">98.0</text>
+<text x="385.2" y="352.8" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">83.9</text>
+<text x="469.0" y="132.8" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.6</text>
+<text x="509.1" y="141.6" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.1</text>
+<text x="549.2" y="143.3" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.0</text>
+<text x="633.0" y="138.8" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.3</text>
+<text x="673.1" y="147.3" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">96.7</text>
+<text x="713.2" y="180.3" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">94.7</text>
+<text x="797.0" y="140.3" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.2</text>
+<text x="837.1" y="137.9" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.3</text>
+<text x="877.2" y="180.0" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">94.7</text>
+<rect x="100.0" y="66.0" width="14.0" height="12.0" fill="#c4c4c4" stroke="none" stroke-width="1"/>
+<text x="120.0" y="76.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2023</text>
+<rect x="180.0" y="66.0" width="14.0" height="12.0" fill="#8c8c8c" stroke="none" stroke-width="1"/>
+<text x="200.0" y="76.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2024</text>
+<rect x="260.0" y="66.0" width="14.0" height="12.0" fill="#3d3d3d" stroke="none" stroke-width="1"/>
+<text x="280.0" y="76.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2025</text>
+<line x1="340.0" y1="72.0" x2="364.0" y2="72.0" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="370.0" y="76.0" font-size="12" fill="#c0392b" text-anchor="start" font-weight="bold">97% whole-book yardstick</text>
+<line x1="560.0" y1="72.0" x2="584.0" y2="72.0" stroke="#1a1a1a" stroke-width="3"/>
+<text x="590.0" y="76.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">account's own SLA (2025)</text>
+<text x="510.0" y="530.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal">Account (Jaffle Logistics)</text>
+</svg>
