@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="1000" height="380" fill="#ffffff"/>
+<text x="500.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">Where the 2,009 shipments of 2025 came from</text>
+<text x="500.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">Share of 2025 shipments (stg_shipments). Volume is spread evenly by design; revenue is not (Equipment 33.5% of gross).</text>
+<text x="295.0" y="82.0" font-size="13.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">By account</text>
+<line x1="150.0" y1="101.0" x2="150.0" y2="305.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="150.0" y="321.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">0%</text>
+<line x1="208.0" y1="101.0" x2="208.0" y2="305.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="208.0" y="321.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">5%</text>
+<line x1="266.0" y1="101.0" x2="266.0" y2="305.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="266.0" y="321.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">10%</text>
+<line x1="324.0" y1="101.0" x2="324.0" y2="305.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="324.0" y="321.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">15%</text>
+<line x1="382.0" y1="101.0" x2="382.0" y2="305.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="382.0" y="321.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">20%</text>
+<line x1="440.0" y1="101.0" x2="440.0" y2="305.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="440.0" y="321.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">25%</text>
+<line x1="382.0" y1="101.0" x2="382.0" y2="305.0" stroke="#555555" stroke-width="1.2" stroke-dasharray="2,3"/>
+<text x="382.0" y="97.0" font-size="10" fill="#555555" text-anchor="middle" font-weight="normal">even split 20%</text>
+<rect x="150.0" y="113.0" width="240.2" height="24.0" fill="#c0392b" stroke="none"/>
+<text x="142.0" y="129.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">Equipment</text>
+<text x="396.2" y="129.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">20.71%  (416)</text>
+<rect x="150.0" y="153.0" width="239.1" height="24.0" fill="#2c6fbb" stroke="none"/>
+<text x="142.0" y="169.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">Paper &amp; Packaging</text>
+<text x="395.1" y="169.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">20.61%  (414)</text>
+<rect x="150.0" y="193.0" width="229.8" height="24.0" fill="#2c6fbb" stroke="none"/>
+<text x="142.0" y="209.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">Crew Outfitters</text>
+<text x="385.8" y="209.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">19.81%  (398)</text>
+<rect x="150.0" y="233.0" width="227.5" height="24.0" fill="#2c6fbb" stroke="none"/>
+<text x="142.0" y="249.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">Beverage Co</text>
+<text x="383.5" y="249.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">19.61%  (394)</text>
+<rect x="150.0" y="273.0" width="223.4" height="24.0" fill="#2c6fbb" stroke="none"/>
+<text x="142.0" y="289.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">Storefronts</text>
+<text x="379.4" y="289.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">19.26%  (387)</text>
+<text x="295.0" y="341.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">Share of 2025 shipments; counts sum to 2,009</text>
+<text x="785.0" y="82.0" font-size="13.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">By origin hub</text>
+<line x1="640.0" y1="101.0" x2="640.0" y2="305.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="640.0" y="321.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">0%</text>
+<line x1="698.0" y1="101.0" x2="698.0" y2="305.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="698.0" y="321.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">5%</text>
+<line x1="756.0" y1="101.0" x2="756.0" y2="305.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="756.0" y="321.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">10%</text>
+<line x1="814.0" y1="101.0" x2="814.0" y2="305.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="814.0" y="321.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">15%</text>
+<line x1="872.0" y1="101.0" x2="872.0" y2="305.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="872.0" y="321.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">20%</text>
+<line x1="930.0" y1="101.0" x2="930.0" y2="305.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="930.0" y="321.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">25%</text>
+<line x1="872.0" y1="101.0" x2="872.0" y2="305.0" stroke="#555555" stroke-width="1.2" stroke-dasharray="2,3"/>
+<text x="872.0" y="97.0" font-size="10" fill="#555555" text-anchor="middle" font-weight="normal">even split 20%</text>
+<rect x="640.0" y="113.0" width="246.5" height="24.0" fill="#2c6fbb" stroke="none"/>
+<text x="632.0" y="129.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">Detroit</text>
+<text x="892.5" y="129.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">21.25%  (427)</text>
+<rect x="640.0" y="153.0" width="245.3" height="24.0" fill="#2c6fbb" stroke="none"/>
+<text x="632.0" y="169.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">Indianapolis</text>
+<text x="891.3" y="169.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">21.15%  (425)</text>
+<rect x="640.0" y="193.0" width="237.9" height="24.0" fill="#2c6fbb" stroke="none"/>
+<text x="632.0" y="209.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">Chicago</text>
+<text x="883.9" y="209.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">20.51%  (412)</text>
+<rect x="640.0" y="233.0" width="229.8" height="24.0" fill="#2c6fbb" stroke="none"/>
+<text x="632.0" y="249.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">Cincinnati</text>
+<text x="875.8" y="249.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">19.81%  (398)</text>
+<rect x="640.0" y="273.0" width="200.3" height="24.0" fill="#2c6fbb" stroke="none"/>
+<text x="632.0" y="289.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">Columbus</text>
+<text x="846.3" y="289.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">17.27%  (347)</text>
+<text x="785.0" y="341.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">Share of 2025 shipments; counts sum to 2,009</text>
+</svg>
