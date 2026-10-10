@@ -44,6 +44,12 @@ late_bucket: on_time, <4h (2-3), 4-12h (4-12), 1-2d (13-48), >2d (over 48).
 Run from the repo root:  python3 scripts/generate_promised_delivery.py
 Verify without writing:  python3 scripts/generate_promised_delivery.py --check
 (--check exits 1 if the seed on disk differs from what the script would write.)
+
+Superseded as a writer by scripts/generate_volume_variation.py, which later removed
+2023-2024 rows and relabelled some 2025 service levels while carrying these three
+columns through unchanged. The jitter/overshoot stream is drawn row by row, so a re-run
+on the revised file would redraw every surviving promise (2025 included) and --check
+now reports a difference. Do not re-run it to "fix" that.
 """
 import collections
 import csv

@@ -251,10 +251,11 @@ def main():
     peak = max(c42.values())
     assert any(c42[m] == peak for m in c42 if m.month >= 10), "CLI-0042 credits do not peak in Q4"
     # 4. healthy-book gross revenue grows year over year 2023 -> 2025. Reported, not
-    # asserted: revenue is derived from the ops record, and in seeds/shipments.csv the
-    # four healthy accounts ship no freight at all in 2025 (every 2025 freight shipment
-    # is CLI-0042's), against a mixed book in 2023-24. At the rate card that is a real
-    # revenue drop on flat volume; the ledger shows it rather than smoothing it away.
+    # asserted: revenue is derived from the ops record. Healthy-book volume grows
+    # 2023 -> 2025 (scripts/generate_volume_variation.py), but in 2025 only CLI-0007 and
+    # CLI-0169 ship any freight, and only ~8% of their book, against roughly a fifth of
+    # every account's book in 2023-24. At the rate card the thinner freight mix can
+    # outweigh the volume growth; the ledger shows it rather than smoothing it away.
     healthy_gross = collections.Counter()
     for r in rows:
         if r["client_id"] in healthy:
@@ -315,7 +316,8 @@ def main():
         print(f"  {year}  ${healthy_gross[year]:>14,.2f}  ({n} shipments)")
     if not healthy_grows:
         print("  CHECK NOT MET (constraint 4): healthy-book revenue does not grow 2023 -> 2025."
-              " Volume is flat; the 2025 shipment record has no freight for these accounts.")
+              " Volume grows, but these accounts' 2025 freight mix is far thinner than in 2023-24"
+              " (freight only on CLI-0007 and CLI-0169, ~8% of their book).")
     print("\nmax trailing-12m shortfall (SLA - t12m, pts) by year:")
     for year in (2023, 2024, 2025):
         assessed = [r for r in rows if r["revenue_month"].year == year
