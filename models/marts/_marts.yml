@@ -5,25 +5,38 @@ models:
     description: "Hub dimension."
     columns:
       - name: hub_id
+        description: "Primary key. Joined to as origin_hub_id on fct_shipments, home_hub_id on dim_drivers and hub_id on fct_incidents."
         tests: [unique, not_null]
 
   - name: dim_clients
     description: "Client dimension enriched with contract SLA target."
     columns:
       - name: client_id
+        description: >
+          Primary key. The left join to stg_contracts assumes at most one contract
+          per client; a second contract for a client fans the row out and fails
+          this unique test.
         tests: [unique, not_null]
       - name: health
+        description: >
+          Account-health flag as recorded on the client record (clients seed via
+          stg_clients). It is a static attribute, not computed from the on-time,
+          ticket or incident figures in fct_account_health.
         tests:
           - accepted_values:
               arguments:
                 values: ['healthy', 'watch', 'at-risk']
+      - name: sla_ontime_pct
+        description: "On-time SLA target from the client's contract, in percent (e.g. 97.0). Null if the client has no contract (left join)."
 
   - name: dim_drivers
     description: "Driver dimension enriched with home-hub city."
     columns:
       - name: driver_id
+        description: "Primary key."
         tests: [unique, not_null]
       - name: home_hub_id
+        description: "The hub on the driver record (stg_drivers.hub_id, renamed). Not reconciled with stg_routes.hub_id, which records the hub of each individual route."
         tests:
           - relationships:
               arguments:
@@ -38,11 +51,13 @@ models:
     agg_time_dimension: created_at
     columns:
       - name: shipment_id
+        description: "Primary key; the semantic model's `shipment` primary entity."
         tests: [unique, not_null]
         entity:
           type: primary
           name: shipment
       - name: client_id
+        description: "Client that placed the shipment; the semantic model's `client` foreign entity."
         tests:
           - relationships:
               arguments:
@@ -52,6 +67,9 @@ models:
           type: foreign
           name: client
       - name: status
+        description: >
+          Final shipment outcome: delivered, delayed (arrived late; delivered_at
+          is still set), failed or returned. Only delivered counts as on time.
         tests:
           - accepted_values:
               arguments:
@@ -59,18 +77,26 @@ models:
         dimension:
           type: categorical
       - name: client_name
+        description: "Client name copied from stg_clients at build time so the Semantic Layer can group by it without a client semantic model."
         dimension:
           type: categorical
       - name: client_tier
+        description: "Client tier (strategic, mid or small), stg_clients.tier renamed."
         dimension:
           type: categorical
       - name: origin_city
+        description: "City of the shipment's origin hub (stg_hubs.city joined on origin_hub_id)."
         dimension:
           type: categorical
       - name: service_level
+        description: "Service level booked for the shipment: standard, expedited or freight."
         dimension:
           type: categorical
       - name: created_at
+        description: >
+          When the shipment was created. This is the semantic model's
+          agg_time_dimension, so every metric here is bucketed by creation date,
+          not delivery date.
         granularity: day
         dimension:
           type: time
@@ -89,6 +115,16 @@ models:
                 values: ['on_time', '<4h', '4-12h', '1-2d', '>2d']
         dimension:
           type: categorical
+      - name: delivered_at
+        description: "When the shipment arrived; null for failed and returned shipments. A malformed source value is coerced to null by safe_cast in stg_shipments rather than failing the build."
+      - name: is_ontime
+        description: >
+          True when status = 'delivered'. Lateness comes from that status flag;
+          promised_delivery_at, hours_late and late_bucket quantify how late and
+          agree with it (assert_shipment_lateness_matches_status). Same rule as
+          int_client_monthly_sla.delivered, and the on_time_shipments metric sums it.
+      - name: touchpoint_count
+        description: "Number of int_shipment_touchpoints rows for the shipment (tickets, incidents, CRM notes, incident reports, call transcripts, dispatch notes that reference it); 0 when none."
     metrics:
       - name: shipments
         label: Shipments
@@ -141,18 +177,27 @@ models:
     description: "Incident fact (grain: incident) with report/work-order flags."
     columns:
       - name: incident_id
+        description: "Primary key."
         tests: [unique, not_null]
       - name: hub_id
+        description: "Hub the incident is recorded against. Always populated, unlike shipment_id, route_id, driver_id and vehicle_id, which are frequently null."
         tests:
           - relationships:
               arguments:
                 to: ref('dim_hubs')
                 field: hub_id
       - name: incident_type
+        description: "Incident category as recorded at the time (incidents seed `type`). It can differ from the root cause in the report text, e.g. a weather-caused accident is typed 'accident'."
         tests:
           - accepted_values:
               arguments:
                 values: ['damage', 'delay', 'accident', 'mispick', 'dispute', 'weather']
+      - name: report_count
+        description: "Incident reports filed against the incident (stg_incident_reports); 0 when none."
+      - name: work_order_count
+        description: "Fleet work orders whose linked_incident_id points at the incident; 0 when none."
+      - name: has_report
+        description: "True when report_count > 0."
 
   - name: fct_account_health
     description: >
@@ -160,14 +205,33 @@ models:
       Equipment decline: on-time % down, ticket/incident counts up across 2025.
     columns:
       - name: account_month_key
+        description: "Surrogate key: client_id || ':' || 'YYYY-MM' (month_key macro on month)."
         tests: [unique, not_null]
       - name: client_id
+        description: >
+          Client. Rows are driven by int_client_monthly_sla, so a client-month
+          exists only if the client created at least one shipment that month;
+          tickets or incidents in a month with no shipments do not appear.
         tests:
           - not_null
           - relationships:
               arguments:
                 to: ref('dim_clients')
                 field: client_id
+      - name: health
+        description: "The client's current health flag from dim_clients, repeated on every month. It is not the flag as it stood in that month."
+      - name: month
+        description: "First day of the calendar month."
+      - name: ontime_pct
+        description: "Percent of the month's shipments with status delivered, 0-100, rounded to 1 decimal (from int_client_monthly_sla)."
+      - name: sla_target
+        description: "Contract on-time SLA target in percent (dim_clients.sla_ontime_pct). Null if the client has no contract."
+      - name: ontime_vs_target
+        description: "ontime_pct minus sla_target in percentage points, rounded to 1 decimal; negative means below SLA. Computed from the already-rounded ontime_pct."
+      - name: ticket_count
+        description: "Support tickets the client opened in the month (by opened_at); 0 when none."
+      - name: incident_count
+        description: "Incidents in the month attributed to the client through the incident's shipment_id. Incidents with no shipment_id cannot be attributed and are not counted."
 
   - name: fct_account_revenue
     description: >

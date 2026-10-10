@@ -32,12 +32,13 @@ models:
         description: "Unique turn id (transcript_id + zero-padded turn_index)."
         tests: [unique, not_null]
       - name: transcript_id
+        # No relationships test to stg_call_transcripts: every row is exploded
+        # from that model, so such a test can only ever pass. The real parser
+        # hazard (a transcript yielding zero turns and silently dropping out of
+        # the KB) runs the other way; see reports/dbt-best-practices-audit.md.
+        description: "Transcript the turn was parsed from (stg_call_transcripts.transcript_id)."
         tests:
           - not_null
-          - relationships:
-              arguments:
-                to: ref('stg_call_transcripts')
-                field: transcript_id
       - name: turn_text
         tests: [not_null]
 
