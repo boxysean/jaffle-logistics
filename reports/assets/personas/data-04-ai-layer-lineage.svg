@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="760" viewBox="0 0 1320 760" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="1320" height="760" fill="#ffffff"/>
+<text x="660.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">The context / AI layer: seven chains into one search corpus</text>
+<text x="660.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">Seed → staging → prep → hash → (classify ‖ embed) → embedded_classified → knowledge_base. Dashed region is disabled unless ai_functions_enabled = true.</text>
+<text x="82.5" y="98.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="bold">seeds/*.csv</text>
+<text x="235.0" y="98.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="bold">staging (view)</text>
+<text x="480.0" y="98.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="bold">models/context/ (view/table)</text>
+<text x="725.0" y="98.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="bold">*_hashed</text>
+<text x="890.0" y="98.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="bold">classify / embed</text>
+<text x="1065.0" y="98.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="bold">*_embedded_classified</text>
+<text x="1235.0" y="98.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="bold">corpus</text>
+<rect x="816.0" y="108.0" width="498.0" height="516.0" fill="#f5f9fd" stroke="#2c6fbb" stroke-width="1.4" stroke-dasharray="7,4"/>
+<text x="822.0" y="616.0" font-size="11" fill="#2c6fbb" text-anchor="start" font-weight="bold">gated: +enabled: var('ai_functions_enabled', false) — real embed()/classify() spend; 23 YAML tests live here</text>
+<rect x="20.0" y="120.0" width="125.0" height="22.0" fill="#eef5ee" stroke="#7FA37F" stroke-width="1.2"/><text x="82.5" y="135.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">legal_docs</text>
+<rect x="165.0" y="120.0" width="140.0" height="22.0" fill="#fbf2ea" stroke="#D2955C" stroke-width="1.2"/><text x="235.0" y="135.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">stg_legal_docs</text>
+<rect x="330.0" y="120.0" width="300.0" height="22.0" fill="#eef1f6" stroke="#7C93B0" stroke-width="1.2"/><text x="480.0" y="134.6" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal">int_legal_docs_documents → split → chunk → chunks_meta</text>
+<rect x="650.0" y="120.0" width="150.0" height="22.0" fill="#eef1f6" stroke="#7C93B0" stroke-width="1.2"/><text x="725.0" y="134.8" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">legal_docs_hashed</text>
+<rect x="830.0" y="114.0" width="120.0" height="17.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="890.0" y="125.9" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_classify (table)</text>
+<rect x="830.0" y="135.0" width="120.0" height="17.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="890.0" y="146.9" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_embed (incremental)</text>
+<rect x="990.0" y="120.0" width="150.0" height="22.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="1065.0" y="134.6" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_embedded_classified</text>
+<line x1="145.0" y1="131.0" x2="163.0" y2="131.0" stroke="#555555" stroke-width="1.2"/><polygon points="163.0,131.0 156.6,133.7 156.6,128.3" fill="#555555"/>
+<line x1="305.0" y1="131.0" x2="328.0" y2="131.0" stroke="#555555" stroke-width="1.2"/><polygon points="328.0,131.0 321.6,133.7 321.6,128.3" fill="#555555"/>
+<line x1="630.0" y1="131.0" x2="648.0" y2="131.0" stroke="#555555" stroke-width="1.2"/><polygon points="648.0,131.0 641.6,133.7 641.6,128.3" fill="#555555"/>
+<line x1="800.0" y1="131.0" x2="828.0" y2="122.5" stroke="#555555" stroke-width="1.2"/><polygon points="828.0,122.5 822.6,127.0 821.0,121.8" fill="#555555"/>
+<line x1="800.0" y1="131.0" x2="828.0" y2="143.5" stroke="#555555" stroke-width="1.2"/><polygon points="828.0,143.5 821.0,143.4 823.2,138.4" fill="#555555"/>
+<line x1="950.0" y1="122.5" x2="988.0" y2="128.0" stroke="#555555" stroke-width="1.2"/><polygon points="988.0,128.0 981.2,129.8 982.0,124.4" fill="#555555"/>
+<line x1="950.0" y1="143.5" x2="988.0" y2="134.0" stroke="#555555" stroke-width="1.2"/><polygon points="988.0,134.0 982.4,138.2 981.1,132.9" fill="#555555"/>
+<line x1="1140.0" y1="131.0" x2="1168.0" y2="257.0" stroke="#bdbdbd" stroke-width="1.1"/><polygon points="1168.0,257.0 1163.9,251.3 1169.3,250.1" fill="#bdbdbd"/>
+<text x="1144.0" y="127.0" font-size="10" fill="#555555" text-anchor="start" font-weight="bold">35</text>
+<rect x="20.0" y="182.0" width="125.0" height="22.0" fill="#eef5ee" stroke="#7FA37F" stroke-width="1.2"/><text x="82.5" y="197.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">incident_reports</text>
+<rect x="165.0" y="182.0" width="140.0" height="22.0" fill="#fbf2ea" stroke="#D2955C" stroke-width="1.2"/><text x="235.0" y="197.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">stg_incident_reports</text>
+<rect x="330.0" y="182.0" width="300.0" height="22.0" fill="#eef1f6" stroke="#7C93B0" stroke-width="1.2"/><text x="480.0" y="196.6" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal">int_incident_reports_documents → split → chunk → chunks_meta</text>
+<rect x="650.0" y="182.0" width="150.0" height="22.0" fill="#eef1f6" stroke="#7C93B0" stroke-width="1.2"/><text x="725.0" y="196.8" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">incident_reports_hashed</text>
+<rect x="830.0" y="176.0" width="120.0" height="17.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="890.0" y="187.9" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_classify (table)</text>
+<rect x="830.0" y="197.0" width="120.0" height="17.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="890.0" y="208.9" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_embed (incremental)</text>
+<rect x="990.0" y="182.0" width="150.0" height="22.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="1065.0" y="196.6" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_embedded_classified</text>
+<line x1="145.0" y1="193.0" x2="163.0" y2="193.0" stroke="#555555" stroke-width="1.2"/><polygon points="163.0,193.0 156.6,195.7 156.6,190.3" fill="#555555"/>
+<line x1="305.0" y1="193.0" x2="328.0" y2="193.0" stroke="#555555" stroke-width="1.2"/><polygon points="328.0,193.0 321.6,195.7 321.6,190.3" fill="#555555"/>
+<line x1="630.0" y1="193.0" x2="648.0" y2="193.0" stroke="#555555" stroke-width="1.2"/><polygon points="648.0,193.0 641.6,195.7 641.6,190.3" fill="#555555"/>
+<line x1="800.0" y1="193.0" x2="828.0" y2="184.5" stroke="#555555" stroke-width="1.2"/><polygon points="828.0,184.5 822.6,189.0 821.0,183.8" fill="#555555"/>
+<line x1="800.0" y1="193.0" x2="828.0" y2="205.5" stroke="#555555" stroke-width="1.2"/><polygon points="828.0,205.5 821.0,205.4 823.2,200.4" fill="#555555"/>
+<line x1="950.0" y1="184.5" x2="988.0" y2="190.0" stroke="#555555" stroke-width="1.2"/><polygon points="988.0,190.0 981.2,191.8 982.0,186.4" fill="#555555"/>
+<line x1="950.0" y1="205.5" x2="988.0" y2="196.0" stroke="#555555" stroke-width="1.2"/><polygon points="988.0,196.0 982.4,200.2 981.1,194.9" fill="#555555"/>
+<line x1="1140.0" y1="193.0" x2="1168.0" y2="266.0" stroke="#bdbdbd" stroke-width="1.1"/><polygon points="1168.0,266.0 1163.1,261.0 1168.2,259.0" fill="#bdbdbd"/>
+<text x="1144.0" y="189.0" font-size="10" fill="#555555" text-anchor="start" font-weight="bold">716</text>
+<rect x="20.0" y="244.0" width="125.0" height="22.0" fill="#eef5ee" stroke="#7FA37F" stroke-width="1.2"/><text x="82.5" y="259.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">crm_notes</text>
+<rect x="165.0" y="244.0" width="140.0" height="22.0" fill="#fbf2ea" stroke="#D2955C" stroke-width="1.2"/><text x="235.0" y="259.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">stg_crm_notes</text>
+<rect x="330.0" y="244.0" width="300.0" height="22.0" fill="#eef1f6" stroke="#7C93B0" stroke-width="1.2"/><text x="480.0" y="258.6" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal">int_crm_notes_documents → split → chunk → chunks_meta</text>
+<rect x="650.0" y="244.0" width="150.0" height="22.0" fill="#eef1f6" stroke="#7C93B0" stroke-width="1.2"/><text x="725.0" y="258.8" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">crm_notes_hashed</text>
+<rect x="830.0" y="238.0" width="120.0" height="17.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="890.0" y="249.9" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_classify (table)</text>
+<rect x="830.0" y="259.0" width="120.0" height="17.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="890.0" y="270.9" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_embed (incremental)</text>
+<rect x="990.0" y="244.0" width="150.0" height="22.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="1065.0" y="258.6" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_embedded_classified</text>
+<line x1="145.0" y1="255.0" x2="163.0" y2="255.0" stroke="#555555" stroke-width="1.2"/><polygon points="163.0,255.0 156.6,257.7 156.6,252.3" fill="#555555"/>
+<line x1="305.0" y1="255.0" x2="328.0" y2="255.0" stroke="#555555" stroke-width="1.2"/><polygon points="328.0,255.0 321.6,257.7 321.6,252.3" fill="#555555"/>
+<line x1="630.0" y1="255.0" x2="648.0" y2="255.0" stroke="#555555" stroke-width="1.2"/><polygon points="648.0,255.0 641.6,257.7 641.6,252.3" fill="#555555"/>
+<line x1="800.0" y1="255.0" x2="828.0" y2="246.5" stroke="#555555" stroke-width="1.2"/><polygon points="828.0,246.5 822.6,251.0 821.0,245.8" fill="#555555"/>
+<line x1="800.0" y1="255.0" x2="828.0" y2="267.5" stroke="#555555" stroke-width="1.2"/><polygon points="828.0,267.5 821.0,267.4 823.2,262.4" fill="#555555"/>
+<line x1="950.0" y1="246.5" x2="988.0" y2="252.0" stroke="#555555" stroke-width="1.2"/><polygon points="988.0,252.0 981.2,253.8 982.0,248.4" fill="#555555"/>
+<line x1="950.0" y1="267.5" x2="988.0" y2="258.0" stroke="#555555" stroke-width="1.2"/><polygon points="988.0,258.0 982.4,262.2 981.1,256.9" fill="#555555"/>
+<line x1="1140.0" y1="255.0" x2="1168.0" y2="275.0" stroke="#bdbdbd" stroke-width="1.1"/><polygon points="1168.0,275.0 1161.2,273.5 1164.3,269.0" fill="#bdbdbd"/>
+<text x="1144.0" y="251.0" font-size="10" fill="#555555" text-anchor="start" font-weight="bold">58</text>
+<rect x="20.0" y="306.0" width="125.0" height="22.0" fill="#eef5ee" stroke="#7FA37F" stroke-width="1.2"/><text x="82.5" y="321.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">call_transcripts</text>
+<rect x="165.0" y="306.0" width="140.0" height="22.0" fill="#fbf2ea" stroke="#D2955C" stroke-width="1.2"/><text x="235.0" y="321.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">stg_call_transcripts</text>
+<rect x="330.0" y="306.0" width="300.0" height="22.0" fill="#eef1f6" stroke="#7C93B0" stroke-width="1.2"/><text x="480.0" y="320.6" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal">int_transcript_turns → chunk_transcripts → transcript_chunks_meta</text>
+<rect x="650.0" y="306.0" width="150.0" height="22.0" fill="#eef1f6" stroke="#7C93B0" stroke-width="1.2"/><text x="725.0" y="320.8" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">call_transcripts_hashed</text>
+<rect x="830.0" y="300.0" width="120.0" height="17.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="890.0" y="311.9" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_classify (table)</text>
+<rect x="830.0" y="321.0" width="120.0" height="17.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="890.0" y="332.9" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_embed (incremental)</text>
+<rect x="990.0" y="306.0" width="150.0" height="22.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="1065.0" y="320.6" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_embedded_classified</text>
+<line x1="145.0" y1="317.0" x2="163.0" y2="317.0" stroke="#555555" stroke-width="1.2"/><polygon points="163.0,317.0 156.6,319.7 156.6,314.3" fill="#555555"/>
+<line x1="305.0" y1="317.0" x2="328.0" y2="317.0" stroke="#555555" stroke-width="1.2"/><polygon points="328.0,317.0 321.6,319.7 321.6,314.3" fill="#555555"/>
+<line x1="630.0" y1="317.0" x2="648.0" y2="317.0" stroke="#555555" stroke-width="1.2"/><polygon points="648.0,317.0 641.6,319.7 641.6,314.3" fill="#555555"/>
+<line x1="800.0" y1="317.0" x2="828.0" y2="308.5" stroke="#555555" stroke-width="1.2"/><polygon points="828.0,308.5 822.6,313.0 821.0,307.8" fill="#555555"/>
+<line x1="800.0" y1="317.0" x2="828.0" y2="329.5" stroke="#555555" stroke-width="1.2"/><polygon points="828.0,329.5 821.0,329.4 823.2,324.4" fill="#555555"/>
+<line x1="950.0" y1="308.5" x2="988.0" y2="314.0" stroke="#555555" stroke-width="1.2"/><polygon points="988.0,314.0 981.2,315.8 982.0,310.4" fill="#555555"/>
+<line x1="950.0" y1="329.5" x2="988.0" y2="320.0" stroke="#555555" stroke-width="1.2"/><polygon points="988.0,320.0 982.4,324.2 981.1,318.9" fill="#555555"/>
+<line x1="1140.0" y1="317.0" x2="1168.0" y2="284.0" stroke="#bdbdbd" stroke-width="1.1"/><polygon points="1168.0,284.0 1165.9,290.7 1161.8,287.2" fill="#bdbdbd"/>
+<text x="1144.0" y="313.0" font-size="10" fill="#555555" text-anchor="start" font-weight="bold">69</text>
+<rect x="20.0" y="368.0" width="125.0" height="22.0" fill="#eef5ee" stroke="#7FA37F" stroke-width="1.2"/><text x="82.5" y="383.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">support_tickets</text>
+<rect x="165.0" y="368.0" width="140.0" height="22.0" fill="#fbf2ea" stroke="#D2955C" stroke-width="1.2"/><text x="235.0" y="383.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">stg_support_tickets</text>
+<rect x="330.0" y="368.0" width="300.0" height="22.0" fill="#eef1f6" stroke="#7C93B0" stroke-width="1.2"/><text x="480.0" y="382.6" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal">ticket_records_meta (whole record)</text>
+<rect x="650.0" y="368.0" width="150.0" height="22.0" fill="#eef1f6" stroke="#7C93B0" stroke-width="1.2"/><text x="725.0" y="382.8" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">support_tickets_hashed</text>
+<rect x="830.0" y="362.0" width="120.0" height="17.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="890.0" y="373.9" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_classify (table)</text>
+<rect x="830.0" y="383.0" width="120.0" height="17.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="890.0" y="394.9" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_embed (incremental)</text>
+<rect x="990.0" y="368.0" width="150.0" height="22.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="1065.0" y="382.6" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_embedded_classified</text>
+<line x1="145.0" y1="379.0" x2="163.0" y2="379.0" stroke="#555555" stroke-width="1.2"/><polygon points="163.0,379.0 156.6,381.7 156.6,376.3" fill="#555555"/>
+<line x1="305.0" y1="379.0" x2="328.0" y2="379.0" stroke="#555555" stroke-width="1.2"/><polygon points="328.0,379.0 321.6,381.7 321.6,376.3" fill="#555555"/>
+<line x1="630.0" y1="379.0" x2="648.0" y2="379.0" stroke="#555555" stroke-width="1.2"/><polygon points="648.0,379.0 641.6,381.7 641.6,376.3" fill="#555555"/>
+<line x1="800.0" y1="379.0" x2="828.0" y2="370.5" stroke="#555555" stroke-width="1.2"/><polygon points="828.0,370.5 822.6,375.0 821.0,369.8" fill="#555555"/>
+<line x1="800.0" y1="379.0" x2="828.0" y2="391.5" stroke="#555555" stroke-width="1.2"/><polygon points="828.0,391.5 821.0,391.4 823.2,386.4" fill="#555555"/>
+<line x1="950.0" y1="370.5" x2="988.0" y2="376.0" stroke="#555555" stroke-width="1.2"/><polygon points="988.0,376.0 981.2,377.8 982.0,372.4" fill="#555555"/>
+<line x1="950.0" y1="391.5" x2="988.0" y2="382.0" stroke="#555555" stroke-width="1.2"/><polygon points="988.0,382.0 982.4,386.2 981.1,380.9" fill="#555555"/>
+<line x1="1140.0" y1="379.0" x2="1168.0" y2="293.0" stroke="#bdbdbd" stroke-width="1.1"/><polygon points="1168.0,293.0 1168.6,300.0 1163.4,298.3" fill="#bdbdbd"/>
+<text x="1144.0" y="375.0" font-size="10" fill="#555555" text-anchor="start" font-weight="bold">403</text>
+<rect x="20.0" y="430.0" width="125.0" height="22.0" fill="#eef5ee" stroke="#7FA37F" stroke-width="1.2"/><text x="82.5" y="445.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">dispatch_notes</text>
+<rect x="165.0" y="430.0" width="140.0" height="22.0" fill="#fbf2ea" stroke="#D2955C" stroke-width="1.2"/><text x="235.0" y="445.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">stg_dispatch_notes</text>
+<rect x="330.0" y="430.0" width="300.0" height="22.0" fill="#eef1f6" stroke="#7C93B0" stroke-width="1.2"/><text x="480.0" y="444.6" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal">dispatch_notes_records_meta (whole record)</text>
+<rect x="650.0" y="430.0" width="150.0" height="22.0" fill="#eef1f6" stroke="#7C93B0" stroke-width="1.2"/><text x="725.0" y="444.8" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">dispatch_notes_hashed</text>
+<rect x="830.0" y="424.0" width="120.0" height="17.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="890.0" y="435.9" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_classify (table)</text>
+<rect x="830.0" y="445.0" width="120.0" height="17.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="890.0" y="456.9" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_embed (incremental)</text>
+<rect x="990.0" y="430.0" width="150.0" height="22.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="1065.0" y="444.6" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_embedded_classified</text>
+<line x1="145.0" y1="441.0" x2="163.0" y2="441.0" stroke="#555555" stroke-width="1.2"/><polygon points="163.0,441.0 156.6,443.7 156.6,438.3" fill="#555555"/>
+<line x1="305.0" y1="441.0" x2="328.0" y2="441.0" stroke="#555555" stroke-width="1.2"/><polygon points="328.0,441.0 321.6,443.7 321.6,438.3" fill="#555555"/>
+<line x1="630.0" y1="441.0" x2="648.0" y2="441.0" stroke="#555555" stroke-width="1.2"/><polygon points="648.0,441.0 641.6,443.7 641.6,438.3" fill="#555555"/>
+<line x1="800.0" y1="441.0" x2="828.0" y2="432.5" stroke="#555555" stroke-width="1.2"/><polygon points="828.0,432.5 822.6,437.0 821.0,431.8" fill="#555555"/>
+<line x1="800.0" y1="441.0" x2="828.0" y2="453.5" stroke="#555555" stroke-width="1.2"/><polygon points="828.0,453.5 821.0,453.4 823.2,448.4" fill="#555555"/>
+<line x1="950.0" y1="432.5" x2="988.0" y2="438.0" stroke="#555555" stroke-width="1.2"/><polygon points="988.0,438.0 981.2,439.8 982.0,434.4" fill="#555555"/>
+<line x1="950.0" y1="453.5" x2="988.0" y2="444.0" stroke="#555555" stroke-width="1.2"/><polygon points="988.0,444.0 982.4,448.2 981.1,442.9" fill="#555555"/>
+<line x1="1140.0" y1="441.0" x2="1168.0" y2="302.0" stroke="#bdbdbd" stroke-width="1.1"/><polygon points="1168.0,302.0 1169.4,308.9 1164.1,307.8" fill="#bdbdbd"/>
+<text x="1144.0" y="437.0" font-size="10" fill="#555555" text-anchor="start" font-weight="bold">1,299</text>
+<rect x="20.0" y="492.0" width="125.0" height="22.0" fill="#eef5ee" stroke="#7FA37F" stroke-width="1.2"/><text x="82.5" y="507.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">slack_threads</text>
+<rect x="165.0" y="492.0" width="140.0" height="22.0" fill="#fbf2ea" stroke="#D2955C" stroke-width="1.2"/><text x="235.0" y="507.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">stg_slack_threads</text>
+<rect x="330.0" y="492.0" width="300.0" height="22.0" fill="#eef1f6" stroke="#7C93B0" stroke-width="1.2"/><text x="480.0" y="506.6" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal">slack_threads_records_meta (whole record)</text>
+<rect x="650.0" y="492.0" width="150.0" height="22.0" fill="#eef1f6" stroke="#7C93B0" stroke-width="1.2"/><text x="725.0" y="506.8" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">slack_threads_hashed</text>
+<rect x="830.0" y="486.0" width="120.0" height="17.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="890.0" y="497.9" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_classify (table)</text>
+<rect x="830.0" y="507.0" width="120.0" height="17.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="890.0" y="518.9" font-size="9.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_embed (incremental)</text>
+<rect x="990.0" y="492.0" width="150.0" height="22.0" fill="#e9f3f3" stroke="#7FAFAF" stroke-width="1.2"/><text x="1065.0" y="506.6" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal">_embedded_classified</text>
+<line x1="145.0" y1="503.0" x2="163.0" y2="503.0" stroke="#555555" stroke-width="1.2"/><polygon points="163.0,503.0 156.6,505.7 156.6,500.3" fill="#555555"/>
+<line x1="305.0" y1="503.0" x2="328.0" y2="503.0" stroke="#555555" stroke-width="1.2"/><polygon points="328.0,503.0 321.6,505.7 321.6,500.3" fill="#555555"/>
+<line x1="630.0" y1="503.0" x2="648.0" y2="503.0" stroke="#555555" stroke-width="1.2"/><polygon points="648.0,503.0 641.6,505.7 641.6,500.3" fill="#555555"/>
+<line x1="800.0" y1="503.0" x2="828.0" y2="494.5" stroke="#555555" stroke-width="1.2"/><polygon points="828.0,494.5 822.6,499.0 821.0,493.8" fill="#555555"/>
+<line x1="800.0" y1="503.0" x2="828.0" y2="515.5" stroke="#555555" stroke-width="1.2"/><polygon points="828.0,515.5 821.0,515.4 823.2,510.4" fill="#555555"/>
+<line x1="950.0" y1="494.5" x2="988.0" y2="500.0" stroke="#555555" stroke-width="1.2"/><polygon points="988.0,500.0 981.2,501.8 982.0,496.4" fill="#555555"/>
+<line x1="950.0" y1="515.5" x2="988.0" y2="506.0" stroke="#555555" stroke-width="1.2"/><polygon points="988.0,506.0 982.4,510.2 981.1,504.9" fill="#555555"/>
+<line x1="1140.0" y1="503.0" x2="1168.0" y2="311.0" stroke="#bdbdbd" stroke-width="1.1"/><polygon points="1168.0,311.0 1169.8,317.8 1164.4,317.0" fill="#bdbdbd"/>
+<text x="1144.0" y="499.0" font-size="10" fill="#555555" text-anchor="start" font-weight="bold">116</text>
+<rect x="1170.0" y="244.0" width="130.0" height="80.0" fill="#f1ecf5" stroke="#9E85AC" stroke-width="1.8"/>
+<text x="1235.0" y="266.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">knowledge_base</text>
+<text x="1235.0" y="284.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">table · 2,696 rows</text>
+<text x="1235.0" y="299.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">7 source_types</text>
+<text x="1235.0" y="314.0" font-size="10.5" fill="#c0392b" text-anchor="middle" font-weight="bold">catalog: 0 parents</text>
+<rect x="1170.0" y="374.0" width="130.0" height="26.0" fill="#ffffff" stroke="#555555" stroke-width="1.2"/><text x="1235.0" y="390.8" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">search (demo queries)</text>
+<line x1="1235.0" y1="324.0" x2="1235.0" y2="372.0" stroke="#555555" stroke-width="1.2"/><polygon points="1235.0,372.0 1232.3,365.6 1237.7,365.6" fill="#555555"/>
+<rect x="1150.0" y="444.0" width="170.0" height="40.0" fill="#ffffff" stroke="#555555" stroke-width="1.2"/><text x="1235.0" y="467.8" font-size="10.5" fill="3,3" text-anchor="middle" font-weight="normal"></text>
+<text x="1235.0" y="460.0" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal">agents: knowledge-base-</text>
+<text x="1235.0" y="474.0" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal">search skill (no exposure)</text>
+<line x1="1308.0" y1="304.0" x2="1308.0" y2="442.0" stroke="#555555" stroke-width="1.0"/><polygon points="1308.0,442.0 1305.3,435.6 1310.7,435.6" fill="#555555"/>
+<rect x="165.0" y="644.0" width="470.0" height="26.0" fill="#fbf2ea" stroke="#D2955C" stroke-width="1.2"/><text x="400.0" y="660.8" font-size="10.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">account-key helpers: stg_route_client_attribution · stg_shipments · stg_incidents</text>
+<line x1="635.0" y1="657.0" x2="640.0" y2="516.0" stroke="#bdbdbd" stroke-width="1.1"/><polygon points="640.0,516.0 642.5,522.5 637.0,522.3" fill="#bdbdbd"/>
+<text x="165.0" y="690.0" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">dispatch notes and Slack threads carry no client_id; *_records_meta derives it through these (null where it cannot).</text>
+<rect x="650.0" y="644.0" width="600.0" height="54.0" fill="#fdf0ee" stroke="#c0392b" stroke-width="1.2"/>
+<text x="660.0" y="664.0" font-size="11" fill="#c0392b" text-anchor="start" font-weight="bold">Production today: corpus text is US-era (‘columbus’ in 190 rows, ‘amsterdam’ in 0)</text>
+<text x="660.0" y="682.0" font-size="11" fill="#c0392b" text-anchor="start" font-weight="normal">main’s seeds were re-labelled to Europe (a00d85b); the gated layer was not rebuilt in production.</text>
+</svg>
