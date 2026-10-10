@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="500" viewBox="0 0 900 500" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="900" height="500" fill="#ffffff"/>
+<text x="450.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">2025 maintenance cost per route, by vehicle type</text>
+<text x="450.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">Work-order $ ÷ routes run by that type. Red = collision repair, blue = everything else.</text>
+<line x1="110.0" y1="410.0" x2="700.0" y2="410.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="102.0" y="414.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">$0</text>
+<line x1="110.0" y1="358.3" x2="700.0" y2="358.3" stroke="#d9d9d9" stroke-width="1"/>
+<text x="102.0" y="362.3" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">$15</text>
+<line x1="110.0" y1="306.7" x2="700.0" y2="306.7" stroke="#d9d9d9" stroke-width="1"/>
+<text x="102.0" y="310.7" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">$30</text>
+<line x1="110.0" y1="255.0" x2="700.0" y2="255.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="102.0" y="259.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">$45</text>
+<line x1="110.0" y1="203.3" x2="700.0" y2="203.3" stroke="#d9d9d9" stroke-width="1"/>
+<text x="102.0" y="207.3" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">$60</text>
+<line x1="110.0" y1="151.7" x2="700.0" y2="151.7" stroke="#d9d9d9" stroke-width="1"/>
+<text x="102.0" y="155.7" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">$75</text>
+<line x1="110.0" y1="100.0" x2="700.0" y2="100.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="102.0" y="104.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">$90</text>
+<text x="45.0" y="255.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal" transform="rotate(-90 45.0 255.0)">Maintenance cost per route (USD)</text>
+<text x="208.3" y="430.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Box truck</text>
+<text x="208.3" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">1,935 routes · 37 WOs</text>
+<rect x="167.0" y="227.9" width="82.6" height="182.1" fill="#c0392b" stroke="none"/>
+<rect x="167.0" y="163.1" width="82.6" height="64.8" fill="#2c6fbb" stroke="none"/>
+<text x="208.3" y="323.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">$52.87</text>
+<text x="208.3" y="199.5" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">$18.81</text>
+<text x="208.3" y="157.1" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">$71.67</text>
+<text x="405.0" y="430.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Van</text>
+<text x="405.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">1,694 routes · 35 WOs</text>
+<rect x="363.7" y="301.6" width="82.6" height="108.4" fill="#c0392b" stroke="none"/>
+<rect x="363.7" y="203.2" width="82.6" height="98.4" fill="#2c6fbb" stroke="none"/>
+<text x="405.0" y="359.8" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">$31.47</text>
+<text x="405.0" y="256.4" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">$28.57</text>
+<text x="405.0" y="197.2" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">$60.04</text>
+<text x="601.7" y="430.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Semi</text>
+<text x="601.7" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">0 routes · 9 WOs</text>
+<rect x="560.4" y="340.0" width="82.6" height="70.0" fill="none" stroke="#d9d9d9"/>
+<text x="601.7" y="362.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="bold">no routes in 2025</text>
+<text x="601.7" y="378.0" font-size="11" fill="#c0392b" text-anchor="middle" font-weight="normal">$27,188 spent</text>
+<text x="601.7" y="393.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">on 4 idle semis</text>
+<line x1="110.0" y1="156.0" x2="700.0" y2="156.0" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="708.0" y="154.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold">fleet average $73.73</text>
+<text x="708.0" y="168.0" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">(all spend ÷ all routes)</text>
+<line x1="110.0" y1="181.8" x2="700.0" y2="181.8" stroke="#555555" stroke-width="1.2" stroke-dasharray="2,3"/>
+<text x="708.0" y="195.8" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">$66.24 excl. idle-semi spend</text>
+<rect x="110.0" y="66.0" width="14.0" height="12.0" fill="#c0392b" stroke="none"/>
+<text x="130.0" y="76.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">collision repair</text>
+<rect x="270.0" y="66.0" width="14.0" height="12.0" fill="#2c6fbb" stroke="none"/>
+<text x="290.0" y="76.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">wear/fault repair + preventive</text>
+<text x="405.0" y="490.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal">Vehicle type</text>
+</svg>
