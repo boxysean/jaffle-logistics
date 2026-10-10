@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Jaffle Logistics — The Executive Group</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Schibsted+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f6f3ec;
+    --ink: #16150f;
+    --ink-2: #4a473f;
+    --ink-3: #8a857a;
+    --rule: #d3cdc0;
+    --accent: #c8361b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; height: 100%; background: #e4e0d6; overflow: hidden; }
+  #stage {
+    position: absolute; left: 50%; top: 50%;
+    width: 1920px; height: 1080px;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+    overflow: hidden;
+  }
+  .serif { font-family: "Newsreader", Georgia, serif; }
+
+  .mast { position: absolute; left: 96px; right: 96px; top: 64px; height: 170px; display: grid; grid-template-columns: 1fr 560px; column-gap: 120px; align-items: end; }
+  .kicker { font-size: 24px; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
+  h1 { font-family: "Newsreader", Georgia, serif; font-weight: 400; font-size: 76px; line-height: 1; letter-spacing: -.015em; margin-top: 18px; }
+  .ctx { font-size: 24px; line-height: 1.4; color: var(--ink-2); padding-bottom: 6px; }
+  .ctx b { font-weight: 500; color: var(--ink); }
+
+  .table { position: absolute; left: 96px; right: 96px; top: 262px; border-top: 2px solid var(--ink); }
+  .row {
+    display: grid; grid-template-columns: 64px 660px 300px 1fr; align-items: center;
+    height: 104px; border-bottom: 1px solid var(--rule);
+  }
+  .idx { font-family: "Newsreader", Georgia, serif; font-style: italic; font-size: 26px; color: var(--accent); }
+  .role { font-family: "Newsreader", Georgia, serif; font-weight: 500; font-size: 44px; line-height: 1; letter-spacing: -.01em; }
+  .owns { font-size: 24px; font-variant: small-caps; text-transform: lowercase; letter-spacing: .08em; color: var(--ink-3); margin-top: 8px; }
+  .fig { font-family: "Newsreader", Georgia, serif; font-size: 72px; line-height: 1; letter-spacing: -.02em; font-variant-numeric: lining-nums; }
+  .fact { font-size: 26px; line-height: 1.3; color: var(--ink-2); max-width: 640px; }
+  .fact b { font-weight: 700; color: var(--ink); }
+
+  footer {
+    position: absolute; left: 96px; right: 96px; bottom: 36px;
+    display: flex; justify-content: space-between;
+    font-size: 18px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3);
+  }
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <div class="mast">
+    <div>
+      <div class="kicker">Jaffle Logistics · The executive group</div>
+      <h1>Seven seats, one fact each.</h1>
+    </div>
+    <p class="ctx">Five hubs in five countries, run from Amsterdam with Paris, Berlin, Vienna and Zürich; one non-EU border crossing; a <b>97% on-time target</b> on the two strategic accounts.</p>
+  </div>
+
+  <div class="table">
+    <div class="row">
+      <span class="idx">i</span>
+      <div><div class="role">Chief Financial Officer</div><div class="owns">where the money goes</div></div>
+      <div class="fig">157%</div>
+      <p class="fact">Fleet maintenance spend rose <b>157%</b> while routes rose <b>3.1%</b></p>
+    </div>
+    <div class="row">
+      <span class="idx">ii</span>
+      <div><div class="role">Chief Operating Officer</div><div class="owns">whether the network runs</div></div>
+      <div class="fig">93.3%</div>
+      <p class="fact">Whole-book on-time fell to <b>93.3%</b> in 2025, from <b>97.5%</b> and <b>97.2%</b></p>
+    </div>
+    <div class="row">
+      <span class="idx">iii</span>
+      <div><div class="role">Chief Revenue Officer</div><div class="owns">whether the book holds</div></div>
+      <div class="fig">⅓</div>
+      <p class="fact">One account is roughly <b>a third of revenue</b> and <b>half the missed shipments</b></p>
+    </div>
+    <div class="row">
+      <span class="idx">iv</span>
+      <div><div class="role">Head of Customer Experience</div><div class="owns">what the customer feels</div></div>
+      <div class="fig">17 → 72</div>
+      <p class="fact">The at-risk account's tickets went <b>17 → 17 → 72</b></p>
+    </div>
+    <div class="row">
+      <span class="idx">v</span>
+      <div><div class="role">Head of Fleet &amp; Maintenance</div><div class="owns">what the assets cost</div></div>
+      <div class="fig">63%</div>
+      <p class="fact">Collision repair is <b>63% of 2025 maintenance spend</b></p>
+    </div>
+    <div class="row">
+      <span class="idx">vi</span>
+      <div><div class="role">Head of People</div><div class="owns">who actually drives</div></div>
+      <div class="fig">2×</div>
+      <p class="fact">Contractors cost <b>twice as much per route</b>; <b>nobody was hired in 2025</b></p>
+    </div>
+    <div class="row">
+      <span class="idx">vii</span>
+      <div><div class="role">Head of Data</div><div class="owns">whether the numbers can be trusted</div></div>
+      <div class="fig">2,009</div>
+      <p class="fact">Every year contains exactly <b>2,009 shipments</b> — volume is not comparable</p>
+    </div>
+  </div>
+
+  <footer>
+    <span>Seats, not people</span>
+    <span>Synthetic dataset</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var stage = document.getElementById('stage');
+  function fit() {
+    var s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    stage.style.transform = 'translate(-50%, -50%) scale(' + s + ')';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+})();
+</script>
+</body>
+</html>

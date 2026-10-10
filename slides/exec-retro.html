@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Jaffle Logistics — Management Team</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a1433;
+    --panel: #102158;
+    --deep: #06102b;
+    --line: #2c4fa8;
+    --hi: #4a74d6;
+    --ink: #e9eefc;
+    --dim: #8597cc;
+    --hot: #ff3b5c;
+    --amber: #ffb52e;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 100%; height: 100%; background: #030714; overflow: hidden; }
+  #stage {
+    position: absolute; left: 50%; top: 50%;
+    width: 1920px; height: 1080px;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "VT323", ui-monospace, monospace;
+    overflow: hidden;
+    image-rendering: pixelated;
+  }
+  /* scanlines */
+  #stage::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: repeating-linear-gradient(0deg, rgba(0,0,0,.16) 0 2px, transparent 2px 4px);
+  }
+  .px { font-family: "Press Start 2P", monospace; }
+
+  .bevel {
+    background: var(--panel);
+    border: 4px solid var(--line);
+    box-shadow: inset 4px 4px 0 var(--hi), inset -4px -4px 0 var(--deep), 0 0 0 4px var(--deep);
+  }
+
+  header {
+    position: absolute; left: 40px; right: 40px; top: 28px; height: 80px;
+    display: flex; align-items: center; padding: 0 28px; gap: 28px;
+  }
+  header .title { font-size: 26px; color: var(--amber); letter-spacing: 1px; }
+  header .sub { font-size: 18px; color: var(--ink); }
+  header .right { margin-left: auto; display: flex; gap: 36px; font-size: 30px; color: var(--dim); }
+  header .right b { color: var(--ink); font-weight: normal; }
+
+  #grid {
+    position: absolute; left: 40px; right: 40px; top: 128px; height: 836px;
+    display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .tile { position: relative; padding: 18px 22px 18px; display: flex; flex-direction: column; }
+  .tile.sel { border-color: var(--hot); box-shadow: inset 4px 4px 0 #ff7a8f, inset -4px -4px 0 #8a1028, 0 0 0 4px var(--deep); }
+  .tile.sel::before {
+    content: "▶"; position: absolute; left: -34px; top: 40px;
+    font-family: "Press Start 2P", monospace; font-size: 22px; color: var(--hot);
+    animation: blink 1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .top { display: flex; gap: 18px; align-items: flex-start; }
+  .ava { width: 88px; height: 88px; flex: none; background: var(--deep); border: 4px solid var(--line); }
+  .ava svg { display: block; width: 80px; height: 80px; shape-rendering: crispEdges; }
+  .stat { display: flex; flex-direction: column; gap: 10px; padding-top: 2px; }
+  .no { font-family: "Press Start 2P", monospace; font-size: 14px; color: var(--dim); }
+  .big { font-family: "Press Start 2P", monospace; font-size: 30px; color: var(--amber); line-height: 1; }
+  .big.hot { color: var(--hot); }
+  .unit { font-size: 26px; color: var(--dim); line-height: 1; text-transform: uppercase; }
+
+  .role { font-family: "Press Start 2P", monospace; font-size: 20px; line-height: 1.45; margin-top: 12px; min-height: 58px; text-transform: uppercase; }
+  .mandate { font-size: 28px; color: var(--dim); margin-top: 6px; line-height: 1; }
+  .mandate::before { content: "OWNS: "; color: var(--amber); }
+  .fact { font-size: 28px; line-height: 1.02; margin-top: 10px; }
+  .fact b { font-weight: normal; color: var(--amber); }
+
+  .viz { margin-top: auto; padding-top: 8px; display: flex; flex-direction: column; gap: 4px; }
+  .meter { display: grid; grid-template-columns: 116px 1fr 74px; align-items: center; gap: 10px; font-size: 24px; line-height: 1; text-transform: uppercase; }
+  .meter .v { text-align: right; color: var(--ink); }
+  .meter .k { color: var(--dim); }
+  .track { height: 16px; background: var(--deep); border: 2px solid var(--line); position: relative; }
+  .fill {
+    position: absolute; left: 2px; top: 2px; bottom: 2px; min-width: 10px;
+    background: repeating-linear-gradient(90deg, var(--c, var(--amber)) 0 10px, transparent 10px 13px);
+  }
+  .chips { display: flex; align-items: center; gap: 10px; font-size: 30px; }
+  .chip { background: var(--deep); border: 2px solid var(--line); padding: 4px 10px 2px; line-height: 1; }
+  .chip.hot { border-color: var(--hot); color: var(--hot); }
+  .chips .arr { color: var(--dim); }
+
+  /* network panel */
+  .net { background: var(--deep); }
+  .net h3 { font-family: "Press Start 2P", monospace; font-size: 20px; color: var(--amber); font-weight: normal; }
+  .net dl { margin-top: 18px; display: grid; grid-template-columns: 1fr auto; row-gap: 8px; font-size: 30px; line-height: 1; }
+  .net dt { color: var(--dim); text-transform: uppercase; }
+  .net dd { text-align: right; font-family: "Press Start 2P", monospace; font-size: 20px; color: var(--ink); }
+  .net .note { font-size: 24px; color: var(--dim); margin-top: 6px; line-height: 1; }
+  .hubs { margin-top: auto; display: flex; gap: 8px; }
+  .hubs span { flex: 1; text-align: center; font-family: "Press Start 2P", monospace; font-size: 13px; padding: 10px 0 8px; border: 2px solid var(--line); background: var(--panel); }
+  .hubs span.hq { border-color: var(--amber); color: var(--amber); }
+  .hubs span.x { border-color: var(--hot); color: var(--hot); }
+
+  footer {
+    position: absolute; left: 40px; right: 40px; top: 984px; height: 68px;
+    display: flex; align-items: center; padding: 0 28px; gap: 40px;
+    font-size: 30px; text-transform: uppercase;
+  }
+  footer .key { color: var(--ink); }
+  footer .key i { font-style: normal; color: var(--deep); background: var(--amber); padding: 0 8px; margin-right: 8px; }
+  footer .sel { color: var(--hot); }
+  footer .syn { margin-left: auto; color: var(--dim); }
+</style>
+</head>
+<body>
+<div id="stage">
+
+  <header class="bevel">
+    <span class="px title">JAFFLE LOGISTICS</span>
+    <span class="px sub">MANAGEMENT TEAM</span>
+    <div class="right"><span>HQ <b>AMSTERDAM</b></span><span>SEATS <b>7/7</b></span><span>FY <b>2025</b></span></div>
+  </header>
+
+  <main id="grid">
+
+    <section class="tile bevel sel">
+      <div class="top"><div class="ava" data-a="cfo"></div>
+        <div class="stat"><span class="no">No.01</span><span class="big">+157%</span><span class="unit">maint. spend</span></div></div>
+      <div class="role">Chief Financial Officer</div>
+      <div class="mandate">where the money goes</div>
+      <div class="fact">Fleet maintenance spend rose <b>157%</b> while routes rose <b>3.1%</b></div>
+      <div class="viz">
+        <div class="meter"><span class="k">Maint.</span><div class="track"><div class="fill" style="width:calc(100% - 4px);--c:var(--hot)"></div></div><span class="v">+157%</span></div>
+        <div class="meter"><span class="k">Routes</span><div class="track"><div class="fill" style="width:2%"></div></div><span class="v">+3.1%</span></div>
+      </div>
+    </section>
+
+    <section class="tile bevel">
+      <div class="top"><div class="ava" data-a="coo"></div>
+        <div class="stat"><span class="no">No.02</span><span class="big hot">93.3%</span><span class="unit">on-time 2025</span></div></div>
+      <div class="role">Chief Operating Officer</div>
+      <div class="mandate">whether the network runs</div>
+      <div class="fact">Whole-book on-time fell to <b>93.3%</b> in 2025, from <b>97.5%</b> and <b>97.2%</b></div>
+      <div class="viz">
+        <div class="chips"><span class="chip">97.5</span><span class="arr">▶</span><span class="chip">97.2</span><span class="arr">▶</span><span class="chip hot">93.3</span></div>
+      </div>
+    </section>
+
+    <section class="tile bevel">
+      <div class="top"><div class="ava" data-a="cro"></div>
+        <div class="stat"><span class="no">No.03</span><span class="big">~1/3</span><span class="unit">of revenue</span></div></div>
+      <div class="role">Chief Revenue Officer</div>
+      <div class="mandate">whether the book holds</div>
+      <div class="fact">One account is roughly <b>a third of revenue</b> and <b>half the missed shipments</b></div>
+      <div class="viz">
+        <div class="meter"><span class="k">Revenue</span><div class="track"><div class="fill" style="width:calc((100% - 4px) / 3)"></div></div><span class="v">~1/3</span></div>
+        <div class="meter"><span class="k">Missed</span><div class="track"><div class="fill" style="width:calc((100% - 4px) / 2);--c:var(--hot)"></div></div><span class="v">~1/2</span></div>
+      </div>
+    </section>
+
+    <section class="tile bevel">
+      <div class="top"><div class="ava" data-a="cx"></div>
+        <div class="stat"><span class="no">No.04</span><span class="big hot">72</span><span class="unit">tickets</span></div></div>
+      <div class="role">Head of Customer Experience</div>
+      <div class="mandate">what the customer feels</div>
+      <div class="fact">The at-risk account's tickets went <b>17 → 17 → 72</b></div>
+      <div class="viz">
+        <div class="meter"><span class="k">Tickets</span><div class="track"><div class="fill" style="width:calc((100% - 4px) * 17 / 72)"></div></div><span class="v">17</span></div>
+        <div class="meter"><span class="k"></span><div class="track"><div class="fill" style="width:calc((100% - 4px) * 17 / 72)"></div></div><span class="v">17</span></div>
+        <div class="meter"><span class="k"></span><div class="track"><div class="fill" style="width:calc(100% - 4px);--c:var(--hot)"></div></div><span class="v">72</span></div>
+      </div>
+    </section>
+
+    <section class="tile bevel">
+      <div class="top"><div class="ava" data-a="fleet"></div>
+        <div class="stat"><span class="no">No.05</span><span class="big">63%</span><span class="unit">collision repair</span></div></div>
+      <div class="role">Head of Fleet &amp; Maintenance</div>
+      <div class="mandate">what the assets cost</div>
+      <div class="fact">Collision repair is <b>63% of 2025 maintenance spend</b></div>
+      <div class="viz">
+        <div class="meter"><span class="k">Collision</span><div class="track"><div class="fill" style="width:calc((100% - 4px) * .63);--c:var(--hot)"></div></div><span class="v">63%</span></div>      </div>
+    </section>
+
+    <section class="tile bevel">
+      <div class="top"><div class="ava" data-a="people"></div>
+        <div class="stat"><span class="no">No.06</span><span class="big">2&times;</span><span class="unit">cost per route</span></div></div>
+      <div class="role">Head of People</div>
+      <div class="mandate">who actually drives</div>
+      <div class="fact">Contractors cost <b>twice as much per route</b>; <b>nobody was hired in 2025</b></div>
+      <div class="viz">
+        <div class="meter"><span class="k">Contract</span><div class="track"><div class="fill" style="width:calc(100% - 4px);--c:var(--hot)"></div></div><span class="v">2&times;</span></div>
+        <div class="meter"><span class="k">Employed</span><div class="track"><div class="fill" style="width:calc((100% - 4px) / 2)"></div></div><span class="v">1&times;</span></div>
+        <div class="meter"><span class="k">Hires 25</span><div class="track"></div><span class="v">0</span></div>
+      </div>
+    </section>
+
+    <section class="tile bevel">
+      <div class="top"><div class="ava" data-a="data"></div>
+        <div class="stat"><span class="no">No.07</span><span class="big">2,009</span><span class="unit">shipments / yr</span></div></div>
+      <div class="role">Head of Data</div>
+      <div class="mandate">whether the numbers can be trusted</div>
+      <div class="fact">Every year contains exactly <b>2,009 shipments</b> — volume is not comparable</div>
+      <div class="viz">
+        <div class="meter"><span class="k">Year</span><div class="track"><div class="fill" style="width:calc(100% - 4px)"></div></div><span class="v">2,009</span></div>
+        <div class="meter"><span class="k">Year</span><div class="track"><div class="fill" style="width:calc(100% - 4px)"></div></div><span class="v">2,009</span></div>
+        <div class="meter"><span class="k">Year</span><div class="track"><div class="fill" style="width:calc(100% - 4px)"></div></div><span class="v">2,009</span></div>
+      </div>
+    </section>
+
+    <section class="tile bevel net">
+      <h3>NETWORK</h3>
+      <dl>
+        <dt>Hubs</dt><dd>5</dd>
+        <dt>Countries</dt><dd>5</dd>
+        <dt>Non-EU border crossing</dt><dd>1</dd>
+        <dt>On-time target</dt><dd>97%</dd>
+      </dl>
+      <div class="note">target applies to the two strategic accounts</div>
+      <div class="hubs"><span class="hq">AMS</span><span>PAR</span><span>BER</span><span>VIE</span><span class="x">ZRH</span></div>
+    </section>
+
+  </main>
+
+  <footer class="bevel">
+    <span class="sel">▶ No.01 selected</span>
+    <span class="key"><i>A</i>Open file</span>
+    <span class="key"><i>B</i>Back</span>
+    <span class="key"><i>ST</i>Board meeting</span>
+    <span class="syn">synthetic dataset</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var COL = { w: '#e9eefc', a: '#ffb52e', h: '#ff3b5c', b: '#4a74d6', d: '#8597cc' };
+  var AVA = {
+    cfo: ['....bbbb....','...bbbbbb...','...wwwwww...','...wwwwww...','...wwwwww...','....wwww....','.....ww.....','..aaahhaaa..','.aaaahhaaaa.','.aaaahhaaaa.','.aaaahhaaaa.','.aaaahhaaaa.'],
+    coo: ['....aaaa....','...aaaaaa...','..aaaaaaaa..','...wwwwww...','...wwwwww...','....wwww....','.....ww.....','..bbbbbbbb..','.bbhbbbbhbb.','.hhhhhhhhhh.','.bbbbbbbbbb.','.bbbbbbbbbb.'],
+    cro: ['....hhhhh...','...hhhhhhh..','...hwwwwww..','...wwwwww...','...wwwwww...','....wwww....','.....ww.....','..bbbwwbbb..','.bbbbwwbbbb.','.bbbbaabbbb.','.bbbbaabbbb.','.bbbbbbbbbb.'],
+    cx: ['...dddddd...','..d......d..','..dwwwwwwd..','..hwwwwwwh..','..hwwwwwwh..','...hwwww....','....hhww....','..aaaaaaaa..','.aaaaaaaaaa.','.aaaaaaaaaa.','.aaaaaaaaaa.','.aaaaaaaaaa.'],
+    fleet: ['............','...hhhhhh...','...hhhhhhhh.','...wwwwww...','...wwwwww...','....wwww....','.....ww.....','..dddddddd..','.dddaaaaddd.','.dddaaaaddd.','.dddddddddd.','.dddddddddd.'],
+    people: ['.....aa.....','....aaaa....','...aaaaaa...','...wwwwww...','...wwwwww...','....wwww....','.....ww.....','..hhhhhhhh..','.hhhhwwhhhh.','.hhhhwwhhhh.','.hhhhhhhhhh.','.hhhhhhhhhh.'],
+    data: ['...dddddd...','...dddddd...','...wwwwww...','...wwwwww...','...wwwwww...','....wwww....','.....ww.....','..bbbbbbbb..','.ababababab.','.bababababa.','.ababababab.','.bababababa.']
+  };
+  var NS = 'http://www.w3.org/2000/svg';
+  document.querySelectorAll('.ava').forEach(function (el) {
+    var rows = AVA[el.dataset.a];
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 12 12');
+    rows.forEach(function (row, y) {
+      row.split('').forEach(function (ch, x) {
+        if (ch === '.') return;
+        var r = document.createElementNS(NS, 'rect');
+        r.setAttribute('x', x); r.setAttribute('y', y);
+        r.setAttribute('width', 1); r.setAttribute('height', 1);
+        r.setAttribute('fill', COL[ch]);
+        svg.appendChild(r);
+      });
+    });
+    el.appendChild(svg);
+  });
+
+  var stage = document.getElementById('stage');
+  function fit() {
+    var s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    stage.style.transform = 'translate(-50%, -50%) scale(' + s + ')';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+})();
+</script>
+</body>
+</html>
