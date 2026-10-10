@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="470" viewBox="0 0 960 470" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="470" fill="#ffffff"/>
+<text x="480.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">Performance score by hub, one dot per driver</text>
+<text x="480.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">stg_drivers.perf_score (scale as recorded). Bar = hub average. Dashed = fleet average; red line = 3.0.</text>
+<line x1="170.0" y1="90.0" x2="170.0" y2="400.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="170.0" y="418.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">2.5</text>
+<line x1="306.0" y1="90.0" x2="306.0" y2="400.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="306.0" y="418.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">3.0</text>
+<line x1="442.0" y1="90.0" x2="442.0" y2="400.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="442.0" y="418.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">3.5</text>
+<line x1="578.0" y1="90.0" x2="578.0" y2="400.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="578.0" y="418.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">4.0</text>
+<line x1="714.0" y1="90.0" x2="714.0" y2="400.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="714.0" y="418.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">4.5</text>
+<line x1="850.0" y1="90.0" x2="850.0" y2="400.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="850.0" y="418.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">5.0</text>
+<text x="510.0" y="442.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal">Performance score (perf_score)</text>
+<line x1="306.0" y1="82.0" x2="306.0" y2="400.0" stroke="#c0392b" stroke-width="1.2" stroke-dasharray="4,3"/>
+<line x1="521.9" y1="82.0" x2="521.9" y2="400.0" stroke="#1a1a1a" stroke-width="1.2" stroke-dasharray="6,4"/>
+<text x="525.9" y="78.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="normal">fleet average 3.79</text>
+<text x="156.0" y="119.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Chicago</text>
+<text x="156.0" y="134.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">HUB-CHI  n=10</text>
+<line x1="553.5" y1="105.0" x2="553.5" y2="137.0" stroke="#1a1a1a" stroke-width="2.5"/>
+<circle cx="262.5" cy="121.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="360.4" cy="121.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="428.4" cy="121.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="515.4" cy="121.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="526.3" cy="121.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="580.7" cy="121.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="583.4" cy="114.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="673.2" cy="121.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="784.7" cy="121.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="820.1" cy="121.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<text x="856.0" y="125.0" font-size="11" fill="#555555" text-anchor="start" font-weight="normal">1 below 3.0</text>
+<text x="156.0" y="181.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Cincinnati</text>
+<text x="156.0" y="196.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">HUB-CIN  n=13</text>
+<line x1="437.4" y1="167.0" x2="437.4" y2="199.0" stroke="#1a1a1a" stroke-width="2.5"/>
+<circle cx="257.0" cy="183.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="273.4" cy="183.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="284.2" cy="183.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="289.7" cy="176.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="292.4" cy="190.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="341.4" cy="183.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="341.4" cy="176.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="368.6" cy="183.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="423.0" cy="183.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="629.7" cy="183.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="654.2" cy="183.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="749.4" cy="183.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="782.0" cy="183.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<text x="856.0" y="187.0" font-size="11" fill="#c0392b" text-anchor="start" font-weight="bold">5 below 3.0</text>
+<text x="156.0" y="243.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Columbus</text>
+<text x="156.0" y="258.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">HUB-CMH  n=17</text>
+<line x1="568.9" y1="229.0" x2="568.9" y2="261.0" stroke="#1a1a1a" stroke-width="2.5"/>
+<circle cx="308.7" cy="245.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="403.9" cy="245.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="406.6" cy="238.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="414.8" cy="238.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="482.8" cy="245.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="493.7" cy="245.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="545.4" cy="245.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="559.0" cy="245.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="575.3" cy="245.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="605.2" cy="245.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="616.1" cy="245.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="632.4" cy="245.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="640.6" cy="238.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="708.6" cy="245.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="724.9" cy="245.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="743.9" cy="245.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="809.2" cy="245.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<text x="856.0" y="249.0" font-size="11" fill="#555555" text-anchor="start" font-weight="normal">0 below 3.0</text>
+<text x="156.0" y="305.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Detroit</text>
+<text x="156.0" y="320.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">HUB-DET  n=7</text>
+<line x1="531.4" y1="291.0" x2="531.4" y2="323.0" stroke="#1a1a1a" stroke-width="2.5"/>
+<circle cx="295.1" cy="307.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="414.8" cy="307.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="469.2" cy="307.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="599.8" cy="307.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="621.5" cy="307.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="635.1" cy="307.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="684.1" cy="307.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<text x="856.0" y="311.0" font-size="11" fill="#555555" text-anchor="start" font-weight="normal">1 below 3.0</text>
+<text x="156.0" y="367.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Indianapolis</text>
+<text x="156.0" y="382.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">HUB-IND  n=9</text>
+<line x1="513.0" y1="353.0" x2="513.0" y2="385.0" stroke="#1a1a1a" stroke-width="2.5"/>
+<circle cx="257.0" cy="369.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="325.0" cy="369.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="387.6" cy="369.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="510.0" cy="369.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="567.1" cy="369.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="583.4" cy="369.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="583.4" cy="362.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="635.1" cy="369.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="#ffffff"/>
+<circle cx="768.4" cy="369.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="#ffffff"/>
+<text x="856.0" y="373.0" font-size="11" fill="#555555" text-anchor="start" font-weight="normal">1 below 3.0</text>
+<circle cx="177.0" cy="70.0" r="5" fill="#2c6fbb" fill-opacity="0.9" stroke="none"/>
+<text x="188.0" y="74.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">employee</text>
+<circle cx="297.0" cy="70.0" r="5" fill="#c58a1b" fill-opacity="0.9" stroke="none"/>
+<text x="308.0" y="74.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">contractor</text>
+</svg>

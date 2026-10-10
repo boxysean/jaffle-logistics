@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="520" fill="#ffffff"/>
+<text x="480.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">HR file completeness by hub: drivers with nothing beyond onboarding</text>
+<text x="480.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">Further doc types counted: review, certification, training (stg_hr_docs). Fleet: 25 / 17 / 14 = 56 drivers.</text>
+<text x="480.0" y="68.0" font-size="12.5" fill="#c0392b" text-anchor="middle" font-weight="bold">No driver holds a certification valid after 2025-08-26 — current certifications at 2025-12-31: 0 of 56.</text>
+<line x1="100.0" y1="420.0" x2="920.0" y2="420.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="424.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">0</text>
+<line x1="100.0" y1="342.5" x2="920.0" y2="342.5" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="346.5" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">5</text>
+<line x1="100.0" y1="265.0" x2="920.0" y2="265.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="269.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">10</text>
+<line x1="100.0" y1="187.5" x2="920.0" y2="187.5" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="191.5" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">15</text>
+<line x1="100.0" y1="110.0" x2="920.0" y2="110.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="114.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">20</text>
+<text x="40.0" y="265.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal" transform="rotate(-90 40.0 265.0)">Drivers (headcount)</text>
+<rect x="147.6" y="358.0" width="68.9" height="62.0" fill="#c0392b" stroke="#ffffff"/>
+<text x="182.0" y="393.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">4</text>
+<rect x="147.6" y="296.0" width="68.9" height="62.0" fill="#9aa7b5" stroke="#ffffff"/>
+<text x="182.0" y="331.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">4</text>
+<rect x="147.6" y="265.0" width="68.9" height="31.0" fill="#5b7fa6" stroke="#ffffff"/>
+<text x="182.0" y="284.5" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">2</text>
+<text x="182.0" y="259.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">10 drivers</text>
+<text x="182.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Chicago</text>
+<text x="182.0" y="456.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CHI</text>
+<rect x="311.6" y="311.5" width="68.9" height="108.5" fill="#c0392b" stroke="#ffffff"/>
+<text x="346.0" y="369.8" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">7</text>
+<rect x="311.6" y="249.5" width="68.9" height="62.0" fill="#9aa7b5" stroke="#ffffff"/>
+<text x="346.0" y="284.5" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">4</text>
+<rect x="311.6" y="218.5" width="68.9" height="31.0" fill="#5b7fa6" stroke="#ffffff"/>
+<text x="346.0" y="238.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">2</text>
+<text x="346.0" y="212.5" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">13 drivers</text>
+<text x="346.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Cincinnati</text>
+<text x="346.0" y="456.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CIN</text>
+<rect x="475.6" y="311.5" width="68.9" height="108.5" fill="#c0392b" stroke="#ffffff"/>
+<text x="510.0" y="369.8" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">7</text>
+<rect x="475.6" y="218.5" width="68.9" height="93.0" fill="#9aa7b5" stroke="#ffffff"/>
+<text x="510.0" y="269.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">6</text>
+<rect x="475.6" y="156.5" width="68.9" height="62.0" fill="#5b7fa6" stroke="#ffffff"/>
+<text x="510.0" y="191.5" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">4</text>
+<text x="510.0" y="150.5" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">17 drivers</text>
+<text x="510.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Columbus</text>
+<text x="510.0" y="456.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CMH</text>
+<rect x="639.6" y="373.5" width="68.9" height="46.5" fill="#c0392b" stroke="#ffffff"/>
+<text x="674.0" y="400.8" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">3</text>
+<rect x="639.6" y="358.0" width="68.9" height="15.5" fill="#9aa7b5" stroke="#ffffff"/>
+<text x="674.0" y="369.8" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">1</text>
+<rect x="639.6" y="311.5" width="68.9" height="46.5" fill="#5b7fa6" stroke="#ffffff"/>
+<text x="674.0" y="338.8" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">3</text>
+<text x="674.0" y="305.5" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">7 drivers</text>
+<text x="674.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Detroit</text>
+<text x="674.0" y="456.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-DET</text>
+<rect x="803.6" y="358.0" width="68.9" height="62.0" fill="#c0392b" stroke="#ffffff"/>
+<text x="838.0" y="393.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">4</text>
+<rect x="803.6" y="327.0" width="68.9" height="31.0" fill="#9aa7b5" stroke="#ffffff"/>
+<text x="838.0" y="346.5" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">2</text>
+<rect x="803.6" y="280.5" width="68.9" height="46.5" fill="#5b7fa6" stroke="#ffffff"/>
+<text x="838.0" y="307.8" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">3</text>
+<text x="838.0" y="274.5" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">9 drivers</text>
+<text x="838.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Indianapolis</text>
+<text x="838.0" y="456.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-IND</text>
+<rect x="100.0" y="85.0" width="14.0" height="12.0" fill="#c0392b" stroke="none"/>
+<text x="120.0" y="95.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">onboarding only</text>
+<rect x="290.0" y="85.0" width="14.0" height="12.0" fill="#9aa7b5" stroke="none"/>
+<text x="310.0" y="95.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">1 further doc type</text>
+<rect x="480.0" y="85.0" width="14.0" height="12.0" fill="#5b7fa6" stroke="none"/>
+<text x="500.0" y="95.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2 or more further doc types</text>
+<text x="510.0" y="510.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal">Hub</text>
+</svg>

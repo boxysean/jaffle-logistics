@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="500" fill="#ffffff"/>
+<text x="480.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">Driver headcount by hub and employment type</text>
+<text x="480.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">All 56 drivers on stg_drivers: 33 employees + 23 contractors. Headcount, not who worked in 2025.</text>
+<line x1="100.0" y1="410.0" x2="920.0" y2="410.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="414.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">0</text>
+<line x1="100.0" y1="332.5" x2="920.0" y2="332.5" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="336.5" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">5</text>
+<line x1="100.0" y1="255.0" x2="920.0" y2="255.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="259.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">10</text>
+<line x1="100.0" y1="177.5" x2="920.0" y2="177.5" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="181.5" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">15</text>
+<line x1="100.0" y1="100.0" x2="920.0" y2="100.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="104.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">20</text>
+<text x="40.0" y="255.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal" transform="rotate(-90 40.0 255.0)">Drivers (headcount)</text>
+<rect x="147.6" y="301.5" width="68.9" height="108.5" fill="#2c6fbb" stroke="#ffffff"/>
+<text x="182.0" y="359.8" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">7</text>
+<rect x="147.6" y="255.0" width="68.9" height="46.5" fill="#c58a1b" stroke="#ffffff"/>
+<text x="182.0" y="282.2" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">3</text>
+<text x="182.0" y="249.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">10 drivers</text>
+<text x="182.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Chicago</text>
+<text x="182.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CHI</text>
+<rect x="311.6" y="286.0" width="68.9" height="124.0" fill="#2c6fbb" stroke="#ffffff"/>
+<text x="346.0" y="352.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">8</text>
+<rect x="311.6" y="208.5" width="68.9" height="77.5" fill="#c58a1b" stroke="#ffffff"/>
+<text x="346.0" y="251.2" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">5</text>
+<text x="346.0" y="202.5" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">13 drivers</text>
+<text x="346.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Cincinnati</text>
+<text x="346.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CIN</text>
+<rect x="475.6" y="270.5" width="68.9" height="139.5" fill="#2c6fbb" stroke="#ffffff"/>
+<text x="510.0" y="344.2" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">9</text>
+<rect x="475.6" y="146.5" width="68.9" height="124.0" fill="#c58a1b" stroke="#ffffff"/>
+<text x="510.0" y="212.5" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">8</text>
+<text x="510.0" y="140.5" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">17 drivers</text>
+<text x="510.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Columbus</text>
+<text x="510.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CMH</text>
+<rect x="639.6" y="379.0" width="68.9" height="31.0" fill="#2c6fbb" stroke="#ffffff"/>
+<text x="674.0" y="398.5" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">2</text>
+<rect x="639.6" y="301.5" width="68.9" height="77.5" fill="#c58a1b" stroke="#ffffff"/>
+<text x="674.0" y="344.2" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">5</text>
+<text x="674.0" y="295.5" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">7 drivers</text>
+<text x="674.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Detroit</text>
+<text x="674.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-DET</text>
+<rect x="803.6" y="301.5" width="68.9" height="108.5" fill="#2c6fbb" stroke="#ffffff"/>
+<text x="838.0" y="359.8" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">7</text>
+<rect x="803.6" y="270.5" width="68.9" height="31.0" fill="#c58a1b" stroke="#ffffff"/>
+<text x="838.0" y="290.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">2</text>
+<text x="838.0" y="264.5" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">9 drivers</text>
+<text x="838.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Indianapolis</text>
+<text x="838.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-IND</text>
+<text x="714.4" y="305.5" font-size="11" fill="#c0392b" text-anchor="start" font-weight="bold">5 of 7 contractors</text>
+<text x="878.4" y="288.5" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">incl. DRV-01188</text>
+<text x="878.4" y="301.5" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">(status: disputed)</text>
+<rect x="100.0" y="70.0" width="14.0" height="12.0" fill="#2c6fbb" stroke="none"/>
+<text x="120.0" y="80.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">employee</text>
+<rect x="230.0" y="70.0" width="14.0" height="12.0" fill="#c58a1b" stroke="none"/>
+<text x="250.0" y="80.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">contractor</text>
+<text x="510.0" y="490.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal">Hub</text>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="500" fill="#ffffff"/>
+<text x="480.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">2025 routes per working driver, by hub</text>
+<text x="480.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">Routes run in 2025 ÷ drivers who ran at least one 2025 route. Dashed = fleet average.</text>
+<line x1="100.0" y1="410.0" x2="920.0" y2="410.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="414.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">0</text>
+<line x1="100.0" y1="365.7" x2="920.0" y2="365.7" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="369.7" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">20</text>
+<line x1="100.0" y1="321.4" x2="920.0" y2="321.4" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="325.4" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">40</text>
+<line x1="100.0" y1="277.1" x2="920.0" y2="277.1" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="281.1" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">60</text>
+<line x1="100.0" y1="232.9" x2="920.0" y2="232.9" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="236.9" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">80</text>
+<line x1="100.0" y1="188.6" x2="920.0" y2="188.6" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="192.6" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">100</text>
+<line x1="100.0" y1="144.3" x2="920.0" y2="144.3" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="148.3" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">120</text>
+<line x1="100.0" y1="100.0" x2="920.0" y2="100.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="92.0" y="104.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">140</text>
+<text x="40.0" y="255.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal" transform="rotate(-90 40.0 255.0)">Routes per working driver, 2025</text>
+<rect x="147.6" y="226.0" width="68.9" height="184.0" fill="#2c6fbb" stroke="none"/>
+<text x="182.0" y="220.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">83.1</text>
+<text x="182.0" y="388.0" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="normal">748 routes</text>
+<text x="182.0" y="402.0" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="normal">9 of 10 drivers</text>
+<text x="182.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Chicago</text>
+<text x="182.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CHI</text>
+<rect x="311.6" y="278.6" width="68.9" height="131.4" fill="#2c6fbb" stroke="none"/>
+<text x="346.0" y="272.6" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">59.3</text>
+<text x="346.0" y="388.0" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="normal">712 routes</text>
+<text x="346.0" y="402.0" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="normal">12 of 13 drivers</text>
+<text x="346.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Cincinnati</text>
+<text x="346.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CIN</text>
+<rect x="475.6" y="305.3" width="68.9" height="104.7" fill="#2c6fbb" stroke="none"/>
+<text x="510.0" y="299.3" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">47.3</text>
+<text x="510.0" y="388.0" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="normal">709 routes</text>
+<text x="510.0" y="402.0" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="normal">15 of 17 drivers</text>
+<text x="510.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Columbus</text>
+<text x="510.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CMH</text>
+<rect x="639.6" y="136.5" width="68.9" height="273.5" fill="#c0392b" stroke="none"/>
+<text x="674.0" y="130.5" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">123.5</text>
+<text x="674.0" y="388.0" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="normal">741 routes</text>
+<text x="674.0" y="402.0" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="normal">6 of 7 drivers</text>
+<text x="674.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Detroit</text>
+<text x="674.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-DET</text>
+<rect x="803.6" y="211.0" width="68.9" height="199.0" fill="#2c6fbb" stroke="none"/>
+<text x="838.0" y="205.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">89.9</text>
+<text x="838.0" y="388.0" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="normal">719 routes</text>
+<text x="838.0" y="402.0" font-size="10.5" fill="#ffffff" text-anchor="middle" font-weight="normal">8 of 9 drivers</text>
+<text x="838.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Indianapolis</text>
+<text x="838.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-IND</text>
+<line x1="100.0" y1="249.3" x2="920.0" y2="249.3" stroke="#1a1a1a" stroke-width="1.2" stroke-dasharray="6,4"/>
+<text x="920.0" y="243.3" font-size="11" fill="#1a1a1a" text-anchor="end" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">fleet 72.6 (3,629 ÷ 50)</text>
+<text x="510.0" y="490.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal">Hub</text>
+</svg>
