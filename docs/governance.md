@@ -83,7 +83,7 @@ affordable instead of a recurring full-corpus embedding bill.
 
 ## Catching an orphaned embedding after a re-chunk
 
-Each of the five `*_embed` models also carries a `relationships` test
+Each of the seven `*_embed` models also carries a `relationships` test
 on `chunk_id` back to its own `*_hashed` upstream, the same
 `orphan_chunks`/`orphan_embeddings` pattern `dbt_context_engineering`
 ships in its own test suite (ADR-0023). If a source's chunking logic

@@ -1,6 +1,6 @@
 ---
 name: knowledge-base-search
-description: "Answer a question by running a live semantic search against a dbt project's knowledge_base model through dbt MCP's execute_sql. Use when a user asks a question that should be answered from the project's embedded corpus (transcripts, tickets, CRM notes, incident reports, legal docs), asks to search or retrieve context, or wants to compare raw and filtered retrieval. Requires a knowledge_base model with an embedding column and an mcp_search contract in its meta. Does not build or modify models."
+description: "Answer a question by running a live semantic search against a dbt project's knowledge_base model through dbt MCP's execute_sql. Use when a user asks a question that should be answered from the project's embedded corpus (transcripts, tickets, CRM notes, incident reports, legal docs, dispatch notes, Slack threads), asks to search or retrieve context, or wants to compare raw and filtered retrieval. Requires a knowledge_base model with an embedding column and an mcp_search contract in its meta. Does not build or modify models."
 ---
 
 # Live semantic search over knowledge_base

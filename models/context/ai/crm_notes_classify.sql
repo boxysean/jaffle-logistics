@@ -1,7 +1,7 @@
 -- Classify each CRM-note chunk's content type (REAL cloud AI-function
 -- cost). DO NOT run until spend is approved. Same taxonomy and prompt as
 -- every other source's classify model (jaffle_content_type v1): this is a
--- worked example, so one shared taxonomy across all five sources is
+-- worked example, so one shared taxonomy across all seven sources is
 -- deliberate. In a real system with genuinely different content per source,
 -- diverging the prompt per source would be the realistic next step.
 --

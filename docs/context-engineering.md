@@ -7,18 +7,18 @@ dbt. The fix for exact-match SQL's ceiling isn't leaving SQL. It's SQL
 that can call an embedding function.
 
 The pipeline has five stages: chunk, embed, enrich, combine, search.
-Five sources (legal docs, incident reports, CRM notes, call transcripts,
-support tickets) each run chunk, embed, and enrich as their own
-independent, end-to-end path, and converge only at combine
-(`knowledge_base`). That's the package's own documented usage of
+Seven sources (legal docs, incident reports, CRM notes, call transcripts,
+support tickets, dispatch notes, Slack threads) each run chunk, embed,
+and enrich as their own independent, end-to-end path, and converge only
+at combine (`knowledge_base`). That's the package's own documented usage of
 `knowledge_base()` (ADR-0006 in
 [`dbt_context_engineering`](https://github.com/dbt-labs/dbt-context-engineering)):
 a conformed union of many independently-maintained sources, each keeping
 its own native shape until the very last step. In a real system these
-five sources would genuinely arrive via different systems on different
-schedules; this project reuses one taxonomy and prompt across all five
+seven sources would genuinely arrive via different systems on different
+schedules; this project reuses one taxonomy and prompt across all seven
 classify models since it's a worked example, not because the sources
-are actually identical. Real duplication (five near-identical
+are actually identical. Real duplication (seven near-identical
 embed/classify models) is the tradeoff for realistic per-source isolation.
 This project's own search results are the evidence enrichment earns
 its place next to embedding, not after it (see [comparison](comparison.md)).
@@ -32,7 +32,7 @@ stage, each linked from its matching section below.
 
 ## Chunk: on the data's logical boundaries, or not at all
 
-Five sources, three chunking strategies.
+Seven sources, three chunking strategies.
 
 Call transcripts explode into individual spoken turns
 (`int_transcript_turns`), then regroup into token-bounded chunks that
@@ -54,11 +54,18 @@ embedding unit, so it's reshaped straight into the chunk-shaped output
 `chunk()` would have produced, `chunk_seq` fixed at 1 by construction
 rather than by an assumption about ticket length.
 
+The two ops-floor sources take the same whole-record path.
+[`dispatch_notes_records_meta`](https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/dispatch_notes_records_meta.sql)
+and
+[`slack_threads_records_meta`](https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/slack_threads_records_meta.sql)
+treat one dispatch note, or one Slack thread, as one atomic operational
+record, and neither calls `chunk()`.
+
 Each source's chunked (or reshaped) output carries `client_id`,
 `source_type`, and a citation URL by the time its own `*_chunks_meta`
 model lands, whether that row was chunked to get there or not. Nothing
 unions across sources yet; that happens once, at the very end, in
-[combine](#combine-a-real-union-of-five-independent-sources).
+[combine](#combine-a-real-union-of-seven-independent-sources).
 
 A real example, the Jaffle Equipment QBR transcript from
 [comparison](comparison.md), split across an actual chunk boundary:
@@ -94,17 +101,19 @@ shows the same transcript after.
 
 ## Embed: for recall
 
-Five embedding models, one per source
+Seven embedding models, one per source
 ([`legal_docs_embed`](https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/legal_docs_embed.sql),
 [`incident_reports_embed`](https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/incident_reports_embed.sql),
 [`crm_notes_embed`](https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/crm_notes_embed.sql),
 [`call_transcripts_embed`](https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/call_transcripts_embed.sql),
-[`support_tickets_embed`](https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/support_tickets_embed.sql)),
+[`support_tickets_embed`](https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/support_tickets_embed.sql),
+[`dispatch_notes_embed`](https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/dispatch_notes_embed.sql),
+[`slack_threads_embed`](https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/slack_threads_embed.sql)),
 each incremental: the package's six-column cache metadata (ADR-0023)
 means unchanged rows are never re-embedded, independently per source.
 
 One embedding model, set by `embedding_model`, covers every one of the
-five: all five must share it, or their vectors land in incomparable
+seven: all seven must share it, or their vectors land in incomparable
 spaces and cross-source ranking silently breaks (`version_guard`
 enforces this per model, which is "a real constraint on the caller,"
 in the package's own words, not something the union at the end can
@@ -124,23 +133,28 @@ shows `CT-99001`'s chunks with their populated `embedding` column.
 
 ## Enrich: for precision
 
-Five classify models, one per source
+Seven classify models, one per source
 ([`legal_docs_classify`](https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/legal_docs_classify.sql),
 `incident_reports_classify`, `crm_notes_classify`,
-`call_transcripts_classify`, `support_tickets_classify`), each running a
+`call_transcripts_classify`, `support_tickets_classify`,
+`dispatch_notes_classify`, `slack_threads_classify`), each running a
 real `classify()` call against its own source's hashed corpus,
-independently. All five share one flat taxonomy and one prompt
+independently. All seven share one flat taxonomy and one prompt
 (`jaffle_content_type` v1): `account_assessment`, `contract_reference`,
 `weather_disruption`, `vehicle_or_driver_incident`,
 `handling_or_warehouse_error`, `routine_status`. Each label is a
 business category, not a judgment of how well the text is written, and
 it matches the weather-vs-handling split the account's own root-cause
-review makes (see [comparison](comparison.md)). Sharing one taxonomy
-across five independent models is itself a demo-scale simplification;
-five genuinely different source systems would plausibly want their own
+review makes (see [comparison](comparison.md)). The ops-floor text needs
+no new label: weather notes land on `weather_disruption`, mechanical
+ones on `vehicle_or_driver_incident`, dock and warehouse ones on
+`handling_or_warehouse_error`, and traffic, address, access, volume,
+NSF, and routine chatter on `routine_status`. Sharing one taxonomy
+across seven independent models is itself a demo-scale simplification;
+seven genuinely different source systems would plausibly want their own
 prompt tuning over time, which is exactly the kind of per-source
 divergence this architecture makes possible without touching the other
-four.
+six.
 
 Each source's `*_embedded_classified` model
 (e.g. [`legal_docs_embedded_classified`](https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/legal_docs_embedded_classified.sql))
@@ -160,26 +174,47 @@ Run it yourself:
 [`05_classify.sql`](https://github.com/dbt-labs/jaffle-logistics/blob/main/analyses/the_pattern/05_classify.sql)
 shows `CT-99001`'s chunks with their assigned label.
 
-## Combine: a real union of five independent sources
+## Combine: a real union of seven independent sources
 
 [`knowledge_base`](https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/knowledge_base.sql)
-unions all five `*_embedded_classified` outputs into the package's
+unions all seven `*_embedded_classified` outputs into the package's
 common shape: `source_type`, `source_id`, `account_key`, `text`,
 `embedding`, `ts`, `citation_url`, `classification`. This is
 `knowledge_base()`'s actual documented job: each source keeps its own
 native path all the way through embedding and classification, and this
 is the one place they ever meet. `source_type` is a real, per-source
 label (`Legal Document`, `Incident Report`, `CRM Notes`,
-`Call Transcript`, `Support Ticket`), not a passthrough of an
-already-unified column, because each one genuinely is a different
-upstream system here. The citation URL preserves the finer-grained
-artifact id (which CRM note, which incident report, which ticket), so
-any result traces back to its source. `classification` is an optional
-slot in the package's shape; this project fills it for every source.
+`Call Transcript`, `Support Ticket`, `Dispatch Note`, `Slack Thread`),
+not a passthrough of an already-unified column, because each one
+genuinely is a different upstream system here. The citation URL
+preserves the finer-grained artifact id (which CRM note, which incident
+report, which ticket), so any result traces back to its source.
+`classification` is an optional slot in the package's shape; this
+project fills it for every source.
+
+Dispatch notes and Slack threads are the ops floor, the place an
+operational early warning shows up first. Neither carries a `client_id`
+of its own, so `account_key` is derived through the route attribution
+bridge (`stg_route_client_attribution`), using the route's dominant
+client: the account with the most exceptions attributed on that route,
+then the largest stop share. A dispatch note takes the dominant client
+of its own route. A Slack thread takes, in order, an explicit `CLI-` id
+it cites, else the dominant client of a cited `RTE-` route, else the
+dominant client of a cited `INC-` incident's route. When none of those
+resolve, `account_key` is null rather than guessed, so those threads
+still surface in whole-corpus search but not in an account-scoped one.
+
+What the corpus still doesn't cover: the structured tables (shipments,
+routes, invoices, the revenue ledger, payroll) stay out of it. Those
+are answered by joins, not by vector search. Free text outside the
+seven systems above isn't in it either, including email, driver app
+messages, and anything else this project doesn't model. An ops-floor
+record that cites no account, route, or incident id can't be
+attributed, so account-scoped search misses it.
 
 Run it yourself:
 [`03_knowledge_base.sql`](https://github.com/dbt-labs/jaffle-logistics/blob/main/analyses/the_pattern/03_knowledge_base.sql)
-shows the unioned rows for Jaffle Equipment (`CLI-0042`) across all five sources.
+shows the unioned rows for Jaffle Equipment (`CLI-0042`) across all seven sources.
 
 ## Search: by meaning, then by category
 
@@ -213,7 +248,7 @@ Search, a BigQuery vector index, or a separately-billed Databricks
 Vector Search index) for when that stops being true, torn down
 explicitly rather than left running.
 
-## Twelve AI jobs, three cost tiers
+## Sixteen AI jobs, three cost tiers
 
 Everything upstream of embed/enrich costs ordinary compute, the same
 warehouse credits any dbt model burns. From there on, every model makes
@@ -228,20 +263,25 @@ a real, billed AI-function call. Three cost tiers apply project-wide:
 
 ![Embed()-calling jobs, gated behind one variable](assets/ai-jobs.svg)
 
-Two shapes, run once per source, plus two singletons: five
-`*_embed` models and five `*_classify` models (one pair per source),
+Two shapes, run once per source, plus two singletons: seven
+`*_embed` models and seven `*_classify` models (one pair per source),
 `search` (embeds each demo query), and the package's own
-`embedding_canary` monitor. Seven of those twelve call `embed()`
-(the five `*_embed` models, `search`, and `embedding_canary`); the
-other five call `classify()`, dispatched to `AI_CLASSIFY` on Snowflake,
+`embedding_canary` monitor. Nine of those sixteen call `embed()`
+(the seven `*_embed` models, `search`, and `embedding_canary`); the
+other seven call `classify()`, dispatched to `AI_CLASSIFY` on Snowflake,
 `ai_classify` on Databricks, and a schema-constrained `AI.GENERATE` on
-BigQuery. Twelve AI-calling jobs total, one gate. Five independent
+BigQuery. Sixteen AI-calling jobs total, one gate. The corpus covers
+seven sources: the original five plus dispatch notes and Slack threads,
+attributed to an account through the route bridge described in
+[combine](#combine-a-real-union-of-seven-independent-sources). It still
+doesn't cover the structured tables, or free text this project doesn't
+model. Seven independent
 per-source paths, rather than one shared corpus unified before hashing,
 matches `knowledge_base()`'s own documented usage pattern (independent
-per-source paths, converged only at the union), trading five-times the
+per-source paths, converged only at the union), trading seven-times the
 near-duplicate boilerplate for isolation each source would realistically
 need: a bad batch or a rate limit on one source's `classify()` call
-doesn't block the other four's `dbt build --select` independently.
+doesn't block the other six's `dbt build --select` independently.
 
 That gate is `ai_functions_enabled` in `dbt_project.yml`, `false` by
 default. It's a real dbt `+enabled` config, so a disabled model can't
