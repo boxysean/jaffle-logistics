@@ -121,6 +121,16 @@ seeds:
         ontime_pct: "{{ 'float64' if target.type == 'bigquery' else 'float' }}"
         trailing_12m_ontime_pct: "{{ 'float64' if target.type == 'bigquery' else 'float' }}"
         sla_ontime_pct: "{{ 'float64' if target.type == 'bigquery' else 'float' }}"
+    payroll_monthly:
+      # Same hazard: whole-hour and whole-dollar values ("45.0", "1250.00") leave the
+      # inference to chance. Fixed 2dp so gross_pay and total_cost reconcile to the cent.
+      +column_types:
+        payroll_month: date
+        hours_worked: "{{ 'numeric' if target.type == 'bigquery' else 'decimal(18, 2)' }}"
+        hourly_rate: "{{ 'numeric' if target.type == 'bigquery' else 'decimal(18, 2)' }}"
+        gross_pay: "{{ 'numeric' if target.type == 'bigquery' else 'decimal(18, 2)' }}"
+        overtime_hours: "{{ 'numeric' if target.type == 'bigquery' else 'decimal(18, 2)' }}"
+        total_cost: "{{ 'numeric' if target.type == 'bigquery' else 'decimal(18, 2)' }}"
 
   # Mirrors the models: dbt_context_engineering: monitoring: +enabled override above. The
   # package ships this seed disabled by default, paired with its own monitoring +enabled: false;

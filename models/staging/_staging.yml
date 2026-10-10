@@ -407,6 +407,75 @@ models:
         description: "How many of the route's exceptions_count belong to this client."
         tests: [not_null]
 
+  - name: stg_payroll_monthly
+    description: >
+      Driver labour cost, one row per driver-month from the first day of the
+      driver's hire month through 2025-12-01 (all 56 drivers, 2954 rows). For
+      2023-2025 hours_worked is not modelled: it is that driver-month's routes x 9
+      hours from routes.csv, so a month with no routes carries zero hours and zero
+      pay (enforced by tests/assert_payroll_hours_reconcile_routes.sql). Before 2023,
+      when no routes are recorded, hours are a modelled steady state from the
+      driver's 2023 mean monthly routes x a documented year factor.
+      gross_pay = hours_worked x hourly_rate and total_cost adds the 50% overtime
+      premium (overtime_hours x hourly_rate x 0.5), both to the cent (enforced by
+      tests/assert_payroll_gross_pay_reconciles.sql). Contractors carry an all-in
+      rate roughly double an employee's (it embeds their own benefits and overhead)
+      and no overtime; employees carry a base wage plus overtime. Overtime is a
+      steady 4 hours per employee-month with hours, capped at hours_worked, plus a
+      2025-only uplift where a hub's damage incidents exceed its worst 2023-2024
+      month (the HUB-CMH handling-damage cluster lifts CMH overtime) and where the
+      hub's delayed or failed CLI-0042 shipments exceed its worst 2023-2024 month
+      (the account's 2025 exception load, led by HUB-CHI; 2023-2024 are steady,
+      both terms exactly 0). cost_per_route = total_cost / routes_run, null when the driver
+      ran no route that month. hub_id is the driver's drivers.csv hub: no route in
+      the record is run from another hub, so no mid-tenure move is modelled, though
+      the grain would support one. Caveats: (1) DRV-01189 .. DRV-01194 are active in
+      drivers.csv but run no routes in 2025, so their 2025 rows carry zero pay; this
+      is a gap in the routes record, not modelled attrition. (2) DRV-01188 has an
+      exit record dated 2025-09-15 but runs routes through 2025-12; payroll follows
+      the routes, so the driver is paid through 2025-12. (3) CLI-0042's 2025
+      shipments carry no route_id, so the account's 2025 exception load lands as
+      hub-level overtime for the employees at the hub its freight originates from,
+      not on individual routes. Generated
+      by scripts/generate_payroll_monthly.py.
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: [payroll_month, driver_id]
+    columns:
+      - name: payroll_month
+        tests: [not_null]
+      - name: driver_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_drivers')
+                field: driver_id
+      - name: hub_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_hubs')
+                field: hub_id
+      - name: employment_type
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['employee', 'contractor']
+      - name: hours_worked
+        tests: [not_null]
+      - name: hourly_rate
+        tests: [not_null]
+      - name: gross_pay
+        tests: [not_null]
+      - name: overtime_hours
+        tests: [not_null]
+      - name: total_cost
+        tests: [not_null]
+
   - name: stg_slack_threads
     description: "One row per Slack thread."
     columns:
