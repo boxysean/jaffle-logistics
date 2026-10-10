@@ -1,0 +1,172 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="778" viewBox="0 0 900 778" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="900" height="778" fill="#ffffff"/>
+<text x="450.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">Where each of the 24 seeds reaches</text>
+<text x="450.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">Staging model, dbt Semantic Layer, and the AI search corpus. Corpus cells print the row count in production.</text>
+<text x="330.0" y="96.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">Staged (stg_*)</text>
+<text x="500.0" y="96.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">Semantic layer</text>
+<text x="700.0" y="96.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">Search corpus (knowledge_base)</text>
+<rect x="20.0" y="110.0" width="860.0" height="22.0" fill="#f6f6f6" stroke="none" stroke-width="1"/>
+<text x="250.0" y="125.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">call_transcripts</text>
+<rect x="285.0" y="113.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="125.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<rect x="435.0" y="113.0" width="130.0" height="16.0" fill="#a9c4e6" stroke="none" stroke-width="1"/>
+<text x="500.0" y="125.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">joined upstream</text>
+<rect x="635.0" y="113.0" width="130.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="700.0" y="125.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">69 rows</text>
+<text x="250.0" y="147.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">clients</text>
+<rect x="285.0" y="135.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="147.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<rect x="435.0" y="135.0" width="130.0" height="16.0" fill="#a9c4e6" stroke="none" stroke-width="1"/>
+<text x="500.0" y="147.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">joined upstream</text>
+<text x="700.0" y="147.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<rect x="20.0" y="154.0" width="860.0" height="22.0" fill="#f6f6f6" stroke="none" stroke-width="1"/>
+<text x="250.0" y="169.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">contracts</text>
+<rect x="285.0" y="157.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="169.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<rect x="435.0" y="157.0" width="130.0" height="16.0" fill="#a9c4e6" stroke="none" stroke-width="1"/>
+<text x="500.0" y="169.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">joined upstream</text>
+<text x="700.0" y="169.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="250.0" y="191.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">cost_ledger</text>
+<rect x="285.0" y="179.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="191.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<text x="500.0" y="191.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="700.0" y="191.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<rect x="20.0" y="198.0" width="860.0" height="22.0" fill="#f6f6f6" stroke="none" stroke-width="1"/>
+<text x="250.0" y="213.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">crm_notes</text>
+<rect x="285.0" y="201.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="213.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<rect x="435.0" y="201.0" width="130.0" height="16.0" fill="#a9c4e6" stroke="none" stroke-width="1"/>
+<text x="500.0" y="213.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">joined upstream</text>
+<rect x="635.0" y="201.0" width="130.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="700.0" y="213.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">58 rows</text>
+<text x="250.0" y="235.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">dispatch_notes</text>
+<rect x="285.0" y="223.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="235.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<rect x="435.0" y="223.0" width="130.0" height="16.0" fill="#a9c4e6" stroke="none" stroke-width="1"/>
+<text x="500.0" y="235.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">joined upstream</text>
+<rect x="635.0" y="223.0" width="130.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="700.0" y="235.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">1,299 rows</text>
+<rect x="20.0" y="242.0" width="860.0" height="22.0" fill="#f6f6f6" stroke="none" stroke-width="1"/>
+<text x="250.0" y="257.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">dock_bay_events</text>
+<rect x="285.0" y="245.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="257.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<text x="500.0" y="257.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="700.0" y="257.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="250.0" y="279.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">drivers</text>
+<rect x="285.0" y="267.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="279.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<text x="500.0" y="279.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="700.0" y="279.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<rect x="20.0" y="286.0" width="860.0" height="22.0" fill="#f6f6f6" stroke="none" stroke-width="1"/>
+<text x="250.0" y="301.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">eval_crm_sentiment</text>
+<rect x="285.0" y="289.0" width="90.0" height="16.0" fill="#ffffff" stroke="#c0392b" stroke-width="1.2"/>
+<text x="330.0" y="301.0" font-size="11" fill="#c0392b" text-anchor="middle" font-weight="bold">no model</text>
+<text x="500.0" y="301.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="700.0" y="301.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="773.0" y="301.0" font-size="10.5" fill="#c0392b" text-anchor="start" font-weight="normal">eval set only</text>
+<text x="250.0" y="323.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">eval_ticket_triage</text>
+<rect x="285.0" y="311.0" width="90.0" height="16.0" fill="#ffffff" stroke="#c0392b" stroke-width="1.2"/>
+<text x="330.0" y="323.0" font-size="11" fill="#c0392b" text-anchor="middle" font-weight="bold">no model</text>
+<text x="500.0" y="323.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="700.0" y="323.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="773.0" y="323.0" font-size="10.5" fill="#c0392b" text-anchor="start" font-weight="normal">eval set only</text>
+<rect x="20.0" y="330.0" width="860.0" height="22.0" fill="#f6f6f6" stroke="none" stroke-width="1"/>
+<text x="250.0" y="345.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">fleet_work_orders</text>
+<rect x="285.0" y="333.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="345.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<text x="500.0" y="345.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="700.0" y="345.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="250.0" y="367.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">hr_docs</text>
+<rect x="285.0" y="355.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="367.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<text x="500.0" y="367.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="700.0" y="367.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<rect x="20.0" y="374.0" width="860.0" height="22.0" fill="#f6f6f6" stroke="none" stroke-width="1"/>
+<text x="250.0" y="389.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">hubs</text>
+<rect x="285.0" y="377.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="389.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<rect x="435.0" y="377.0" width="130.0" height="16.0" fill="#a9c4e6" stroke="none" stroke-width="1"/>
+<text x="500.0" y="389.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">joined upstream</text>
+<text x="700.0" y="389.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="250.0" y="411.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">incident_reports</text>
+<rect x="285.0" y="399.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="411.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<rect x="435.0" y="399.0" width="130.0" height="16.0" fill="#a9c4e6" stroke="none" stroke-width="1"/>
+<text x="500.0" y="411.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">joined upstream</text>
+<rect x="635.0" y="399.0" width="130.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="700.0" y="411.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">716 rows</text>
+<rect x="20.0" y="418.0" width="860.0" height="22.0" fill="#f6f6f6" stroke="none" stroke-width="1"/>
+<text x="250.0" y="433.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">incidents</text>
+<rect x="285.0" y="421.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="433.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<rect x="435.0" y="421.0" width="130.0" height="16.0" fill="#a9c4e6" stroke="none" stroke-width="1"/>
+<text x="500.0" y="433.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">joined upstream</text>
+<rect x="635.0" y="421.0" width="130.0" height="16.0" fill="#a9c4e6" stroke="none" stroke-width="1"/>
+<text x="700.0" y="433.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">account key only</text>
+<text x="250.0" y="455.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">legal_docs</text>
+<rect x="285.0" y="443.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="455.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<text x="500.0" y="455.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<rect x="635.0" y="443.0" width="130.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="700.0" y="455.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">35 rows</text>
+<rect x="20.0" y="462.0" width="860.0" height="22.0" fill="#f6f6f6" stroke="none" stroke-width="1"/>
+<text x="250.0" y="477.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">payroll_monthly</text>
+<rect x="285.0" y="465.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="477.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<text x="500.0" y="477.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="700.0" y="477.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="250.0" y="499.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">revenue_ledger</text>
+<rect x="285.0" y="487.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="499.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<rect x="435.0" y="487.0" width="130.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="500.0" y="499.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">measured (grain)</text>
+<text x="700.0" y="499.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<rect x="20.0" y="506.0" width="860.0" height="22.0" fill="#f6f6f6" stroke="none" stroke-width="1"/>
+<text x="250.0" y="521.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">route_client_attribution</text>
+<rect x="285.0" y="509.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="521.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<text x="500.0" y="521.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<rect x="635.0" y="509.0" width="130.0" height="16.0" fill="#a9c4e6" stroke="none" stroke-width="1"/>
+<text x="700.0" y="521.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">account key only</text>
+<text x="250.0" y="543.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">routes</text>
+<rect x="285.0" y="531.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="543.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<text x="500.0" y="543.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="700.0" y="543.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<rect x="20.0" y="550.0" width="860.0" height="22.0" fill="#f6f6f6" stroke="none" stroke-width="1"/>
+<text x="250.0" y="565.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">shipments</text>
+<rect x="285.0" y="553.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="565.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<rect x="435.0" y="553.0" width="130.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="500.0" y="565.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">measured (grain)</text>
+<rect x="635.0" y="553.0" width="130.0" height="16.0" fill="#a9c4e6" stroke="none" stroke-width="1"/>
+<text x="700.0" y="565.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">account key only</text>
+<text x="250.0" y="587.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">slack_threads</text>
+<rect x="285.0" y="575.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="587.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<text x="500.0" y="587.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<rect x="635.0" y="575.0" width="130.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="700.0" y="587.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">116 rows</text>
+<rect x="20.0" y="594.0" width="860.0" height="22.0" fill="#f6f6f6" stroke="none" stroke-width="1"/>
+<text x="250.0" y="609.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">support_tickets</text>
+<rect x="285.0" y="597.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="609.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<rect x="435.0" y="597.0" width="130.0" height="16.0" fill="#a9c4e6" stroke="none" stroke-width="1"/>
+<text x="500.0" y="609.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">joined upstream</text>
+<rect x="635.0" y="597.0" width="130.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="700.0" y="609.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">403 rows</text>
+<text x="250.0" y="631.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">vehicles</text>
+<rect x="285.0" y="619.0" width="90.0" height="16.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="330.0" y="631.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">yes</text>
+<text x="500.0" y="631.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<text x="700.0" y="631.0" font-size="12" fill="#bdbdbd" text-anchor="middle" font-weight="normal">—</text>
+<line x1="20.0" y1="642.0" x2="880.0" y2="642.0" stroke="#555555" stroke-width="1"/>
+<text x="250.0" y="662.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="bold">Totals (of 24)</text>
+<text x="330.0" y="662.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="bold">22 staged</text>
+<text x="500.0" y="662.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="bold">2 measured + 9 joined</text>
+<text x="700.0" y="662.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="bold">7 text + 3 key (2,696 rows)</text>
+<text x="40.0" y="688.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="normal">10 seeds reach neither the semantic layer nor the corpus (cost ledger, payroll, drivers, vehicles, fleet work orders, HR docs, routes, dock events, two eval sets).</text>
+<text x="40.0" y="708.0" font-size="12" fill="#2e7d32" text-anchor="start" font-weight="bold">Dispatch notes and Slack threads ARE in the corpus: 1,299 + 116 rows. The ‘known hole’ is closed.</text>
+<text x="40.0" y="728.0" font-size="12" fill="#c0392b" text-anchor="start" font-weight="normal">No seed is declared as a dbt source, so none has source freshness monitoring (get_all_sources is empty).</text>
+<text x="40.0" y="750.0" font-size="11" fill="#555555" text-anchor="start" font-weight="normal">Dark blue = yes / measured / text in corpus. Light blue = partial (joined attribute, or account key only). — = not reached.</text>
+</svg>

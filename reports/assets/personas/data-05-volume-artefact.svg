@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="480" viewBox="0 0 900 480" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="900" height="480" fill="#ffffff"/>
+<text x="450.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">Shipments per year: what the reports say vs what the warehouse holds</text>
+<text x="450.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">Grey = the figure published before scripts/generate_volume_variation.py; blue = stg_shipments in production today.</text>
+<line x1="90.0" y1="380.0" x2="840.0" y2="380.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="82.0" y="384.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">0</text>
+<line x1="90.0" y1="314.1" x2="840.0" y2="314.1" stroke="#d9d9d9" stroke-width="1"/>
+<text x="82.0" y="318.1" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">500</text>
+<line x1="90.0" y1="248.2" x2="840.0" y2="248.2" stroke="#d9d9d9" stroke-width="1"/>
+<text x="82.0" y="252.2" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">1,000</text>
+<line x1="90.0" y1="182.3" x2="840.0" y2="182.3" stroke="#d9d9d9" stroke-width="1"/>
+<text x="82.0" y="186.3" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">1,500</text>
+<line x1="90.0" y1="116.4" x2="840.0" y2="116.4" stroke="#d9d9d9" stroke-width="1"/>
+<text x="82.0" y="120.4" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">2,000</text>
+<text x="28.0" y="235.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal" transform="rotate(-90 28.0 235.0)">Shipments (count)</text>
+<rect x="141.0" y="115.2" width="70.0" height="264.8" fill="#bdbdbd" stroke="none" stroke-width="1"/>
+<text x="176.0" y="109.2" font-size="12" fill="#555555" text-anchor="middle" font-weight="bold">2,009</text>
+<rect x="219.0" y="136.4" width="70.0" height="243.6" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="254.0" y="130.4" font-size="12" fill="#2c6fbb" text-anchor="middle" font-weight="bold">1,848</text>
+<text x="215.0" y="400.0" font-size="13" fill="#1a1a1a" text-anchor="middle" font-weight="bold">2023</text>
+<text x="215.0" y="418.0" font-size="11.5" fill="#c0392b" text-anchor="middle" font-weight="normal">-161 (-8.0%)</text>
+<text x="215.0" y="436.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">Q1–Q4: 447 / 400 / 452 / 549</text>
+<rect x="391.0" y="115.2" width="70.0" height="264.8" fill="#bdbdbd" stroke="none" stroke-width="1"/>
+<text x="426.0" y="109.2" font-size="12" fill="#555555" text-anchor="middle" font-weight="bold">2,009</text>
+<rect x="469.0" y="123.1" width="70.0" height="256.9" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="504.0" y="117.1" font-size="12" fill="#2c6fbb" text-anchor="middle" font-weight="bold">1,949</text>
+<text x="465.0" y="400.0" font-size="13" fill="#1a1a1a" text-anchor="middle" font-weight="bold">2024</text>
+<text x="465.0" y="418.0" font-size="11.5" fill="#c0392b" text-anchor="middle" font-weight="normal">-60 (-3.0%)</text>
+<text x="465.0" y="436.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">Q1–Q4: 472 / 422 / 477 / 578</text>
+<rect x="641.0" y="115.2" width="70.0" height="264.8" fill="#bdbdbd" stroke="none" stroke-width="1"/>
+<text x="676.0" y="109.2" font-size="12" fill="#555555" text-anchor="middle" font-weight="bold">2,009</text>
+<rect x="719.0" y="115.2" width="70.0" height="264.8" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="754.0" y="109.2" font-size="12" fill="#2c6fbb" text-anchor="middle" font-weight="bold">2,009</text>
+<text x="715.0" y="400.0" font-size="13" fill="#1a1a1a" text-anchor="middle" font-weight="bold">2025</text>
+<text x="715.0" y="418.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">unchanged</text>
+<text x="715.0" y="436.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">Q1–Q4: 486 / 435 / 492 / 596</text>
+<rect x="90.0" y="60.0" width="14.0" height="12.0" fill="#bdbdbd" stroke="none" stroke-width="1"/>
+<text x="110.0" y="70.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="normal">published (pre-revision seed): 2,009 every year, 486/435/492/596 every quarter</text>
+<rect x="610.0" y="60.0" width="14.0" height="12.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
+<text x="630.0" y="70.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="normal">production warehouse now</text>
+<text x="450.0" y="468.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal">Year of shipment created_at</text>
+</svg>
