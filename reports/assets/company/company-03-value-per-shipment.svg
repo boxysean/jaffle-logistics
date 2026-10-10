@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="450" viewBox="0 0 1000 450" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="1000" height="450" fill="#ffffff"/>
+<text x="500.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">2025: the largest account pays about twice as much per shipment</text>
+<text x="500.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">fct_account_revenue, 2025. Left: gross revenue ÷ shipments. Right: the same account's share of shipments vs share of revenue.</text>
+<line x1="230.0" y1="119.0" x2="230.0" y2="385.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="230.0" y="401.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">$0</text>
+<line x1="296.0" y1="119.0" x2="296.0" y2="385.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="296.0" y="401.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">$500</text>
+<line x1="362.0" y1="119.0" x2="362.0" y2="385.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="362.0" y="401.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">$1,000</text>
+<line x1="428.0" y1="119.0" x2="428.0" y2="385.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="428.0" y="401.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">$1,500</text>
+<line x1="494.0" y1="119.0" x2="494.0" y2="385.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="494.0" y="401.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">$2,000</text>
+<line x1="560.0" y1="119.0" x2="560.0" y2="385.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="560.0" y="401.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">$2,500</text>
+<text x="395.0" y="421.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal">Gross revenue per shipment (USD)</text>
+<text x="395.0" y="103.0" font-size="13" fill="#1a1a1a" text-anchor="middle" font-weight="bold">Revenue per shipment</text>
+<rect x="230.0" y="137.0" width="305.8" height="28.0" fill="#c0392b" stroke="none"/>
+<text x="220.0" y="151.0" font-size="12" fill="#c0392b" text-anchor="end" font-weight="bold">Jaffle Equipment</text>
+<text x="220.0" y="165.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0042 · 416 ships</text>
+<text x="541.8" y="155.0" font-size="11.5" fill="#c0392b" text-anchor="start" font-weight="bold">$2,316.57</text>
+<rect x="230.0" y="189.0" width="167.2" height="28.0" fill="#5b7fa6" stroke="none"/>
+<text x="220.0" y="203.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">Jaffle Paper &amp; Packaging</text>
+<text x="220.0" y="217.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0201 · 414 ships</text>
+<text x="403.2" y="207.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">$1,266.33</text>
+<rect x="230.0" y="241.0" width="163.4" height="28.0" fill="#5b7fa6" stroke="none"/>
+<text x="220.0" y="255.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">Jaffle Beverage Co</text>
+<text x="220.0" y="269.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0169 · 394 ships</text>
+<text x="399.4" y="259.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">$1,238.06</text>
+<rect x="230.0" y="293.0" width="152.2" height="28.0" fill="#5b7fa6" stroke="none"/>
+<text x="220.0" y="307.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">Jaffle Crew Outfitters</text>
+<text x="220.0" y="321.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0155 · 398 ships</text>
+<text x="388.2" y="311.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">$1,152.77</text>
+<rect x="230.0" y="345.0" width="151.8" height="28.0" fill="#5b7fa6" stroke="none"/>
+<text x="220.0" y="359.0" font-size="12" fill="#1a1a1a" text-anchor="end" font-weight="normal">Jaffle Storefronts</text>
+<text x="220.0" y="373.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0007 · 387 ships</text>
+<text x="387.8" y="363.0" font-size="11.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">$1,150.34</text>
+<line x1="388.8" y1="117.0" x2="388.8" y2="385.0" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="6,4"/>
+<text x="392.8" y="381.0" font-size="10.5" fill="#1a1a1a" text-anchor="start" font-weight="bold">other four: $1,202.79</text>
+<line x1="660.0" y1="119.0" x2="660.0" y2="385.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="660.0" y="401.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">0%</text>
+<line x1="730.0" y1="119.0" x2="730.0" y2="385.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="730.0" y="401.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">10%</text>
+<line x1="800.0" y1="119.0" x2="800.0" y2="385.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="800.0" y="401.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">20%</text>
+<line x1="870.0" y1="119.0" x2="870.0" y2="385.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="870.0" y="401.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">30%</text>
+<line x1="940.0" y1="119.0" x2="940.0" y2="385.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="940.0" y="401.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">40%</text>
+<text x="800.0" y="421.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal">Share of 2025 total (%)</text>
+<text x="800.0" y="103.0" font-size="13" fill="#1a1a1a" text-anchor="middle" font-weight="bold">Share of shipments vs revenue</text>
+<text x="652.0" y="155.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">0042</text>
+<rect x="660.0" y="135.0" width="144.9" height="13.0" fill="#9aa7b5" stroke="none"/>
+<text x="809.9" y="146.0" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">20.71%</text>
+<rect x="660.0" y="151.0" width="234.3" height="13.0" fill="#c0392b" stroke="none"/>
+<text x="899.3" y="162.0" font-size="10.5" fill="#c0392b" text-anchor="start" font-weight="bold">33.46%</text>
+<text x="652.0" y="207.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">0201</text>
+<rect x="660.0" y="187.0" width="144.3" height="13.0" fill="#9aa7b5" stroke="none"/>
+<text x="809.3" y="198.0" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">20.61%</text>
+<rect x="660.0" y="203.0" width="127.4" height="13.0" fill="#5b7fa6" stroke="none"/>
+<text x="792.4" y="214.0" font-size="10.5" fill="#1a1a1a" text-anchor="start" font-weight="normal">18.21%</text>
+<text x="652.0" y="259.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">0169</text>
+<rect x="660.0" y="239.0" width="137.3" height="13.0" fill="#9aa7b5" stroke="none"/>
+<text x="802.3" y="250.0" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">19.61%</text>
+<rect x="660.0" y="255.0" width="118.6" height="13.0" fill="#5b7fa6" stroke="none"/>
+<text x="783.6" y="266.0" font-size="10.5" fill="#1a1a1a" text-anchor="start" font-weight="normal">16.94%</text>
+<text x="652.0" y="311.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">0155</text>
+<rect x="660.0" y="291.0" width="138.7" height="13.0" fill="#9aa7b5" stroke="none"/>
+<text x="803.7" y="302.0" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">19.81%</text>
+<rect x="660.0" y="307.0" width="111.5" height="13.0" fill="#5b7fa6" stroke="none"/>
+<text x="776.5" y="318.0" font-size="10.5" fill="#1a1a1a" text-anchor="start" font-weight="normal">15.93%</text>
+<text x="652.0" y="363.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">0007</text>
+<rect x="660.0" y="343.0" width="134.8" height="13.0" fill="#9aa7b5" stroke="none"/>
+<text x="799.8" y="354.0" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">19.26%</text>
+<rect x="660.0" y="359.0" width="108.2" height="13.0" fill="#5b7fa6" stroke="none"/>
+<text x="773.2" y="370.0" font-size="10.5" fill="#1a1a1a" text-anchor="start" font-weight="normal">15.46%</text>
+<rect x="660.0" y="68.0" width="14.0" height="12.0" fill="#9aa7b5" stroke="none"/>
+<text x="680.0" y="78.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">shipments</text>
+<rect x="770.0" y="68.0" width="14.0" height="12.0" fill="#5b7fa6" stroke="none"/>
+<text x="790.0" y="78.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">revenue</text>
+<text x="230.0" y="438.0" font-size="11" fill="#555555" text-anchor="start" font-weight="normal">Five accounts: $2,879,732 on 2,009 shipments. Gross revenue, not profit: there is no per-account cost or margin.</text>
+</svg>
