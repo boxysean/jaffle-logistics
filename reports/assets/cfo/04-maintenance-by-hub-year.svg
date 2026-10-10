@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500" viewBox="0 0 960 500" font-family="Helvetica, Arial, sans-serif">
+<rect x="0" y="0" width="960" height="500" fill="#ffffff"/>
+<text x="480.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">Fleet maintenance spend by hub by year</text>
+<text x="480.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">Total fleet_work_orders.cost, USD. The only genuine cost record in this data.</text>
+<line x1="110.0" y1="410.0" x2="920.0" y2="410.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="102.0" y="414.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">$0k</text>
+<line x1="110.0" y1="327.5" x2="920.0" y2="327.5" stroke="#d9d9d9" stroke-width="1"/>
+<text x="102.0" y="331.5" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">$20k</text>
+<line x1="110.0" y1="245.0" x2="920.0" y2="245.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="102.0" y="249.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">$40k</text>
+<line x1="110.0" y1="162.5" x2="920.0" y2="162.5" stroke="#d9d9d9" stroke-width="1"/>
+<text x="102.0" y="166.5" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">$60k</text>
+<line x1="110.0" y1="80.0" x2="920.0" y2="80.0" stroke="#d9d9d9" stroke-width="1"/>
+<text x="102.0" y="84.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">$80k</text>
+<text x="102.0" y="68.0" font-size="11.5" fill="#555555" text-anchor="end" font-weight="normal">USD</text>
+<rect x="129.4" y="358.1" width="38.9" height="51.9" fill="#9aa7b5" stroke="none"/>
+<text x="148.9" y="354.1" font-size="9.6" fill="#1a1a1a" text-anchor="middle" font-weight="normal">$13k</text>
+<rect x="172.3" y="337.4" width="38.9" height="72.6" fill="#5b7fa6" stroke="none"/>
+<text x="191.8" y="333.4" font-size="9.6" fill="#1a1a1a" text-anchor="middle" font-weight="normal">$18k</text>
+<rect x="215.2" y="144.1" width="38.9" height="265.9" fill="#c0392b" stroke="none"/>
+<text x="234.6" y="140.1" font-size="9.6" fill="#1a1a1a" text-anchor="middle" font-weight="normal">$64k</text>
+<text x="191.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Chicago</text>
+<rect x="291.4" y="338.1" width="38.9" height="71.9" fill="#9aa7b5" stroke="none"/>
+<text x="310.9" y="334.1" font-size="9.6" fill="#1a1a1a" text-anchor="middle" font-weight="normal">$17k</text>
+<rect x="334.3" y="408.2" width="38.9" height="1.8" fill="#5b7fa6" stroke="none"/>
+<text x="353.8" y="404.2" font-size="9.6" fill="#1a1a1a" text-anchor="middle" font-weight="normal">$0k</text>
+<rect x="377.2" y="280.6" width="38.9" height="129.4" fill="#c0392b" stroke="none"/>
+<text x="396.6" y="276.6" font-size="9.6" fill="#1a1a1a" text-anchor="middle" font-weight="normal">$31k</text>
+<text x="353.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Cincinnati</text>
+<rect x="453.4" y="345.9" width="38.9" height="64.1" fill="#9aa7b5" stroke="none"/>
+<text x="472.9" y="341.9" font-size="9.6" fill="#1a1a1a" text-anchor="middle" font-weight="normal">$16k</text>
+<rect x="496.3" y="211.8" width="38.9" height="198.2" fill="#5b7fa6" stroke="none"/>
+<text x="515.8" y="207.8" font-size="9.6" fill="#1a1a1a" text-anchor="middle" font-weight="normal">$48k</text>
+<rect x="539.2" y="87.9" width="38.9" height="322.1" fill="#c0392b" stroke="none"/>
+<text x="558.6" y="83.9" font-size="9.6" fill="#1a1a1a" text-anchor="middle" font-weight="normal">$78k</text>
+<text x="515.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Columbus</text>
+<rect x="615.4" y="294.5" width="38.9" height="115.5" fill="#9aa7b5" stroke="none"/>
+<text x="634.9" y="290.5" font-size="9.6" fill="#1a1a1a" text-anchor="middle" font-weight="normal">$28k</text>
+<rect x="658.3" y="328.2" width="38.9" height="81.8" fill="#5b7fa6" stroke="none"/>
+<text x="677.8" y="324.2" font-size="9.6" fill="#1a1a1a" text-anchor="middle" font-weight="normal">$20k</text>
+<rect x="701.2" y="217.9" width="38.9" height="192.1" fill="#c0392b" stroke="none"/>
+<text x="720.6" y="213.9" font-size="9.6" fill="#1a1a1a" text-anchor="middle" font-weight="normal">$47k</text>
+<text x="677.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Detroit</text>
+<rect x="777.4" y="340.6" width="38.9" height="69.4" fill="#9aa7b5" stroke="none"/>
+<text x="796.9" y="336.6" font-size="9.6" fill="#1a1a1a" text-anchor="middle" font-weight="normal">$17k</text>
+<rect x="820.3" y="334.9" width="38.9" height="75.1" fill="#5b7fa6" stroke="none"/>
+<text x="839.8" y="330.9" font-size="9.6" fill="#1a1a1a" text-anchor="middle" font-weight="normal">$18k</text>
+<rect x="863.2" y="215.7" width="38.9" height="194.3" fill="#c0392b" stroke="none"/>
+<text x="882.6" y="211.7" font-size="9.6" fill="#1a1a1a" text-anchor="middle" font-weight="normal">$47k</text>
+<text x="839.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Indianapolis</text>
+<rect x="110.0" y="60.0" width="14.0" height="12.0" fill="#9aa7b5" stroke="none"/>
+<text x="130.0" y="70.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2023</text>
+<rect x="200.0" y="60.0" width="14.0" height="12.0" fill="#5b7fa6" stroke="none"/>
+<text x="220.0" y="70.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2024</text>
+<rect x="290.0" y="60.0" width="14.0" height="12.0" fill="#2c6fbb" stroke="none"/>
+<text x="310.0" y="70.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2025</text>
+<text x="515.0" y="490.0" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal">Hub (city)</text>
+</svg>
