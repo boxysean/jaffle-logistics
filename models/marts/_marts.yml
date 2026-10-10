@@ -74,6 +74,21 @@ models:
         granularity: day
         dimension:
           type: time
+      - name: promised_delivery_at
+        description: "When the shipment was promised (see stg_shipments)."
+        granularity: day
+        dimension:
+          type: time
+      - name: hours_late
+        description: "Hours past the promise; delayed shipments only, null otherwise."
+      - name: late_bucket
+        description: "on_time, <4h, 4-12h, 1-2d or >2d; null for failed and returned."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['on_time', '<4h', '4-12h', '1-2d', '>2d']
+        dimension:
+          type: categorical
     metrics:
       - name: shipments
         label: Shipments
@@ -92,13 +107,22 @@ models:
         description: >
           Share of shipments with status delivered. A shipment that arrived late
           carries status delayed, and one that never arrived is failed or
-          returned, so only delivered counts as on time. The data has no
-          promised-delivery date, so lateness comes from that status flag and
-          not from a date comparison. It is the same definition
+          returned, so only delivered counts as on time. Lateness comes from that
+          status flag; promised_delivery_at and hours_late measure how late, and
+          agree with the flag (assert_shipment_lateness_matches_status). It is the
+          same definition
           int_client_monthly_sla uses for ontime_pct, expressed as a fraction.
         type: ratio
         numerator: on_time_shipments
         denominator: shipments
+      - name: late_hours
+        label: Late hours
+        description: >
+          Sum of hours_late: total hours delayed shipments arrived past their
+          promised_delivery_at. Delivered, failed and returned shipments add nothing.
+        type: simple
+        agg: sum
+        expr: hours_late
       - name: on_time_rate_change_vs_prior_quarter_pts
         label: On-time % change vs prior quarter (pts)
         description: >
