@@ -49,6 +49,10 @@ January, exactly as the original data already does).
 - Every new row points at something that already exists — the same five
   clients, the same five hubs, and real drivers, vehicles, routes and
   shipments — so referential integrity holds across the whole timeline.
+- `dock_bay_events` (new, `DBE-NNNNNN`) is the bay-level dock record: every
+  bay at every hub, every day of 2023–2025, with one `damage_found` row per
+  damage incident. `incident_reports` gained a report for every severity 1–2
+  incident and every Columbus damage incident that lacked one (`IR-7067` on).
 
 The quiet years were generated deliberately, not uniformly at random:
 their on-time rates, incident mix and severity were chosen to match the
