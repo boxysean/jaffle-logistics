@@ -8,7 +8,7 @@
 -- Dispatch notes carry no client_id of their own, only a route_id, so the account
 -- key is the route's dominant client through the attribution bridge (most
 -- exceptions attributed, then largest stop share), the same convention as
--- tests/assert_columbus_2025_damage_attributed_to_equipment.sql. left join:
+-- tests/assert_amsterdam_2025_damage_attributed_to_werke.sql. left join:
 -- client_id stays null when a route has no attribution rows, never guessed.
 {{ config(materialized='table') }}
 

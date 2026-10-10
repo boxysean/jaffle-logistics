@@ -1,5 +1,5 @@
 -- Monthly account-health fact (grain: one row per client-month). Surfaces the
--- Jaffle Equipment (CLI-0042) decline: on-time % trending down while ticket and
+-- Jaffle Werke (CLI-0042) decline: on-time % trending down while ticket and
 -- incident counts trend up across the year. Joins the monthly SLA backbone to
 -- monthly ticket and incident counts, and carries the client's current health
 -- flag and contract SLA target for context.

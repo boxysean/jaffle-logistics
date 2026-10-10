@@ -202,7 +202,7 @@ models:
   - name: fct_account_health
     description: >
       Monthly account-health fact (grain: client-month). Surfaces the Jaffle
-      Equipment decline: on-time % down, ticket/incident counts up across 2025.
+      Werke decline: on-time % down, ticket/incident counts up across 2025.
     columns:
       - name: account_month_key
         description: "Surrogate key: client_id || ':' || 'YYYY-MM' (month_key macro on month)."
@@ -237,8 +237,8 @@ models:
     description: >
       Monthly account-revenue fact (grain: client-month, 2020-01 .. 2025-12). Gross,
       contract credits and net revenue by account, with the trailing-12-month on-time
-      rate the credits are assessed on. Puts a dollar figure on the 2025 Jaffle
-      Equipment service failure. Pre-2023 rows are imputed (measurement_basis
+      rate the credits are assessed on. Puts a euro figure on the 2025 Jaffle
+      Werke service failure. Pre-2023 rows are imputed (measurement_basis
       no_shipment_record); see stg_revenue_ledger for the model and the
       predecessor-SLA caveat.
     semantic_model:

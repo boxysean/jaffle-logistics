@@ -1,7 +1,7 @@
 -- Monthly account-revenue fact (grain: one row per client-month, 2020-01 .. 2025-12).
 -- The revenue and cost ledger joined to the client dimension: gross, contract credits
 -- and net by account, alongside the trailing-12-month on-time rate the credits are
--- assessed on. This is what puts a dollar figure on the 2025 Jaffle Equipment
+-- assessed on. This is what puts a euro figure on the 2025 Jaffle Werke
 -- (CLI-0042) service failure instead of a percentage.
 
 with ledger as (

@@ -295,7 +295,7 @@ models:
                 to: ref('stg_hubs')
                 field: hub_id
       - name: bay_id
-        description: "<hub_id>-BAY-<n>, e.g. HUB-CMH-BAY-3."
+        description: "<hub_id>-BAY-<n>, e.g. HUB-AMS-BAY-3."
         tests: [not_null]
       - name: route_id
         tests:
@@ -523,9 +523,9 @@ models:
       and no overtime; employees carry a base wage plus overtime. Overtime is a
       steady 4 hours per employee-month with hours, capped at hours_worked, plus a
       2025-only uplift where a hub's damage incidents exceed its worst 2023-2024
-      month (the HUB-CMH handling-damage cluster lifts CMH overtime) and where the
+      month (the HUB-AMS handling-damage cluster lifts AMS overtime) and where the
       hub's delayed or failed CLI-0042 shipments exceed its worst 2023-2024 month
-      (the account's 2025 exception load, led by HUB-CHI; 2023-2024 are steady,
+      (the account's 2025 exception load, led by HUB-PAR; 2023-2024 are steady,
       both terms exactly 0). cost_per_route = total_cost / routes_run, null when the driver
       ran no route that month. hub_id is the driver's drivers.csv hub: no route in
       the record is run from another hub, so no mid-tenure move is modelled, though

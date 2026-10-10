@@ -1,4 +1,4 @@
--- The Jaffle Equipment decline, straight from the fct_account_health mart: on-time %
+-- The Jaffle Werke decline, straight from the fct_account_health mart: on-time %
 -- trending down while ticket and incident counts trend up over 2025.
 select
     {{ month_key('month') }}    as month,

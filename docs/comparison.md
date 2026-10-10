@@ -9,9 +9,9 @@ moves past raw cosine similarity. Raw similarity fails for a specific,
 tested reason; a business-scoped `classify()` pass fixes most of it,
 and that improvement is what this page demonstrates.
 
-## The account: Jaffle Equipment (`CLI-0042`)
+## The account: Jaffle Werke (`CLI-0042`)
 
-On-time delivery for Jaffle Equipment degraded through 2025 for two
+On-time delivery for Jaffle Werke degraded through 2025 for two
 unrelated reasons, documented across CRM notes, support tickets, Slack,
 and incident reports.
 
@@ -21,17 +21,17 @@ beats that turn a wall of tickets into a root-cause story:
 
 | occurred_at | source | artifact_id | excerpt |
 |---|---|---|---|
-| 2023-11-14 | legal_doc | LGL-4000 | MASTER SERVICES AGREEMENT — Jaffle Logistics and Jaffle Equipment (CLI-0042). Effective 2023-11-14... |
-| 2025-01-21 | crm_note | CRM-9001 | QBR — Jaffle Equipment (CLI-0042), Q1 2025. Tense call. The Jan 14-16 Chicago storm delayed a large batch of Jaffle Equipment freight... |
+| 2023-11-14 | legal_doc | LGL-4000 | MASTER SERVICES AGREEMENT — Jaffle Logistics and Jaffle Werke (CLI-0042). Effective 2023-11-14... |
+| 2025-01-21 | crm_note | CRM-9001 | QBR — Jaffle Werke (CLI-0042), Q1 2025. Tense call. The Jan 14-16 Paris storm delayed a large batch of Jaffle Werke freight... |
 | 2025-01-21 | call_transcript | CT-99001 | Marcus Trent: Janet, thanks for taking this. I know the last two weeks have been rough, I want to own it... |
-| 2025-07-18 | slack_thread | SLK-99010 | @marcus: on-time for Jaffle Equipment (CLI-0042) has been sliding since Q2, and tickets are up. @marcus: storm recovery mostly explains CHI, but I'm also seeing two damage/mispick incidents at CMH in June that don't fit that pattern... |
-| 2025-10-11 | incident_report | IR-9003 | INCIDENT REPORT INC-2025-00095 — DAMAGE (severity 3). This is the third handling-related incident at HUB-CMH in 2025, following a damage event in June (INC-2025-00136) and a mispick eight days later (INC-2025-00241)... |
-| 2025-10-14 | crm_note | CRM-9022 | QBR — Jaffle Equipment (CLI-0042), Q3 2025. On-time is materially under target. The January Chicago storm explains part of it, but a second, weather-independent pattern has emerged: repeated handling damage at the Columbus hub... |
-| 2025-10-15 | slack_thread | SLK-99011 | @marcus: third CMH incident this year for Jaffle Equipment (INC-2025-00095, damage) — same pattern as INC-2025-00136 and INC-2025-00241. @gordon: bay 3 forklift staging has come up before... |
-| 2025-10-20 | crm_note | CRM-9030 | Q4 PERFORMANCE ROOT-CAUSE REVIEW — Jaffle Equipment (CLI-0042). Two contributing factors identified for 2025's on-time decline: the January Chicago winter storm, and a recurring handling-damage pattern at the Columbus hub... |
+| 2025-07-18 | slack_thread | SLK-99010 | @marcus: on-time for Jaffle Werke (CLI-0042) has been sliding since Q2, and tickets are up. @marcus: storm recovery mostly explains PAR, but I'm also seeing two damage/mispick incidents at AMS in June that don't fit that pattern... |
+| 2025-10-11 | incident_report | IR-9003 | INCIDENT REPORT INC-2025-00095 — DAMAGE (severity 3). This is the third handling-related incident at HUB-AMS in 2025, following a damage event in June (INC-2025-00136) and a mispick eight days later (INC-2025-00241)... |
+| 2025-10-14 | crm_note | CRM-9022 | QBR — Jaffle Werke (CLI-0042), Q3 2025. On-time is materially under target. The January Paris storm explains part of it, but a second, weather-independent pattern has emerged: repeated handling damage at the Amsterdam hub... |
+| 2025-10-15 | slack_thread | SLK-99011 | @marcus: third AMS incident this year for Jaffle Werke (INC-2025-00095, damage) — same pattern as INC-2025-00136 and INC-2025-00241. @gordon: bay 3 forklift staging has come up before... |
+| 2025-10-20 | crm_note | CRM-9030 | Q4 PERFORMANCE ROOT-CAUSE REVIEW — Jaffle Werke (CLI-0042). Two contributing factors identified for 2025's on-time decline: the January Paris winter storm, and a recurring handling-damage pattern at the Amsterdam hub... |
 
 Contract signed, a one-time storm spikes ticket volume in January, an
-unrelated handling pattern emerges at Columbus over the summer. Ops
+unrelated handling pattern emerges at Amsterdam over the summer. Ops
 traces it to a specific bay, and the Q4 review documents both causes
 side by side, each backed by an incident ID. All eight rows exist in the
 181-row output today; finding them meant scrolling past 173 others.
@@ -48,7 +48,7 @@ can't find anything the account mentions without naming it explicitly.
 ## Told by search, raw
 
 The same account, asked differently: `search.sql`'s
-`jaffle_equipment_performance_issues` demo embeds "late deliveries and
+`jaffle_werke_performance_issues` demo embeds "late deliveries and
 what is driving them" once, then runs cosine similarity over
 `knowledge_base`, filtered to `account_key = 'CLI-0042'`. No join, no
 regex, no exact string. Run it yourself:
@@ -105,8 +105,8 @@ runs the filtered search below:
 |---|---|---|---|
 | 1 | `CT-99021::2` | 0.565 | Q2 transcript close: "I'll bring findings next time" |
 | 2 | `CT-99021::1` | 0.544 | Q2 transcript open: pattern flagged, cause unknown |
-| 3 | `CT-99022::1` | 0.501 | Q3 transcript: Columbus pattern identified |
-| 4 | `IR-9003::2` | 0.491 | the Columbus incident report's own account-facing note |
+| 3 | `CT-99022::1` | 0.501 | Q3 transcript: Amsterdam pattern identified |
+| 4 | `IR-9003::2` | 0.491 | the Amsterdam incident report's own account-facing note |
 | 5 | `CRM-9001::2` | 0.483 | Q1: SLA credit issued, "first real crack in the relationship" |
 | 6, 8-10 | `TKT-910xxx` | 0.46 | repeated ticket frustration, no churn language |
 | 7 | `CT-99001::2` | 0.464 | Q1 transcript: SLA credit, recovery plan promised |
@@ -116,7 +116,7 @@ boilerplate and no incident noise.
 
 ## Told by search: the whole-corpus case, and its limit
 
-The thematic demo, "truck accident during the Chicago winter storm," no
+The thematic demo, "truck accident during the Paris winter storm," no
 account filter, is the real case for semantic search: there's no join
 path to that question, and no regex a person could write in advance to
 catch every way an incident report might describe a storm.
