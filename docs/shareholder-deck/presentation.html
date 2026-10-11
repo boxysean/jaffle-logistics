@@ -129,13 +129,40 @@
   .tile .l { font-family: var(--pixel); font-size: 16px; color: var(--text); margin-top: 10px; line-height: 1.4; }
   .tile .note { font-size: 24px; line-height: 1.25; color: var(--dim); margin-top: 4px; }
 
+  /* storm-week slide: the deck's one failure story, emphasis in --hot */
+  .storm .hd { height: 96px; border-color: var(--hot); }
+  .storm .hd h2 { color: var(--hot); display: flex; justify-content: space-between; align-items: baseline; }
+  .storm .hd h2 .when { font-size: 16px; color: var(--deep); background: var(--hot); padding: 5px 10px; }
+  .storm .hd .owns { margin-top: 8px; }
+  .storm .panel > .tab { background: var(--hot); }
+  /* fit budget at 24px mono (14.4px/char, 27.6px/line): body 132-650 = 518 = tiles 74.9 + gap 14 + cols 429.1.
+     cols: panels 1-2 are 390.3 tall (room for 12 lines, need 12); panel 3 runs past the footnote, 429.1 tall (room for 13, needs 13).
+     column widths give 22 / 20 / 30 characters per line, the minimum each panel's copy needs to stay inside those line counts.
+     panel 3's shadow ends at 660, where the status bar's halo begins. */
+  .storm .body { position: absolute; left: 20px; top: 132px; width: 1240px; height: 518px; display: flex; flex-direction: column; gap: 14px; }
+  .storm .tiles4 { display: grid; grid-template-columns: 332px 318px 360px 1fr; gap: 12px; }
+  .storm .tile { border-color: var(--hot); padding: 6px 12px; }
+  .storm .tile .v { font-size: 22px; color: var(--hot); }
+  .storm .tile .note { margin-top: 2px; line-height: 1.15; }
+  .storm .col { top: 0; padding: 14px 12px 10px; }
+  .storm .col ul, .storm .col ol { list-style: none; margin: 0; padding: 0; }
+  .storm .col li { position: relative; padding-left: 20px; font-size: 24px; line-height: 1.15; }
+  .storm .col li + li { margin-top: 8px; }
+  .storm .col ul li::before { content: ""; position: absolute; left: 0; top: 9px; width: 10px; height: 10px; background: var(--hot); }
+  .storm .col ol { counter-reset: mv; }
+  .storm .col ol li { counter-increment: mv; padding-left: 26px; }
+  .storm .col ol li::before { content: counter(mv); position: absolute; left: 0; top: 2px; font-family: var(--pixel); font-size: 16px; color: var(--hot); }
+  .storm .col strong { color: var(--hot); font-weight: 600; }
+  .storm .cols { flex: 1; display: grid; grid-template-columns: 376px 340px 1fr; grid-template-rows: 1fr auto; column-gap: 12px; row-gap: 10px; }
+  .storm .cols .panel { position: relative; }
+  .storm .cols .moves { grid-column: 3; grid-row: 1 / 3; }
+  .storm .wit { grid-column: 1 / 3; font-size: 24px; line-height: 1.2; color: var(--dim); }
+
   /* full-bleed image slides */
-  .shot { position: absolute; left: 50%; top: 0; height: 578px; transform: translateX(-50%); }
-  .caption {
-    left: 20px; top: 580px; width: 1240px; height: 76px; border: 0; box-shadow: none; background: transparent;
-    font-size: 24px; line-height: 38px; letter-spacing: -0.6px; white-space: nowrap; text-align: center;
-  }
-  .caption .src { left: 16px; bottom: 6px; letter-spacing: 0; }
+  .shot { position: absolute; left: 0; top: 0; width: 1280px; height: 720px; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; object-fit: contain; display: block; }
+  /* the image is the whole slide: no scanline overlay, and its own caption bar replaces the status bar */
+  section.img .frame::after,
+  section.img .status { display: none; }
 
   /* reveal chrome */
   .reveal .slide-number {
@@ -144,6 +171,10 @@
   }
   /* progress runs along the top edge so the status bar stays the last thing at the bottom */
   .reveal .progress { color: var(--amber); height: 4px; top: 0; bottom: auto; background: var(--navy-2); }
+  /* the two full-bleed image slides carry their own chrome, so reveal's progress bar is hidden
+     while one of them is showing (the body class is toggled from reveal's own events, below) */
+  body.imgslide .progress { display: none; }
+  .pdf-page:has(> section.img) .slide-number-pdf { display: none; }
 
   @media print {
     *, *::before, *::after { animation: none !important; }
@@ -155,7 +186,7 @@
 <div class="slides">
 
 <!-- 1. Title -->
-<section data-src="reports/company-profile.md">
+<section data-src="reports/company-profile.md" data-status="synthetic dataset">
   <div class="frame">
     <div class="panel title-box">
       <h1>JAFFLE LOGISTICS</h1>
@@ -183,7 +214,6 @@
         <li>Five hubs across five countries, <strong>one of them outside the EU</strong>.</li>
         <li>It sells a promise: an on-time service level, backed by a credit of <strong>1% of monthly spend per point missed, capped at 10%</strong>.</li>
       </ul>
-      <div class="src"><b>SOURCE</b><code>reports/company-profile.md</code></div>
     </div>
     <div class="tiles">
       <div class="panel tile"><div class="v">5 HUBS</div><div class="l">5 COUNTRIES · 1 NON-EU LEG</div></div>
@@ -194,22 +224,16 @@
 </section>
 
 <!-- 3. The network -->
-<section class="img" data-src="slides/map-retro.html">
+<section class="img" data-state="fullbleed" data-src="slides/map-retro.html">
   <div class="frame">
     <img class="shot" src="png/map-retro.png" alt="Pixel-art map of the Jaffle Logistics hub-and-spoke network across Amsterdam, Paris, Berlin, Vienna and Zürich">
-    <div class="panel caption">Five hubs, one hub-and-spoke network out of Amsterdam. Zürich crosses a customs border.
-      <div class="src"><b>SOURCE</b><code>reports/company-profile.md</code></div>
-    </div>
   </div>
 </section>
 
 <!-- 4. The executive group -->
-<section class="img exec" data-src="slides/exec-retro.html">
+<section class="img exec" data-state="fullbleed" data-src="slides/exec-retro.html">
   <div class="frame">
     <img class="shot" src="png/exec-retro.png" alt="Pixel-art management team screen: seven executive seats, each with one headline number">
-    <div class="panel caption">Seven seats, each judged on one number the data can prove.
-      <div class="src"><b>SOURCE</b><code>reports/persona-*.md</code> (one report per seat, slides 05–11)</div>
-    </div>
   </div>
 </section>
 
@@ -236,7 +260,6 @@
         <li><strong>€52,954.86</strong> of service credits were paid in 2025.</li>
         <li>That is <strong>1.84%</strong> of 2025 gross revenue.</li>
       </ul>
-      <div class="src"><b>SOURCE</b><code>reports/persona-cfo.md</code></div>
     </div>
   </div>
 </section>
@@ -262,12 +285,56 @@
         <li>The network turned in <strong>week 45 (w/c 3 Nov 2025)</strong> and never recovered.</li>
         <li>One winter storm week in Paris produced <strong>570 exceptions</strong>.</li>
       </ul>
-      <div class="src"><b>SOURCE</b><code>reports/persona-coo.md</code></div>
     </div>
   </div>
 </section>
 
-<!-- 7. CRO -->
+<!-- 7. The storm week -->
+<section class="storm" data-src="reports/persona-coo.md">
+  <div class="frame">
+    <div class="panel hd">
+      <h2>THE STORM WEEK<span class="when">WEEK 3 · 13-19 JAN 2025 · PARIS</span></h2>
+      <div class="owns">What happened in Paris, what it cost, and what to do before the next winter</div>
+    </div>
+    <div class="body">
+    <div class="tiles4">
+      <div class="panel tile"><div class="v">570</div><div class="note">exceptions, one week</div></div>
+      <div class="panel tile"><div class="v">23.5%</div><div class="note">of the year's total</div></div>
+      <div class="panel tile"><div class="v">56.60%</div><div class="note">Paris on-time, January</div></div>
+      <div class="panel tile"><div class="v">9 WEEKS</div><div class="note">to settle</div></div>
+    </div>
+    <div class="cols">
+      <div class="panel col">
+        <span class="tab">WHAT HAPPENED</span>
+        <ul>
+          <li>A winter storm hit Paris <strong>14-16 January</strong>; a truck jackknifed on an icy on-ramp.</li>
+          <li>One week produced <strong>570 exceptions</strong> - nearly a quarter of the year's.</li>
+          <li>The largest account's freight was in the delayed batch, and its review five days later was tense.</li>
+        </ul>
+      </div>
+      <div class="panel col">
+        <span class="tab">WHAT IT COST</span>
+        <ul>
+          <li>Paris ran January at <strong>56.60% on time</strong>, against a <strong>97%</strong> target.</li>
+          <li>The network took <strong>nine weeks</strong> - weeks 1 to 9 - to settle.</li>
+          <li>Paris closed on <strong>106 partial or cancelled routes</strong>; the other hubs ran about <strong>9.9 per 100</strong>.</li>
+        </ul>
+      </div>
+      <div class="panel col moves">
+        <span class="tab">WHAT TO DO BEFORE NEXT WINTER</span>
+        <ol>
+          <li><strong>Move the biggest account's winter freight off Paris.</strong> Paris in winter is a dated risk, not a surprise; Berlin and Vienna ran the year better.</li>
+          <li><strong>Call the customer before the service level breaks.</strong> The record shows they raised it first.</li>
+          <li><strong>Read the storm and the trend apart.</strong> Under the recovery sits a weather-independent slide.</li>
+        </ol>
+      </div>
+      <div class="wit">See the COO report, §3.3</div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. CRO -->
 <section data-src="reports/persona-cro.md">
   <div class="frame">
     <div class="panel hd">
@@ -292,12 +359,11 @@
         <li>That one account is <strong>33.5% of 2025 revenue</strong> on <strong>20.7% of shipments</strong>.</li>
         <li>Service credits paid in 2025 came to <strong>1.84%</strong> of gross revenue.</li>
       </ul>
-      <div class="src"><b>SOURCE</b><code>reports/persona-cro.md</code></div>
     </div>
   </div>
 </section>
 
-<!-- 8. Customer Experience -->
+<!-- 9. Customer Experience -->
 <section data-src="reports/persona-customer-experience.md">
   <div class="frame">
     <div class="panel hd">
@@ -319,12 +385,11 @@
         <li><strong>124 of 327</strong> tickets closed as <code>resolved</code> (<strong>37.9%</strong>) were not actually resolved.</li>
         <li>Every other account had an ordinary year (Warenhuis <strong>29 → 16</strong> tickets).</li>
       </ul>
-      <div class="src"><b>SOURCE</b><code>reports/persona-customer-experience.md</code></div>
     </div>
   </div>
 </section>
 
-<!-- 9. Fleet & Maintenance -->
+<!-- 10. Fleet & Maintenance -->
 <section data-src="reports/persona-fleet.md">
   <div class="frame">
     <div class="panel hd">
@@ -349,12 +414,11 @@
         <li>Collision repair alone was <strong>€169,799</strong>: <strong>63%</strong> of 2025 spend and <strong>69%</strong> of the increase.</li>
         <li>Eight collision repairs (<strong>€64,191</strong>) are under-reported.</li>
       </ul>
-      <div class="src"><b>SOURCE</b><code>reports/persona-fleet.md</code></div>
     </div>
   </div>
 </section>
 
-<!-- 10. People -->
+<!-- 11. People -->
 <section data-src="reports/persona-people.md">
   <div class="frame">
     <div class="panel hd">
@@ -379,12 +443,11 @@
         <li>A contractor route cost <strong>€723.02</strong> against <strong>€370.83</strong> for an employee route.</li>
         <li>Six working drivers in Vienna ran <strong>123.5 routes each</strong>, <strong>2.6×</strong> a normal load.</li>
       </ul>
-      <div class="src"><b>SOURCE</b><code>reports/persona-people.md</code></div>
     </div>
   </div>
 </section>
 
-<!-- 11. Data -->
+<!-- 12. Data -->
 <section data-src="reports/persona-data.md">
   <div class="frame">
     <div class="panel hd">
@@ -405,7 +468,6 @@
         <li>The volume figures were an artefact: every year contained exactly <strong>2,009 shipments</strong>, so year-over-year volume was never comparable.</li>
         <li>The reports now use the European names while <strong>production does not</strong>. The warehouse reload is the open item.</li>
       </ul>
-      <div class="src"><b>SOURCE</b><code>reports/persona-data.md</code></div>
     </div>
   </div>
 </section>
@@ -426,7 +488,7 @@
     }
   });
 
-  // persistent status bar on every slide
+  // persistent status bar on every slide; the right-hand label is the slide's source report
   var slides = document.querySelectorAll('.reveal .slides > section');
   var pad = function (k) { return (k < 10 ? '0' : '') + k; };
   slides.forEach(function (s, i) {
@@ -434,25 +496,32 @@
     bar.className = 'panel status';
     bar.innerHTML = '<span>JAFFLE LOGISTICS</span>' +
       '<span class="c">SLIDE ' + pad(i + 1) + ' / ' + pad(slides.length) + '</span>' +
-      '<span class="r">synthetic dataset<i class="cursor"></i></span>';
+      '<span class="r">' + (s.dataset.status || s.dataset.src) + '<i class="cursor"></i></span>';
     s.querySelector('.frame').appendChild(bar);
   });
 
   Reveal.initialize({
     width: 1280,
     height: 720,
-    margin: 0.02,
+    margin: 0,
     center: false,
     controls: false,
     progress: true,
-    slideNumber: 'c/t',
-    showSlideNumber: 'all',
+    slideNumber: false,
     hash: true,
     transition: 'none',
     backgroundTransition: 'none',
     pdfMaxPagesPerSlide: 1,
     pdfSeparateFragments: false
   });
+
+  // the deck's own status bar carries the slide number, and each full-bleed image slide carries
+  // its own chrome - so flag those slides on <body> and let the CSS drop the progress bar there
+  var setChrome = function (slide) {
+    document.body.classList.toggle('imgslide', !!(slide && slide.classList.contains('img')));
+  };
+  Reveal.on('ready', function (e) { setChrome(e.currentSlide); });
+  Reveal.on('slidechanged', function (e) { setChrome(e.currentSlide); });
 })();
 </script>
 </body>
