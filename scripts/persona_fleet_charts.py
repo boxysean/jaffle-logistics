@@ -5,7 +5,9 @@ No charting library is used (none is installed and package installation is
 blocked on this box). Every chart is emitted as plain SVG text markup built from
 the query results embedded below, so each figure is reproducible without the
 warehouse. Every number comes from an execute_sql query against
-hive_metastore.dbt_smcintyre_jaffle_logistics_prod; the SQL is in the appendix of
+hive_metastore.dbt_smcintyre_jaffle_logistics_prod, re-run against the pivoted
+European warehouse (jaffle_logistics.duckdb) with identical values; money is EUR.
+The SQL is in the appendix of
 reports/persona-fleet.md (query numbers are noted beside each data block).
 
 Output: reports/assets/personas/fleet-*.svg  (committed alongside the report).
@@ -37,8 +39,8 @@ MID = "#5b7fa6"
 BAND = "#eef1f5"
 YEAR_COLS = [(LIGHT, "2023"), (MID, "2024"), (BLUE, "2025")]
 TYPE_COLS = {"van": BLUE, "box_truck": MID, "semi": LIGHT}
-HUB_COLS = {"HUB-CHI": "#2c6fbb", "HUB-CIN": "#7a9cc6", "HUB-CMH": "#c0392b",
-            "HUB-DET": "#1a1a1a", "HUB-IND": "#9aa7b5"}
+HUB_COLS = {"HUB-AMS": "#c0392b", "HUB-BER": "#9aa7b5", "HUB-PAR": "#2c6fbb",
+            "HUB-VIE": "#1a1a1a", "HUB-ZRH": "#7a9cc6"}
 
 FONT = "Helvetica, Arial, sans-serif"
 
@@ -48,20 +50,20 @@ def esc(s):
 
 
 # ---------------------------------------------------------------- data (from execute_sql)
-HUBS = [("HUB-CHI", "Chicago"), ("HUB-CIN", "Cincinnati"), ("HUB-CMH", "Columbus"),
-        ("HUB-DET", "Detroit"), ("HUB-IND", "Indianapolis")]
+HUBS = [("HUB-AMS", "Amsterdam"), ("HUB-BER", "Berlin"), ("HUB-PAR", "Paris"),
+        ("HUB-VIE", "Vienna"), ("HUB-ZRH", "Zürich")]
 
-# Q6 — maintenance spend ($) by hub by year, and 2025 collision-repair spend ($) by hub
+# Q6 — maintenance spend (EUR) by hub by year, and 2025 collision-repair spend (EUR) by hub
 MAINT = {
-    "HUB-CHI": (12576, 17588, 64456),
-    "HUB-CIN": (17423, 437, 31362),
-    "HUB-CMH": (15538, 48044, 78083),
-    "HUB-DET": (27990, 19829, 46581),
-    "HUB-IND": (16828, 18203, 47096),
+    "HUB-AMS": (15538, 48044, 78083),
+    "HUB-BER": (16828, 18203, 47096),
+    "HUB-PAR": (12576, 17588, 64456),
+    "HUB-VIE": (27990, 19829, 46581),
+    "HUB-ZRH": (17423, 437, 31362),
 }
-ACC_2025 = {"HUB-CHI": 49405, "HUB-CIN": 10030, "HUB-CMH": 54635, "HUB-DET": 37468, "HUB-IND": 18261}
+ACC_2025 = {"HUB-AMS": 54635, "HUB-BER": 18261, "HUB-PAR": 49405, "HUB-VIE": 37468, "HUB-ZRH": 10030}
 
-# Q9 — 2025 by vehicle type: routes, WOs, WO $, collision WOs, collision $
+# Q9 — 2025 by vehicle type: routes, WOs, WO EUR, collision WOs, collision EUR
 TYPES_2025 = [
     # type, label, routes, wos, cost, acc_wos, acc_cost
     ("box_truck", "Box truck", 1935, 37, 138683, 14, 102295),
@@ -75,39 +77,39 @@ FLEET_WOS_ROUTE_RUNNING = 72
 
 # Q8 — 2025 exposure-normalised league: vehicle, type, hub, routes, attributable incidents
 LEAGUE = [
-    ("VEH-0040", "van", "HUB-CHI", 84, 8), ("VEH-0010", "box_truck", "HUB-IND", 97, 6),
-    ("VEH-0003", "box_truck", "HUB-CMH", 84, 5), ("VEH-0029", "box_truck", "HUB-DET", 155, 9),
-    ("VEH-0018", "box_truck", "HUB-CIN", 93, 5), ("VEH-0038", "box_truck", "HUB-CMH", 81, 4),
-    ("VEH-0019", "van", "HUB-CHI", 102, 5), ("VEH-0005", "box_truck", "HUB-CHI", 82, 4),
-    ("VEH-0011", "box_truck", "HUB-DET", 155, 7), ("VEH-0032", "box_truck", "HUB-CIN", 90, 4),
-    ("VEH-0031", "box_truck", "HUB-CMH", 71, 3), ("VEH-0028", "van", "HUB-CMH", 72, 3),
-    ("VEH-0007", "box_truck", "HUB-CMH", 73, 3), ("VEH-0016", "van", "HUB-IND", 98, 4),
-    ("VEH-0020", "van", "HUB-CIN", 106, 4), ("VEH-0013", "box_truck", "HUB-IND", 107, 4),
-    ("VEH-0025", "box_truck", "HUB-CIN", 112, 4), ("VEH-0017", "box_truck", "HUB-IND", 115, 4),
-    ("VEH-0021", "van", "HUB-CMH", 87, 3), ("VEH-0001", "van", "HUB-CMH", 90, 3),
-    ("VEH-0027", "van", "HUB-CIN", 97, 3), ("VEH-0022", "van", "HUB-DET", 132, 4),
-    ("VEH-0009", "van", "HUB-IND", 105, 3), ("VEH-0030", "box_truck", "HUB-DET", 141, 3),
-    ("VEH-0023", "van", "HUB-IND", 97, 2), ("VEH-0004", "van", "HUB-CHI", 99, 2),
-    ("VEH-0037", "box_truck", "HUB-CHI", 103, 2), ("VEH-0036", "box_truck", "HUB-CIN", 104, 2),
-    ("VEH-0033", "van", "HUB-CMH", 71, 1), ("VEH-0024", "van", "HUB-DET", 158, 2),
-    ("VEH-0012", "box_truck", "HUB-CMH", 80, 1), ("VEH-0006", "van", "HUB-CHI", 86, 1),
-    ("VEH-0008", "van", "HUB-IND", 100, 1), ("VEH-0002", "box_truck", "HUB-CHI", 111, 1),
-    ("VEH-0026", "van", "HUB-CIN", 110, 0), ("VEH-0014", "box_truck", "HUB-CHI", 81, 0),
+    ("VEH-0040", "van", "HUB-PAR", 84, 8), ("VEH-0010", "box_truck", "HUB-BER", 97, 6),
+    ("VEH-0003", "box_truck", "HUB-AMS", 84, 5), ("VEH-0029", "box_truck", "HUB-VIE", 155, 9),
+    ("VEH-0018", "box_truck", "HUB-ZRH", 93, 5), ("VEH-0038", "box_truck", "HUB-AMS", 81, 4),
+    ("VEH-0019", "van", "HUB-PAR", 102, 5), ("VEH-0005", "box_truck", "HUB-PAR", 82, 4),
+    ("VEH-0011", "box_truck", "HUB-VIE", 155, 7), ("VEH-0032", "box_truck", "HUB-ZRH", 90, 4),
+    ("VEH-0031", "box_truck", "HUB-AMS", 71, 3), ("VEH-0028", "van", "HUB-AMS", 72, 3),
+    ("VEH-0007", "box_truck", "HUB-AMS", 73, 3), ("VEH-0016", "van", "HUB-BER", 98, 4),
+    ("VEH-0020", "van", "HUB-ZRH", 106, 4), ("VEH-0013", "box_truck", "HUB-BER", 107, 4),
+    ("VEH-0025", "box_truck", "HUB-ZRH", 112, 4), ("VEH-0017", "box_truck", "HUB-BER", 115, 4),
+    ("VEH-0021", "van", "HUB-AMS", 87, 3), ("VEH-0001", "van", "HUB-AMS", 90, 3),
+    ("VEH-0027", "van", "HUB-ZRH", 97, 3), ("VEH-0022", "van", "HUB-VIE", 132, 4),
+    ("VEH-0009", "van", "HUB-BER", 105, 3), ("VEH-0030", "box_truck", "HUB-VIE", 141, 3),
+    ("VEH-0023", "van", "HUB-BER", 97, 2), ("VEH-0004", "van", "HUB-PAR", 99, 2),
+    ("VEH-0037", "box_truck", "HUB-PAR", 103, 2), ("VEH-0036", "box_truck", "HUB-ZRH", 104, 2),
+    ("VEH-0033", "van", "HUB-AMS", 71, 1), ("VEH-0024", "van", "HUB-VIE", 158, 2),
+    ("VEH-0012", "box_truck", "HUB-AMS", 80, 1), ("VEH-0006", "van", "HUB-PAR", 86, 1),
+    ("VEH-0008", "van", "HUB-BER", 100, 1), ("VEH-0002", "box_truck", "HUB-PAR", 111, 1),
+    ("VEH-0026", "van", "HUB-ZRH", 110, 0), ("VEH-0014", "box_truck", "HUB-PAR", 81, 0),
 ]
-IDLE_2025 = [("VEH-0015", "semi", "HUB-CHI"), ("VEH-0034", "semi", "HUB-IND"),
-             ("VEH-0035", "semi", "HUB-CMH"), ("VEH-0039", "semi", "HUB-IND"),
-             ("VEH-0041", "van", "HUB-CMH"), ("VEH-0042", "box_truck", "HUB-CHI"),
-             ("VEH-0043", "box_truck", "HUB-IND"), ("VEH-0044", "van", "HUB-DET")]
+IDLE_2025 = [("VEH-0015", "semi", "HUB-PAR"), ("VEH-0034", "semi", "HUB-BER"),
+             ("VEH-0035", "semi", "HUB-AMS"), ("VEH-0039", "semi", "HUB-BER"),
+             ("VEH-0041", "van", "HUB-AMS"), ("VEH-0042", "box_truck", "HUB-PAR"),
+             ("VEH-0043", "box_truck", "HUB-BER"), ("VEH-0044", "van", "HUB-VIE")]
 
-# Q2 — odometer histogram, 25k-mile bins: (bin start, van, box_truck, semi)
+# Q2 — odometer histogram, 25k-km bins: (bin start, van, box_truck, semi)
 ODO_BINS = [(0, 1, 1, 0), (25000, 3, 4, 0), (50000, 2, 1, 0), (75000, 1, 2, 1),
             (100000, 1, 4, 0), (125000, 0, 1, 2), (150000, 2, 3, 0), (175000, 3, 1, 1),
             (200000, 3, 1, 0), (225000, 3, 3, 0)]
 
-# Q14 — Columbus 2025 damage per 100 loadings, by bay group
-BAYS = [("Columbus bay 3", "HUB-CMH-BAY-3", 11, 111),
-        ("Columbus, other 5 bays", "HUB-CMH-BAY-1,2,4,5,6", 4, 598),
-        ("Other four hubs", "CHI, CIN, DET, IND", 25, 2920)]
+# Q14 — Amsterdam 2025 damage per 100 loadings, by bay group
+BAYS = [("Amsterdam bay 3", "HUB-AMS-BAY-3", 11, 111),
+        ("Amsterdam, other 5 bays", "HUB-AMS-BAY-1,2,4,5,6", 4, 598),
+        ("Other four hubs", "BER, PAR, VIE, ZRH", 25, 2920)]
 FLEET_DMG_2025 = (40, 3629)
 
 
@@ -177,7 +179,7 @@ def legend(parts, x, y, items, step=130):
 
 
 def money_k(v):
-    return f"${v/1000:.1f}k" if v < 10000 else f"${v/1000:.0f}k"
+    return f"€{v/1000:.1f}k" if v < 10000 else f"€{v/1000:.0f}k"
 
 
 # ---------------------------------------------------------------- chart 1: maintenance by hub by year
@@ -189,10 +191,10 @@ def chart_maintenance_by_hub_year():
     total = [sum(MAINT[h][j] for h, _ in HUBS) for j in range(3)]
     acc_total = sum(ACC_2025.values())
     parts = canvas(W, H, "Fleet maintenance spend by hub, 2023 / 2024 / 2025",
-                   f"Work-order cost (stg_fleet_work_orders). Totals ${total[0]:,} / ${total[1]:,} / "
-                   f"${total[2]:,}. 2025 bar split: red = collision repair (${acc_total:,}).")
-    y_gridlines(parts, x0, x1, top, bot, 0, vmax, range(0, vmax + 1, 20000), lambda v: f"${v//1000}k")
-    y_title(parts, 40, top, bot, "Maintenance spend (USD)")
+                   f"Work-order cost (stg_fleet_work_orders). Totals €{total[0]:,} / €{total[1]:,} / "
+                   f"€{total[2]:,}. 2025 bar split: red = collision repair (€{acc_total:,}).")
+    y_gridlines(parts, x0, x1, top, bot, 0, vmax, range(0, vmax + 1, 20000), lambda v: f"€{v//1000}k")
+    y_title(parts, 40, top, bot, "Maintenance spend (EUR)")
     group_w = (x1 - x0) / len(HUBS)
     bar_w = group_w * 0.24
 
@@ -220,7 +222,7 @@ def chart_maintenance_by_hub_year():
     save("fleet-01-maintenance-by-hub-year.svg", parts)
 
 
-# ---------------------------------------------------------------- chart 2: 2025 $/route by type
+# ---------------------------------------------------------------- chart 2: 2025 EUR/route by type
 def chart_cost_per_route_by_type():
     W, H = 900, 500
     x0, x1 = 110, 700
@@ -229,9 +231,9 @@ def chart_cost_per_route_by_type():
     fleet = FLEET_COST_2025 / FLEET_ROUTES_2025
     fleet_running = FLEET_COST_ROUTE_RUNNING / FLEET_ROUTES_2025
     parts = canvas(W, H, "2025 maintenance cost per route, by vehicle type",
-                   "Work-order $ ÷ routes run by that type. Red = collision repair, blue = everything else.")
-    y_gridlines(parts, x0, x1, top, bot, 0, vmax, range(0, vmax + 1, 15), lambda v: f"${v}")
-    y_title(parts, 45, top, bot, "Maintenance cost per route (USD)")
+                   "Work-order € ÷ routes run by that type. Red = collision repair, blue = everything else.")
+    y_gridlines(parts, x0, x1, top, bot, 0, vmax, range(0, vmax + 1, 15), lambda v: f"€{v}")
+    y_title(parts, 45, top, bot, "Maintenance cost per route (EUR)")
 
     def yy(v):
         return bot - v / vmax * (bot - top)
@@ -246,22 +248,22 @@ def chart_cost_per_route_by_type():
         if routes == 0:
             parts.append(rect(bx, bot - 70, bar_w, 70, "none", GRID))
             parts.append(text(cx, bot - 48, "no routes in 2025", 11, GREY, "middle", "bold"))
-            parts.append(text(cx, bot - 32, f"${cost:,} spent", 11, RED, "middle"))
+            parts.append(text(cx, bot - 32, f"€{cost:,} spent", 11, RED, "middle"))
             parts.append(text(cx, bot - 17, "on 4 idle semis", 11, GREY, "middle"))
             continue
         per = cost / routes
         acc = acc_cost / routes
         parts.append(rect(bx, yy(acc), bar_w, bot - yy(acc), RED))
         parts.append(rect(bx, yy(per), bar_w, yy(acc) - yy(per), BLUE))
-        parts.append(halo(cx, (yy(acc) + bot) / 2 + 4, f"${acc:.2f}", 11, INK))
-        parts.append(halo(cx, (yy(per) + yy(acc)) / 2 + 4, f"${per - acc:.2f}", 11, INK))
-        parts.append(text(cx, yy(per) - 6, f"${per:.2f}", 12.5, INK, "middle", "bold"))
+        parts.append(halo(cx, (yy(acc) + bot) / 2 + 4, f"€{acc:.2f}", 11, INK))
+        parts.append(halo(cx, (yy(per) + yy(acc)) / 2 + 4, f"€{per - acc:.2f}", 11, INK))
+        parts.append(text(cx, yy(per) - 6, f"€{per:.2f}", 12.5, INK, "middle", "bold"))
     # reference lines
     parts.append(line(x0, yy(fleet), x1, yy(fleet), INK, 1.5, "6,4"))
-    parts.append(text(x1 + 8, yy(fleet) - 2, f"fleet average ${fleet:.2f}", 11, INK, "start", "bold"))
+    parts.append(text(x1 + 8, yy(fleet) - 2, f"fleet average €{fleet:.2f}", 11, INK, "start", "bold"))
     parts.append(text(x1 + 8, yy(fleet) + 12, "(all spend ÷ all routes)", 10.5, GREY))
     parts.append(line(x0, yy(fleet_running), x1, yy(fleet_running), GREY, 1.2, "2,3"))
-    parts.append(text(x1 + 8, yy(fleet_running) + 14, f"${fleet_running:.2f} excl. idle-semi spend", 10.5, GREY))
+    parts.append(text(x1 + 8, yy(fleet_running) + 14, f"€{fleet_running:.2f} excl. idle-semi spend", 10.5, GREY))
     legend(parts, x0, 76, [(RED, "collision repair"), (BLUE, "wear/fault repair + preventive")], step=160)
     parts.append(text((x0 + x1) / 2, H - 10, "Vehicle type", 12, GREY, "middle"))
     save("fleet-02-cost-per-route-by-type.svg", parts)
@@ -342,7 +344,7 @@ def chart_odometer_utilisation():
             base += val
         parts.append(text(bx + (bw - 6) / 2, yy(base) - 5, str(base), 11, INK, "middle", "bold"))
         parts.append(text(bx + (bw - 6) / 2, bot + 15, f"{b//1000}", 10.5, GREY, "middle"))
-    parts.append(text((x0 + x1) / 2, bot + 34, "Odometer reading, 25k-mile bins (thousand miles, bin start)",
+    parts.append(text((x0 + x1) / 2, bot + 34, "Odometer reading, 25k-km bins (thousand km, bin start)",
                       11.5, GREY, "middle"))
     parts.append(text((x0 + x1) / 2, bot + 52, "Snapshot only: corr. with 3-yr routes 0.14, with repair cost −0.08",
                       10.5, RED, "middle"))
@@ -425,7 +427,7 @@ def chart_wos_per_100_by_type():
     save("fleet-05-work-orders-per-100-routes-by-type.svg", parts)
 
 
-# ---------------------------------------------------------------- chart 6: Columbus bay 3
+# ---------------------------------------------------------------- chart 6: Amsterdam bay 3
 def chart_bay3():
     W, H = 960, 440
     x0, x1 = 110, 700
@@ -454,10 +456,10 @@ def chart_bay3():
     parts.append(line(x0, yy(fleet), x1, yy(fleet), INK, 1.5, "6,4"))
     parts.append(text(x1 + 8, yy(fleet) + 4, f"fleet {fleet:.2f}", 11, INK, "start", "bold"))
     parts.append(text(x1 + 8, yy(fleet) + 18, f"({FLEET_DMG_2025[0]} ÷ {FLEET_DMG_2025[1]:,})", 10.5, GREY))
-    parts.append(text(x1 + 8, yy(9.91) + 4, "Every Columbus vehicle", 10.5, GREY))
+    parts.append(text(x1 + 8, yy(9.91) + 4, "Every Amsterdam vehicle", 10.5, GREY))
     parts.append(text(x1 + 8, yy(9.91) + 18, "loaded at bay 3 (7–18 times);", 10.5, GREY))
     parts.append(text(x1 + 8, yy(9.91) + 32, "VEH-0012 most often (18), 0 damage", 10.5, GREY))
-    save("fleet-06-columbus-damage-by-bay.svg", parts)
+    save("fleet-06-amsterdam-damage-by-bay.svg", parts)
 
 
 if __name__ == "__main__":

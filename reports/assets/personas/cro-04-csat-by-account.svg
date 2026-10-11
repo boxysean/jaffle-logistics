@@ -18,7 +18,7 @@
 <line x1="721.7" y1="80.0" x2="721.7" y2="390.0" stroke="#8c8c8c" stroke-width="1" stroke-dasharray="3,3"/>
 <text x="890.0" y="96.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">avg</text>
 <line x1="230.0" y1="138.0" x2="820.0" y2="138.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="220.0" y="138.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Storefronts</text>
+<text x="220.0" y="138.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Warenhuis</text>
 <text x="220.0" y="153.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0007 · 23 tickets</text>
 <circle cx="279.2" cy="138.0" r="11.5" fill="#c0392b" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
 <text x="294.7" y="142.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">4</text>
@@ -33,7 +33,7 @@
 <text x="783.0" y="142.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">2</text>
 <text x="890.0" y="142.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">3.86</text>
 <line x1="230.0" y1="194.0" x2="820.0" y2="194.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="220.0" y="194.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Equipment</text>
+<text x="220.0" y="194.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Werke</text>
 <text x="220.0" y="209.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0042 · 72 tickets</text>
 <circle cx="279.2" cy="194.0" r="25.1" fill="#c0392b" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
 <text x="308.3" y="198.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">19</text>
@@ -49,7 +49,7 @@
 <text x="790.1" y="198.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">7</text>
 <text x="890.0" y="198.0" font-size="12.5" fill="#c0392b" text-anchor="middle" font-weight="bold">2.88</text>
 <line x1="230.0" y1="250.0" x2="820.0" y2="250.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="220.0" y="250.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Crew Outfitters</text>
+<text x="220.0" y="250.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Maison</text>
 <text x="220.0" y="265.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0155 · 24 tickets</text>
 <text x="279.2" y="254.0" font-size="11" fill="#8c8c8c" text-anchor="middle" font-weight="normal">0</text>
 <circle cx="377.5" cy="250.0" r="8.1" fill="#c0392b" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
@@ -64,7 +64,7 @@
 <text x="784.8" y="254.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">3</text>
 <text x="890.0" y="254.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">4.14</text>
 <line x1="230.0" y1="306.0" x2="820.0" y2="306.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="220.0" y="306.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Beverage Co</text>
+<text x="220.0" y="306.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Getränke</text>
 <text x="220.0" y="321.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0169 · 35 tickets</text>
 <circle cx="279.2" cy="306.0" r="8.1" fill="#c0392b" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
 <text x="291.3" y="310.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">2</text>
@@ -80,7 +80,7 @@
 <text x="780.6" y="310.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">1</text>
 <text x="890.0" y="310.0" font-size="12.5" fill="#1a1a1a" text-anchor="middle" font-weight="bold">4.12</text>
 <line x1="230.0" y1="362.0" x2="820.0" y2="362.0" stroke="#d9d9d9" stroke-width="1"/>
-<text x="220.0" y="362.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Paper &amp; Packaging</text>
+<text x="220.0" y="362.0" font-size="12.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Papier</text>
 <text x="220.0" y="377.0" font-size="10.5" fill="#555555" text-anchor="end" font-weight="normal">CLI-0201 · 35 tickets</text>
 <circle cx="279.2" cy="362.0" r="8.1" fill="#c0392b" fill-opacity="0.85" stroke="none" stroke-width="1.2"/>
 <text x="291.3" y="366.0" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">2</text>

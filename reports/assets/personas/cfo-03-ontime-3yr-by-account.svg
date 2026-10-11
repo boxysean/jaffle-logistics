@@ -19,7 +19,7 @@
 <text x="162.2" y="135.1" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.0</text>
 <rect x="183.2" y="146.2" width="34.1" height="253.8" fill="#2c6fbb" stroke="none"/>
 <text x="200.2" y="141.2" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">96.6</text>
-<text x="161.0" y="420.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Storefronts</text>
+<text x="161.0" y="420.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Warenhuis</text>
 <text x="161.0" y="436.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0007</text>
 <rect x="249.0" y="129.0" width="34.1" height="271.0" fill="#9aa7b5" stroke="none"/>
 <text x="266.1" y="124.0" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.8</text>
@@ -27,7 +27,7 @@
 <text x="304.2" y="121.1" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">98.0</text>
 <rect x="325.2" y="340.7" width="34.1" height="59.3" fill="#c0392b" stroke="none"/>
 <text x="342.2" y="335.7" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">83.9</text>
-<text x="303.0" y="420.0" font-size="12" fill="#c0392b" text-anchor="middle" font-weight="normal">Equipment</text>
+<text x="303.0" y="420.0" font-size="12" fill="#c0392b" text-anchor="middle" font-weight="normal">Werke</text>
 <text x="303.0" y="436.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0042</text>
 <rect x="391.0" y="131.0" width="34.1" height="269.0" fill="#9aa7b5" stroke="none"/>
 <text x="408.1" y="126.0" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.6</text>
@@ -35,7 +35,7 @@
 <text x="446.2" y="134.4" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.1</text>
 <rect x="467.2" y="141.1" width="34.1" height="258.9" fill="#2c6fbb" stroke="none"/>
 <text x="484.2" y="136.1" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.0</text>
-<text x="445.0" y="420.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Crew Outfitters</text>
+<text x="445.0" y="420.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Maison</text>
 <text x="445.0" y="436.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0155</text>
 <rect x="533.0" y="136.8" width="34.1" height="263.2" fill="#9aa7b5" stroke="none"/>
 <text x="550.1" y="131.8" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.3</text>
@@ -43,7 +43,7 @@
 <text x="588.2" y="139.9" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">96.7</text>
 <rect x="609.2" y="176.3" width="34.1" height="223.7" fill="#2c6fbb" stroke="none"/>
 <text x="626.2" y="171.3" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">94.7</text>
-<text x="587.0" y="420.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Beverage Co</text>
+<text x="587.0" y="420.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Getränke</text>
 <text x="587.0" y="436.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0169</text>
 <rect x="675.0" y="138.2" width="34.1" height="261.8" fill="#9aa7b5" stroke="none"/>
 <text x="692.1" y="133.2" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.2</text>
@@ -51,7 +51,7 @@
 <text x="730.2" y="130.9" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.3</text>
 <rect x="751.2" y="176.0" width="34.1" height="224.0" fill="#2c6fbb" stroke="none"/>
 <text x="768.2" y="171.0" font-size="10" fill="#1a1a1a" text-anchor="middle" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">94.7</text>
-<text x="729.0" y="420.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Paper &amp; Packaging</text>
+<text x="729.0" y="420.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Papier</text>
 <text x="729.0" y="436.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0201</text>
 <line x1="90.0" y1="140.8" x2="800.0" y2="140.8" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="6,4"/>
 <text x="808.0" y="144.8" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold">97% contract target</text>
@@ -62,5 +62,5 @@
 <rect x="330.0" y="66.0" width="14.0" height="12.0" fill="#2c6fbb" stroke="none"/>
 <text x="350.0" y="76.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2025</text>
 <rect x="450.0" y="66.0" width="14.0" height="12.0" fill="#c0392b" stroke="none"/>
-<text x="470.0" y="76.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2025, Jaffle Equipment</text>
+<text x="470.0" y="76.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2025, Jaffle Werke</text>
 </svg>

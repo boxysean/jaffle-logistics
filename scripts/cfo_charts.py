@@ -41,7 +41,7 @@ def esc(s):
 
 
 # ---------------------------------------------------------------- data (from execute_sql)
-# 1. whole-book + Jaffle Equipment (CLI-0042) on-time % by quarter
+# 1. whole-book + Jaffle Werke (CLI-0042) on-time % by quarter
 QUARTERS = [
     ("2023-Q1", 97.12, 97.00), ("2023-Q2", 97.24, 98.91), ("2023-Q3", 97.97, 99.05),
     ("2023-Q4", 97.65, 97.46), ("2024-Q1", 96.91, 99.17), ("2024-Q2", 97.47, 97.83),
@@ -51,32 +51,32 @@ QUARTERS = [
 
 # 2. 2025 missed shipments by account (ranked) + the account's 2025 on-time %
 MISSED_2025 = [
-    ("Jaffle Equipment", 67, 83.89),
-    ("Jaffle Paper & Packaging", 22, 94.69),
-    ("Jaffle Beverage Co", 21, 94.67),
-    ("Jaffle Storefronts", 13, 96.64),
-    ("Jaffle Crew Outfitters", 12, 96.98),
+    ("Jaffle Werke", 67, 83.89),
+    ("Jaffle Papier", 22, 94.69),
+    ("Jaffle Getränke", 21, 94.67),
+    ("Jaffle Warenhuis", 13, 96.64),
+    ("Jaffle Maison", 12, 96.98),
 ]
 
 # 3. three-year on-time rate by account
 ONTTIME_3YR = [
-    ("Jaffle Equipment", 98.07, 98.07, 83.89),
-    ("Jaffle Paper & Packaging", 97.36, 96.90, 94.69),
-    ("Jaffle Beverage Co", 97.16, 96.81, 94.67),
-    ("Jaffle Storefronts", 97.36, 97.11, 96.64),
-    ("Jaffle Crew Outfitters", 97.56, 97.16, 96.98),
+    ("Jaffle Werke", 98.07, 98.07, 83.89),
+    ("Jaffle Papier", 97.36, 96.90, 94.69),
+    ("Jaffle Getränke", 97.16, 96.81, 94.67),
+    ("Jaffle Warenhuis", 97.36, 97.11, 96.64),
+    ("Jaffle Maison", 97.56, 97.16, 96.98),
 ]
 
-# 4. fleet maintenance spend ($) by hub by year
+# 4. fleet maintenance spend (€) by hub by year
 MAINT_HUB = [
-    ("Chicago", 12576, 17588, 64456),
-    ("Cincinnati", 17423, 437, 31362),
-    ("Columbus", 15538, 48044, 78083),
-    ("Detroit", 27990, 19829, 46581),
-    ("Indianapolis", 16828, 18203, 47096),
+    ("Paris", 12576, 17588, 64456),
+    ("Zürich", 17423, 437, 31362),
+    ("Amsterdam", 15538, 48044, 78083),
+    ("Vienna", 27990, 19829, 46581),
+    ("Berlin", 16828, 18203, 47096),
 ]
 
-# 5. maintenance spend ($) by month, 2025
+# 5. maintenance spend (€) by month, 2025
 MAINT_MONTH_2025 = [
     (1, 35350), (2, 33574), (3, 17045), (4, 24675), (5, 25458), (6, 31939),
     (7, 20757), (8, 34710), (9, 3868), (10, 8748), (11, 13055), (12, 18399),
@@ -84,19 +84,19 @@ MAINT_MONTH_2025 = [
 
 # 6. support ticket volume by account by year
 TICKETS = [
-    ("Jaffle Equipment", 17, 17, 72),
-    ("Jaffle Paper & Packaging", 23, 27, 35),
-    ("Jaffle Beverage Co", 19, 30, 35),
-    ("Jaffle Crew Outfitters", 19, 17, 24),
-    ("Jaffle Storefronts", 29, 16, 23),
+    ("Jaffle Werke", 17, 17, 72),
+    ("Jaffle Papier", 23, 27, 35),
+    ("Jaffle Getränke", 19, 30, 35),
+    ("Jaffle Maison", 19, 17, 24),
+    ("Jaffle Warenhuis", 29, 16, 23),
 ]
 
 # 7. contract-credit exposure, computed from monthly on-time vs each account's SLA.
 #    Raw input: per-account 2025 monthly on-time % (CLI id -> [m1..m12])
 SLA = {"CLI-0007": 97.0, "CLI-0042": 97.0, "CLI-0155": 95.0, "CLI-0169": 95.0, "CLI-0201": 92.0}
-NAME = {"CLI-0007": "Jaffle Storefronts", "CLI-0042": "Jaffle Equipment",
-        "CLI-0155": "Jaffle Crew Outfitters", "CLI-0169": "Jaffle Beverage Co",
-        "CLI-0201": "Jaffle Paper & Packaging"}
+NAME = {"CLI-0007": "Jaffle Warenhuis", "CLI-0042": "Jaffle Werke",
+        "CLI-0155": "Jaffle Maison", "CLI-0169": "Jaffle Getränke",
+        "CLI-0201": "Jaffle Papier"}
 MONTHLY_2025 = {
     "CLI-0007": [86.21, 87.50, 93.55, 100.0, 97.14, 100.0, 100.0, 96.67, 100.0, 100.0, 97.62, 97.73],
     "CLI-0042": [76.32, 89.66, 94.12, 91.43, 90.91, 85.71, 84.38, 81.25, 81.82, 80.56, 78.38, 77.55],
@@ -125,11 +125,11 @@ def exposure():
 # 8. driver employment mix by hub (contractor vs employee) + weighted avg perf score
 DRIVER_MIX = [
     # city, contractors, employees, avg_perf
-    ("Chicago", 3, 7, 3.91),
-    ("Cincinnati", 5, 8, 3.48),
-    ("Columbus", 8, 9, 3.97),
-    ("Detroit", 5, 2, 3.83),
-    ("Indianapolis", 2, 7, 3.76),
+    ("Paris", 3, 7, 3.91),
+    ("Zürich", 5, 8, 3.48),
+    ("Amsterdam", 8, 9, 3.97),
+    ("Vienna", 5, 2, 3.83),
+    ("Berlin", 2, 7, 3.76),
 ]
 
 
@@ -169,7 +169,7 @@ def save(name, parts):
     parts.append("</svg>")
     os.makedirs(OUT, exist_ok=True)
     path = os.path.join(OUT, name)
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(parts) + "\n")
     print("wrote", os.path.relpath(path, os.path.join(os.path.dirname(__file__), "..")))
 
@@ -189,7 +189,7 @@ def chart_quarter():
     y_top, y_bot = 80, 430
     vmin, vmax = 75, 100
     parts = canvas(W, H, "On-time delivery by quarter, 2023 \u2192 2025",
-                   "Whole book vs Jaffle Equipment (CLI-0042). Dashed line = 97% contractual target.")
+                   "Whole book vs Jaffle Werke (CLI-0042). Dashed line = 97% contractual target.")
     ticks = [75, 80, 85, 90, 95, 100]
     y_axis(parts, x0, y_top, x1, y_top, y_bot, vmin, vmax, ticks, lambda v: f"{v}%")
     # reference line at target
@@ -208,7 +208,7 @@ def chart_quarter():
         parts.append(text(xs[i], y_bot + 18, q, 10.5, GREY, "middle", rotate=45 if False else None))
     # x labels rotate for space
     # series: whole book (blue), equipment (red)
-    for series_idx, (col, color, key) in enumerate([("whole book", BLUE, 1), ("Jaffle Equipment", RED, 2)]):
+    for series_idx, (col, color, key) in enumerate([("whole book", BLUE, 1), ("Jaffle Werke", RED, 2)]):
         pts = [(xs[i], yy(QUARTERS[i][key])) for i in range(n)]
         d = " ".join(f"{x:.1f},{y:.1f}" for x, y in pts)
         parts.append(f'<polyline points="{d}" fill="none" stroke="{color}" stroke-width="2.6"/>')
@@ -221,7 +221,7 @@ def chart_quarter():
     parts.append(line(x0, 62, x0 + 24, 62, BLUE, 3))
     parts.append(text(x0 + 30, 66, "Whole book", 12, INK))
     parts.append(line(x0 + 160, 62, x0 + 184, 62, RED, 3))
-    parts.append(text(x0 + 190, 66, "Jaffle Equipment", 12, INK))
+    parts.append(text(x0 + 190, 66, "Jaffle Werke", 12, INK))
     parts.append(text(W / 2, H - 12, "Quarter (shipment created date)", 12, GREY, "middle"))
     save("01-ontime-by-quarter.svg", parts)
 
@@ -303,12 +303,12 @@ def chart_maint_hub():
     top, bot = 80, 410
     vmax = 80000
     parts = canvas(W, H, "Fleet maintenance spend by hub by year",
-                   "Total fleet_work_orders.cost, USD. The only genuine cost record in this data.")
+                   "Total fleet_work_orders.cost, EUR. The only genuine cost record in this data.")
     for v in range(0, vmax + 1, 20000):
         gy = bot - v / vmax * (bot - top)
         parts.append(line(x0, gy, x1, gy, GRID, 1))
-        parts.append(text(x0 - 8, gy + 4, f"${v//1000}k", 11.5, GREY, "end"))
-    parts.append(text(x0 - 8, top - 12, "USD", 11.5, GREY, "end"))
+        parts.append(text(x0 - 8, gy + 4, f"€{v//1000}k", 11.5, GREY, "end"))
+    parts.append(text(x0 - 8, top - 12, "EUR", 11.5, GREY, "end"))
     n = len(MAINT_HUB)
     group_w = (x1 - x0) / n
     bar_w = group_w * 0.24
@@ -325,7 +325,7 @@ def chart_maint_hub():
             if j == 2 and val >= max(a, b):
                 col = RED  # 2025 the highest of the three -> worsening
             parts.append(rect(bx, yy(val), bar_w, bot - yy(val), col))
-            parts.append(text(bx + bar_w / 2, yy(val) - 4, f"${val/1000:.0f}k", 9.6, INK, "middle"))
+            parts.append(text(bx + bar_w / 2, yy(val) - 4, f"€{val/1000:.0f}k", 9.6, INK, "middle"))
         parts.append(text(x0 + i * group_w + group_w / 2, bot + 20, city, 12, INK, "middle"))
     lx = x0
     for col, lab in cols:
@@ -343,18 +343,18 @@ def chart_maint_month():
     top, bot = 80, 400
     vmax = 40000
     parts = canvas(W, H, "Maintenance spend by month, 2025",
-                   "fleet_work_orders.cost, USD, by month opened. Shows cost creep and the summer/Jan peaks.")
+                   "fleet_work_orders.cost, EUR, by month opened. Shows cost creep and the summer/Jan peaks.")
     for v in range(0, vmax + 1, 10000):
         gy = bot - v / vmax * (bot - top)
         parts.append(line(x0, gy, x1, gy, GRID, 1))
-        parts.append(text(x0 - 8, gy + 4, f"${v//1000}k", 11.5, GREY, "end"))
+        parts.append(text(x0 - 8, gy + 4, f"€{v//1000}k", 11.5, GREY, "end"))
     n = len(MAINT_MONTH_2025)
     step = (x1 - x0) / n
     xs = [x0 + step * (i + 0.5) for i in range(n)]
     avg = sum(c for _, c in MAINT_MONTH_2025) / n
     ya = bot - avg / vmax * (bot - top)
     parts.append(line(x0, ya, x1, ya, GREY, 1.2, "5,4"))
-    parts.append(text(x1, ya - 5, f"monthly avg ${avg/1000:.0f}k", 11, GREY, "end"))
+    parts.append(text(x1, ya - 5, f"monthly avg €{avg/1000:.0f}k", 11, GREY, "end"))
 
     def yy(v):
         return bot - v / vmax * (bot - top)
@@ -364,7 +364,7 @@ def chart_maint_month():
     parts.append(f'<polyline points="{d}" fill="none" stroke="{BLUE}" stroke-width="2.6"/>')
     for i, (m, c) in enumerate(MAINT_MONTH_2025):
         parts.append(f'<circle cx="{xs[i]:.1f}" cy="{yy(c):.1f}" r="3.2" fill="{BLUE}"/>')
-        parts.append(text(xs[i], yy(c) - 8, f"${c/1000:.1f}k", 9.8, INK, "middle"))
+        parts.append(text(xs[i], yy(c) - 8, f"€{c/1000:.1f}k", 9.8, INK, "middle"))
         parts.append(text(xs[i], bot + 18, f"M{m}", 11, GREY, "middle"))
     parts.append(text((x0 + x1) / 2, H - 10, "Month, 2025", 12, GREY, "middle"))
     save("05-maintenance-by-month-2025.svg", parts)

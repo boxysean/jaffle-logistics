@@ -46,95 +46,95 @@ def esc(s):
 
 
 # ---------------------------------------------------------------- data (from the data pack)
-HUBS = ["HUB-CHI", "HUB-CIN", "HUB-CMH", "HUB-DET", "HUB-IND"]
-HUB_NAMES = {"HUB-CHI": "Chicago", "HUB-CIN": "Cincinnati", "HUB-CMH": "Columbus",
-             "HUB-DET": "Detroit", "HUB-IND": "Indianapolis"}
+HUBS = ["HUB-PAR", "HUB-ZRH", "HUB-AMS", "HUB-VIE", "HUB-BER"]
+HUB_NAMES = {"HUB-PAR": "Paris", "HUB-ZRH": "Zürich", "HUB-AMS": "Amsterdam",
+             "HUB-VIE": "Vienna", "HUB-BER": "Berlin"}
 
 # Q6 / Q7 / Q11 / Q12 / Q13 — one row per driver (all 56):
 # driver_id: (hub, employment type c/e, perf_score,
 #             docs (onboarding, review, certification, training, disciplinary, exit),
 #             routes 2025, exceptions 2025, attributed incidents all-time, attributed incidents 2025)
 DRIVERS = {
-    "DRV-01005": ("HUB-CHI", "c", 4.89, (1, 0, 0, 0, 0, 0), 76, 78, 1, 0),
-    "DRV-01007": ("HUB-CHI", "e", 2.84, (1, 0, 0, 0, 0, 0), 78, 154, 3, 1),
-    "DRV-01011": ("HUB-CHI", "e", 4.01, (1, 0, 0, 0, 0, 0), 97, 98, 1, 1),
-    "DRV-01012": ("HUB-CHI", "c", 3.20, (1, 1, 0, 0, 0, 0), 90, 86, 6, 3),
-    "DRV-01017": ("HUB-CHI", "e", 3.77, (1, 0, 1, 0, 0, 0), 80, 108, 4, 3),
-    "DRV-01020": ("HUB-CHI", "e", 3.81, (1, 1, 0, 1, 0, 0), 78, 135, 3, 1),
-    "DRV-01035": ("HUB-CHI", "e", 4.76, (1, 0, 1, 0, 0, 0), 79, 105, 2, 1),
-    "DRV-01047": ("HUB-CHI", "e", 4.02, (1, 0, 0, 1, 1, 0), 98, 114, 5, 2),
-    "DRV-01048": ("HUB-CHI", "e", 3.45, (1, 1, 0, 1, 0, 0), 72, 53, 3, 0),
-    "DRV-01190": ("HUB-CHI", "c", 4.35, (1, 0, 0, 0, 0, 0), 0, 0, 2, 0),
-    "DRV-01002": ("HUB-CIN", "c", 4.19, (1, 0, 1, 0, 0, 0), 64, 40, 3, 1),
-    "DRV-01003": ("HUB-CIN", "e", 4.63, (1, 0, 0, 0, 0, 0), 60, 24, 2, 1),
-    "DRV-01008": ("HUB-CIN", "e", 2.82, (1, 1, 0, 1, 0, 0), 50, 36, 4, 2),
-    "DRV-01019": ("HUB-CIN", "c", 4.75, (1, 0, 1, 0, 0, 0), 54, 24, 7, 2),
-    "DRV-01023": ("HUB-CIN", "c", 3.13, (1, 0, 0, 0, 1, 0), 77, 50, 4, 1),
-    "DRV-01025": ("HUB-CIN", "e", 2.92, (1, 0, 0, 0, 0, 0), 43, 29, 3, 0),
-    "DRV-01026": ("HUB-CIN", "e", 3.13, (1, 0, 0, 0, 0, 0), 51, 28, 1, 0),
-    "DRV-01027": ("HUB-CIN", "e", 2.94, (1, 1, 0, 0, 0, 0), 70, 23, 7, 1),
-    "DRV-01029": ("HUB-CIN", "e", 2.88, (1, 0, 0, 0, 0, 0), 63, 24, 3, 3),
-    "DRV-01034": ("HUB-CIN", "c", 2.95, (1, 1, 1, 0, 1, 0), 51, 28, 6, 3),
-    "DRV-01038": ("HUB-CIN", "e", 3.43, (1, 0, 0, 0, 0, 0), 60, 12, 0, 0),
-    "DRV-01041": ("HUB-CIN", "e", 3.23, (1, 0, 0, 1, 0, 0), 69, 34, 4, 0),
-    "DRV-01192": ("HUB-CIN", "c", 4.28, (1, 0, 0, 0, 0, 0), 0, 0, 0, 0),
-    "DRV-01001": ("HUB-CMH", "c", 4.85, (1, 1, 1, 0, 0, 0), 37, 26, 1, 0),
-    "DRV-01009": ("HUB-CMH", "e", 4.61, (1, 1, 1, 0, 0, 0), 62, 25, 2, 1),
-    "DRV-01010": ("HUB-CMH", "e", 4.20, (1, 0, 0, 0, 0, 0), 41, 30, 3, 2),
-    "DRV-01013": ("HUB-CMH", "c", 3.69, (1, 0, 0, 0, 0, 0), 47, 34, 5, 0),
-    "DRV-01015": ("HUB-CMH", "e", 4.48, (1, 1, 0, 1, 0, 0), 44, 34, 5, 2),
-    "DRV-01016": ("HUB-CMH", "e", 3.93, (1, 0, 0, 0, 0, 0), 50, 33, 5, 1),
-    "DRV-01018": ("HUB-CMH", "e", 3.01, (1, 0, 0, 1, 0, 0), 34, 12, 2, 1),
-    "DRV-01028": ("HUB-CMH", "c", 3.65, (1, 0, 1, 0, 0, 0), 49, 30, 4, 1),
-    "DRV-01030": ("HUB-CMH", "e", 3.99, (1, 0, 0, 0, 0, 0), 53, 18, 0, 0),
-    "DRV-01036": ("HUB-CMH", "c", 3.40, (1, 1, 0, 0, 0, 0), 44, 26, 4, 2),
-    "DRV-01039": ("HUB-CMH", "c", 3.36, (1, 1, 1, 0, 0, 0), 58, 24, 6, 2),
-    "DRV-01040": ("HUB-CMH", "c", 3.37, (1, 1, 0, 0, 0, 0), 37, 7, 4, 2),
-    "DRV-01043": ("HUB-CMH", "e", 4.54, (1, 0, 0, 0, 0, 0), 55, 27, 5, 1),
-    "DRV-01044": ("HUB-CMH", "e", 4.14, (1, 1, 0, 0, 0, 0), 50, 30, 3, 0),
-    "DRV-01049": ("HUB-CMH", "c", 4.23, (1, 0, 0, 0, 1, 0), 48, 13, 5, 2),
-    "DRV-01189": ("HUB-CMH", "c", 4.10, (1, 1, 0, 0, 0, 0), 0, 0, 0, 0),
-    "DRV-01194": ("HUB-CMH", "e", 3.88, (1, 0, 0, 0, 0, 0), 0, 0, 0, 0),
-    "DRV-01004": ("HUB-DET", "c", 4.39, (1, 0, 0, 0, 1, 0), 116, 42, 7, 3),
-    "DRV-01014": ("HUB-DET", "c", 4.21, (1, 1, 1, 0, 0, 0), 115, 73, 11, 5),
-    "DRV-01021": ("HUB-DET", "c", 3.60, (1, 1, 1, 0, 1, 0), 132, 83, 7, 1),
-    "DRV-01022": ("HUB-DET", "e", 3.40, (1, 0, 0, 0, 0, 0), 143, 67, 8, 5),
-    "DRV-01037": ("HUB-DET", "c", 4.08, (1, 1, 1, 1, 0, 0), 123, 58, 9, 3),
-    "DRV-01046": ("HUB-DET", "e", 2.96, (1, 1, 0, 0, 1, 0), 112, 59, 5, 1),
-    "DRV-01193": ("HUB-DET", "c", 4.16, (1, 0, 0, 0, 0, 0), 0, 0, 1, 0),
-    "DRV-01006": ("HUB-IND", "e", 3.75, (1, 0, 0, 1, 0, 0), 84, 36, 4, 1),
-    "DRV-01024": ("HUB-IND", "e", 4.02, (1, 0, 1, 1, 0, 0), 100, 38, 8, 3),
-    "DRV-01031": ("HUB-IND", "c", 4.21, (1, 0, 1, 1, 1, 0), 89, 49, 10, 2),
-    "DRV-01032": ("HUB-IND", "e", 3.07, (1, 0, 0, 0, 0, 0), 101, 52, 6, 4),
-    "DRV-01033": ("HUB-IND", "e", 2.82, (1, 1, 0, 1, 0, 0), 78, 49, 4, 0),
-    "DRV-01042": ("HUB-IND", "e", 4.70, (1, 0, 0, 0, 0, 0), 74, 22, 3, 1),
-    "DRV-01045": ("HUB-IND", "e", 3.96, (1, 0, 0, 0, 0, 0), 93, 47, 7, 3),
-    "DRV-01188": ("HUB-IND", "c", 3.30, (1, 0, 1, 0, 1, 1), 100, 94, 5, 1),
-    "DRV-01191": ("HUB-IND", "e", 4.02, (1, 0, 0, 0, 0, 0), 0, 0, 1, 0),
+    "DRV-01005": ("HUB-PAR", "c", 4.89, (1, 0, 0, 0, 0, 0), 76, 78, 1, 0),
+    "DRV-01007": ("HUB-PAR", "e", 2.84, (1, 0, 0, 0, 0, 0), 78, 154, 3, 1),
+    "DRV-01011": ("HUB-PAR", "e", 4.01, (1, 0, 0, 0, 0, 0), 97, 98, 1, 1),
+    "DRV-01012": ("HUB-PAR", "c", 3.20, (1, 1, 0, 0, 0, 0), 90, 86, 6, 3),
+    "DRV-01017": ("HUB-PAR", "e", 3.77, (1, 0, 1, 0, 0, 0), 80, 108, 4, 3),
+    "DRV-01020": ("HUB-PAR", "e", 3.81, (1, 1, 0, 1, 0, 0), 78, 135, 3, 1),
+    "DRV-01035": ("HUB-PAR", "e", 4.76, (1, 0, 1, 0, 0, 0), 79, 105, 2, 1),
+    "DRV-01047": ("HUB-PAR", "e", 4.02, (1, 0, 0, 1, 1, 0), 98, 114, 5, 2),
+    "DRV-01048": ("HUB-PAR", "e", 3.45, (1, 1, 0, 1, 0, 0), 72, 53, 3, 0),
+    "DRV-01190": ("HUB-PAR", "c", 4.35, (1, 0, 0, 0, 0, 0), 0, 0, 2, 0),
+    "DRV-01002": ("HUB-ZRH", "c", 4.19, (1, 0, 1, 0, 0, 0), 64, 40, 3, 1),
+    "DRV-01003": ("HUB-ZRH", "e", 4.63, (1, 0, 0, 0, 0, 0), 60, 24, 2, 1),
+    "DRV-01008": ("HUB-ZRH", "e", 2.82, (1, 1, 0, 1, 0, 0), 50, 36, 4, 2),
+    "DRV-01019": ("HUB-ZRH", "c", 4.75, (1, 0, 1, 0, 0, 0), 54, 24, 7, 2),
+    "DRV-01023": ("HUB-ZRH", "c", 3.13, (1, 0, 0, 0, 1, 0), 77, 50, 4, 1),
+    "DRV-01025": ("HUB-ZRH", "e", 2.92, (1, 0, 0, 0, 0, 0), 43, 29, 3, 0),
+    "DRV-01026": ("HUB-ZRH", "e", 3.13, (1, 0, 0, 0, 0, 0), 51, 28, 1, 0),
+    "DRV-01027": ("HUB-ZRH", "e", 2.94, (1, 1, 0, 0, 0, 0), 70, 23, 7, 1),
+    "DRV-01029": ("HUB-ZRH", "e", 2.88, (1, 0, 0, 0, 0, 0), 63, 24, 3, 3),
+    "DRV-01034": ("HUB-ZRH", "c", 2.95, (1, 1, 1, 0, 1, 0), 51, 28, 6, 3),
+    "DRV-01038": ("HUB-ZRH", "e", 3.43, (1, 0, 0, 0, 0, 0), 60, 12, 0, 0),
+    "DRV-01041": ("HUB-ZRH", "e", 3.23, (1, 0, 0, 1, 0, 0), 69, 34, 4, 0),
+    "DRV-01192": ("HUB-ZRH", "c", 4.28, (1, 0, 0, 0, 0, 0), 0, 0, 0, 0),
+    "DRV-01001": ("HUB-AMS", "c", 4.85, (1, 1, 1, 0, 0, 0), 37, 26, 1, 0),
+    "DRV-01009": ("HUB-AMS", "e", 4.61, (1, 1, 1, 0, 0, 0), 62, 25, 2, 1),
+    "DRV-01010": ("HUB-AMS", "e", 4.20, (1, 0, 0, 0, 0, 0), 41, 30, 3, 2),
+    "DRV-01013": ("HUB-AMS", "c", 3.69, (1, 0, 0, 0, 0, 0), 47, 34, 5, 0),
+    "DRV-01015": ("HUB-AMS", "e", 4.48, (1, 1, 0, 1, 0, 0), 44, 34, 5, 2),
+    "DRV-01016": ("HUB-AMS", "e", 3.93, (1, 0, 0, 0, 0, 0), 50, 33, 5, 1),
+    "DRV-01018": ("HUB-AMS", "e", 3.01, (1, 0, 0, 1, 0, 0), 34, 12, 2, 1),
+    "DRV-01028": ("HUB-AMS", "c", 3.65, (1, 0, 1, 0, 0, 0), 49, 30, 4, 1),
+    "DRV-01030": ("HUB-AMS", "e", 3.99, (1, 0, 0, 0, 0, 0), 53, 18, 0, 0),
+    "DRV-01036": ("HUB-AMS", "c", 3.40, (1, 1, 0, 0, 0, 0), 44, 26, 4, 2),
+    "DRV-01039": ("HUB-AMS", "c", 3.36, (1, 1, 1, 0, 0, 0), 58, 24, 6, 2),
+    "DRV-01040": ("HUB-AMS", "c", 3.37, (1, 1, 0, 0, 0, 0), 37, 7, 4, 2),
+    "DRV-01043": ("HUB-AMS", "e", 4.54, (1, 0, 0, 0, 0, 0), 55, 27, 5, 1),
+    "DRV-01044": ("HUB-AMS", "e", 4.14, (1, 1, 0, 0, 0, 0), 50, 30, 3, 0),
+    "DRV-01049": ("HUB-AMS", "c", 4.23, (1, 0, 0, 0, 1, 0), 48, 13, 5, 2),
+    "DRV-01189": ("HUB-AMS", "c", 4.10, (1, 1, 0, 0, 0, 0), 0, 0, 0, 0),
+    "DRV-01194": ("HUB-AMS", "e", 3.88, (1, 0, 0, 0, 0, 0), 0, 0, 0, 0),
+    "DRV-01004": ("HUB-VIE", "c", 4.39, (1, 0, 0, 0, 1, 0), 116, 42, 7, 3),
+    "DRV-01014": ("HUB-VIE", "c", 4.21, (1, 1, 1, 0, 0, 0), 115, 73, 11, 5),
+    "DRV-01021": ("HUB-VIE", "c", 3.60, (1, 1, 1, 0, 1, 0), 132, 83, 7, 1),
+    "DRV-01022": ("HUB-VIE", "e", 3.40, (1, 0, 0, 0, 0, 0), 143, 67, 8, 5),
+    "DRV-01037": ("HUB-VIE", "c", 4.08, (1, 1, 1, 1, 0, 0), 123, 58, 9, 3),
+    "DRV-01046": ("HUB-VIE", "e", 2.96, (1, 1, 0, 0, 1, 0), 112, 59, 5, 1),
+    "DRV-01193": ("HUB-VIE", "c", 4.16, (1, 0, 0, 0, 0, 0), 0, 0, 1, 0),
+    "DRV-01006": ("HUB-BER", "e", 3.75, (1, 0, 0, 1, 0, 0), 84, 36, 4, 1),
+    "DRV-01024": ("HUB-BER", "e", 4.02, (1, 0, 1, 1, 0, 0), 100, 38, 8, 3),
+    "DRV-01031": ("HUB-BER", "c", 4.21, (1, 0, 1, 1, 1, 0), 89, 49, 10, 2),
+    "DRV-01032": ("HUB-BER", "e", 3.07, (1, 0, 0, 0, 0, 0), 101, 52, 6, 4),
+    "DRV-01033": ("HUB-BER", "e", 2.82, (1, 1, 0, 1, 0, 0), 78, 49, 4, 0),
+    "DRV-01042": ("HUB-BER", "e", 4.70, (1, 0, 0, 0, 0, 0), 74, 22, 3, 1),
+    "DRV-01045": ("HUB-BER", "e", 3.96, (1, 0, 0, 0, 0, 0), 93, 47, 7, 3),
+    "DRV-01188": ("HUB-BER", "c", 3.30, (1, 0, 1, 0, 1, 1), 100, 94, 5, 1),
+    "DRV-01191": ("HUB-BER", "e", 4.02, (1, 0, 0, 0, 0, 0), 0, 0, 1, 0),
 }
 
 # Q4 — tenure bands as of 2025-12-31: (<2y, 2-4y, 4-6y, 6y+)
 TENURE = {
-    "HUB-CHI": (1, 5, 2, 2),
-    "HUB-CIN": (3, 3, 4, 3),
-    "HUB-CMH": (3, 3, 6, 5),
-    "HUB-DET": (2, 1, 1, 3),
-    "HUB-IND": (0, 5, 2, 2),
+    "HUB-PAR": (1, 5, 2, 2),
+    "HUB-ZRH": (3, 3, 4, 3),
+    "HUB-AMS": (3, 3, 6, 5),
+    "HUB-VIE": (2, 1, 1, 3),
+    "HUB-BER": (0, 5, 2, 2),
 }
 
 # Q10 — 2025 routes by hub
-ROUTES_2025 = {"HUB-CHI": 748, "HUB-CIN": 712, "HUB-CMH": 709, "HUB-DET": 741, "HUB-IND": 719}
+ROUTES_2025 = {"HUB-PAR": 748, "HUB-ZRH": 712, "HUB-AMS": 709, "HUB-VIE": 741, "HUB-BER": 719}
 
-# Q15 — 2025 payroll by employment type: (cost $, hours, overtime hours, routes, cost per route $)
+# Q15 — 2025 payroll by employment type: (cost €, hours, overtime hours, routes, cost per route €)
 PAY_2025 = {
     "contractor": (1017289.35, 12663, 0, 1407, 723.02),
     "employee": (823985.72, 19998, 2485, 2222, 370.83),
 }
-# Q16 — range of per-driver 2025 cost per route, $ (min, max) by type
+# Q16 — range of per-driver 2025 cost per route, € (min, max) by type
 CPR_RANGE = {"contractor": (684, 762), "employee": (344, 412)}
 # Q19 — 2025 exceptions per 100 routes by type
 EXC_RATE_2025 = {"contractor": 61.48, "employee": 70.03}
-FLEET_CPR_2025 = 1841275.07 / 3629  # Q14: 2025 payroll / routes run (~$507 per route)
+FLEET_CPR_2025 = 1841275.07 / 3629  # Q14: 2025 payroll / routes run (~€507 per route)
 
 
 def hub_of(d):
@@ -192,7 +192,7 @@ def save(name, parts):
     parts.append("</svg>")
     os.makedirs(OUT, exist_ok=True)
     path = os.path.join(OUT, name)
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(parts) + "\n")
     print("wrote", os.path.relpath(path, os.path.join(os.path.dirname(__file__), "..")))
 
@@ -263,12 +263,12 @@ def chart_headcount():
     y_gridlines(parts, x0, x1, top, bot, 0, vmax, range(0, vmax + 1, 5), str)
     y_title(parts, 40, top, bot, "Drivers (headcount)")
     group_w, bar_w = stacked_bars(parts, x0, x1, top, bot, vmax, rows, [BLUE, AMBER], "{} drivers")
-    # DET is the only contractor-majority hub
-    i = HUBS.index("HUB-DET")
+    # VIE is the only contractor-majority hub
+    i = HUBS.index("HUB-VIE")
     bx = x0 + i * group_w + (group_w - bar_w) / 2
     parts.append(text(bx + bar_w + 6, bot - 7 / vmax * (bot - top) + 4, "5 of 7 contractors",
                       11, RED, "start", "bold"))
-    i = HUBS.index("HUB-IND")
+    i = HUBS.index("HUB-BER")
     bx = x0 + i * group_w + (group_w - bar_w) / 2
     parts.append(text(bx + bar_w + 6, bot - 9 / vmax * (bot - top) + 18, "incl. DRV-01188", 10.5, GREY))
     parts.append(text(bx + bar_w + 6, bot - 9 / vmax * (bot - top) + 31, "(status: disputed)", 10.5, GREY))
@@ -395,8 +395,8 @@ def chart_cost_per_route():
 
     for v in range(0, vmax + 1, 100):
         parts.append(line(xx(v), top, xx(v), bot, GRID, 1))
-        parts.append(text(xx(v), bot + 18, f"${v}", 11.5, GREY, "middle"))
-    parts.append(text((x0 + x1) / 2, bot + 42, "Labour cost per route run, 2025 (US$)", 12, GREY, "middle"))
+        parts.append(text(xx(v), bot + 18, f"€{v}", 11.5, GREY, "middle"))
+    parts.append(text((x0 + x1) / 2, bot + 42, "Labour cost per route run, 2025 (EUR)", 12, GREY, "middle"))
     row_h = (bot - top) / 2
     for i, (typ, col) in enumerate([("contractor", AMBER), ("employee", BLUE)]):
         cost, hrs, ot, routes, cpr = PAY_2025[typ]
@@ -408,12 +408,12 @@ def chart_cost_per_route():
         parts.append(line(xx(lo), cy, xx(hi), cy, INK, 1.5))
         parts.append(line(xx(lo), cy - 7, xx(lo), cy + 7, INK, 1.5))
         parts.append(line(xx(hi), cy - 7, xx(hi), cy + 7, INK, 1.5))
-        parts.append(halo(xx(hi) + 8, cy + 5, f"${cpr:,.2f}", 13, INK, "start", "bold"))
+        parts.append(halo(xx(hi) + 8, cy + 5, f"€{cpr:,.2f}", 13, INK, "start", "bold"))
         parts.append(text(x0 - 12, cy - 4, typ, 13, INK, "end", "bold"))
-        parts.append(text(x0 - 12, cy + 12, f"{routes:,} routes · ${cost:,.0f}", 10.5, GREY, "end"))
+        parts.append(text(x0 - 12, cy + 12, f"{routes:,} routes · €{cost:,.0f}", 10.5, GREY, "end"))
         parts.append(text(x0 - 12, cy + 26, f"{ot:,} OT hrs · {EXC_RATE_2025[typ]} exc/100", 10.5, GREY, "end"))
     parts.append(line(xx(FLEET_CPR_2025), top - 10, xx(FLEET_CPR_2025), bot, GREY, 1.2, "6,4"))
-    parts.append(text(xx(FLEET_CPR_2025) + 4, top - 12, f"fleet ${FLEET_CPR_2025:,.0f}", 11, GREY))
+    parts.append(text(xx(FLEET_CPR_2025) + 4, top - 12, f"fleet €{FLEET_CPR_2025:,.0f}", 11, GREY))
     save("p5-cost-per-route-by-type.svg", parts)
 
 

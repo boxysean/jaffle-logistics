@@ -8,24 +8,26 @@ queries run through the dbt Platform MCP (`execute_sql`) against
 
 ## 1. Executive summary
 
-- **What the result was.** For the two accounts that actually deteriorated in 2025 — **Jaffle Equipment
-  (CLI-0042)** and, more mildly, **Jaffle Beverage Co (CLI-0169)** — the customer told us *first*, every
-  time. On the deterioration that really mattered (a recurring handling-damage pattern at the Columbus
+- **What the result was.** For the two accounts that actually deteriorated in 2025 — **Jaffle Werke
+  (CLI-0042)** and, more mildly, **Jaffle Getränke (CLI-0169)** — the customer told us *first*, every
+  time. On the deterioration that really mattered (a recurring handling-damage pattern at the Amsterdam
   hub), the customer's first complaint landed **35 days before our own records** named the pattern. Across
   all five accounts the median lag between our first internal signal and the customer's first contact was
   **≈ 0 days** (we were neither early nor late on average), and the worst case was **35 days late**.
 - **What evidence validated it.** Per-account timelines built from the narrative sources (CRM notes, call
   transcripts, ops incidents, incident reports, Slack, support tickets), corroborated by a vector search of
   the `knowledge_base` corpus (top account-scoped hit `IR-9003`, cosine score **0.791**). The operating
-  account — CLI-0042 — fell from **98.1% on-time in 2023 and 2024 to 83.9% in 2025** while its ticket count
-  rose **17 → 17 → 72**; the three healthy accounts moved ≤ 2.7 points and their internal note cadence did
-  **not** change, which rules out "we just write less" as the explanation for the lag.
-- **What remains open.** The operational early-warning material exists but is **not readable per account**:
-  dispatch notes, routes and fleet work orders carry no client id (routes serve multiple clients), and the
-  `knowledge_base` search corpus **excludes** dispatch notes and Slack entirely. So we cannot yet tell
-  whether the long lags are a *monitoring* failure (the warning was there, unread) or an *instrumentation*
-  failure (the warning was never captured against the account). The single change that would decide it is in
-  §4.8.
+  account — CLI-0042 — fell from **97.8% / 98.0% on-time in 2023 / 2024 to 83.9% in 2025** while its
+  ticket count rose **17 → 17 → 72**; the three healthy accounts moved ≤ 2.6 points from 2024 and their
+  internal note cadence did **not** fall, which rules out "we just write less" as the explanation for the lag.
+- **What remains open.** When this analysis was first run, the operational early-warning material was
+  **not readable per account**: dispatch notes, routes and fleet work orders carry no client id of their own
+  (routes serve multiple clients), and the `knowledge_base` search corpus excluded dispatch notes and Slack.
+  The project has since added a route-to-client attribution and brought dispatch notes and Slack into
+  `knowledge_base` with an account key — most of the change §4.8 recommends — but the lag measurement has
+  **not** been re-run with it. So we still cannot tell whether the long lags are a *monitoring* failure (the
+  warning was there, unread) or an *instrumentation* failure (the warning was never captured against the
+  account); the test that would decide it is in §4.8.
 
 ---
 
@@ -100,13 +102,13 @@ programmatic classification of the ticket corpus against the disclosed keyword s
 
 | client | name | 2023 on-time | 2024 on-time | 2025 on-time | tickets 23/24/25 | incidents 25 | health |
 |---|---|---|---|---|---|---|---|
-| CLI-0042 | Jaffle Equipment | 98.1% | 98.1% | **83.9%** | 17 / 17 / **72** | 18 | at-risk |
-| CLI-0169 | Jaffle Beverage Co | 97.2% | 96.8% | 94.7% | 19 / 30 / 35 | 13 | watch |
-| CLI-0201 | Jaffle Paper & Packaging | 97.4% | 96.9% | 94.7% | 23 / 27 / 35 | 16 | healthy |
-| CLI-0007 | Jaffle Storefronts | 97.4% | 97.1% | 96.6% | 29 / 16 / 23 | 16 | healthy |
-| CLI-0155 | Jaffle Crew Outfitters | 97.6% | 97.2% | 97.0% | 19 / 17 / 24 | 18 | healthy |
+| CLI-0042 | Jaffle Werke | 97.8% | 98.0% | **83.9%** | 17 / 17 / **72** | 18 | at-risk |
+| CLI-0169 | Jaffle Getränke | 97.3% | 96.7% | 94.7% | 19 / 30 / 35 | 13 | watch |
+| CLI-0201 | Jaffle Papier | 97.2% | 97.3% | 94.7% | 23 / 27 / 35 | 16 | healthy |
+| CLI-0007 | Jaffle Warenhuis | 97.7% | 97.0% | 96.6% | 29 / 16 / 23 | 16 | healthy |
+| CLI-0155 | Jaffle Maison | 97.6% | 97.1% | 97.0% | 19 / 17 / 24 | 18 | healthy |
 
-Only **CLI-0042** collapsed (14.2 points, against a 97.0% target). **CLI-0169** drifted below its own 95.0%
+Only **CLI-0042** collapsed (14.1 points from 2024, against a 97.0% target). **CLI-0169** drifted below its own 95.0%
 target and is the second "watch" account. The other three moved little.
 
 *Evidence* — `fct_account_health` aggregated by client-year:
@@ -125,11 +127,11 @@ Lag = customer-visible date − first internal date. **Negative = customer first
 | account | episode | first **internal** signal | first **customer-visible** signal | escalation | **lag (days)** |
 |---|---|---|---|---|---|
 | **CLI-0042** | Jan storm (one-off) | `INC-2025-00417` **2025-01-15** 08:40 (ops incident); Slack `SLK-99001` 2025-01-15 09:05; `IR-9001` filed 2025-01-16 | `TKT-900000` **2025-01-14** 09:00 | `IR-9001` 2025-01-16 · SLA credit `LGL-9001` 2025-02-05 | **−1.0** |
-| **CLI-0042** | recurring handling pattern (weather-independent) | `INC-2025-00136` **2025-06-18** 15:14 (CMH damage); `SLK-99010` 2025-07-18; `IR-9003` filed 2025-10-11 | `TKT-910000` **2025-05-14** 14:00 | `IR-9003` 2025-10-11 · review `CRM-9030` 2025-10-20 | **−35.0** |
-| **CLI-0007** | Indianapolis mispick cluster | `INC-2025-02233` **2025-05-13** 10:15; `SLK-99020` 2025-05-13 10:40 | `TKT-920000` **2025-05-13** 16:00 | `IR-9002` postmortem 2025-05-19 | **+0.24** |
-| **CLI-0169** | 2025 drift | `INC-2025-00020` **2025-01-17** 09:31 (CMH damage) | `TKT-200018` **2025-01-05** 15:53 | `IR-7031` 2025-08-31 | **−12.0** |
-| **CLI-0155** | quiet | `INC-2025-00003` **2025-02-19** 09:21 (IND damage); `IR-7022` filed 2025-02-21 | `TKT-200027` **2025-02-22** 14:48 | `IR-7022` 2025-02-21 | **+3.2** |
-| **CLI-0201** | quiet | `INC-2025-00139` **2025-01-09** 14:32 (IND mispick); `IR-7024` filed 2025-01-12 | `TKT-200028` **2025-01-12** 17:50 | `IR-7024` 2025-01-12 | **+3.1** |
+| **CLI-0042** | recurring handling pattern (weather-independent) | `INC-2025-00136` **2025-06-18** 15:14 (AMS damage); `SLK-99010` 2025-07-18; `IR-9003` filed 2025-10-11 | `TKT-910000` **2025-05-14** 14:00 | `IR-9003` 2025-10-11 · review `CRM-9030` 2025-10-20 | **−35.1** |
+| **CLI-0007** | Berlin mispick cluster | `INC-2025-02233` **2025-05-13** 10:15; `SLK-99020` 2025-05-13 10:40 | `TKT-920000` **2025-05-13** 16:00 | `IR-9002` postmortem 2025-05-19 | **+0.24** |
+| **CLI-0169** | 2025 drift | `INC-2025-00020` **2025-01-17** 09:31 (AMS damage) | `TKT-200018` **2025-01-05** 15:53 | `IR-7031` 2025-08-31 | **−11.7** |
+| **CLI-0155** | quiet | `INC-2025-00003` **2025-02-19** 09:21 (BER damage); `IR-7022` filed 2025-02-21 | `TKT-200027` **2025-02-22** 14:48 | `IR-7022` 2025-02-21 | **+3.2** |
+| **CLI-0201** | quiet | `INC-2025-00139` **2025-01-09** 14:32 (BER mispick); `IR-7024` filed 2025-01-12 | `TKT-200028` **2025-01-12** 17:50 | `IR-7024` 2025-01-12 | **+3.1** |
 
 **Median lag = −0.4 days** (six episodes) — i.e. on a typical episode we learned nothing before the
 customer. **Worst case = −35 days** (CLI-0042's handling pattern). **Best case = +3.2 days.**
@@ -141,12 +143,12 @@ customer-led two are precisely the accounts that actually went wrong.
 
 *Evidence (spot checks, full set in §6):*
 - `TKT-900000` (CLI-0042, 2025-01-14 09:00): *"[customer] Where is SHP-202501-900001?? Nothing's moved for
-  days. I know Chicago got hit but I need a real ETA."*
-- `INC-2025-00417` (occurred 2025-01-15 08:40): *"Jackknifed semi on an icy ramp near the Chicago hub; no
+  days. I know Paris got hit but I need a real ETA."*
+- `INC-2025-00417` (occurred 2025-01-15 08:40): *"Jackknifed semi on an icy ramp near the Paris hub; no
   injuries, load held."* — the customer raised it **first**, before the incident was recorded.
 - `TKT-910000` (CLI-0042, 2025-05-14 14:00): *"[customer] Following up on SHP-202505-000271 — another late
   LTL load. Our account team keeps promising improvement and we're not seeing it."*
-- `INC-2025-00136` (occurred 2025-06-18 15:14): the first of the three Columbus handling incidents — **35
+- `INC-2025-00136` (occurred 2025-06-18 15:14): the first of the three Amsterdam handling incidents — **35
   days after** that first ticket.
 
 ### 4.3 Which source type is the earliest warning in practice (the operational punchline)
@@ -160,17 +162,18 @@ own sources the earliest account-readable warning is Slack, never the ops-floor 
 | `slack_threads` (internal chatter) | only when a body names the account | the *pattern* (CLI-0042 `SLK-99010`, 2025-07-18; CLI-0007 `SLK-99020`, 2025-05-13) | earliest internal warning, but for patterns, not first events |
 | `stg_incidents` / `incident_reports` | via `shipment_id` | the ops incident date | internal, but **formal records are days–months after the fact** (`IR-9003` filed 2025-10-11 for a June–October pattern) |
 | `crm_notes` / `call_transcripts` | yes (client_id) | the quarterly QBR cadence | **lagged**: `CRM-9001` (2025-01-21) is 7 days after the customer's first ticket |
-| `stg_dispatch_notes` | **no client id** | — | all 1,299 notes are generic route exceptions; **none mention damage/handling/an account** — unusable for account warning |
+| `stg_dispatch_notes` | **no client id** of its own (now attributable via `route_client_attribution`, see §4.8) | — | all 1,299 notes are generic route exceptions; **none mention damage/handling** — not usable for account warning as measured here |
 | `stg_routes`, `stg_fleet_work_orders` | **no client id** (route/vehicle/hub only) | — | unusable for account warning |
 
 Two structural facts drive this:
-1. **The ops floor is not keyed to the account.** 721 of the network's routes carry shipments for **more
-   than one client**, so a dispatch note or route exception cannot be attributed to a single account.
+1. **The ops floor is not keyed to the account.** 676 of the network's routes carry shipments for **more
+   than one client**, so a dispatch note or route exception cannot be attributed to a single account without
+   an attribution rule.
 2. **The earliest human recognition of CLI-0042's pattern was in Slack, not in a system** — `SLK-99010`
-   (2025-07-18, `#accounts`): *"on-time for Jaffle Equipment (CLI-0042) has been sliding since Q2, and
-   tickets are up … I'm also seeing two damage/mispick incidents at CMH in June that don't fit that
+   (2025-07-18, `#accounts`): *"on-time for Jaffle Werke (CLI-0042) has been sliding since Q2, and
+   tickets are up … I'm also seeing two damage/mispick incidents at AMS in June that don't fit that
    pattern."* That is 65 days **after** the customer's first "another late LTL load" ticket and 30 days
-   after the first Columbus incident.
+   after the first Amsterdam incident.
 
 *Evidence* — dispatch notes carry no account-relevant text:
 ```sql
@@ -185,19 +188,21 @@ SELECT count(*) AS routes_with_multi_client FROM (
   SELECT route_id, count(DISTINCT client_id) AS c
   FROM hive_metastore.dbt_smcintyre_jaffle_logistics_prod.stg_shipments
   WHERE route_id IS NOT NULL GROUP BY route_id HAVING count(DISTINCT client_id) > 1);
--- -> 721
+-- -> 676
 ```
 
 ### 4.4 The one case where we were early (and why it still doesn't count)
 
 The only episodes where an internal signal preceded the customer are the three "quiet" accounts, and in each
 case the "internal signal" is an incidental minor incident that the customer's routine ticket later
-happened to follow. The one structurally interesting case is **CLI-0007**: the Indianapolis mispick cluster.
+happened to follow. The one structurally interesting case is **CLI-0007**: the Berlin mispick cluster.
 Our ops lead recognised the *pattern* on **2025-05-13 10:15** (`INC-2025-02233`) and **2025-05-13 10:40**
-(`SLK-99020`: *"getting multiple 'wrong item' tickets out of IND this morning … smells like a bin issue"*),
-~6 hours before the first such ticket in the table (`TKT-920000`, 2025-05-13 16:00). But the ops postmortem
-itself (`IR-9002`) records the first wrong-delivery ticket as **05/12** — so even here the customer was
-first; ops recognised only the *pattern*, and only once several customers had complained.
+(`SLK-99020`: *"getting multiple 'wrong item' tickets out of BER this morning … smells like a bin issue"*),
+~6 hours before CLI-0007's own first such ticket (`TKT-920000`, 2025-05-13 16:00). But the ops postmortem
+itself (`IR-9002`) records the first wrong-delivery ticket as **05/12**, and the ticket store agrees: a
+CLI-0169 wrong-item ticket (`TKT-920004`) was opened 2025-05-12 13:00 and a CLI-0201 one (`TKT-920005`)
+2025-05-13 13:00, both before the ops incident. So even here the customer was first; ops recognised only
+the *pattern*, and only once several customers had complained.
 
 ### 4.5 The account's own record echoes the customer, and lags
 
@@ -212,17 +217,17 @@ Account-keyed internal narrative documents per account per month — 2023–2024
 
 | account | baseline docs/mo (2023–24) | 2025 docs/mo | ratio |
 |---|---|---|---|
-| CLI-0042 | 0.75 | 1.17 | **↑ 1.56×** |
-| CLI-0007 | 1.00 | 1.17 | 1.17× |
-| CLI-0155 | 0.67 | 1.33 | 2.0× |
-| CLI-0169 | 0.54 | 0.92 | 1.70× |
-| CLI-0201 | 0.38 | 0.25 | 0.66× |
+| CLI-0042 | 1.29 | 2.17 | **↑ 1.68×** |
+| CLI-0007 | 1.46 | 1.92 | 1.31× |
+| CLI-0155 | 1.21 | 2.25 | 1.86× |
+| CLI-0169 | 1.38 | 1.75 | 1.27× |
+| CLI-0201 | 1.46 | 1.33 | 0.91× |
 
 (Internal narrative = `stg_crm_notes` + `stg_call_transcripts` + account-attributed `stg_incident_reports`.)
 
 **We did not go quiet.** The account-manager's writing cadence is essentially flat across years (e.g.
 CLI-0042 CRM notes 3 → 5 → 5; CLI-0007 5 → 5 → 5; CLI-0155 CRM notes 3 → 3 → 6), and the *incident-report* count
-rose with the trouble. So the long lag is **not** an artefact of writing less in calm periods. What changed
+rose with the trouble (CLI-0042 account-attributed incident reports 8 → 7 → 17). So the long lag is **not** an artefact of writing less in calm periods. What changed
 in the bad year was not the *volume* of our records but their *content and timing*: the records that grew
 (customer tickets: CLI-0042 17 → 72) were the ones the customer generated. The correlation between the
 ticket channel and the problem is strong; the correlation between our own narrative channel and the problem
@@ -231,7 +236,11 @@ is weak.
 ### 4.7 The retrieval leg — what it found, and its blind spot
 
 Vector search over `knowledge_base` (account-scoped to CLI-0042, question *"deliveries running late and what
-is driving the deterioration, handling damage at the Columbus hub"*) returned:
+is driving the deterioration, handling damage at the HQ hub"*, naming the hub) returned the ranks below.
+**This leg has not been re-run since the network's place labels changed**: the question text and the
+embedded corpus both predate the relabelling to Amsterdam, and the corpus has since gained two source types
+(see the blind-spot bullet). The source ids, dates and classifications are confirmed by row-level lookups
+against the current build; the **scores are the earlier run's and will move on a re-run**.
 
 | rank | source_id | type | date | score | classification |
 |---|---|---|---|---|---|
@@ -244,17 +253,20 @@ is driving the deterioration, handling damage at the Columbus hub"*) returned:
 
 - **Findings that came from retrieval:** the existence and exact identity of the formal pattern documents
   (`IR-9003`, `CRM-9030`) and the January credit memo (`LGL-9001`) — all confirmed by row-level lookups.
-- **A false positive, reported as a finding about the method:** rank 3, `IR-7045`, is a **2023 Detroit**
+- **A false positive, reported as a finding about the method:** rank 3, `IR-7045`, is a **2023 Vienna**
   damage report. It scores 0.707 purely on topical overlap ("damage") and does **not** support the 2025
   claim. Routine-status tickets (`TKT-200500`, `TKT-200159`) also surfaced. Cosine similarity alone confuses
   *topically similar* with *evidentially relevant*.
-- **The blind spot that matters most:** the corpus has only **five** source types — `CRM Notes`,
-  `Call Transcript`, `Incident Report`, `Legal Document`, `Support Ticket` (685 rows total). It does **not**
-  contain `dispatch_notes`, `slack_threads`, or `fleet_work_orders`. **The retrieval layer therefore cannot
-  surface the operational early warning even if it existed**, because the two ops-floor sources are not in
-  the corpus and the ops sources it could reach are not account-keyed.
+- **The blind spot that mattered most:** at the time of the run the corpus had only **five** source types —
+  `CRM Notes`, `Call Transcript`, `Incident Report`, `Legal Document`, `Support Ticket` (685 rows total). It
+  did **not** contain `dispatch_notes`, `slack_threads`, or `fleet_work_orders`, so **the retrieval layer
+  could not surface the operational early warning even if it existed**. The project's `knowledge_base`
+  model now unions **seven** source types, adding `Dispatch Note` and `Slack Thread` with an account key
+  resolved through `route_client_attribution` (dispatch notes) and cited ids (Slack); `fleet_work_orders`
+  is still absent. The corpus counts below are the earlier run's; the current corpus was not queried for
+  this revision (it needs AI functions enabled to build).
 
-*Evidence* — corpus coverage:
+*Evidence* — corpus coverage at the time of the run:
 ```sql
 SELECT source_type, count(*) AS n, cast(min(ts) as string) AS mn, cast(max(ts) as string) AS mx
 FROM hive_metastore.dbt_smcintyre_jaffle_logistics_prod.knowledge_base
@@ -268,7 +280,7 @@ GROUP BY source_type ORDER BY source_type;
 "service-exception" view over them — dispatch notes, route exceptions and fleet work orders get a
 `client_id` (or an account-scoped rollup), and the two ops-floor sources are added to `knowledge_base`.**
 
-Why this one: the signal is *partly* there — the Columbus handling incidents (`INC-2025-00136/00241/00095`)
+Why this one: the signal is *partly* there — the Amsterdam handling incidents (`INC-2025-00136/00241/00095`)
 were recorded in June–October, weeks after the customer but long before our formal `IR-9003`. The failure is
 not that nothing is written; it is that what we write is keyed to *hubs and routes*, not to *accounts*, so
 it is invisible to an account manager and unsearchable in the corpus. Tagging fixes both at once, and the
@@ -281,6 +293,12 @@ monthly; success = internal-first on **≥ 4 of 5** accounts, with **median lag 
 worse than −7 days**. If lag stays ≈ 0 after tagging, the problem is instrumentation of a different kind
 (we are not *detecting*, only *recording*), and the next investment is alerting thresholds rather than keys.
 
+**Status since this was written.** The second half of the change has landed in the project: every one of
+the 1,299 dispatch notes and 97 of the 116 Slack threads now carry an account key in the context layer
+(`dispatch_notes_records_meta`, `slack_threads_records_meta`), and both are unioned into `knowledge_base`.
+Fleet work orders and routes still carry none. The expected-effect test above has **not** been run against
+the attributed sources; until it is, the monitoring-versus-instrumentation question stays open.
+
 ---
 
 ## 5. Confidence and limits
@@ -288,23 +306,28 @@ worse than −7 days**. If lag stays ≈ 0 after tagging, the problem is instrum
 - **What would falsify each finding.**
   - *§4.1/§4.2 (who declined, and the lags):* a different, more generous definition of "internal signal"
     that includes the *dispatch notes on the routes that carried each account's late shipments*. I did not
-    use them because routes are multi-client and the notes carry no account id — but if a subsidiary mapping
-    exists, the ops floor may have "known" earlier. **This is the single largest uncertainty.**
+    use them because routes are multi-client and the notes carry no account id. Such a mapping now exists
+    (`route_client_attribution`, which assigns each dispatch note to one account), and the ops floor may
+    have "known" earlier. **This is the single largest uncertainty, and it is now testable.**
   - *§4.3 (Slack is the earliest internal warning):* a source of ops chatter outside `slack_threads`
     (e.g. radio/phone) not captured here.
   - *§4.6 (base rate):* the account-keyed narrative sources exclude dispatch notes and Slack; the true
     internal-document rate is higher. The base rate is measured only on sources that carry an account key.
 - **What data is missing.**
-  - No client attribution on `stg_dispatch_notes`, `stg_routes`, `stg_fleet_work_orders` (confirmed: 721
-    multi-client routes; 0 dispatch notes mentioning damage/handling).
-  - `knowledge_base` omits dispatch notes and Slack (confirmed by the source-type query).
-  - Incident attribution depends on `shipment_id`; reports with a null `shipment_id` are unaccounted (32 of
-    59 incident reports have no client id).
-  - `IR-9002`'s postmortem cites a first wrong-delivery ticket on **05/12** for CLI-0007 that does not appear
-    in `stg_support_tickets` (earliest there is 2025-05-13 16:00) — a small internal inconsistency between
-    the narrative and the ticket store.
-- **What I did not do.** No local dbt build; all data came through the remote MCP per the project rule. No
-  semantic-layer metric was needed beyond `fct_account_health` (the SLA backbone).
+  - No client id of their own on `stg_dispatch_notes`, `stg_routes`, `stg_fleet_work_orders` (confirmed:
+    676 multi-client routes; 0 dispatch notes mentioning damage/handling). Dispatch notes are now
+    attributable through `route_client_attribution`; routes and work orders are not.
+  - At the time of the retrieval run, `knowledge_base` omitted dispatch notes and Slack; the current model
+    includes both but was not rebuilt or queried for this revision.
+  - Incident attribution depends on `shipment_id`; reports with a null or unmatched `shipment_id` are
+    unaccounted (192 of 357 incident reports have no client id).
+  - The European network raises signals this corpus does not carry at all: there is no customs-hold record
+    for Zürich (non-EU) lanes, no tachograph or driving-time data (Regulation (EC) No 561/2006), and no
+    border-crossing event, so a Swiss customs delay or an hours-of-service hold would reach us only through
+    a customer ticket. Whether such delays contributed to any lag above is unknown.
+- **What I did not do.** The numbers in this revision were re-derived from a local build of the same
+  project (the platform's place labels had not yet been redeployed); the vector-search leg was not re-run
+  (§4.7). No semantic-layer metric was needed beyond `fct_account_health` (the SLA backbone).
 
 ---
 
@@ -314,7 +337,8 @@ All via `execute_sql` (schema `hive_metastore.dbt_smcintyre_jaffle_logistics_pro
 
 1. **Freshness / corpus size** — `SELECT 'stg_shipments' AS t, count(*), min(created_at), max(created_at) …`
    over `stg_shipments`, `stg_dispatch_notes`, `stg_crm_notes`, `stg_incident_reports`, `knowledge_base`
-   (→ 6027 / 1299 / 56 / 59 / 685; spans 2023-01-01 … 2025-12-31).
+   (→ 5,806 / 1,299 / 56 / 357 shipments, dispatch notes, CRM notes, incident reports; spans 2023-01-01 …
+   2025-12-31; `knowledge_base` was 685 at the time of the retrieval run and was not re-counted).
 2. **Account roster** — `SELECT * FROM dim_clients ORDER BY client_id`.
 3. **All CRM notes** — `SELECT note_id, client_id, call_date, note_type, sentiment, body FROM stg_crm_notes
    ORDER BY call_date` (56 rows).
@@ -328,7 +352,7 @@ All via `execute_sql` (schema `hive_metastore.dbt_smcintyre_jaffle_logistics_pro
    stg_call_transcripts ORDER BY call_date` (55 rows).
 9. **Incident reports with account** — `SELECT r.report_id, r.incident_id, r.severity, r.filed_at,
    s.client_id, r.body FROM stg_incident_reports r LEFT JOIN stg_shipments s ON r.shipment_id=s.shipment_id
-   ORDER BY r.filed_at` (59 rows).
+   ORDER BY r.filed_at` (357 rows).
 10. **Contracts** — `SELECT contract_id, client_id, effective_date, sla_ontime_pct, credit_terms FROM
     stg_contracts ORDER BY client_id, effective_date`.
 11. **2025 incidents by account** — `SELECT s.client_id, i.incident_id, i.incident_type, i.severity,
@@ -336,15 +360,15 @@ All via `execute_sql` (schema `hive_metastore.dbt_smcintyre_jaffle_logistics_pro
     i.occurred_at >= '2025-01-01' AND i.occurred_at < '2026-01-01' ORDER BY s.client_id, i.occurred_at`.
 12. **Client-year trend** — the `fct_account_health` aggregation in §4.1.
 13. **Base rates** — the per-source/per-client/per-year `UNION ALL` query in §4.6.
-14. **Multi-client routes** — the `HAVING count(DISTINCT client_id) > 1` query in §4.3 (→ 721).
+14. **Multi-client routes** — the `HAVING count(DISTINCT client_id) > 1` query in §4.3 (→ 676).
 15. **Knowledge-base coverage** — `SELECT source_type, classification, count(*), min(ts), max(ts) FROM
     knowledge_base GROUP BY 1,2`.
-16. **Vector search (retrieval leg)**:
+16. **Vector search (retrieval leg)** — to re-run; the scores in §4.7 come from the earlier run:
     ```sql
     SELECT source_type, source_id, account_key, ts, classification,
            round(vector_cosine_similarity(embedding,
              cast(ai_query('databricks-gte-large-en',
-               'deliveries running late and what is driving the deterioration, handling damage at the Columbus hub')
+               'deliveries running late and what is driving the deterioration, handling damage at the Amsterdam hub')
                as array<float>)), 3) AS score,
            substr(text,1,160) AS t
     FROM hive_metastore.dbt_smcintyre_jaffle_logistics_prod.knowledge_base

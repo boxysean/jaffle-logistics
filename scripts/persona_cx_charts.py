@@ -47,11 +47,11 @@ def esc(s):
 # ---------------------------------------------------------------- data (from the data pack)
 # (client_id, short name) in client-id order
 ACCOUNTS = [
-    ("CLI-0007", "Storefronts"),
-    ("CLI-0042", "Equipment"),
-    ("CLI-0155", "Crew Outfitters"),
-    ("CLI-0169", "Beverage Co"),
-    ("CLI-0201", "Paper & Packaging"),
+    ("CLI-0007", "Warenhuis"),
+    ("CLI-0042", "Werke"),
+    ("CLI-0155", "Maison"),
+    ("CLI-0169", "Getränke"),
+    ("CLI-0201", "Papier"),
 ]
 
 # Q2 — ticket volume by account by year (stg_support_tickets joined to eval_ticket_triage)
@@ -132,7 +132,7 @@ def save(name, parts):
     parts.append("</svg>")
     os.makedirs(OUT, exist_ok=True)
     path = os.path.join(OUT, name)
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(parts) + "\n")
     print("wrote", os.path.relpath(path, os.path.join(os.path.dirname(__file__), "..")))
 
@@ -265,7 +265,7 @@ def chart_repeat_intervals():
     vmax = 90
     gaps = GAPS_0042_2025
     med = statistics.median(gaps)
-    parts = canvas(W, H, "Jaffle Equipment: days between consecutive delivery-delay tickets, 2025",
+    parts = canvas(W, H, "Jaffle Werke: days between consecutive delivery-delay tickets, 2025",
                    f"CLI-0042, {len(gaps)} gaps between {len(gaps) + 1} delivery_delay tickets. "
                    "One dot per gap; dots stack when gaps are equal.")
 

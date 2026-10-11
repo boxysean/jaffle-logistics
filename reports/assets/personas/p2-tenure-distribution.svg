@@ -22,8 +22,8 @@
 <rect x="147.6" y="255.0" width="68.9" height="31.0" fill="#1f4e79" stroke="#ffffff"/>
 <text x="182.0" y="274.5" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">2</text>
 <text x="182.0" y="249.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">10 drivers</text>
-<text x="182.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Chicago</text>
-<text x="182.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CHI</text>
+<text x="182.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Paris</text>
+<text x="182.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-PAR</text>
 <rect x="311.6" y="363.5" width="68.9" height="46.5" fill="#c9d3de" stroke="#ffffff"/>
 <text x="346.0" y="390.8" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">3</text>
 <rect x="311.6" y="317.0" width="68.9" height="46.5" fill="#9aa7b5" stroke="#ffffff"/>
@@ -33,8 +33,8 @@
 <rect x="311.6" y="208.5" width="68.9" height="46.5" fill="#1f4e79" stroke="#ffffff"/>
 <text x="346.0" y="235.8" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">3</text>
 <text x="346.0" y="202.5" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">13 drivers</text>
-<text x="346.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Cincinnati</text>
-<text x="346.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CIN</text>
+<text x="346.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Zürich</text>
+<text x="346.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-ZRH</text>
 <rect x="475.6" y="363.5" width="68.9" height="46.5" fill="#c9d3de" stroke="#ffffff"/>
 <text x="510.0" y="390.8" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">3</text>
 <rect x="475.6" y="317.0" width="68.9" height="46.5" fill="#9aa7b5" stroke="#ffffff"/>
@@ -44,8 +44,8 @@
 <rect x="475.6" y="146.5" width="68.9" height="77.5" fill="#1f4e79" stroke="#ffffff"/>
 <text x="510.0" y="189.2" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">5</text>
 <text x="510.0" y="140.5" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">17 drivers</text>
-<text x="510.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Columbus</text>
-<text x="510.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CMH</text>
+<text x="510.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Amsterdam</text>
+<text x="510.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-AMS</text>
 <rect x="639.6" y="379.0" width="68.9" height="31.0" fill="#c9d3de" stroke="#ffffff"/>
 <text x="674.0" y="398.5" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">2</text>
 <rect x="639.6" y="363.5" width="68.9" height="15.5" fill="#9aa7b5" stroke="#ffffff"/>
@@ -55,8 +55,8 @@
 <rect x="639.6" y="301.5" width="68.9" height="46.5" fill="#1f4e79" stroke="#ffffff"/>
 <text x="674.0" y="328.8" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">3</text>
 <text x="674.0" y="295.5" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">7 drivers</text>
-<text x="674.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Detroit</text>
-<text x="674.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-DET</text>
+<text x="674.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Vienna</text>
+<text x="674.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-VIE</text>
 <rect x="803.6" y="332.5" width="68.9" height="77.5" fill="#9aa7b5" stroke="#ffffff"/>
 <text x="838.0" y="375.2" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">5</text>
 <rect x="803.6" y="301.5" width="68.9" height="31.0" fill="#5b7fa6" stroke="#ffffff"/>
@@ -64,8 +64,8 @@
 <rect x="803.6" y="270.5" width="68.9" height="31.0" fill="#1f4e79" stroke="#ffffff"/>
 <text x="838.0" y="290.0" font-size="11" fill="#ffffff" text-anchor="middle" font-weight="bold">2</text>
 <text x="838.0" y="264.5" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">9 drivers</text>
-<text x="838.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Indianapolis</text>
-<text x="838.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-IND</text>
+<text x="838.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Berlin</text>
+<text x="838.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-BER</text>
 <rect x="100.0" y="70.0" width="14.0" height="12.0" fill="#c9d3de" stroke="none"/>
 <text x="120.0" y="80.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">under 2 years</text>
 <rect x="250.0" y="70.0" width="14.0" height="12.0" fill="#9aa7b5" stroke="none"/>

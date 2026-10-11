@@ -17,7 +17,7 @@ Design rules (house style, as scripts/cfo_charts.py and scripts/persona_fleet_ch
     target, neutral blue = a series with no target of its own.
 
 Source of every warehouse number: hive_metastore.dbt_smcintyre_jaffle_logistics_prod,
-via the dbt Platform remote MCP `execute_sql` tool (production still holds the US-era
+via the dbt Platform remote MCP `execute_sql` tool (production still holds the pre-pivot
 labels; quantities are identical to main's re-skinned seeds). Repository counts (seeds,
 tests, models) were read from the files on main. The dataset's present is 2025-12-31.
 
@@ -167,7 +167,7 @@ def save(name, parts):
     parts.append("</svg>")
     os.makedirs(OUT, exist_ok=True)
     path = os.path.join(OUT, name)
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(parts) + "\n")
     print("wrote", os.path.relpath(path, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")))
 
@@ -179,7 +179,7 @@ def chart_ontime_by_year():
     y_top, y_bot = 80, 400
     vmin, vmax = 80, 100
     parts = canvas(W, H, "On-time delivery by year, 2023 → 2025",
-                   "Whole book vs CLI-0042 (Jaffle Equipment in production; Jaffle Werke on main). Dashed line = 97% contractual target.")
+                   "Whole book vs CLI-0042 (Jaffle Werke). Dashed line = 97% contractual target.")
 
     def yy(v):
         return y_bot - (v - vmin) / (vmax - vmin) * (y_bot - y_top)
@@ -199,9 +199,9 @@ def chart_ontime_by_year():
         parts.append(text(xs[i], y_bot + 22, y, 13, INK, "middle", "bold"))
         parts.append(text(xs[i], y_bot + 40, f"book: {n:,} shipped, {missed} missed", 11, GREY, "middle"))
 
-    # book labels above its points, Equipment labels below (the two sit ~4 px apart in 2023-24)
+    # book labels above its points, Werke labels below (the two sit ~4 px apart in 2023-24)
     series = [("Whole book", BLUE, [BOOK[y][2] for y in YEARS], -12),
-              ("Jaffle Equipment (CLI-0042)", RED, [EQUIPMENT[y] for y in YEARS], 28)]
+              ("Jaffle Werke (CLI-0042)", RED, [EQUIPMENT[y] for y in YEARS], 28)]
     for name, color, vals, dy in series:
         pts = [(xs[i], yy(v)) for i, v in enumerate(vals)]
         parts.append(f'<polyline points="{" ".join(f"{x:.1f},{y:.1f}" for x, y in pts)}" '
@@ -213,7 +213,7 @@ def chart_ontime_by_year():
     parts.append(line(x0, 64, x0 + 24, 64, BLUE, 3))
     parts.append(text(x0 + 30, 68, "Whole book", 12, INK))
     parts.append(line(x0 + 150, 64, x0 + 174, 64, RED, 3))
-    parts.append(text(x0 + 180, 68, "Jaffle Equipment (CLI-0042)", 12, INK))
+    parts.append(text(x0 + 180, 68, "Jaffle Werke (CLI-0042)", 12, INK))
     parts.append(text(x0 + 400, 68, "dot: green = at/above 97%, red = below", 11, GREY))
     parts.append(text(W / 2, H - 14, "Year of shipment created_at (stg_shipments, production)", 12, GREY, "middle"))
     save("data-01-ontime-by-year.svg", parts)
@@ -406,8 +406,8 @@ def chart_lineage():
                       "through these (null where it cannot).", 10.5, GREY))
     # prod-state callout
     parts.append(rect(X["hash"], hy, 600, 54, "#fdf0ee", RED, 1.2))
-    parts.append(text(X["hash"] + 10, hy + 20, "Production today: corpus text is US-era (‘columbus’ in 190 rows, "
-                      "‘amsterdam’ in 0)", 11, RED, "start", "bold"))
+    parts.append(text(X["hash"] + 10, hy + 20, "Production today: corpus text is still the pre-pivot geography "
+                      "(‘amsterdam’ in 0 rows)", 11, RED, "start", "bold"))
     parts.append(text(X["hash"] + 10, hy + 38, "main’s seeds were re-labelled to Europe (a00d85b); the gated "
                       "layer was not rebuilt in production.", 11, RED))
     save("data-04-ai-layer-lineage.svg", parts)

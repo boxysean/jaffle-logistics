@@ -10,24 +10,25 @@ Sentiment and category in this report are **machine-graded labels** (`eval_ticke
 
 ## 1. The two-minute read
 
-- **What is fine.** Four of five accounts had an ordinary year: ticket volumes flat (Storefronts 29 → 16
-  → 23, Crew Outfitters 19 → 17 → 24), mostly positive tickets, and no new kind of complaint anywhere
-  except one wrong-item ticket at Crew Outfitters.
-- **What is not.** Jaffle Equipment (CLI-0042). Its tickets went 17 → 17 → **72** and its graded-negative
+- **What is fine.** Four of five accounts had an ordinary year: ticket volumes flat (Warenhuis 29 → 16
+  → 23, Maison 19 → 17 → 24), mostly positive tickets, and no new kind of complaint anywhere
+  except one wrong-item ticket at Maison.
+- **What is not.** Jaffle Werke (CLI-0042). Its tickets went 17 → 17 → **72** and its graded-negative
   tickets 2 → 3 → **45**. Its delivery-delay complaints repeat every **3 days** (median, 2023–2025),
   against 27–37 days at every other account — and at least **21 of 44** times the earlier complaint is
   still open or pending today.
-- **What it costs.** This data cannot put a currency figure on it. What it can count: 45 graded-negative
-  tickets from one account in one year, and a customer who writes "Our account team keeps promising
-  improvement and we're not seeing it." A service credit was already issued in February (`LGL-9001`,
-  per the published latency analysis; the amount is not in this data).
+- **What it costs.** The contractual price is now on record: the revenue ledger credits Jaffle Werke
+  €879.25 for January and €51,269.00 across 2025 (see the CRO report). What the ledger cannot price is the
+  relationship. What this data can count: 45 graded-negative tickets from one account in one year, and a
+  customer who writes "Our account team keeps promising improvement and we're not seeing it." The January
+  credit was confirmed in a memo in February (`LGL-9001`).
 - **What is exposed.** Our retention reporting. **124 of 327 tickets closed `resolved` (37.9%) did not
   read positive**, so "resolved" overstates how many customers we actually satisfied. And our own account
-  record trails the customer: for every account the customer's ticket is the first dated record of the
-  year, and the account manager's note follows 7 days to about eight and a half months later.
+  record trails the customer: at every account the customer's ticket comes before the account manager's
+  first note of the year, which follows 7 days to about eight and a half months later.
 - **What we do not know.** How fast we answer. The ticket table has no first-response or resolution
-  timestamp, so no claim about our responsiveness can be made or defended, and complaint themes cannot be
-  traced to a hub or lane without a join we do not have.
+  timestamp, so no claim about our responsiveness can be made or defended. Complaints can be traced to a
+  hub through the shipment they cite, but not to a lane.
 
 ---
 
@@ -46,48 +47,48 @@ backdrop the complaints sit against, not the measure of this seat.
 ### 3.1 Only one account's complaints changed in 2025 — and they got angrier, not just louder
 
 **Claim.** Across three years and 403 tickets, the only account whose complaint volume and tone moved is
-Jaffle Equipment (CLI-0042). Its 2025 tickets quadrupled and turned graded-negative; the other four look
+Jaffle Werke (CLI-0042). Its 2025 tickets quadrupled and turned graded-negative; the other four look
 the same in 2025 as in 2023. 2025 brought no new complaint *types* — the only client-and-category pair
-first seen in 2025 is Crew Outfitters × wrong_item (1 ticket, 2025-05-16, part of the Indianapolis
+first seen in 2025 is Maison × wrong_item (1 ticket, 2025-05-16, part of the Berlin
 mispick cluster `INC-2025-02233`). It was a year of *intensification* of existing complaints, on one
 account: CLI-0042's delivery_delay went 7 → 6 → 32 and delivery_failed 3 → 1 → 15.
 
 ![Support tickets by account and year](assets/personas/01-ticket-volume-by-account-year.svg)
 
-*What this says: every account sits between 16 and 35 tickets a year except Jaffle Equipment in 2025,
+*What this says: every account sits between 16 and 35 tickets a year except Jaffle Werke in 2025,
 at 72.*
 
 ![2025 tickets by graded sentiment, per account](assets/personas/02-sentiment-mix-by-account-2025.svg)
 
-*What this says: in 2025 Jaffle Equipment is the only account where graded-negative tickets (45 of 72)
+*What this says: in 2025 Jaffle Werke is the only account where graded-negative tickets (45 of 72)
 outnumber positive ones; at the other four, negatives are 2 to 9 tickets.*
 
 **Evidence** — ticket volume, category and graded sentiment by account and year (Q2):
 
 | client | yr | total | delay | failed | inquiry | wrong | neg | neu | pos |
 |---|---|---|---|---|---|---|---|---|---|
-| CLI-0007 Storefronts | 2023 | 29 | 6 | 6 | 15 | 2 | 8 | 3 | 18 |
-| CLI-0007 Storefronts | 2024 | 16 | 5 | 2 | 7 | 2 | 5 | 1 | 10 |
-| CLI-0007 Storefronts | 2025 | 23 | 5 | 1 | 16 | 1 | 5 | 2 | 16 |
-| CLI-0042 Equipment | 2023 | 17 | 7 | 3 | 7 | 0 | 2 | 7 | 8 |
-| CLI-0042 Equipment | 2024 | 17 | 6 | 1 | 7 | 3 | 3 | 5 | 9 |
-| **CLI-0042 Equipment** | **2025** | **72** | **32** | **15** | 25 | 0 | **45** | 1 | 26 |
-| CLI-0155 Crew Outfitters | 2023 | 19 | 7 | 3 | 9 | 0 | 3 | 6 | 10 |
-| CLI-0155 Crew Outfitters | 2024 | 17 | 8 | 2 | 7 | 0 | 2 | 8 | 7 |
-| CLI-0155 Crew Outfitters | 2025 | 24 | 5 | 1 | 17 | 1 | 2 | 4 | 18 |
-| CLI-0169 Beverage Co | 2023 | 19 | 5 | 4 | 9 | 1 | 3 | 5 | 11 |
-| CLI-0169 Beverage Co | 2024 | 30 | 5 | 3 | 19 | 3 | 5 | 4 | 21 |
-| CLI-0169 Beverage Co | 2025 | 35 | 9 | 2 | 23 | 1 | 5 | 7 | 23 |
-| CLI-0201 Paper & Packaging | 2023 | 23 | 6 | 2 | 15 | 0 | 2 | 5 | 16 |
-| CLI-0201 Paper & Packaging | 2024 | 27 | 2 | 11 | 11 | 3 | 10 | 4 | 13 |
-| CLI-0201 Paper & Packaging | 2025 | 35 | 10 | 5 | 19 | 1 | 9 | 2 | 24 |
+| CLI-0007 Warenhuis | 2023 | 29 | 6 | 6 | 15 | 2 | 8 | 3 | 18 |
+| CLI-0007 Warenhuis | 2024 | 16 | 5 | 2 | 7 | 2 | 5 | 1 | 10 |
+| CLI-0007 Warenhuis | 2025 | 23 | 5 | 1 | 16 | 1 | 5 | 2 | 16 |
+| CLI-0042 Werke | 2023 | 17 | 7 | 3 | 7 | 0 | 2 | 7 | 8 |
+| CLI-0042 Werke | 2024 | 17 | 6 | 1 | 7 | 3 | 3 | 5 | 9 |
+| **CLI-0042 Werke** | **2025** | **72** | **32** | **15** | 25 | 0 | **45** | 1 | 26 |
+| CLI-0155 Maison | 2023 | 19 | 7 | 3 | 9 | 0 | 3 | 6 | 10 |
+| CLI-0155 Maison | 2024 | 17 | 8 | 2 | 7 | 0 | 2 | 8 | 7 |
+| CLI-0155 Maison | 2025 | 24 | 5 | 1 | 17 | 1 | 2 | 4 | 18 |
+| CLI-0169 Getränke | 2023 | 19 | 5 | 4 | 9 | 1 | 3 | 5 | 11 |
+| CLI-0169 Getränke | 2024 | 30 | 5 | 3 | 19 | 3 | 5 | 4 | 21 |
+| CLI-0169 Getränke | 2025 | 35 | 9 | 2 | 23 | 1 | 5 | 7 | 23 |
+| CLI-0201 Papier | 2023 | 23 | 6 | 2 | 15 | 0 | 2 | 5 | 16 |
+| CLI-0201 Papier | 2024 | 27 | 2 | 11 | 11 | 3 | 10 | 4 | 13 |
+| CLI-0201 Papier | 2025 | 35 | 10 | 5 | 19 | 1 | 9 | 2 | 24 |
 
 **Reconciliation.** Year totals 2023 = 107, 2024 = 107, 2025 = 189; 107 + 107 + 189 = **403**, the full
 ticket count (Q1: 403 tickets, 403 graded labels). Categories: delivery_delay 118 + delivery_failed 61 +
 general_inquiry 206 + wrong_item 18 = **403**. Sentiments: negative 109 + neutral 64 + positive 230 =
 **403**.
 
-One smaller signal worth keeping on the list: Paper & Packaging (CLI-0201) had a delivery_failed spike in
+One smaller signal worth keeping on the list: Papier (CLI-0201) had a delivery_failed spike in
 2024 (11 tickets, 10 graded negative that year) that did not recur in 2025.
 
 ![Whole-book ticket count by category](assets/personas/03-category-mix.svg)
@@ -95,12 +96,12 @@ One smaller signal worth keeping on the list: Paper & Packaging (CLI-0201) had a
 *What this says: half the book's tickets are general inquiries; the delivery complaints this report is
 about — delay and failure — are 179 of 403.*
 
-### 3.2 The sharpest finding: Jaffle Equipment complains about the same thing every few days, and the last complaint is often still open
+### 3.2 The sharpest finding: Jaffle Werke complains about the same thing every few days, and the last complaint is often still open
 
-**Claim.** At Jaffle Equipment, delivery-delay complaints repeat at a median of **3 days** (all 44
+**Claim.** At Jaffle Werke, delivery-delay complaints repeat at a median of **3 days** (all 44
 consecutive pairs, 2023–2025); delivery-failed every **5 days**. The other four accounts' delay complaints
 repeat at a median of **27 to 37 days**, and their failed-delivery complaints at 22 to 160 days. This is
-not a chatty customer: Equipment's *general inquiries* repeat every 19 days, in line with the other
+not a chatty customer: Werke's *general inquiries* repeat every 19 days, in line with the other
 accounts (14–20 days). Only the delivery complaints run hot.
 
 Worse: of those 44 delay pairs, the earlier ticket is **resolved in 23 — and still open (9) or pending
@@ -132,9 +133,9 @@ What the stacking looks like in the tickets (Q4b, CLI-0042 delivery_delay, 2025;
 - **The year ends unresolved:** `TKT-910023` (10-15), `TKT-910031` (11-14) and `TKT-910032` (11-25) are
   all still open.
 
-![Days between consecutive Jaffle Equipment delivery-delay tickets, 2025](assets/personas/04-repeat-intervals-equipment.svg)
+![Days between consecutive Jaffle Werke delivery-delay tickets, 2025](assets/personas/04-repeat-intervals-equipment.svg)
 
-*What this says: almost every 2025 delay complaint from Jaffle Equipment arrived within days of the last
+*What this says: almost every 2025 delay complaint from Jaffle Werke arrived within days of the last
 one — nine on the same day — far left of the 27–37-day band where the other accounts sit.*
 
 (The 31 gaps plotted are 2025 only; their median is 2 days. The 3-day median quoted above is the Q4
@@ -144,41 +145,42 @@ are February to June, when the account went quiet; see 3.6.)
 ### 3.3 What the customers said
 
 **Claim.** One line from each account, verbatim (Q5b). Two patterns stand out: our replies promise a
-next step but the customer's last word is that the promise is not enough, and Equipment's complaint is
+next step but the customer's last word is that the promise is not enough, and Werke's complaint is
 explicitly about the *relationship* ("our account team keeps promising"), not the parcel.
 
 | account | ticket · date · status | the customer, verbatim |
 |---|---|---|
-| CLI-0007 Storefronts | `TKT-920000` · 2025-05-13 · resolved, CSAT 1 | "We received the WRONG items for SHP-202505-950001. This isn't what we ordered at all — looks like it was meant for someone else." |
-| CLI-0042 Equipment | `TKT-910006` · 2025-07-10 · resolved, CSAT 1 | "This keeps happening. Following up on SHP-202507-000334 — another late LTL load. Our account team keeps promising improvement and we're not seeing it." |
-| CLI-0155 Crew Outfitters | `TKT-920003` · 2025-05-16 · resolved, CSAT 2 | "We received the WRONG items for SHP-202505-950004. This isn't what we ordered at all — looks like it was meant for someone else." |
-| CLI-0169 Beverage Co | `TKT-200018` · 2025-01-05 · resolved, CSAT 1 | "Extremely disappointed. SHP-202501-000308 was marked delayed with zero communication. Please escalate." |
-| CLI-0201 Paper & Packaging | `TKT-200040` · 2025-09-01 · open | "This is the second time I'm reaching out about SHP-202508-000026. It was due days ago and I still have nothing. This is unacceptable for the rates we pay." |
+| CLI-0007 Warenhuis | `TKT-920000` · 2025-05-13 · resolved, CSAT 1 | "We received the WRONG items for SHP-202505-950001. This isn't what we ordered at all — looks like it was meant for someone else." |
+| CLI-0042 Werke | `TKT-910006` · 2025-07-10 · resolved, CSAT 1 | "This keeps happening. Following up on SHP-202507-000334 — another late LTL load. Our account team keeps promising improvement and we're not seeing it." |
+| CLI-0155 Maison | `TKT-920003` · 2025-05-16 · resolved, CSAT 2 | "We received the WRONG items for SHP-202505-950004. This isn't what we ordered at all — looks like it was meant for someone else." |
+| CLI-0169 Getränke | `TKT-200018` · 2025-01-05 · resolved, CSAT 1 | "Extremely disappointed. SHP-202501-000308 was marked delayed with zero communication. Please escalate." |
+| CLI-0201 Papier | `TKT-200040` · 2025-09-01 · open | "This is the second time I'm reaching out about SHP-202508-000026. It was due days ago and I still have nothing. This is unacceptable for the rates we pay." |
 
 Three things these tickets show about how we communicate during a failure:
 
 - **The escalation request was not escalated.** `TKT-200018` asks for escalation; the only reply on the
-  ticket is "I've opened an investigation and looped in the Indianapolis operations team." It is closed
+  ticket is "I've opened an investigation and looped in the Berlin operations team." It is closed
   `resolved` with CSAT 1.
-- **Equipment's customer reply is a warning.** On `TKT-910006` the customer closes with "This needs to
+- **Werke's customer reply is a warning.** On `TKT-910006` the customer closes with "This needs to
   actually get fixed, not just promised." The opening line ("This keeps happening. …") recurs on
-  `TKT-910003` through `TKT-910032`, to 2025-11-25.
-- **"Second time" tickets are a failure of the first contact.** `TKT-200040` (Paper & Packaging) and
-  `TKT-200070` (Beverage Co, 2025-09-18) both open with "This is the second time I'm reaching out";
+  30 tickets from 2025-07-10 to 2025-11-26 (`TKT-910003` through `TKT-910032`).
+- **"Second time" tickets are a failure of the first contact.** `TKT-200040` (Papier) and
+  `TKT-200070` (Getränke, 2025-09-18) both open with "This is the second time I'm reaching out";
   `TKT-200040` is still open.
 
 ### 3.4 The customer is the first to write it down — and our account record is weeks to months behind
 
-**Claim.** For every one of the five accounts, the customer's first 2025 ticket is the **earliest dated
-record** of the year. The account manager's own written record (CRM note and call transcript, which fall
-on the same day) follows 7 days later at Equipment and 54 days to about eight and a half months later at
-the other four.
+**Claim.** For every one of the five accounts, the customer's first 2025 ticket comes before the account
+manager's own written record (CRM note and call transcript, which fall on the same day). That record
+follows 7 days later at Werke and 54 days to about eight and a half months later at the other four.
+The ticket is also the earliest dated record of any kind at four accounts. At Getränke an incident
+report was filed about two and a half hours before the customer's first ticket, on the same day.
 
 This **extends** the published latency analysis (`reports/what-did-we-know-and-when.md`), it does not
 replace it. That analysis measured our first internal *signal of a problem* from any source — ops
 incidents, Slack, incident reports — against the customer's first *complaint*, and found the customer
 first on the accounts that went wrong, a median lag of about zero days, and a worst case of −35 days
-(Equipment's handling pattern). The table below isolates one internal source — the account manager's
+(Werke's handling pattern). The table below isolates one internal source — the account manager's
 record — and shows it is the slowest of them: where the ops floor sometimes keeps pace with the customer,
 the account conversation runs a quarter behind.
 
@@ -187,21 +189,21 @@ difference from the customer's first ticket:
 
 | account | first ticket (customer) | first CRM note / transcript (account manager) | days after | first incident report | days after |
 |---|---|---|---|---|---|
-| CLI-0007 Storefronts | 2025-01-15 12:20 | 2025-03-10 | 54 | 2025-04-24 | 99 |
-| CLI-0042 Equipment | 2025-01-14 09:00 | 2025-01-21 | 7 | 2025-01-16 | 2 |
-| CLI-0155 Crew Outfitters | 2025-01-11 17:56 | 2025-03-21 | 69 | 2025-02-21 | 41 |
-| CLI-0169 Beverage Co | 2025-01-03 17:06 | 2025-03-13 | 69 | 2025-08-31 | 240 |
-| CLI-0201 Paper & Packaging | 2025-01-06 14:22 | 2025-09-20 | 257 | 2025-01-12 | 6 |
+| CLI-0007 Warenhuis | 2025-01-15 12:20 | 2025-03-10 | 54 | 2025-02-02 | 18 |
+| CLI-0042 Werke | 2025-01-14 09:00 | 2025-01-21 | 7 | 2025-01-16 | 2 |
+| CLI-0155 Maison | 2025-01-11 17:56 | 2025-03-21 | 69 | 2025-02-21 | 41 |
+| CLI-0169 Getränke | 2025-01-03 17:06 | 2025-03-13 | 69 | 2025-01-03 14:30 | 0 (filed first) |
+| CLI-0201 Papier | 2025-01-06 14:22 | 2025-09-20 | 257 | 2025-01-12 | 6 |
 
-The 7-day Equipment figure matches the published analysis (§4.5: customer ticket 2025-01-14 → QBR
+The 7-day Werke figure matches the published analysis (§4.5: customer ticket 2025-01-14 → QBR
 `CRM-9001` 2025-01-21). Note this table compares *first records of any kind*, not first complaints, so
 it is a different measurement from the published −35-day worst case and should be read alongside it.
 
-What the quarterly record misses is visible in the transcripts. At Paper & Packaging's first account
+What the quarterly record misses is visible in the transcripts. At Papier's first account
 conversation of the year, `CT-10031` (2025-09-20), the customer says: *"Mostly fine. A couple of late ones
 but nothing we lost sleep over."* Six of that account's nine graded-negative 2025 tickets (Q5:
 `TKT-900010`, `TKT-200030`, `TKT-920005`, `TKT-200008`, `TKT-200014`, `TKT-200040`) were opened before
-that call. At Equipment, the account manager at the July QBR (`CT-99021`, 2025-07-16): *"I don't have a
+that call. At Werke, the account manager at the July QBR (`CT-99021`, 2025-07-16): *"I don't have a
 root cause yet, and I don't want to guess at one."* — two months after `TKT-910000` (2025-05-14) first
 said "another late LTL load".
 
@@ -226,14 +228,14 @@ tickets carry none at all (see section 4).
 ### 3.6 Is there ever a good month?
 
 **Claim.** Not a clean one. Across the whole book there is no month in 2025 without a graded-negative
-ticket; the best are **March and April 2025, with 1 negative each**. For Jaffle Equipment, March and April
+ticket; the best are **March and April 2025, with 1 negative each**. For Jaffle Werke, March and April
 are also its only months with no negatives — but only because the customer went quiet (3 tickets in
-March, 1 in April), not because the service recovered. From July to November Equipment logged 4 to 8
+March, 1 in April), not because the service recovered. From July to November Werke logged 4 to 8
 graded-negative tickets every month.
 
 **Evidence** — 2025 tickets by month: total / graded negative / graded positive (Q8):
 
-| month | whole book | Jaffle Equipment (CLI-0042) |
+| month | whole book | Jaffle Werke (CLI-0042) |
 |---|---|---|
 | Jan | 24 / 11 / 8 | 8 / 8 / 0 |
 | Feb | 19 / 7 / 10 | 9 / 3 / 5 |
@@ -248,7 +250,7 @@ graded-negative tickets every month.
 | Nov | 22 / 6 / 11 | 8 / 5 / 3 |
 | Dec | 21 / 3 / 17 | 3 / 1 / 2 |
 
-The Equipment customer said as much at the April QBR (`CT-99020`, 2025-04-15): *"Recovering is fine.
+The Werke customer said as much at the April QBR (`CT-99020`, 2025-04-15): *"Recovering is fine.
 Not-there-yet is the part I'm watching."* A quiet month from an unhappy account is a reason to call, not
 a reason to relax.
 
@@ -256,12 +258,12 @@ For context, the service level behind these complaints (Q11):
 
 ![On-time rate by account and year, with the 97% target](assets/personas/05-ontime-by-account-year.svg)
 
-*What this says: Jaffle Equipment fell from 98.1% to 83.9% on time in 2025 — the only fall large enough
+*What this says: Jaffle Werke fell from 98.0% to 83.9% on time in 2025 — the only fall large enough
 to explain a quadrupling of complaints; the other accounts sit within about two and a half points of the
 97% line.*
 
 (The 97% line is the whole-book contractual reference. Individual contracts differ — the published
-latency analysis cites a 95.0% target for Beverage Co — so read the line as a common yardstick, not each
+latency analysis cites a 95.0% target for Getränke — so read the line as a common yardstick, not each
 account's own SLA.)
 
 ### 3.7 What to demand from the data
@@ -271,14 +273,16 @@ Two additions would turn this report from "how much did they complain" into "how
 1. **Response and closure timestamps on every ticket — `first_response_at` and `resolved_at`.** Today
    `stg_support_tickets` has `opened_at` and nothing after it. With these two fields we can report
    time-to-first-response and time-to-resolve by account, set an internal service level on our own
-   responsiveness, and settle exactly how many of Equipment's repeat complaints arrived while the
+   responsiveness, and settle exactly how many of Werke's repeat complaints arrived while the
    previous one was open (section 3.2 can only give a floor of 21).
-2. **A per-account link from each ticket to a hub and a lane.** Tickets carry a `shipment_id`, but the
-   complaint themes cannot be rolled to a hub or lane in the current models. Today the only hub on a
-   ticket is the agent's free text ("an exception at our Chicago hub" in `TKT-200040`, "our Cincinnati
-   hub" in `TKT-200070`). A structured ticket → shipment → route → hub link would let us say *where* each
-   account's complaints come from — and would give the ops floor the account key the published latency
-   analysis (§4.8) asks for.
+2. **A per-account link from each ticket to a lane, and a clean link to the shipment.** The hub part of
+   this is already possible: every one of the 403 tickets cites a `shipment_id` that joins to the
+   shipment's origin hub (Q12). On that join, Werke's 47 delivery complaints in 2025 came from Paris
+   (16), Zürich (9), Amsterdam (9), Vienna (7) and Berlin (6), and the agent's free-text hub on
+   `TKT-200040` ("our Paris hub") and `TKT-200070` ("our Zürich hub") agrees with the join. Two things
+   are still missing. There is no lane, and the link is not fully trustworthy: 18 tickets cite a shipment
+   created *after* the ticket was opened. A ticket → shipment → route → lane link, validated on dates,
+   would let us say *where* each account's complaints come from.
 
 ---
 
@@ -287,11 +291,12 @@ Two additions would turn this report from "how much did they complain" into "how
 | gap | why | decision it blocks |
 |---|---|---|
 | **How fast we answer** | `stg_support_tickets` has `opened_at` but no `first_response_at` or `resolved_at`. | Any service level on our own responsiveness; any "we replied within X hours" claim to a customer or the board; an exact count of repeat complaints filed while the previous one was open. |
-| **Where complaints come from** | No structured per-ticket link to a hub or lane; hub names appear only in free text. | Sending a complaint theme to the right hub manager; deciding whether Equipment's problem is one hub (published work points to Columbus) or the network. |
+| **Where complaints come from, by lane** | Tickets join to an origin hub through their shipment, but there is no lane, and 18 tickets cite a shipment created after the ticket opened. | Sending a complaint theme to the right lane owner; deciding whether Werke's problem is one hub (published work points to Amsterdam for damage, while its complaints spread across all five hubs) or the network. |
 | **How satisfied a customer really was** | CSAT is sparse: 37 nulls overall, and none on open chat or portal tickets. The graded sentiment label is a machine label, not the customer's own score. | Using CSAT alone as the closure measure; quoting a customer-reported satisfaction score for the year. |
 | **How a customer felt in a given week** | CRM notes (56) and transcripts (55) over three years are quarterly-review cadence. | Spotting a souring account between reviews from the account record alone — the ticket queue is the only weekly signal. |
-| **What the ops floor saw** | Dispatch notes and Slack carry no graded label, and `knowledge_base` does not yet include them. | Linking customer sentiment to operational chatter; searching both in one place. |
-| **What it costs** | No revenue, credit amount or churn figure is in this data. | Pricing the Equipment relationship or the value of fixing it. |
+| **What the ops floor saw** | Dispatch notes and Slack carry no graded label. The project's `knowledge_base` model now includes both with an account key, but this report did not query it. | Linking customer sentiment to operational chatter. |
+| **What it costs beyond the credit** | Revenue and contract credits are now in the ledger, but there is no churn, renewal or win/loss record. | Pricing the Werke relationship or the value of fixing it. |
+| **Whether a border caused the delay** | Tickets and shipments carry no customs or border event. A delay on a Zürich lane that sat in Swiss customs looks the same as a hub failure. | Telling a customer *why* a cross-border delivery was late, and routing that complaint to the right owner. |
 
 ---
 
@@ -435,7 +440,7 @@ SELECT client, mo, count(*) AS n, sum(neg) AS neg, sum(pos) AS pos FROM (
 ) GROUP BY 1,2 ORDER BY 1,2
 ```
 
-**Q9. Jaffle Equipment transcript moments, 2025** (§3.4, §3.6)
+**Q9. Jaffle Werke transcript moments, 2025** (§3.4, §3.6)
 
 ```sql
 SELECT transcript_id, cast(call_date AS string) AS dt, substr(replace(body,'~~NL~~',' | '),1,420) AS excerpt
@@ -462,6 +467,23 @@ in Q1.
 SELECT client_id, substr(cast(month AS string),1,4) AS yr, sum(shipments) AS ship, sum(ticket_count) AS tickets,
  round(100.0*sum(round(ontime_pct*shipments/100.0))/sum(shipments),1) AS ontime_pct
 FROM hive_metastore.dbt_smcintyre_jaffle_logistics_prod.fct_account_health GROUP BY 1,2 ORDER BY 1,2
+```
+
+**Q12. Ticket → shipment → origin hub** (§3.7, §4)
+
+```sql
+SELECT count(*) AS tickets, count(s.shipment_id) AS matched,
+ sum(case when s.created_at > t.opened_at then 1 else 0 end) AS shipment_created_after_ticket
+FROM hive_metastore.dbt_smcintyre_jaffle_logistics_prod.stg_support_tickets t
+LEFT JOIN hive_metastore.dbt_smcintyre_jaffle_logistics_prod.fct_shipments s ON s.shipment_id = t.shipment_id;
+
+SELECT s.origin_hub_id, count(*) AS n
+FROM hive_metastore.dbt_smcintyre_jaffle_logistics_prod.stg_support_tickets t
+JOIN hive_metastore.dbt_smcintyre_jaffle_logistics_prod.eval_ticket_triage e ON t.ticket_id = e.ticket_id
+JOIN hive_metastore.dbt_smcintyre_jaffle_logistics_prod.fct_shipments s ON s.shipment_id = t.shipment_id
+WHERE t.client_id = 'CLI-0042' AND year(t.opened_at) = 2025
+  AND e.true_category IN ('delivery_delay','delivery_failed')
+GROUP BY 1 ORDER BY 2 DESC
 ```
 
 Charts are regenerated by `python3 scripts/persona_cx_charts.py`, which embeds the Q2, Q4b and Q11

@@ -138,6 +138,6 @@
 <line x1="635.0" y1="657.0" x2="640.0" y2="516.0" stroke="#bdbdbd" stroke-width="1.1"/><polygon points="640.0,516.0 642.5,522.5 637.0,522.3" fill="#bdbdbd"/>
 <text x="165.0" y="690.0" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">dispatch notes and Slack threads carry no client_id; *_records_meta derives it through these (null where it cannot).</text>
 <rect x="650.0" y="644.0" width="600.0" height="54.0" fill="#fdf0ee" stroke="#c0392b" stroke-width="1.2"/>
-<text x="660.0" y="664.0" font-size="11" fill="#c0392b" text-anchor="start" font-weight="bold">Production today: corpus text is US-era (‘columbus’ in 190 rows, ‘amsterdam’ in 0)</text>
+<text x="660.0" y="664.0" font-size="11" fill="#c0392b" text-anchor="start" font-weight="bold">Production today: corpus text is still the pre-pivot geography (‘amsterdam’ in 0 rows)</text>
 <text x="660.0" y="682.0" font-size="11" fill="#c0392b" text-anchor="start" font-weight="normal">main’s seeds were re-labelled to Europe (a00d85b); the gated layer was not rebuilt in production.</text>
 </svg>

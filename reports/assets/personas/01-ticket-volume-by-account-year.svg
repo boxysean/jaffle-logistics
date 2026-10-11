@@ -19,7 +19,7 @@
 <text x="182.7" y="341.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">16</text>
 <rect x="206.4" y="318.0" width="39.4" height="92.0" fill="#2c6fbb" stroke="none"/>
 <text x="226.1" y="313.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">23</text>
-<text x="182.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Storefronts</text>
+<text x="182.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Warenhuis</text>
 <text x="182.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0007</text>
 <rect x="283.7" y="342.0" width="39.4" height="68.0" fill="#9aa7b5" stroke="none"/>
 <text x="303.4" y="337.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">17</text>
@@ -27,7 +27,7 @@
 <text x="346.7" y="337.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">17</text>
 <rect x="370.4" y="122.0" width="39.4" height="288.0" fill="#2c6fbb" stroke="none"/>
 <text x="390.1" y="117.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">72</text>
-<text x="346.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Equipment</text>
+<text x="346.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Werke</text>
 <text x="346.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0042</text>
 <rect x="447.7" y="334.0" width="39.4" height="76.0" fill="#9aa7b5" stroke="none"/>
 <text x="467.4" y="329.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">19</text>
@@ -35,7 +35,7 @@
 <text x="510.7" y="337.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">17</text>
 <rect x="534.4" y="314.0" width="39.4" height="96.0" fill="#2c6fbb" stroke="none"/>
 <text x="554.1" y="309.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">24</text>
-<text x="510.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Crew Outfitters</text>
+<text x="510.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Maison</text>
 <text x="510.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0155</text>
 <rect x="611.7" y="334.0" width="39.4" height="76.0" fill="#9aa7b5" stroke="none"/>
 <text x="631.4" y="329.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">19</text>
@@ -43,7 +43,7 @@
 <text x="674.7" y="285.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">30</text>
 <rect x="698.4" y="270.0" width="39.4" height="140.0" fill="#2c6fbb" stroke="none"/>
 <text x="718.1" y="265.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">35</text>
-<text x="674.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Beverage Co</text>
+<text x="674.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Getränke</text>
 <text x="674.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0169</text>
 <rect x="775.7" y="318.0" width="39.4" height="92.0" fill="#9aa7b5" stroke="none"/>
 <text x="795.4" y="313.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">23</text>
@@ -51,7 +51,7 @@
 <text x="838.7" y="297.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">27</text>
 <rect x="862.4" y="270.0" width="39.4" height="140.0" fill="#2c6fbb" stroke="none"/>
 <text x="882.1" y="265.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="normal">35</text>
-<text x="838.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Paper &amp; Packaging</text>
+<text x="838.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Papier</text>
 <text x="838.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0201</text>
 <rect x="100.0" y="62.0" width="14.0" height="12.0" fill="#9aa7b5" stroke="none"/>
 <text x="120.0" y="72.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">2023</text>
