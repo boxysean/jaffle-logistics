@@ -152,6 +152,14 @@ seeds:
         vehicle_id: "{{ 'string' if target.type in ('bigquery', 'databricks') else 'varchar' }}"
         driver_id: "{{ 'string' if target.type in ('bigquery', 'databricks') else 'varchar' }}"
         incident_id: "{{ 'string' if target.type in ('bigquery', 'databricks') else 'varchar' }}"
+    driver_events:
+      # scripts/generate_driver_events.py. reason is blank on hire/certification rows and
+      # voluntary on all but the seven terminations, so autodetect could guess anything;
+      # pin those plus the date.
+      +column_types:
+        event_date: date
+        voluntary: boolean
+        reason: "{{ 'string' if target.type in ('bigquery', 'databricks') else 'varchar' }}"
 
   # Mirrors the models: dbt_context_engineering: monitoring: +enabled override above. The
   # package ships this seed disabled by default, paired with its own monitoring +enabled: false;
