@@ -27,3 +27,6 @@ scratch/
 .claude
 # deck preview renders (the published copies live in docs/shareholder-deck/png)
 slides/png/deck-*.png
+
+# dispatcher worktrees
+.worktrees/
