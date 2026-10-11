@@ -55,7 +55,7 @@
 <rect x="434.0" y="173.8" width="33.0" height="118.1" fill="#2c6fbb" stroke="none"/>
 <text x="450.5" y="168.8" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">6</text>
 <text x="450.5" y="425.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">225</text>
-<text x="275.0" y="444.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">Odometer reading, 25k-mile bins (thousand miles, bin start)</text>
+<text x="275.0" y="444.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">Odometer reading, 25k-km bins (thousand km, bin start)</text>
 <text x="275.0" y="462.0" font-size="10.5" fill="#c0392b" text-anchor="middle" font-weight="normal">Snapshot only: corr. with 3-yr routes 0.14, with repair cost −0.08</text>
 <rect x="80.0" y="70.0" width="14.0" height="12.0" fill="#5b7fa6" stroke="none"/>
 <text x="100.0" y="80.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">box truck</text>
@@ -78,41 +78,44 @@
 <line x1="915.3" y1="95.0" x2="915.3" y2="410.0" stroke="#d9d9d9" stroke-width="1"/>
 <text x="915.3" y="425.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">150</text>
 <text x="770.0" y="444.0" font-size="11.5" fill="#555555" text-anchor="middle" font-weight="normal">Routes run in 2025 (count)</text>
-<text x="572.0" y="130.5" font-size="11.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Chicago</text>
+<text x="572.0" y="130.5" font-size="11.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Amsterdam</text>
 <circle cx="580.0" cy="120.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
 <circle cx="580.0" cy="129.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
-<circle cx="761.1" cy="120.5" r="4.2" fill="#2c6fbb" fill-opacity="0.85"/>
-<circle cx="763.3" cy="129.5" r="4.2" fill="#2c6fbb" fill-opacity="0.85"/>
-<circle cx="767.8" cy="120.5" r="4.2" fill="#2c6fbb" fill-opacity="0.85"/>
-<circle cx="772.2" cy="120.5" r="4.2" fill="#2c6fbb" fill-opacity="0.85"/>
-<circle cx="801.3" cy="120.5" r="4.2" fill="#2c6fbb" fill-opacity="0.85"/>
-<circle cx="808.0" cy="120.5" r="4.2" fill="#2c6fbb" fill-opacity="0.85"/>
-<circle cx="810.2" cy="129.5" r="4.2" fill="#2c6fbb" fill-opacity="0.85"/>
-<circle cx="828.1" cy="120.5" r="4.2" fill="#2c6fbb" fill-opacity="0.85"/>
-<text x="958.0" y="112.5" font-size="10" fill="#555555" text-anchor="end" font-weight="normal">10 owned · 2 idle · mean 94</text>
-<text x="572.0" y="193.5" font-size="11.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Cincinnati</text>
-<circle cx="781.2" cy="183.5" r="4.2" fill="#7a9cc6" fill-opacity="0.85"/>
-<circle cx="787.9" cy="183.5" r="4.2" fill="#7a9cc6" fill-opacity="0.85"/>
-<circle cx="796.8" cy="183.5" r="4.2" fill="#7a9cc6" fill-opacity="0.85"/>
-<circle cx="812.5" cy="183.5" r="4.2" fill="#7a9cc6" fill-opacity="0.85"/>
-<circle cx="816.9" cy="192.5" r="4.2" fill="#7a9cc6" fill-opacity="0.85"/>
-<circle cx="825.9" cy="183.5" r="4.2" fill="#7a9cc6" fill-opacity="0.85"/>
-<circle cx="830.4" cy="192.5" r="4.2" fill="#7a9cc6" fill-opacity="0.85"/>
-<text x="958.0" y="175.5" font-size="10" fill="#555555" text-anchor="end" font-weight="normal">7 owned · 0 idle · mean 102</text>
-<text x="572.0" y="256.5" font-size="11.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Columbus</text>
+<circle cx="738.7" cy="120.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
+<circle cx="738.7" cy="129.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
+<circle cx="740.9" cy="138.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
+<circle cx="743.2" cy="147.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
+<circle cx="758.8" cy="120.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
+<circle cx="761.1" cy="129.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
+<circle cx="767.8" cy="120.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
+<circle cx="774.5" cy="120.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
+<circle cx="781.2" cy="129.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
+<text x="958.0" y="112.5" font-size="10" fill="#555555" text-anchor="end" font-weight="normal">11 owned · 2 idle · mean 79</text>
+<text x="572.0" y="193.5" font-size="11.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Berlin</text>
+<circle cx="580.0" cy="183.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
+<circle cx="580.0" cy="192.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
+<circle cx="580.0" cy="201.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
+<circle cx="796.8" cy="183.5" r="4.2" fill="#9aa7b5" fill-opacity="0.85"/>
+<circle cx="796.8" cy="192.5" r="4.2" fill="#9aa7b5" fill-opacity="0.85"/>
+<circle cx="799.1" cy="201.5" r="4.2" fill="#9aa7b5" fill-opacity="0.85"/>
+<circle cx="803.5" cy="183.5" r="4.2" fill="#9aa7b5" fill-opacity="0.85"/>
+<circle cx="814.7" cy="183.5" r="4.2" fill="#9aa7b5" fill-opacity="0.85"/>
+<circle cx="819.2" cy="183.5" r="4.2" fill="#9aa7b5" fill-opacity="0.85"/>
+<circle cx="837.1" cy="183.5" r="4.2" fill="#9aa7b5" fill-opacity="0.85"/>
+<text x="958.0" y="175.5" font-size="10" fill="#555555" text-anchor="end" font-weight="normal">10 owned · 3 idle · mean 103</text>
+<text x="572.0" y="256.5" font-size="11.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Paris</text>
 <circle cx="580.0" cy="246.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
 <circle cx="580.0" cy="255.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
-<circle cx="738.7" cy="246.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
-<circle cx="738.7" cy="255.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
-<circle cx="740.9" cy="264.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
-<circle cx="743.2" cy="273.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
-<circle cx="758.8" cy="246.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
-<circle cx="761.1" cy="255.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
-<circle cx="767.8" cy="246.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
-<circle cx="774.5" cy="246.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
-<circle cx="781.2" cy="255.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
-<text x="958.0" y="238.5" font-size="10" fill="#555555" text-anchor="end" font-weight="normal">11 owned · 2 idle · mean 79</text>
-<text x="572.0" y="319.5" font-size="11.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Detroit</text>
+<circle cx="761.1" cy="246.5" r="4.2" fill="#2c6fbb" fill-opacity="0.85"/>
+<circle cx="763.3" cy="255.5" r="4.2" fill="#2c6fbb" fill-opacity="0.85"/>
+<circle cx="767.8" cy="246.5" r="4.2" fill="#2c6fbb" fill-opacity="0.85"/>
+<circle cx="772.2" cy="246.5" r="4.2" fill="#2c6fbb" fill-opacity="0.85"/>
+<circle cx="801.3" cy="246.5" r="4.2" fill="#2c6fbb" fill-opacity="0.85"/>
+<circle cx="808.0" cy="246.5" r="4.2" fill="#2c6fbb" fill-opacity="0.85"/>
+<circle cx="810.2" cy="255.5" r="4.2" fill="#2c6fbb" fill-opacity="0.85"/>
+<circle cx="828.1" cy="246.5" r="4.2" fill="#2c6fbb" fill-opacity="0.85"/>
+<text x="958.0" y="238.5" font-size="10" fill="#555555" text-anchor="end" font-weight="normal">10 owned · 2 idle · mean 94</text>
+<text x="572.0" y="319.5" font-size="11.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Vienna</text>
 <circle cx="580.0" cy="309.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
 <circle cx="875.1" cy="309.5" r="4.2" fill="#1a1a1a" fill-opacity="0.85"/>
 <circle cx="895.2" cy="309.5" r="4.2" fill="#1a1a1a" fill-opacity="0.85"/>
@@ -120,18 +123,15 @@
 <circle cx="926.5" cy="318.5" r="4.2" fill="#1a1a1a" fill-opacity="0.85"/>
 <circle cx="933.2" cy="309.5" r="4.2" fill="#1a1a1a" fill-opacity="0.85"/>
 <text x="958.0" y="301.5" font-size="10" fill="#555555" text-anchor="end" font-weight="normal">6 owned · 1 idle · mean 148</text>
-<text x="572.0" y="382.5" font-size="11.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Indianapolis</text>
-<circle cx="580.0" cy="372.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
-<circle cx="580.0" cy="381.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
-<circle cx="580.0" cy="390.5" r="4.2" fill="#c0392b" fill-opacity="0.85"/>
-<circle cx="796.8" cy="372.5" r="4.2" fill="#9aa7b5" fill-opacity="0.85"/>
-<circle cx="796.8" cy="381.5" r="4.2" fill="#9aa7b5" fill-opacity="0.85"/>
-<circle cx="799.1" cy="390.5" r="4.2" fill="#9aa7b5" fill-opacity="0.85"/>
-<circle cx="803.5" cy="372.5" r="4.2" fill="#9aa7b5" fill-opacity="0.85"/>
-<circle cx="814.7" cy="372.5" r="4.2" fill="#9aa7b5" fill-opacity="0.85"/>
-<circle cx="819.2" cy="372.5" r="4.2" fill="#9aa7b5" fill-opacity="0.85"/>
-<circle cx="837.1" cy="372.5" r="4.2" fill="#9aa7b5" fill-opacity="0.85"/>
-<text x="958.0" y="364.5" font-size="10" fill="#555555" text-anchor="end" font-weight="normal">10 owned · 3 idle · mean 103</text>
+<text x="572.0" y="382.5" font-size="11.5" fill="#1a1a1a" text-anchor="end" font-weight="normal">Zürich</text>
+<circle cx="781.2" cy="372.5" r="4.2" fill="#7a9cc6" fill-opacity="0.85"/>
+<circle cx="787.9" cy="372.5" r="4.2" fill="#7a9cc6" fill-opacity="0.85"/>
+<circle cx="796.8" cy="372.5" r="4.2" fill="#7a9cc6" fill-opacity="0.85"/>
+<circle cx="812.5" cy="372.5" r="4.2" fill="#7a9cc6" fill-opacity="0.85"/>
+<circle cx="816.9" cy="381.5" r="4.2" fill="#7a9cc6" fill-opacity="0.85"/>
+<circle cx="825.9" cy="372.5" r="4.2" fill="#7a9cc6" fill-opacity="0.85"/>
+<circle cx="830.4" cy="381.5" r="4.2" fill="#7a9cc6" fill-opacity="0.85"/>
+<text x="958.0" y="364.5" font-size="10" fill="#555555" text-anchor="end" font-weight="normal">7 owned · 0 idle · mean 102</text>
 <circle cx="586" cy="498" r="4.2" fill="#c0392b"/>
 <text x="596.0" y="502.0" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">idle all year (0 routes): all 4 semis + VEH-0041, 0042, 0043, 0044</text>
 </svg>

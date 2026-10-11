@@ -44,11 +44,11 @@ def esc(s):
 # ---------------------------------------------------------------- data (from the queries)
 # (client_id, short name) in client-id order
 ACCOUNTS = [
-    ("CLI-0007", "Storefronts"),
-    ("CLI-0042", "Equipment"),
-    ("CLI-0155", "Crew Outfitters"),
-    ("CLI-0169", "Beverage Co"),
-    ("CLI-0201", "Paper & Packaging"),
+    ("CLI-0007", "Warenhuis"),
+    ("CLI-0042", "Werke"),
+    ("CLI-0155", "Maison"),
+    ("CLI-0169", "Getränke"),
+    ("CLI-0201", "Papier"),
 ]
 NAME = dict(ACCOUNTS)
 
@@ -135,7 +135,7 @@ def save(name, parts):
     parts.append("</svg>")
     os.makedirs(OUT, exist_ok=True)
     path = os.path.join(OUT, name)
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(parts) + "\n")
     print("wrote", os.path.relpath(path, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")))
 
@@ -165,7 +165,7 @@ def year_legend(parts, x, y):
 
 
 def money(v):
-    return f"${v:,.0f}"
+    return f"€{v:,.0f}"
 
 
 # ---------------------------------------------------------------- chart 1: on-time, 3 years, vs SLA
@@ -275,7 +275,7 @@ def chart_tickets():
             parts.append(text(bx + bar_w / 2, yy(val) - 5, str(val), 11, INK, "middle"))
         account_labels(parts, x0 + i * group_w + group_w / 2, bot, cid, name)
     year_legend(parts, x0, 72)
-    parts.append(text(x0 + 250, 72, "(Equipment 2025 in red: the only year-on-year break)", 11.5, ACCENT))
+    parts.append(text(x0 + 250, 72, "(Werke 2025 in red: the only year-on-year break)", 11.5, ACCENT))
     parts.append(text((x0 + x1) / 2, H - 10, "Account (Jaffle Logistics)", 12, GREY, "middle"))
     save("cro-03-ticket-volume-by-account-year.svg", parts)
 
@@ -336,8 +336,8 @@ def chart_revenue_and_credit():
     for v in range(0, vmax + 1, 200000):
         xx = x0 + v / vmax * (x1 - x0)
         parts.append(line(xx, top - 6, xx, bot, GRID, 1))
-        parts.append(text(xx, bot + 18, f"${v // 1000:,}k", 11.5, GREY, "middle"))
-    parts.append(text((x0 + x1) / 2, bot + 42, "2025 gross revenue (USD)", 12, GREY, "middle"))
+        parts.append(text(xx, bot + 18, f"€{v // 1000:,}k", 11.5, GREY, "middle"))
+    parts.append(text((x0 + x1) / 2, bot + 42, "2025 gross revenue (EUR)", 12, GREY, "middle"))
     parts.append(text(x1 + 70, top - 12, "ship share", 11.5, GREY, "middle", "bold"))
     row_h = (bot - top) / len(rows)
     for i, (cid, name) in enumerate(rows):

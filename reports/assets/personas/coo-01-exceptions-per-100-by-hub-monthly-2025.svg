@@ -97,18 +97,18 @@
 <circle cx="866.7" cy="255.7" r="3.2" fill="#c0392b"/>
 <line x1="133.3" y1="106.0" x2="133.3" y2="120.0" stroke="#c0392b" stroke-width="2"/>
 <polygon points="127.3,112.0 139.3,112.0 133.3,100.0" fill="#c0392b"/>
-<text x="145.3" y="114.0" font-size="12" fill="#c0392b" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">Chicago Jan = 700 (560 exceptions on 80 routes) — off scale</text>
-<text x="208.0" y="162.4" font-size="11" fill="#c0392b" text-anchor="start" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">CHI Feb 188</text>
+<text x="145.3" y="114.0" font-size="12" fill="#c0392b" text-anchor="start" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">Paris Jan = 700 (560 exceptions on 80 routes) — off scale</text>
+<text x="208.0" y="162.4" font-size="11" fill="#c0392b" text-anchor="start" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">PAR Feb 188</text>
 <text x="533.3" y="313.4" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal" stroke="#ffffff" stroke-width="3" paint-order="stroke">2023–2024 quiet-year range</text>
 <text x="790.0" y="242.0" font-size="11.5" fill="#1a1a1a" text-anchor="end" font-weight="bold" stroke="#ffffff" stroke-width="3" paint-order="stroke">Nov–Dec: every hub 96–127</text>
 <rect x="100.0" y="70.0" width="14.0" height="12.0" fill="#c0392b" stroke="none" stroke-width="1"/>
-<text x="120.0" y="80.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">Chicago</text>
+<text x="120.0" y="80.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">Paris</text>
 <rect x="225.0" y="70.0" width="14.0" height="12.0" fill="#2c6fbb" stroke="none" stroke-width="1"/>
-<text x="245.0" y="80.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">Cincinnati</text>
+<text x="245.0" y="80.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">Zürich</text>
 <rect x="350.0" y="70.0" width="14.0" height="12.0" fill="#c58a1b" stroke="none" stroke-width="1"/>
-<text x="370.0" y="80.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">Columbus</text>
+<text x="370.0" y="80.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">Amsterdam</text>
 <rect x="475.0" y="70.0" width="14.0" height="12.0" fill="#3d3d3d" stroke="none" stroke-width="1"/>
-<text x="495.0" y="80.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">Detroit</text>
+<text x="495.0" y="80.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">Vienna</text>
 <rect x="600.0" y="70.0" width="14.0" height="12.0" fill="#6b8e23" stroke="none" stroke-width="1"/>
-<text x="620.0" y="80.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">Indianapolis</text>
+<text x="620.0" y="80.0" font-size="12" fill="#1a1a1a" text-anchor="start" font-weight="normal">Berlin</text>
 </svg>

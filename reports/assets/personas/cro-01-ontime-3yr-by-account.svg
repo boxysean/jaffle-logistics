@@ -18,35 +18,35 @@
 <rect x="163.0" y="147.4" width="36.1" height="272.6" fill="#8c8c8c" stroke="none" stroke-width="1"/>
 <rect x="203.1" y="153.8" width="36.1" height="266.2" fill="#3d3d3d" stroke="none" stroke-width="1"/>
 <line x1="117.0" y1="148.0" x2="245.2" y2="148.0" stroke="#1a1a1a" stroke-width="3"/>
-<text x="182.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Storefronts</text>
+<text x="182.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Warenhuis</text>
 <text x="182.0" y="456.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0007</text>
 <text x="182.0" y="472.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">SLA 97%</text>
 <rect x="287.0" y="135.7" width="36.1" height="284.3" fill="#c4c4c4" stroke="none" stroke-width="1"/>
 <rect x="327.0" y="132.6" width="36.1" height="287.4" fill="#8c8c8c" stroke="none" stroke-width="1"/>
 <rect x="367.1" y="357.8" width="36.1" height="62.2" fill="#3d3d3d" stroke="none" stroke-width="1"/>
 <line x1="281.0" y1="148.0" x2="409.2" y2="148.0" stroke="#1a1a1a" stroke-width="3"/>
-<text x="346.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Equipment</text>
+<text x="346.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Werke</text>
 <text x="346.0" y="456.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0042</text>
 <text x="346.0" y="472.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">SLA 97%</text>
 <rect x="451.0" y="137.8" width="36.1" height="282.2" fill="#c4c4c4" stroke="none" stroke-width="1"/>
 <rect x="491.0" y="146.6" width="36.1" height="273.4" fill="#8c8c8c" stroke="none" stroke-width="1"/>
 <rect x="531.1" y="148.3" width="36.1" height="271.7" fill="#3d3d3d" stroke="none" stroke-width="1"/>
 <line x1="445.0" y1="180.0" x2="573.2" y2="180.0" stroke="#1a1a1a" stroke-width="3"/>
-<text x="510.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Crew Outfitters</text>
+<text x="510.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Maison</text>
 <text x="510.0" y="456.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0155</text>
 <text x="510.0" y="472.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">SLA 95%</text>
 <rect x="615.0" y="143.8" width="36.1" height="276.2" fill="#c4c4c4" stroke="none" stroke-width="1"/>
 <rect x="655.0" y="152.3" width="36.1" height="267.7" fill="#8c8c8c" stroke="none" stroke-width="1"/>
 <rect x="695.1" y="185.3" width="36.1" height="234.7" fill="#3d3d3d" stroke="none" stroke-width="1"/>
 <line x1="609.0" y1="180.0" x2="737.2" y2="180.0" stroke="#1a1a1a" stroke-width="3"/>
-<text x="674.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Beverage Co</text>
+<text x="674.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Getränke</text>
 <text x="674.0" y="456.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0169</text>
 <text x="674.0" y="472.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">SLA 95%</text>
 <rect x="779.0" y="145.3" width="36.1" height="274.7" fill="#c4c4c4" stroke="none" stroke-width="1"/>
 <rect x="819.0" y="142.9" width="36.1" height="277.1" fill="#8c8c8c" stroke="none" stroke-width="1"/>
 <rect x="859.1" y="185.0" width="36.1" height="235.0" fill="#3d3d3d" stroke="none" stroke-width="1"/>
 <line x1="773.0" y1="228.0" x2="901.2" y2="228.0" stroke="#1a1a1a" stroke-width="3"/>
-<text x="838.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Paper &amp; Packaging</text>
+<text x="838.0" y="440.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Papier</text>
 <text x="838.0" y="456.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0201</text>
 <text x="838.0" y="472.0" font-size="11" fill="#1a1a1a" text-anchor="middle" font-weight="bold">SLA 92%</text>
 <line x1="100.0" y1="148.0" x2="920.0" y2="148.0" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6,4"/>

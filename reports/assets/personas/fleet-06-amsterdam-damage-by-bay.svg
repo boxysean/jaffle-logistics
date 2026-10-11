@@ -19,20 +19,20 @@
 <text x="45.0" y="222.5" font-size="12" fill="#555555" text-anchor="middle" font-weight="normal" transform="rotate(-90 45.0 222.5)">Damage events per 100 loadings</text>
 <rect x="167.0" y="139.4" width="82.6" height="210.6" fill="#c0392b" stroke="none"/>
 <text x="208.3" y="133.4" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="bold">9.91  (11/111)</text>
-<text x="208.3" y="370.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Columbus bay 3</text>
-<text x="208.3" y="386.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CMH-BAY-3</text>
+<text x="208.3" y="370.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Amsterdam bay 3</text>
+<text x="208.3" y="386.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-AMS-BAY-3</text>
 <rect x="363.7" y="335.8" width="82.6" height="14.2" fill="#2c6fbb" stroke="none"/>
 <text x="405.0" y="329.8" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="bold">0.67  (4/598)</text>
-<text x="405.0" y="370.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Columbus, other 5 bays</text>
-<text x="405.0" y="386.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-CMH-BAY-1,2,4,5,6</text>
+<text x="405.0" y="370.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Amsterdam, other 5 bays</text>
+<text x="405.0" y="386.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">HUB-AMS-BAY-1,2,4,5,6</text>
 <rect x="560.4" y="331.8" width="82.6" height="18.2" fill="#2c6fbb" stroke="none"/>
 <text x="601.7" y="325.8" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="bold">0.86  (25/2,920)</text>
 <text x="601.7" y="370.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Other four hubs</text>
-<text x="601.7" y="386.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CHI, CIN, DET, IND</text>
+<text x="601.7" y="386.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">BER, PAR, VIE, ZRH</text>
 <line x1="110.0" y1="326.6" x2="700.0" y2="326.6" stroke="#1a1a1a" stroke-width="1.5" stroke-dasharray="6,4"/>
 <text x="708.0" y="330.6" font-size="11" fill="#1a1a1a" text-anchor="start" font-weight="bold">fleet 1.10</text>
 <text x="708.0" y="344.6" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">(40 ÷ 3,629)</text>
-<text x="708.0" y="143.4" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">Every Columbus vehicle</text>
+<text x="708.0" y="143.4" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">Every Amsterdam vehicle</text>
 <text x="708.0" y="157.4" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">loaded at bay 3 (7–18 times);</text>
 <text x="708.0" y="171.4" font-size="10.5" fill="#555555" text-anchor="start" font-weight="normal">VEH-0012 most often (18), 0 damage</text>
 </svg>

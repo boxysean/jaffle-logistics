@@ -7,6 +7,8 @@ the query results embedded below, so each figure is reproducible without the
 warehouse. Every number comes from an execute_sql query against
 hive_metastore.dbt_smcintyre_jaffle_logistics_prod; the SQL is in the appendix of
 reports/company-profile.md (query numbers are noted beside each data block).
+Labels follow the European geography (account names, EUR); the numbers are
+unchanged by the pivot and were re-checked against the local pivoted warehouse.
 
 Output: reports/assets/company/company-*.svg  (committed alongside the report).
 
@@ -46,22 +48,22 @@ def esc(s):
 
 
 # ---------------------------------------------------------------- data (from execute_sql)
-# Q7 — CONCENTRATION_2025: client, name, gross revenue $, credits $, shipments, $ per shipment
+# Q7 — CONCENTRATION_2025: client, name, gross revenue €, credits €, shipments, € per shipment
 CONCENTRATION_2025 = [
-    ("CLI-0042", "Jaffle Equipment", 963695.00, 51269.00, 416, 2316.57),
-    ("CLI-0201", "Jaffle Paper & Packaging", 524260.00, 0.00, 414, 1266.33),
-    ("CLI-0169", "Jaffle Beverage Co", 487795.00, 383.88, 394, 1238.06),
-    ("CLI-0155", "Jaffle Crew Outfitters", 458802.00, 0.00, 398, 1152.77),
-    ("CLI-0007", "Jaffle Storefronts", 445180.00, 1301.98, 387, 1150.34),
+    ("CLI-0042", "Jaffle Werke", 963695.00, 51269.00, 416, 2316.57),
+    ("CLI-0201", "Jaffle Papier", 524260.00, 0.00, 414, 1266.33),
+    ("CLI-0169", "Jaffle Getränke", 487795.00, 383.88, 394, 1238.06),
+    ("CLI-0155", "Jaffle Maison", 458802.00, 0.00, 398, 1152.77),
+    ("CLI-0007", "Jaffle Warenhuis", 445180.00, 1301.98, 387, 1150.34),
 ]
 
 # Q8 — BY_ACCOUNT: client, name, (on-time % 2023, 2024, 2025), (shipments 2023, 2024, 2025)
 BY_ACCOUNT = [
-    ("CLI-0007", "Jaffle Storefronts", (97.74, 97.04, 96.64), (354, 371, 387)),
-    ("CLI-0042", "Jaffle Equipment", (97.77, 97.96, 83.89), (359, 392, 416)),
-    ("CLI-0155", "Jaffle Crew Outfitters", (97.64, 97.09, 96.98), (382, 378, 398)),
-    ("CLI-0169", "Jaffle Beverage Co", (97.26, 96.73, 94.67), (329, 398, 394)),
-    ("CLI-0201", "Jaffle Paper & Packaging", (97.17, 97.32, 94.69), (424, 410, 414)),
+    ("CLI-0007", "Jaffle Warenhuis", (97.74, 97.04, 96.64), (354, 371, 387)),
+    ("CLI-0042", "Jaffle Werke", (97.77, 97.96, 83.89), (359, 392, 416)),
+    ("CLI-0155", "Jaffle Maison", (97.64, 97.09, 96.98), (382, 378, 398)),
+    ("CLI-0169", "Jaffle Getränke", (97.26, 96.73, 94.67), (329, 398, 394)),
+    ("CLI-0201", "Jaffle Papier", (97.17, 97.32, 94.69), (424, 410, 414)),
 ]
 BOOK_ONTIME = (97.51, 97.23, 93.28)
 
@@ -132,7 +134,7 @@ def legend(parts, x, y, items, step=130):
 
 
 def money_k(v):
-    return f"${v/1000:.1f}k" if v < 10000 else f"${v/1000:.0f}k"
+    return f"€{v/1000:.1f}k" if v < 10000 else f"€{v/1000:.0f}k"
 
 
 # ---------------------------------------------------------------- chart 1: 2025 revenue concentration
@@ -146,7 +148,7 @@ def chart_concentration():
     bot = top + row_h * len(rows)
     vmax = 1000000
     parts = canvas(W, H, "2025 gross revenue by account: one account is a third of the book",
-                   f"fct_account_revenue, 2025. Five accounts sum to ${total:,.0f}. "
+                   f"fct_account_revenue, 2025. Five accounts sum to €{total:,.0f}. "
                    "Label at bar end = share of the 2025 book.")
 
     def xx(v):
@@ -154,8 +156,8 @@ def chart_concentration():
 
     for v in range(0, vmax + 1, 200000):
         parts.append(line(xx(v), top - 6, xx(v), bot, GRID, 1))
-        parts.append(text(xx(v), bot + 16, f"${v//1000}k", 11, GREY, "middle"))
-    parts.append(text((x0 + x1) / 2, bot + 36, "2025 gross revenue (USD)", 12, GREY, "middle"))
+        parts.append(text(xx(v), bot + 16, f"€{v//1000}k", 11, GREY, "middle"))
+    parts.append(text((x0 + x1) / 2, bot + 36, "2025 gross revenue (EUR)", 12, GREY, "middle"))
     for i, (cid, name, gross, cred, ships, per) in enumerate(rows):
         y = top + i * row_h
         col = RED if i == 0 else MID
@@ -163,11 +165,11 @@ def chart_concentration():
         parts.append(text(x0 - 10, y + row_h / 2, name, 12.5, RED if i == 0 else INK, "end",
                           "bold" if i == 0 else "normal"))
         parts.append(text(x0 - 10, y + row_h / 2 + 14, cid, 10.5, GREY, "end"))
-        parts.append(halo(x0 + 8, y + row_h / 2 + 4, f"${gross:,.0f}", 11, INK, "start"))
+        parts.append(halo(x0 + 8, y + row_h / 2 + 4, f"€{gross:,.0f}", 11, INK, "start"))
         parts.append(text(xx(gross) + 8, y + row_h / 2 + 5, f"{100 * gross / total:.2f}%", 13,
                           RED if i == 0 else INK, "start", "bold"))
     rest = total - rows[0][2]
-    parts.append(text(x0, H - 14, f"Other four accounts together: ${rest:,.0f} "
+    parts.append(text(x0, H - 14, f"Other four accounts together: €{rest:,.0f} "
                       f"({100 * rest / total:.2f}%). Gross revenue, not profit: no margin exists in the data.",
                       11, GREY))
     save("company-01-concentration.svg", parts)
@@ -227,7 +229,7 @@ def chart_value_per_shipment():
     parts = canvas(W, H, "2025: the largest account pays about twice as much per shipment",
                    "fct_account_revenue, 2025. Left: gross revenue ÷ shipments. "
                    "Right: the same account's share of shipments vs share of revenue.")
-    # left panel — $ per shipment
+    # left panel — € per shipment
     x0, x1 = 230, 560
     vmax = 2500
 
@@ -236,8 +238,8 @@ def chart_value_per_shipment():
 
     for v in range(0, vmax + 1, 500):
         parts.append(line(xx(v), top - 6, xx(v), bot, GRID, 1))
-        parts.append(text(xx(v), bot + 16, f"${v:,}", 11, GREY, "middle"))
-    parts.append(text((x0 + x1) / 2, bot + 36, "Gross revenue per shipment (USD)", 12, GREY, "middle"))
+        parts.append(text(xx(v), bot + 16, f"€{v:,}", 11, GREY, "middle"))
+    parts.append(text((x0 + x1) / 2, bot + 36, "Gross revenue per shipment (EUR)", 12, GREY, "middle"))
     parts.append(text((x0 + x1) / 2, top - 22, "Revenue per shipment", 13, INK, "middle", "bold"))
     for i, (cid, name, gross, cred, ships, per) in enumerate(rows):
         y = top + i * row_h
@@ -246,10 +248,10 @@ def chart_value_per_shipment():
         parts.append(text(x0 - 10, y + row_h / 2, name, 12, RED if i == 0 else INK, "end",
                           "bold" if i == 0 else "normal"))
         parts.append(text(x0 - 10, y + row_h / 2 + 14, f"{cid} · {ships} ships", 10.5, GREY, "end"))
-        parts.append(text(xx(per) + 6, y + row_h / 2 + 4, f"${per:,.2f}", 11.5,
+        parts.append(text(xx(per) + 6, y + row_h / 2 + 4, f"€{per:,.2f}", 11.5,
                           RED if i == 0 else INK, "start", "bold"))
     parts.append(line(xx(rest_per), top - 8, xx(rest_per), bot, INK, 1.5, "6,4"))
-    parts.append(text(xx(rest_per) + 4, bot - 4, f"other four: ${rest_per:,.2f}", 10.5, INK, "start", "bold"))
+    parts.append(text(xx(rest_per) + 4, bot - 4, f"other four: €{rest_per:,.2f}", 10.5, INK, "start", "bold"))
     # right panel — share of shipments vs share of revenue
     px0, px1 = 660, 940
     smax = 40
@@ -273,7 +275,7 @@ def chart_value_per_shipment():
         parts.append(text(sx_(s_rev) + 5, y + 37, f"{s_rev:.2f}%", 10.5, RED if i == 0 else INK,
                           "start", "bold" if i == 0 else "normal"))
     legend(parts, px0, 78, [(LIGHT, "shipments"), (MID, "revenue")], step=110)
-    parts.append(text(x0, H - 12, f"Five accounts: ${tot_rev:,.0f} on {tot_ship:,} shipments. "
+    parts.append(text(x0, H - 12, f"Five accounts: €{tot_rev:,.0f} on {tot_ship:,} shipments. "
                       "Gross revenue, not profit: there is no per-account cost or margin.", 11, GREY))
     save("company-03-value-per-shipment.svg", parts)
 

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="960" height="440" viewBox="0 0 960 440" font-family="Helvetica, Arial, sans-serif">
 <rect x="0" y="0" width="960" height="440" fill="#ffffff"/>
-<text x="480.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">Jaffle Equipment: days between consecutive delivery-delay tickets, 2025</text>
+<text x="480.0" y="30" text-anchor="middle" font-size="20" font-weight="bold" fill="#1a1a1a">Jaffle Werke: days between consecutive delivery-delay tickets, 2025</text>
 <text x="480.0" y="50" text-anchor="middle" font-size="12.5" fill="#555555">CLI-0042, 31 gaps between 32 delivery_delay tickets. One dot per gap; dots stack when gaps are equal.</text>
 <rect x="339.0" y="110.0" width="92.2" height="250.0" fill="#eef1f5" stroke="none"/>
 <text x="385.1" y="126.0" font-size="11" fill="#555555" text-anchor="middle" font-weight="normal">Other four accounts:</text>

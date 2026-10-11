@@ -14,7 +14,7 @@ Design rules (match scripts/cfo_charts.py, persona_people_charts.py, persona_cro
   * every axis labelled with its unit;
   * value printed on or beside every bar;
   * reference lines (97% target, quiet-year band) drawn dashed and labelled;
-  * consistent colour meaning: red = the problem cell (Chicago, BAY-3, severe incidents),
+  * consistent colour meaning: red = the problem cell (Paris, BAY-3, severe incidents),
     grey ramp = years (2023 light -> 2025 dark), muted hues for the other hubs.
 
 Run from the repo root:  python3 scripts/persona_coo_charts.py
@@ -35,8 +35,8 @@ G1 = "#c4c4c4"       # 2023
 G2 = "#8c8c8c"       # 2024
 G3 = "#3d3d3d"       # 2025
 YEAR_COLS = [(G1, "2023"), (G2, "2024"), (G3, "2025")]
-HUB_COLS = {"HUB-CHI": RED, "HUB-CIN": "#2c6fbb", "HUB-CMH": "#c58a1b",
-            "HUB-DET": "#3d3d3d", "HUB-IND": "#6b8e23"}
+HUB_COLS = {"HUB-PAR": RED, "HUB-ZRH": "#2c6fbb", "HUB-AMS": "#c58a1b",
+            "HUB-VIE": "#3d3d3d", "HUB-BER": "#6b8e23"}
 
 FONT = "Helvetica, Arial, sans-serif"
 
@@ -46,36 +46,36 @@ def esc(s):
 
 
 # ---------------------------------------------------------------- data (from the data pack)
-HUBS = ["HUB-CHI", "HUB-CIN", "HUB-CMH", "HUB-DET", "HUB-IND"]
-HUB_NAMES = {"HUB-CHI": "Chicago", "HUB-CIN": "Cincinnati", "HUB-CMH": "Columbus",
-             "HUB-DET": "Detroit", "HUB-IND": "Indianapolis"}
+HUBS = ["HUB-PAR", "HUB-ZRH", "HUB-AMS", "HUB-VIE", "HUB-BER"]
+HUB_NAMES = {"HUB-PAR": "Paris", "HUB-ZRH": "Zürich", "HUB-AMS": "Amsterdam",
+             "HUB-VIE": "Vienna", "HUB-BER": "Berlin"}
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 # Q2 — routes and exceptions by hub by year (stg_routes): (routes, exceptions) for 2023, 2024, 2025
 ROUTES = {
-    "HUB-CHI": ((676, 532), (691, 491), (748, 931)),
-    "HUB-CIN": ((652, 434), (715, 517), (712, 352)),
-    "HUB-CMH": ((666, 387), (666, 434), (709, 369)),
-    "HUB-DET": ((678, 467), (730, 465), (741, 382)),
-    "HUB-IND": ((666, 463), (719, 513), (719, 387)),
+    "HUB-PAR": ((676, 532), (691, 491), (748, 931)),
+    "HUB-ZRH": ((652, 434), (715, 517), (712, 352)),
+    "HUB-AMS": ((666, 387), (666, 434), (709, 369)),
+    "HUB-VIE": ((678, 467), (730, 465), (741, 382)),
+    "HUB-BER": ((666, 463), (719, 513), (719, 387)),
 }
 
 # Q3 — on-time % by origin hub by year (stg_shipments, status = 'delivered')
 ONTIME = {
-    "HUB-CHI": (96.48, 96.90, 88.35),
-    "HUB-CIN": (98.94, 96.73, 95.98),
-    "HUB-CMH": (97.91, 95.93, 95.39),
-    "HUB-DET": (95.48, 98.09, 93.68),
-    "HUB-IND": (98.45, 98.66, 93.41),
+    "HUB-PAR": (96.48, 96.90, 88.35),
+    "HUB-ZRH": (98.94, 96.73, 95.98),
+    "HUB-AMS": (97.91, 95.93, 95.39),
+    "HUB-VIE": (95.48, 98.09, 93.68),
+    "HUB-BER": (98.45, 98.66, 93.41),
 }
 
 # Q4 — exceptions per 100 routes by hub by month, 2025
 MONTHLY_2025 = {
-    "HUB-CHI": (700.00, 187.72, 16.92, 26.42, 14.55, 30.91, 18.18, 22.45, 26.39, 25.00, 112.90, 122.86),
-    "HUB-CIN": (96.67, 125.00, 4.00, 21.54, 33.33, 24.36, 28.33, 30.16, 19.70, 11.76, 104.69, 108.33),
-    "HUB-CMH": (132.31, 65.79, 17.65, 16.67, 16.22, 7.55, 30.43, 28.00, 23.08, 37.50, 127.42, 110.94),
-    "HUB-DET": (90.00, 124.53, 30.00, 10.61, 31.82, 20.00, 23.33, 22.22, 26.47, 28.17, 96.36, 121.31),
-    "HUB-IND": (82.76, 112.12, 28.13, 25.00, 13.73, 14.29, 17.65, 63.64, 45.65, 20.27, 122.00, 98.67),
+    "HUB-PAR": (700.00, 187.72, 16.92, 26.42, 14.55, 30.91, 18.18, 22.45, 26.39, 25.00, 112.90, 122.86),
+    "HUB-ZRH": (96.67, 125.00, 4.00, 21.54, 33.33, 24.36, 28.33, 30.16, 19.70, 11.76, 104.69, 108.33),
+    "HUB-AMS": (132.31, 65.79, 17.65, 16.67, 16.22, 7.55, 30.43, 28.00, 23.08, 37.50, 127.42, 110.94),
+    "HUB-VIE": (90.00, 124.53, 30.00, 10.61, 31.82, 20.00, 23.33, 22.22, 26.47, 28.17, 96.36, 121.31),
+    "HUB-BER": (82.76, 112.12, 28.13, 25.00, 13.73, 14.29, 17.65, 63.64, 45.65, 20.27, 122.00, 98.67),
 }
 
 # Q5 — network exceptions per 100 routes by month, 2023-2024 (the quiet-year reference band)
@@ -94,11 +94,11 @@ WEEKLY_2025 = (94.9, 127.6, 662.8, 109.6, 72.9, 167.9, 95.4, 123.1, 96.8, 18.5, 
 NOTE_TYPES = ["weather", "traffic", "access", "customer_nsf", "mechanical", "volume", "address"]
 NOTE_COLS = ["#1f4e79", "#5b7fa6", "#9aa7b5", "#c9d3de", "#c58a1b", "#8c8c8c", "#3d3d3d"]
 NOTES_2025 = {
-    "HUB-CHI": (30, 21, 19, 16, 15, 14, 12),
-    "HUB-CIN": (28, 17, 16, 11, 19, 14, 5),
-    "HUB-CMH": (30, 14, 13, 4, 10, 14, 15),
-    "HUB-DET": (29, 22, 13, 12, 15, 10, 20),
-    "HUB-IND": (31, 22, 19, 16, 14, 18, 21),
+    "HUB-PAR": (30, 21, 19, 16, 15, 14, 12),
+    "HUB-ZRH": (28, 17, 16, 11, 19, 14, 5),
+    "HUB-AMS": (30, 14, 13, 4, 10, 14, 15),
+    "HUB-VIE": (29, 22, 13, 12, 15, 10, 20),
+    "HUB-BER": (31, 22, 19, 16, 14, 18, 21),
 }
 
 # Q12 — incidents by type x severity x year: type -> severity 1..4 -> (2023, 2024, 2025)
@@ -113,33 +113,33 @@ INCIDENTS = {
 }
 SEV_COLS = ["#c9d3de", "#8fa3b8", "#e08a7e", RED]
 
-# Q15 — Columbus damage_found dock events by bay x year (stg_dock_bay_events)
-BAYS = ["HUB-CMH-BAY-1", "HUB-CMH-BAY-2", "HUB-CMH-BAY-3", "HUB-CMH-BAY-4", "HUB-CMH-BAY-5", "HUB-CMH-BAY-6"]
-CMH_DAMAGE_BY_BAY = {
-    "HUB-CMH-BAY-1": (0, 0, 1),
-    "HUB-CMH-BAY-2": (1, 0, 1),
-    "HUB-CMH-BAY-3": (0, 0, 11),
-    "HUB-CMH-BAY-4": (0, 0, 1),
-    "HUB-CMH-BAY-5": (1, 1, 1),
-    "HUB-CMH-BAY-6": (0, 1, 0),
+# Q15 — Amsterdam damage_found dock events by bay x year (stg_dock_bay_events)
+BAYS = ["HUB-AMS-BAY-1", "HUB-AMS-BAY-2", "HUB-AMS-BAY-3", "HUB-AMS-BAY-4", "HUB-AMS-BAY-5", "HUB-AMS-BAY-6"]
+AMS_DAMAGE_BY_BAY = {
+    "HUB-AMS-BAY-1": (0, 0, 1),
+    "HUB-AMS-BAY-2": (1, 0, 1),
+    "HUB-AMS-BAY-3": (0, 0, 11),
+    "HUB-AMS-BAY-4": (0, 0, 1),
+    "HUB-AMS-BAY-5": (1, 1, 1),
+    "HUB-AMS-BAY-6": (0, 1, 0),
 }
 
 # Q16 — average minutes_at_bay on staging events, by hub x year
 STAGING = {
-    "HUB-CHI": (40.7, 41.2, 41.5),
-    "HUB-CIN": (40.8, 41.2, 40.8),
-    "HUB-CMH": (47.4, 47.1, 51.0),
-    "HUB-DET": (41.3, 41.5, 41.1),
-    "HUB-IND": (41.1, 41.1, 41.7),
+    "HUB-PAR": (40.7, 41.2, 41.5),
+    "HUB-ZRH": (40.8, 41.2, 40.8),
+    "HUB-AMS": (47.4, 47.1, 51.0),
+    "HUB-VIE": (41.3, 41.5, 41.1),
+    "HUB-BER": (41.1, 41.1, 41.7),
 }
 
 # Q19 — route status by hub x year: (completed, partial, canceled) for 2023, 2024, 2025
 ROUTE_STATUS = {
-    "HUB-CHI": ((603, 65, 8), (616, 71, 4), (642, 90, 16)),
-    "HUB-CIN": ((582, 66, 4), (637, 68, 10), (643, 68, 1)),
-    "HUB-CMH": ((589, 72, 5), (584, 77, 5), (639, 65, 5)),
-    "HUB-DET": ((597, 77, 4), (649, 73, 8), (668, 67, 6)),
-    "HUB-IND": ((578, 84, 4), (646, 70, 3), (645, 74, 0)),
+    "HUB-PAR": ((603, 65, 8), (616, 71, 4), (642, 90, 16)),
+    "HUB-ZRH": ((582, 66, 4), (637, 68, 10), (643, 68, 1)),
+    "HUB-AMS": ((589, 72, 5), (584, 77, 5), (639, 65, 5)),
+    "HUB-VIE": ((597, 77, 4), (649, 73, 8), (668, 67, 6)),
+    "HUB-BER": ((578, 84, 4), (646, 70, 3), (645, 74, 0)),
 }
 
 
@@ -199,7 +199,7 @@ def save(name, parts):
     parts.append("</svg>")
     os.makedirs(OUT, exist_ok=True)
     path = os.path.join(OUT, name)
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(parts) + "\n")
     print("wrote", os.path.relpath(path, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")))
 
@@ -256,7 +256,7 @@ def chart_monthly_by_hub():
     W, H = 960, 540
     x0, x1 = 100, 900
     top, bot = 110, 440
-    vmax = 220  # Chicago January (700) is drawn off-scale and labelled
+    vmax = 220  # Paris January (700) is drawn off-scale and labelled
     parts = canvas(W, H, "Exceptions per 100 routes, by hub, by month — 2025",
                    "stg_routes: sum(exceptions_count) / routes × 100. Grey band = 2023–2024 network monthly "
                    f"range ({QUIET_LO:.0f}–{QUIET_HI:.0f}); dashed = quiet-year mean ({QUIET_MEAN:.1f}).")
@@ -275,20 +275,20 @@ def chart_monthly_by_hub():
     for i, m in enumerate(MONTHS):
         parts.append(text(xx(i), bot + 20, m, 12, INK, "middle"))
     parts.append(text((x0 + x1) / 2, bot + 42, "Month of service_date, 2025", 12, GREY, "middle"))
-    for hub in ["HUB-CIN", "HUB-CMH", "HUB-DET", "HUB-IND", "HUB-CHI"]:  # Chicago drawn last, on top
+    for hub in ["HUB-ZRH", "HUB-AMS", "HUB-VIE", "HUB-BER", "HUB-PAR"]:  # Paris drawn last, on top
         vals = MONTHLY_2025[hub]
         col = HUB_COLS[hub]
-        w = 3 if hub == "HUB-CHI" else 1.8
+        w = 3 if hub == "HUB-PAR" else 1.8
         parts.append(polyline([(xx(i), yy(v)) for i, v in enumerate(vals)], col, w))
         for i, v in enumerate(vals):
-            parts.append(circle(xx(i), yy(v), 3.2 if hub == "HUB-CHI" else 2.4, col))
+            parts.append(circle(xx(i), yy(v), 3.2 if hub == "HUB-PAR" else 2.4, col))
     # the off-scale storm point
     parts.append(line(xx(0), top - 4, xx(0), top + 10, RED, 2))
     parts.append(f'<polygon points="{xx(0)-6:.1f},{top+2:.1f} {xx(0)+6:.1f},{top+2:.1f} {xx(0):.1f},{top-10:.1f}" '
                  f'fill="{RED}"/>')
-    parts.append(text(xx(0) + 12, top + 4, "Chicago Jan = 700 (560 exceptions on 80 routes) — off scale",
+    parts.append(text(xx(0) + 12, top + 4, "Paris Jan = 700 (560 exceptions on 80 routes) — off scale",
                       12, RED, "start", "bold", halo=True))
-    parts.append(text(xx(1) + 8, yy(187.72) + 4, "CHI Feb 188", 11, RED, "start", halo=True))
+    parts.append(text(xx(1) + 8, yy(187.72) + 4, "PAR Feb 188", 11, RED, "start", halo=True))
     parts.append(text(xx(6), yy(QUIET_HI) - 6, "2023–2024 quiet-year range", 11, GREY, "middle", halo=True))
     parts.append(text(xx(10) - 10, yy(132), "Nov–Dec: every hub 96–127", 11.5, INK, "end", "bold", halo=True))
     legend(parts, x0, 80, [(HUB_COLS[h], HUB_NAMES[h]) for h in HUBS], step=125)
@@ -375,7 +375,7 @@ def chart_hub_league():
     for i, hub in enumerate(ranked):
         y = top + i * row_h + row_h * 0.22
         h = row_h * 0.56
-        col = RED if hub == "HUB-CHI" else G2
+        col = RED if hub == "HUB-PAR" else G2
         ot = ONTIME[hub][2]
         parts.append(rect(lx0, y, lxx(ot) - lx0, h, col))
         parts.append(text(lxx(ot) + 6, y + h * 0.7, f"{ot:.2f}%", 11.5, INK, "start", "bold", halo=True))
@@ -424,7 +424,7 @@ def chart_note_mix():
         parts.append(text(x0 + base / vmax * (x1 - x0) + 6, y + h * 0.45, f"{base} notes", 11.5, INK, "start", "bold"))
         parts.append(text(x0 + base / vmax * (x1 - x0) + 6, y + h * 0.45 + 14,
                           f"vs {rexc} exceptions ({100 * base / rexc:.0f}%)", 10.5,
-                          RED if hub == "HUB-CHI" else GREY))
+                          RED if hub == "HUB-PAR" else GREY))
         parts.append(text(x0 - 10, y + h * 0.5, HUB_NAMES[hub], 12.5, INK, "end"))
         parts.append(text(x0 - 10, y + h * 0.5 + 14, hub, 10.5, GREY, "end"))
     legend(parts, 80, 80, list(zip(NOTE_COLS, NOTE_TYPES)), step=118)
@@ -473,15 +473,15 @@ def chart_incidents():
     save("coo-05-incidents-by-type-severity-year.svg", parts)
 
 
-# ---------------------------------------------------------------- coo-06: Columbus damage by bay
+# ---------------------------------------------------------------- coo-06: Amsterdam damage by bay
 def chart_cmh_bays():
     W, H = 960, 460
     x0, x1 = 100, 920
     top, bot = 100, 380
     vmax = 12
-    tots = [sum(CMH_DAMAGE_BY_BAY[b][y] for b in BAYS) for y in range(3)]
-    parts = canvas(W, H, "Columbus: damage found at the dock, by bay — 2023 / 2024 / 2025",
-                   f"stg_dock_bay_events, hub HUB-CMH, event_type 'damage_found'. Totals {tots[0]} / {tots[1]} / "
+    tots = [sum(AMS_DAMAGE_BY_BAY[b][y] for b in BAYS) for y in range(3)]
+    parts = canvas(W, H, "Amsterdam: damage found at the dock, by bay — 2023 / 2024 / 2025",
+                   f"stg_dock_bay_events, hub HUB-AMS, event_type 'damage_found'. Totals {tots[0]} / {tots[1]} / "
                    f"{tots[2]}.")
     y_gridlines(parts, x0, x1, top, bot, 0, vmax, range(0, vmax + 1, 2), str)
     y_title(parts, 45, top, bot, "damage_found events (count)")
@@ -490,15 +490,15 @@ def chart_cmh_bays():
         return bot - v / vmax * (bot - top)
 
     def bay_label(parts_, cx, b, bay):
-        parts_.append(text(cx, b + 20, bay.replace("HUB-CMH-", "").replace("BAY-", "Bay "), 12.5, INK, "middle",
+        parts_.append(text(cx, b + 20, bay.replace("HUB-AMS-", "").replace("BAY-", "Bay "), 12.5, INK, "middle",
                            "bold" if bay.endswith("3") else "normal"))
         parts_.append(text(cx, b + 36, bay, 10, GREY, "middle"))
 
-    grouped_year_bars(parts, x0, x1, bot, yy, BAYS, CMH_DAMAGE_BY_BAY, str,
-                      highlight=("HUB-CMH-BAY-3", 2), labeller=bay_label)
+    grouped_year_bars(parts, x0, x1, bot, yy, BAYS, AMS_DAMAGE_BY_BAY, str,
+                      highlight=("HUB-AMS-BAY-3", 2), labeller=bay_label)
     legend(parts, x0, 76, YEAR_COLS, step=80)
     parts.append(text(x0 + 260, 76, "Bay 3, 2025 in red: 11 of the hub's 15", 12, RED, "start", "bold"))
-    save("coo-06-columbus-damage-by-bay.svg", parts)
+    save("coo-06-amsterdam-damage-by-bay.svg", parts)
 
 
 # ---------------------------------------------------------------- coo-07: dock staging minutes
@@ -516,9 +516,9 @@ def chart_staging():
     def yy(v):
         return bot - v / vmax * (bot - top)
 
-    grouped_year_bars(parts, x0, x1, bot, yy, HUBS, STAGING, lambda v: f"{v:.1f}", highlight=("HUB-CMH", 2))
+    grouped_year_bars(parts, x0, x1, bot, yy, HUBS, STAGING, lambda v: f"{v:.1f}", highlight=("HUB-AMS", 2))
     legend(parts, x0, 76, YEAR_COLS, step=80)
-    parts.append(text(x0 + 260, 76, "Columbus 2025 in red: slowest dock, and slower than its own 2023–24",
+    parts.append(text(x0 + 260, 76, "Amsterdam 2025 in red: slowest dock, and slower than its own 2023–24",
                       12, RED, "start", "bold"))
     save("coo-07-dock-staging-minutes-by-hub.svg", parts)
 
@@ -530,7 +530,7 @@ def chart_incomplete():
     top, bot = 100, 380
     vmax = 16
     rates = {h: tuple(incomplete_rate(h, y) for y in range(3)) for h in HUBS}
-    others = [h for h in HUBS if h != "HUB-CHI"]
+    others = [h for h in HUBS if h != "HUB-PAR"]
     o_inc = sum(ROUTE_STATUS[h][2][1] + ROUTE_STATUS[h][2][2] for h in others)
     o_rts = sum(sum(ROUTE_STATUS[h][2]) for h in others)
     ref = 100.0 * o_inc / o_rts
@@ -543,12 +543,12 @@ def chart_incomplete():
     def yy(v):
         return bot - v / vmax * (bot - top)
 
-    grouped_year_bars(parts, x0, x1, bot, yy, HUBS, rates, lambda v: f"{v:.1f}", highlight=("HUB-CHI", 2))
+    grouped_year_bars(parts, x0, x1, bot, yy, HUBS, rates, lambda v: f"{v:.1f}", highlight=("HUB-PAR", 2))
     parts.append(line(x0, yy(ref), x1, yy(ref), G3, 1.2, "6,4"))
     lx = legend(parts, x0, 76, YEAR_COLS, step=80)
     parts.append(line(lx, 72, lx + 24, 72, G3, 1.2, "6,4"))
     parts.append(text(lx + 30, 76, f"other four hubs, 2025: {ref:.1f}", 12, G3))
-    parts.append(text(lx + 230, 76, "Chicago 2025 (red): 90 + 16 = 106 of 748", 12, RED,
+    parts.append(text(lx + 230, 76, "Paris 2025 (red): 90 + 16 = 106 of 748", 12, RED,
                       "start", "bold"))
     save("coo-08-incomplete-routes-per-100-by-hub.svg", parts)
 

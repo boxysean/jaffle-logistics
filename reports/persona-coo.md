@@ -296,7 +296,7 @@ Berlin 5 = 40, which equals the 40 damage incidents in Q12 and Q13.
   `damage_found` events after that date (30 October, and two on 17 December on the same route). Whether
   the cordon was lifted or never enforced is not in the data.
 
-![Amsterdam damage_found by bay, 2023–2025](assets/personas/coo-06-columbus-damage-by-bay.svg)
+![Amsterdam damage_found by bay, 2023–2025](assets/personas/coo-06-amsterdam-damage-by-bay.svg)
 
 *What this says: Amsterdam's 2025 damage is one bay, BAY-3, with 11 of 15 events and none in the two
 years before.*

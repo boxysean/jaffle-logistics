@@ -17,27 +17,27 @@
 <rect x="119.7" y="131.6" width="39.4" height="278.4" fill="#9aa7b5" stroke="none"/>
 <rect x="163.0" y="136.4" width="39.4" height="273.6" fill="#5b7fa6" stroke="none"/>
 <rect x="206.4" y="144.4" width="39.4" height="265.6" fill="#2c6fbb" stroke="none"/>
-<text x="182.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Storefronts</text>
+<text x="182.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Warenhuis</text>
 <text x="182.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0007</text>
 <rect x="283.7" y="120.4" width="39.4" height="289.6" fill="#9aa7b5" stroke="none"/>
 <rect x="327.0" y="120.4" width="39.4" height="289.6" fill="#5b7fa6" stroke="none"/>
 <rect x="370.4" y="347.6" width="39.4" height="62.4" fill="#2c6fbb" stroke="none"/>
-<text x="346.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Equipment</text>
+<text x="346.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Werke</text>
 <text x="346.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0042</text>
 <rect x="447.7" y="128.4" width="39.4" height="281.6" fill="#9aa7b5" stroke="none"/>
 <rect x="491.0" y="134.8" width="39.4" height="275.2" fill="#5b7fa6" stroke="none"/>
 <rect x="534.4" y="138.0" width="39.4" height="272.0" fill="#2c6fbb" stroke="none"/>
-<text x="510.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Crew Outfitters</text>
+<text x="510.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Maison</text>
 <text x="510.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0155</text>
 <rect x="611.7" y="134.8" width="39.4" height="275.2" fill="#9aa7b5" stroke="none"/>
 <rect x="655.0" y="141.2" width="39.4" height="268.8" fill="#5b7fa6" stroke="none"/>
 <rect x="698.4" y="174.8" width="39.4" height="235.2" fill="#2c6fbb" stroke="none"/>
-<text x="674.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Beverage Co</text>
+<text x="674.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Getränke</text>
 <text x="674.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0169</text>
 <rect x="775.7" y="131.6" width="39.4" height="278.4" fill="#9aa7b5" stroke="none"/>
 <rect x="819.0" y="139.6" width="39.4" height="270.4" fill="#5b7fa6" stroke="none"/>
 <rect x="862.4" y="174.8" width="39.4" height="235.2" fill="#2c6fbb" stroke="none"/>
-<text x="838.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Paper &amp; Packaging</text>
+<text x="838.0" y="430.0" font-size="12" fill="#1a1a1a" text-anchor="middle" font-weight="normal">Papier</text>
 <text x="838.0" y="446.0" font-size="10.5" fill="#555555" text-anchor="middle" font-weight="normal">CLI-0201</text>
 <line x1="100.0" y1="138.0" x2="920.0" y2="138.0" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6,4"/>
 <text x="139.4" y="126.6" font-size="10" fill="#1a1a1a" text-anchor="middle" stroke="#ffffff" stroke-width="3" paint-order="stroke">97.4</text>

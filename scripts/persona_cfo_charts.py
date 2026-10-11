@@ -16,7 +16,7 @@ Design rules (match scripts/persona_fleet_charts.py):
   * value printed on or beside every bar;
   * the 97% contractual on-time target drawn as a dashed, labelled reference line
     on every chart that shows an on-time rate;
-  * consistent colour meaning: red = Jaffle Equipment / the failure,
+  * consistent colour meaning: red = Jaffle Werke / the failure,
     grey-blue ramp = years, neutral blue = a series with no judgement attached.
 
 Run from the repo root:  python3 scripts/persona_cfo_charts.py
@@ -27,7 +27,7 @@ import xml.sax.saxutils as sx
 OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "reports", "assets", "personas")
 
 # ---------------------------------------------------------------- colours
-RED = "#c0392b"      # Jaffle Equipment / the failure
+RED = "#c0392b"      # Jaffle Werke / the failure
 BLUE = "#2c6fbb"     # neutral series
 GREY = "#555555"
 GRID = "#d9d9d9"
@@ -48,7 +48,7 @@ def esc(s):
 
 
 # ---------------------------------------------------------------- data (from execute_sql)
-# Q7 — quarterly on-time %: (quarter, whole book %, whole-book missed, Equipment %, Equipment missed)
+# Q7 — quarterly on-time %: (quarter, whole book %, whole-book missed, Werke %, Werke missed)
 QUARTERLY = [
     ("2023-Q1", 96.87, 14, 96.43, 3), ("2023-Q2", 97.75, 9, 98.82, 1),
     ("2023-Q3", 97.79, 10, 98.90, 1), ("2023-Q4", 97.63, 13, 96.97, 3),
@@ -60,11 +60,11 @@ QUARTERLY = [
 
 # Q4 — by account: name, (shipments, missed, on-time %) for 2023 / 2024 / 2025
 BY_ACCOUNT = [
-    ("CLI-0007", "Storefronts", [(354, 8, 97.74), (371, 11, 97.04), (387, 13, 96.64)]),
-    ("CLI-0042", "Equipment", [(359, 8, 97.77), (392, 8, 97.96), (416, 67, 83.89)]),
-    ("CLI-0155", "Crew Outfitters", [(382, 9, 97.64), (378, 11, 97.09), (398, 12, 96.98)]),
-    ("CLI-0169", "Beverage Co", [(329, 9, 97.26), (398, 13, 96.73), (394, 21, 94.67)]),
-    ("CLI-0201", "Paper & Packaging", [(424, 12, 97.17), (410, 11, 97.32), (414, 22, 94.69)]),
+    ("CLI-0007", "Warenhuis", [(354, 8, 97.74), (371, 11, 97.04), (387, 13, 96.64)]),
+    ("CLI-0042", "Werke", [(359, 8, 97.77), (392, 8, 97.96), (416, 67, 83.89)]),
+    ("CLI-0155", "Maison", [(382, 9, 97.64), (378, 11, 97.09), (398, 12, 96.98)]),
+    ("CLI-0169", "Getränke", [(329, 9, 97.26), (398, 13, 96.73), (394, 21, 94.67)]),
+    ("CLI-0201", "Papier", [(424, 12, 97.17), (410, 11, 97.32), (414, 22, 94.69)]),
 ]
 
 # Q19 — 2025 non-labour cost by category (company-wide, exact)
@@ -74,14 +74,14 @@ COST_2025_TOTAL = 7180014
 
 # Q21 — 2025 non-labour cost by hub (exact), routes, shipments
 COST_2025_BY_HUB = [
-    ("HUB-CMH", "Columbus", 1745940, 709, 347),
-    ("HUB-CHI", "Chicago", 1393529, 748, 412),
-    ("HUB-DET", "Detroit", 1383006, 741, 427),
-    ("HUB-CIN", "Cincinnati", 1372471, 712, 398),
-    ("HUB-IND", "Indianapolis", 1285068, 719, 425),
+    ("HUB-AMS", "Amsterdam", 1745940, 709, 347),
+    ("HUB-PAR", "Paris", 1393529, 748, 412),
+    ("HUB-VIE", "Vienna", 1383006, 741, 427),
+    ("HUB-ZRH", "Zürich", 1372471, 712, 398),
+    ("HUB-BER", "Berlin", 1285068, 719, 425),
 ]
 
-# Q14, Q19, Q20 — year economics (USD)
+# Q14, Q19, Q20 — year economics (EUR)
 YEAR_ECONOMICS = [
     # year, non-labour cost, driver labour, net revenue
     ("2023", 6424631, 1640713, 2641286.00),
@@ -91,16 +91,16 @@ YEAR_ECONOMICS = [
 
 # Q17 — 2025 credits actually issued, by account
 CREDITS_2025 = [
-    ("CLI-0042", "Equipment", 963695, 51269.00, 12),
-    ("CLI-0007", "Storefronts", 445180, 1301.98, 12),
-    ("CLI-0169", "Beverage Co", 487795, 383.88, 10),
-    ("CLI-0155", "Crew Outfitters", 458802, 0.00, 0),
-    ("CLI-0201", "Paper & Packaging", 524260, 0.00, 0),
+    ("CLI-0042", "Werke", 963695, 51269.00, 12),
+    ("CLI-0007", "Warenhuis", 445180, 1301.98, 12),
+    ("CLI-0169", "Getränke", 487795, 383.88, 10),
+    ("CLI-0155", "Maison", 458802, 0.00, 0),
+    ("CLI-0201", "Papier", 524260, 0.00, 0),
 ]
 CREDITS_TOTAL = 52954.86
 GROSS_TOTAL = 2879732.00
 
-# Q16 — Jaffle Equipment 2025 by month: (month, gross $, credit $, trailing-12m on-time %)
+# Q16 — Jaffle Werke 2025 by month: (month, gross €, credit €, trailing-12m on-time %)
 EQUIP_MONTHLY_2025 = [
     (1, 87925, 879.25, 95.9), (2, 67075, 1341.50, 95.0), (3, 78790, 1575.80, 94.5),
     (4, 81025, 1620.50, 94.1), (5, 76350, 2290.50, 93.3), (6, 64915, 2596.60, 92.5),
@@ -110,11 +110,11 @@ EQUIP_MONTHLY_2025 = [
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 # Q24 — share of the 2,009 2025 shipments
-CONC_ACCOUNT = [("Equipment", 416, 20.71), ("Paper & Packaging", 414, 20.61),
-                ("Crew Outfitters", 398, 19.81), ("Beverage Co", 394, 19.61),
-                ("Storefronts", 387, 19.26)]
-CONC_HUB = [("Detroit", 427, 21.25), ("Indianapolis", 425, 21.15), ("Chicago", 412, 20.51),
-            ("Cincinnati", 398, 19.81), ("Columbus", 347, 17.27)]
+CONC_ACCOUNT = [("Werke", 416, 20.71), ("Papier", 414, 20.61),
+                ("Maison", 398, 19.81), ("Getränke", 394, 19.61),
+                ("Warenhuis", 387, 19.26)]
+CONC_HUB = [("Vienna", 427, 21.25), ("Berlin", 425, 21.15), ("Paris", 412, 20.51),
+            ("Zürich", 398, 19.81), ("Amsterdam", 347, 17.27)]
 
 
 # ---------------------------------------------------------------- SVG helpers
@@ -167,7 +167,7 @@ def save(name, parts):
     parts.append("</svg>")
     os.makedirs(OUT, exist_ok=True)
     path = os.path.join(OUT, name)
-    with open(path, "w") as f:
+    with open(path, "w", encoding="utf-8") as f:
         f.write("\n".join(parts) + "\n")
     print("wrote", os.path.relpath(path, os.path.join(os.path.dirname(__file__), "..")))
 
@@ -198,7 +198,7 @@ def sla_line(parts, x0, x1, y, label_x=None, anchor="start"):
 
 
 def money_m(v):
-    return f"${v/1e6:.2f}m"
+    return f"€{v/1e6:.2f}m"
 
 
 # ---------------------------------------------------------------- chart 1: quarterly on-time
@@ -209,7 +209,7 @@ def chart_ontime_by_quarter():
     vmin, vmax = 75, 100
     parts = canvas(W, H, "On-time rate by quarter, 2023 Q1 to 2025 Q4",
                    "Share of shipments with status 'delivered' (stg_shipments). "
-                   "Y axis starts at 75%. Whole book includes Jaffle Equipment.")
+                   "Y axis starts at 75%. Whole book includes Jaffle Werke.")
     y_gridlines(parts, x0, x1, top, bot, vmin, vmax, range(vmin, vmax + 1, 5), lambda v: f"{v}%")
     y_title(parts, 35, top, bot, "On-time rate (%)")
 
@@ -240,8 +240,8 @@ def chart_ontime_by_quarter():
             parts.append(halo(book[i][0], book[i][1] - 9, f"{r[1]:.1f}", 10.5, BLUE, "middle", "bold"))
             parts.append(halo(equip[i][0], equip[i][1] + 17, f"{r[3]:.1f}", 10.5, RED, "middle", "bold"))
     parts.append(text(x1 + 8, book[-1][1] + 4, "Whole book", 11.5, BLUE, "start", "bold"))
-    parts.append(text(x1 + 8, equip[-1][1] + 4, "Jaffle Equipment", 11.5, RED, "start", "bold"))
-    legend(parts, x0, 76, [(BLUE, "Whole book (all five accounts)"), (RED, "Jaffle Equipment (CLI-0042)")],
+    parts.append(text(x1 + 8, equip[-1][1] + 4, "Jaffle Werke", 11.5, RED, "start", "bold"))
+    legend(parts, x0, 76, [(BLUE, "Whole book (all five accounts)"), (RED, "Jaffle Werke (CLI-0042)")],
            step=260)
     save("cfo-01-ontime-by-quarter.svg", parts)
 
@@ -276,9 +276,9 @@ def chart_missed_by_account():
         parts.append(text(cx, bot + 20, name, 12, RED if cid == "CLI-0042" else INK, "middle"))
         parts.append(text(cx, bot + 36, f"{cid} · {yrs[2][0]} shipped 2025", 10.5, GREY, "middle"))
     legend(parts, x0, 76, [(LIGHT, "2024 misses"), (BLUE, "2025 misses"),
-                           (RED, "2025 misses, Jaffle Equipment")], step=170)
+                           (RED, "2025 misses, Jaffle Werke")], step=170)
     parts.append(text((x0 + x1) / 2, H - 10, "2025: 13 + 67 + 12 + 21 + 22 = 135 misses; "
-                      "Equipment's 67 is 50% of them", 11.5, GREY, "middle"))
+                      "Werke's 67 is 50% of them", 11.5, GREY, "middle"))
     save("cfo-02-missed-shipments-by-account.svg", parts)
 
 
@@ -310,7 +310,7 @@ def chart_ontime_3yr_by_account():
         parts.append(text(cx, bot + 20, name, 12, RED if cid == "CLI-0042" else INK, "middle"))
         parts.append(text(cx, bot + 36, cid, 10.5, GREY, "middle"))
     sla_line(parts, x0, x1, yy(SLA))
-    legend(parts, x0, 76, [(LIGHT, "2023"), (MID, "2024"), (BLUE, "2025"), (RED, "2025, Jaffle Equipment")],
+    legend(parts, x0, 76, [(LIGHT, "2023"), (MID, "2024"), (BLUE, "2025"), (RED, "2025, Jaffle Werke")],
            step=120)
     save("cfo-03-ontime-3yr-by-account.svg", parts)
 
@@ -325,9 +325,9 @@ def chart_cost_by_hub_category():
     hub_sum = sum(h[2] for h in COST_2025_BY_HUB)
     parts = canvas(W, H, "2025 non-labour operating cost by hub",
                    "Category shares are the company-wide 2025 mix; hub totals are exact "
-                   f"(stg_cost_ledger; hubs sum to ${hub_sum:,}).")
-    y_gridlines(parts, x0, x1, top, bot, 0, vmax, [0, 0.5e6, 1.0e6, 1.5e6, 2.0e6], lambda v: f"${v/1e6:.1f}m")
-    y_title(parts, 40, top, bot, "Non-labour cost (USD millions)")
+                   f"(stg_cost_ledger; hubs sum to €{hub_sum:,}).")
+    y_gridlines(parts, x0, x1, top, bot, 0, vmax, [0, 0.5e6, 1.0e6, 1.5e6, 2.0e6], lambda v: f"€{v/1e6:.1f}m")
+    y_title(parts, 40, top, bot, "Non-labour cost (EUR millions)")
 
     def yy(v):
         return bot - v / vmax * (bot - top)
@@ -346,7 +346,7 @@ def chart_cost_by_hub_category():
             base += v
         parts.append(text(cx, yy(total) - 6, money_m(total), 12, INK, "middle", "bold"))
         parts.append(text(cx, bot + 20, name, 12, INK, "middle"))
-        parts.append(text(cx, bot + 36, f"${total/ships:,.0f} per shipment", 10.5, GREY, "middle"))
+        parts.append(text(cx, bot + 36, f"€{total/ships:,.0f} per shipment", 10.5, GREY, "middle"))
     ly = 120
     for cat, sh in reversed(shares):
         parts.append(rect(x1 + 30, ly - 10, 14, 12, CAT_COLS[cat]))
@@ -354,7 +354,7 @@ def chart_cost_by_hub_category():
         ly += 22
     parts.append(text(x1 + 30, ly + 10, "Company-wide 2025 mix,", 10.5, GREY))
     parts.append(text(x1 + 30, ly + 24, "applied to each hub.", 10.5, GREY))
-    parts.append(text(x1 + 30, ly + 44, "Columbus: 17% of shipments,", 10.5, RED))
+    parts.append(text(x1 + 30, ly + 44, "Amsterdam: 17% of shipments,", 10.5, RED))
     parts.append(text(x1 + 30, ly + 58, "24% of non-labour cost.", 10.5, RED))
     parts.append(text((x0 + x1) / 2, H - 10, "Hub (cost-ledger hub_id)", 12, GREY, "middle"))
     save("cfo-04-cost-by-hub-category.svg", parts)
@@ -369,8 +369,8 @@ def chart_cost_vs_revenue():
     parts = canvas(W, H, "Recorded cost against recorded revenue, 2023 / 2024 / 2025",
                    "Cost ledger (non-labour) + payroll ledger (driver labour) vs revenue ledger (net of credits). "
                    "These do not form a P&L.")
-    y_gridlines(parts, x0, x1, top, bot, 0, vmax, [i * 1e6 for i in range(0, 9, 2)], lambda v: f"${v/1e6:.0f}m")
-    y_title(parts, 40, top, bot, "USD millions")
+    y_gridlines(parts, x0, x1, top, bot, 0, vmax, [i * 1e6 for i in range(0, 9, 2)], lambda v: f"€{v/1e6:.0f}m")
+    y_title(parts, 40, top, bot, "EUR millions")
 
     def yy(v):
         return bot - v / vmax * (bot - top)
@@ -402,16 +402,16 @@ def chart_credit_exposure():
     bot = top + row_h * len(CREDITS_2025)
     vmax = 60000
     parts = canvas(W, H, "2025 contract credits actually issued, by account",
-                   f"fct_account_revenue, 2025. Total ${CREDITS_TOTAL:,.2f} = "
-                   f"{100*CREDITS_TOTAL/GROSS_TOTAL:.2f}% of ${GROSS_TOTAL:,.0f} gross revenue.")
+                   f"fct_account_revenue, 2025. Total €{CREDITS_TOTAL:,.2f} = "
+                   f"{100*CREDITS_TOTAL/GROSS_TOTAL:.2f}% of €{GROSS_TOTAL:,.0f} gross revenue.")
 
     def xx(v):
         return x0 + v / vmax * (x1 - x0)
 
     for v in range(0, vmax + 1, 10000):
         parts.append(line(xx(v), top - 4, xx(v), bot, GRID, 1))
-        parts.append(text(xx(v), bot + 16, f"${v//1000}k", 11, GREY, "middle"))
-    parts.append(text((x0 + x1) / 2, bot + 36, "Contract credits issued in 2025 (USD)", 12, GREY, "middle"))
+        parts.append(text(xx(v), bot + 16, f"€{v//1000}k", 11, GREY, "middle"))
+    parts.append(text((x0 + x1) / 2, bot + 36, "Contract credits issued in 2025 (EUR)", 12, GREY, "middle"))
     for i, (cid, name, gross, cred, breach) in enumerate(CREDITS_2025):
         y = top + i * row_h
         col = RED if cid == "CLI-0042" else BLUE
@@ -421,13 +421,13 @@ def chart_credit_exposure():
         if cred > 0:
             parts.append(rect(x0, y + 8, max(xx(cred) - x0, 2), row_h - 18, col))
         pct = 100 * cred / gross
-        lab = f"${cred:,.2f}  ({pct:.2f}% of gross)" if cred > 0 else "$0.00  (no credit)"
+        lab = f"€{cred:,.2f}  ({pct:.2f}% of gross)" if cred > 0 else "€0.00  (no credit)"
         parts.append(text(max(xx(cred), x0 + 2) + 8, y + 27, lab, 12, INK, "start", "bold" if cred > 0 else "normal"))
     parts.append(text(W / 2, H - 14, "51,269.00 + 1,301.98 + 383.88 + 0 + 0 = 52,954.86", 11.5, GREY, "middle"))
     save("cfo-06-credit-exposure-by-account.svg", parts)
 
 
-# ---------------------------------------------------------------- chart 7: Equipment credit accrual
+# ---------------------------------------------------------------- chart 7: Werke credit accrual
 def chart_equipment_accrual():
     W, H = 960, 500
     x0, x1 = 90, 830
@@ -435,9 +435,9 @@ def chart_equipment_accrual():
     pmin, pmax = 80, 100
     cmax = 12000
     total = sum(r[2] for r in EQUIP_MONTHLY_2025)
-    parts = canvas(W, H, "Jaffle Equipment 2025: trailing on-time rate and the credit it triggers",
+    parts = canvas(W, H, "Jaffle Werke 2025: trailing on-time rate and the credit it triggers",
                    f"stg_revenue_ledger. Line: trailing-12-month on-time % (left axis). "
-                   f"Bars: monthly contract credit $ (right axis), total ${total:,.2f}.")
+                   f"Bars: monthly contract credit € (right axis), total €{total:,.2f}.")
 
     def yp(v):
         return bot - (v - pmin) / (pmax - pmin) * (bot - top)
@@ -449,16 +449,16 @@ def chart_equipment_accrual():
         parts.append(line(x0, yp(v), x1, yp(v), GRID, 1))
         parts.append(text(x0 - 8, yp(v) + 4, f"{v}%", 11.5, RED, "end"))
     for v in range(0, cmax + 1, 3000):
-        parts.append(text(x1 + 8, yc(v) + 4, f"${v//1000}k", 11.5, MID, "start"))
+        parts.append(text(x1 + 8, yc(v) + 4, f"€{v//1000}k", 11.5, MID, "start"))
     y_title(parts, 35, top, bot, "Trailing-12-month on-time rate (%)")
-    parts.append(text(x1 + 62, (top + bot) / 2, "Monthly contract credit (USD)", 12, GREY, "middle", rotate=90))
+    parts.append(text(x1 + 62, (top + bot) / 2, "Monthly contract credit (EUR)", 12, GREY, "middle", rotate=90))
     step = (x1 - x0) / 12
     bw = step * 0.55
     pts = []
     for i, (m, gross, cred, trail) in enumerate(EQUIP_MONTHLY_2025):
         cx = x0 + step * (i + 0.5)
         parts.append(rect(cx - bw / 2, yc(cred), bw, bot - yc(cred), LIGHT))
-        parts.append(text(cx, yc(cred) - 5, f"${cred/1000:.1f}k", 10, MID, "middle"))
+        parts.append(text(cx, yc(cred) - 5, f"€{cred/1000:.1f}k", 10, MID, "middle"))
         parts.append(text(cx, bot + 18, MONTHS[i], 11.5, INK, "middle"))
         pts.append((cx, yp(trail)))
     parts.append(line(x0, yp(SLA), x1, yp(SLA), INK, 1.5, "6,4"))
@@ -467,7 +467,7 @@ def chart_equipment_accrual():
     for i, (cx, cy) in enumerate(pts):
         parts.append(dot(cx, cy, RED))
         parts.append(halo(cx, cy - 9, f"{EQUIP_MONTHLY_2025[i][3]:.1f}", 10, RED, "middle", "bold"))
-    legend(parts, x0, 76, [(RED, "Trailing-12-month on-time %"), (LIGHT, "Monthly credit issued ($)")], step=240)
+    legend(parts, x0, 76, [(RED, "Trailing-12-month on-time %"), (LIGHT, "Monthly credit issued (€)")], step=240)
     parts.append(text((x0 + x1) / 2, H - 14, "Credit = 1.0% of monthly spend per full point below 97%, "
                       "capped at 10%. December: 11,337.50 on 113,375 gross = 10%.", 11, GREY, "middle"))
     save("cfo-07-equipment-credit-accrual.svg", parts)
@@ -478,7 +478,7 @@ def chart_concentration():
     W, H = 1000, 380
     parts = canvas(W, H, "Where the 2,009 shipments of 2025 came from",
                    "Share of 2025 shipments (stg_shipments). Volume is spread evenly by design; "
-                   "revenue is not (Equipment 33.5% of gross).")
+                   "revenue is not (Werke 33.5% of gross).")
     vmax = 25
 
     def panel(px0, px1, rows, heading, red_first):
