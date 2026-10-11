@@ -6,6 +6,7 @@ on:
     paths:
       - "docs/**"
       - "mkdocs.yml"
+      - "slides/**"
       - ".github/workflows/docs-publish.yml"
   workflow_dispatch:
 
@@ -31,4 +32,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install mkdocs-material==9.7.7
+      # the deck's source of truth is slides/presentation.html; copy it into the docs tree at build
+      # time so the published copy can never drift from the deck itself
+      - run: cp slides/presentation.html docs/shareholder-deck/presentation.html
       - run: mkdocs gh-deploy --force
