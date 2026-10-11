@@ -53,3 +53,34 @@ models:
         description: "Shipments in the month with status delayed, failed or returned. Equals shipments minus delivered only while those four are the only statuses, which stg_shipments.status's accepted_values test enforces."
       - name: ontime_pct
         description: "delivered / shipments x 100, rounded to 1 decimal (0-100 scale, not a fraction)."
+
+  - name: int_vehicle_service_intervals
+    description: >
+      Service intervals per vehicle, from the odometer at the time of inspection.
+      Grain: one row per periodic inspection in stg_vehicle_inspections. Each row
+      compares the service with the vehicle's previous periodic: km_since_previous
+      and days_since_previous against the 20,000 km / 365 day schedule, how far past
+      each target the vehicle ran (km_over_interval, days_over_interval) and an
+      interval_status. A vehicle's first periodic has null lags and reads 'ok'.
+    columns:
+      - name: inspection_id
+        tests: [unique, not_null]
+      - name: vehicle_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_vehicles')
+                field: vehicle_id
+      - name: km_since_previous
+        description: "odometer_reading minus the previous periodic's reading; null on a vehicle's first periodic."
+      - name: km_over_interval
+        description: "greatest(0, km_since_previous - 20000): km run past the service interval."
+      - name: days_over_interval
+        description: "greatest(0, days_since_previous - 365): days run past the service interval."
+      - name: interval_status
+        description: "ok, over_km, over_days or over_both (past both targets)."
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['ok', 'over_km', 'over_days', 'over_both']
