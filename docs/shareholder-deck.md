@@ -1,10 +1,11 @@
 # Shareholder pack
 
 A briefing on the business, assembled from the company's own operating data and skinned as a
-16-bit management game. Sixteen slides: the business in brief, the network, the executive group,
+16-bit management game. Seventeen slides: the business in brief, the network, the executive group,
 the year's results and the quarters behind them, one slide for each seat — finance, operations,
 revenue, customer experience, fleet, people and data — a case study of the storm week that broke
-Paris, and a closing slide showing how every number traces back to the system that recorded it.
+Paris, a slide showing how every number traces back to the system that recorded it, and a closing
+audit of where those numbers can, and cannot, be trusted.
 
 [**Open the deck &rarr;**](shareholder-deck/presentation.html){ .md-button .md-button--primary }
 Use the arrow keys to move, `f` for full screen, and print to PDF for a handout.
@@ -27,6 +28,7 @@ Use the arrow keys to move, `f` for full screen, and print to PDF for a handout.
 [![Slide 14: people](shareholder-deck/png/deck-13.png)](shareholder-deck/presentation.html)
 [![Slide 15: data](shareholder-deck/png/deck-14.png)](shareholder-deck/presentation.html)
 [![Slide 16: every number traces back](shareholder-deck/png/deck-15.png)](shareholder-deck/presentation.html)
+[![Slide 17: we audited ourselves](shareholder-deck/png/deck-16.png)](shareholder-deck/presentation.html)
 
 ## The graphics, in three styles
 

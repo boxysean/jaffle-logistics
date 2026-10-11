@@ -245,6 +245,30 @@
   .lin .cost strong { color: var(--amber); font-weight: 600; }
   .lin .foot { position: absolute; left: 20px; top: 590px; width: 1240px; font-size: 24px; line-height: 1.2; color: var(--dim); }
 
+  /* audit slide: body 140-650 in two columns. left: runs 140-384, fixed 408-650; right: not fixed 140-598,
+     footnote 622-650. fit budget at 24px mono (14.4px/char, 27.6px/line): runs is 522px inside (36 chars,
+     7 lines = 241 of 244), fixed 502 (34 chars, 7 lines = 233 of 242), not fixed 626 (43 chars, 13 lines =
+     407 of 458), and the footnote's 47 characters need 677 of the column's 678. each tab stands 12px above
+     its panel and each shadow 10px below, so the 24px gaps stay clear. not fixed is said in --hot */
+  .aud .hd { height: 96px; }
+  .aud .hd .owns { margin-top: 8px; }
+  .aud .runs { left: 20px; top: 140px; width: 550px; height: 244px; padding: 14px 10px 10px; }
+  .aud .runs .it + .it { margin-top: 8px; }
+  .aud .runs .k, .aud .runs .l { font-size: 24px; line-height: 1.15; }
+  .aud .runs .k { font-weight: 600; color: var(--amber); }
+  .aud .runs .l { color: var(--dim); }
+  .aud .fixed { left: 20px; top: 408px; width: 550px; height: 242px; padding: 14px 10px 10px; }
+  .aud .unfixed { left: 582px; top: 140px; width: 678px; height: 458px; padding: 14px 12px 10px; border-color: var(--hot); }
+  .aud .unfixed > .tab { background: var(--hot); }
+  .aud ul { list-style: none; margin: 0; padding: 0; }
+  .aud li { position: relative; padding-left: 20px; font-size: 24px; line-height: 1.15; }
+  .aud li + li { margin-top: 8px; }
+  .aud li::before { content: ""; position: absolute; left: 0; top: 9px; width: 10px; height: 10px; background: var(--amber); }
+  .aud .unfixed li::before { background: var(--hot); }
+  .aud strong { color: var(--amber); font-weight: 600; }
+  .aud .unfixed strong { color: var(--hot); }
+  .aud .foot { position: absolute; left: 582px; top: 622px; width: 678px; font-size: 24px; line-height: 1.2; color: var(--dim); white-space: nowrap; }
+
   /* full-bleed image slides */
   .shot { position: absolute; left: 0; top: 0; width: 1280px; height: 720px; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; object-fit: contain; display: block; }
   /* the image is the whole slide: no scanline overlay, and its own caption bar replaces the status bar */
@@ -999,6 +1023,38 @@
       </ul>
     </div>
     <div class="foot">In a live deployment each source arrives through its own connector; in this worked example the 26 sources are seeded, so the whole pipeline runs anywhere.</div>
+  </div>
+</section>
+
+<!-- 17. The dbt audit -->
+<section class="aud" data-src="reports/dbt-best-practices-audit.md" data-status="the dbt audit">
+  <div class="frame">
+    <div class="panel hd">
+      <h2>WE AUDITED OURSELVES</h2>
+      <div class="owns">What dbt's quality layer found when we pointed it at our own project</div>
+    </div>
+    <div class="panel runs">
+      <span class="tab">WHAT RUNS ON EVERY CHANGE</span>
+      <div class="it"><div class="k">340 checks</div><div class="l">pass, with no warnings and no errors</div></div>
+      <div class="it"><div class="k">+4 tests added, 2 removed</div><div class="l">the two we removed could never fail</div></div>
+      <div class="it"><div class="k">A failing test stops the release.</div><div class="l">the build fails, the release does not ship</div></div>
+    </div>
+    <div class="panel fixed">
+      <span class="tab">WHAT WE FIXED</span>
+      <ul>
+        <li><strong>The on-time metric had no null guard.</strong> Its status test <strong>ignored nulls</strong>, so a null could skew the rate on a green build. <code>not_null</code> now guards all four inputs.</li>
+        <li><strong>Two tests could never fail,</strong> so both were deleted, not counted.</li>
+      </ul>
+    </div>
+    <div class="panel unfixed">
+      <span class="tab">WHAT WE HAVE NOT FIXED</span>
+      <ul>
+        <li><strong>No unit tests.</strong> The logic most likely to break silently is engine-specific: the shipment-ID regex and the transcript parser each branch per engine, and the local check only exercises the DuckDB branch - so the production branch is never checked against known inputs before it runs.</li>
+        <li><strong>No contracts, access levels or exposures.</strong> Two agent skills read <code>knowledge_base</code> and <code>fct_shipments</code> by name. A column rename would break them with no build-time signal.</li>
+        <li><strong>The on-time rule is written out in three places.</strong> Three copies drift.</li>
+      </ul>
+    </div>
+    <div class="foot">Full audit: <code>reports/dbt-best-practices-audit.md</code></div>
   </div>
 </section>
 
