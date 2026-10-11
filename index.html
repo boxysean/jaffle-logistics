@@ -12,7 +12,7 @@
       
       
       
-        <link rel="next" href="the-problem.html">
+        <link rel="next" href="about.html">
       
       
         
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#jaffle-logistics" class="md-skip">
+        <a href="#jaffle-logistics-shareholder-pack" class="md-skip">
           Skip to content
         </a>
       
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Slideshow
             
           </span>
         </div>
@@ -274,7 +274,7 @@
   <span class="md-ellipsis">
     
   
-    Home
+    Slideshow
   
 
     
@@ -284,6 +284,33 @@
 
       </a>
       
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="about.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About the project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -542,43 +569,14 @@
   
 
 
-<h1 id="jaffle-logistics">Jaffle Logistics<a class="headerlink" href="#jaffle-logistics" title="Permanent link">&para;</a></h1>
-<p>Jaffle Logistics is a fictional logistics company, and its data looks like
-most companies' data: scattered.</p>
-<p>One account's story lives across roughly eight disconnected systems: a CRM,
-a support ticketing tool, dispatch notes from the ops floor, incident
-reports, legal contracts, Slack threads, and call transcripts. Some of
-those systems reference a shipment by a clean, structured ID. Others bury
-it in a sentence of free text. Some don't reference a shipment at all;
-they reference an incident that itself references a shipment.</p>
-<p>Ask a targeted question, "what contributed to poor delivery performance
-for the Jaffle Werke account this year," and the honest answer is
-spread across every one of those systems, in a mix of structured columns
-and prose nobody indexed for this purpose.</p>
-<p>This project is a worked example of a real ceiling in exact-match SQL
-patterns, joins and regex, and what it actually takes to get past that
-ceiling while staying in dbt:</p>
-<ul>
-<li><strong><a href="the-problem.html">The problem</a></strong> shows the deterministic baseline: how
-  far you can get with joins, a shipment ID regex, and a lot of patience,
-  and where that approach runs out of road.</li>
-<li><strong><a href="context-engineering.html">Context engineering</a></strong> walks through
-  <a href="https://github.com/dbt-labs/dbt-context-engineering"><code>dbt_context_engineering</code></a>,
-  a package that chunks, embeds, and enriches the same free text in SQL,
-  orchestrated by dbt, so it becomes searchable by meaning instead of
-  exact match. Enrichment runs alongside embedding, not after it. It's
-  a real building block, still short of a finished RAG pattern.</li>
-<li><strong><a href="comparison.html">Comparison</a></strong> puts both approaches side by side
-  against real output, including where plain vector search falls short.</li>
-<li><strong><a href="governance.html">Governance</a></strong> covers what keeps an AI-function layer
-  like this safe to run: cost guards, an audit log, and an incremental
-  design that means reruns cost nothing once the content stops changing.</li>
-<li><strong><a href="multi-platform.html">Multi-platform</a></strong> documents what it took to get
-  the same pipeline running correctly on Snowflake, BigQuery, Databricks,
-  and DuckDB.</li>
-<li><strong><a href="roadmap.html">Roadmap</a></strong> is honest about what's deliberately not built
-  yet.</li>
-</ul>
+<p><meta http-equiv="refresh" content="0; url=shareholder-deck/presentation.html"></p>
+<h1 id="jaffle-logistics-shareholder-pack">Jaffle Logistics — shareholder pack<a class="headerlink" href="#jaffle-logistics-shareholder-pack" title="Permanent link">&para;</a></h1>
+<p>Opening the slideshow…</p>
+<p>If it does not open on its own: <a href="shareholder-deck/presentation.html"><strong>open the shareholder deck</strong></a>.</p>
+<p>Everything behind it: <a href="about.html">about this project</a> · <a href="the-problem.html">the problem</a> ·
+<a href="history.html">the data</a> · <a href="context-engineering.html">context engineering</a> ·
+<a href="comparison.html">comparison</a> · <a href="governance.html">governance</a> ·
+<a href="multi-platform.html">multi-platform</a> · <a href="roadmap.html">roadmap</a>.</p>
 
 
 
