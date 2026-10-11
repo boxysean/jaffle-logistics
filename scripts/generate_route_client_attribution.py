@@ -21,7 +21,7 @@ Client mix:
     on more routes and an account's footprint follows its own volume over time. All
     shipments count, not only the route-linked ones: none of CLI-0042's 2025 freight
     carries a route_id, and weighting by routed shipments alone would wrongly drop
-    Jaffle Equipment from 2025 routes.
+    Jaffle Werke from 2025 routes.
   * Stop weight per client = (1 + 2 x its shipments on the route) x a 0.5-1.5 jitter.
     stop_share is the normalised stop weight.
   * revenue_share = stop weight x the account's revenue per stop (LTL freight earns more
@@ -33,12 +33,17 @@ Client mix:
 Rounding: shares are rounded to 4 dp and the largest-share row absorbs the remainder,
 so each route's stop_share and revenue_share sum to exactly 1.0000.
 
-The 2025 Columbus story: on every route carrying a 2025 damage incident (type =
-'damage', the HUB-CMH bay-3 handling-damage cluster and the scattered damage elsewhere),
-Jaffle Equipment (CLI-0042) is on the route with the largest stop share, and its
+The 2025 Amsterdam story: on every route carrying a 2025 damage incident (type =
+'damage', the HUB-AMS bay-3 handling-damage cluster and the scattered damage elsewhere),
+Jaffle Werke (CLI-0042) is on the route with the largest stop share, and its
 exception weight is tripled, so it holds the largest exception_attributed. On the
 2023-2024 damage routes CLI-0042 is held below the route's leading account, so the
 2025 concentration has no earlier analogue. Nothing else is year-dependent.
+
+Legacy keys: every draw is salted with the route's legacy route_id (the hub code it
+carried before the hubs were relabelled, e.g. RTE-AMS-... was RTE-CMH-...), and routes
+are processed and written in legacy route_id order. Keying on the current id would move
+every share; the legacy key keeps the committed values and row order.
 
 Run from the repo root:  python3 scripts/generate_route_client_attribution.py
 """
@@ -73,6 +78,9 @@ EQUIPMENT_LEAD = Decimal("1.6")         # 2025 damage routes: CLI-0042 stop weig
 EQUIPMENT_DAMAGE_WEIGHT = Decimal("3")  # 2025 damage routes: CLI-0042 exception weight x
 QUIET_EQUIPMENT_CAP = Decimal("0.5")    # 2023-24 damage routes: CLI-0042 vs route leader
 
+# Current hub code -> the legacy code the hash draws and the row order are keyed on.
+LEGACY_HUB_CODE = {"AMS": "CMH", "PAR": "CHI", "BER": "IND", "VIE": "DET", "ZRH": "CIN"}
+
 SHARE = Decimal("0.0001")
 COLUMNS = ["route_id", "client_id", "stop_share", "revenue_share", "exception_attributed"]
 
@@ -80,6 +88,12 @@ COLUMNS = ["route_id", "client_id", "stop_share", "revenue_share", "exception_at
 def read(name):
     with open(os.path.join(SEEDS, name), newline="") as f:
         return list(csv.DictReader(f))
+
+
+def legacy_id(route_id):
+    """RTE-AMS-20250101-001 -> RTE-CMH-20250101-001: the key the draws were salted with."""
+    prefix, code, rest = route_id.split("-", 2)
+    return "-".join((prefix, LEGACY_HUB_CODE[code], rest))
 
 
 def unit(*parts):
@@ -127,7 +141,7 @@ def dominant(rows):
 def main():
     clients = sorted(r["client_id"] for r in read("clients.csv"))
     assert set(clients) == set(REVENUE_PER_STOP), clients
-    routes = sorted(read("routes.csv"), key=lambda r: r["route_id"])
+    routes = sorted(read("routes.csv"), key=lambda r: legacy_id(r["route_id"]))
     route_ids = {r["route_id"] for r in routes}
 
     on_route = collections.defaultdict(collections.Counter)
@@ -153,9 +167,10 @@ def main():
     by_route = {}
     for r in routes:
         rid = r["route_id"]
+        key = legacy_id(rid)   # hash-draw salt
         observed = on_route.get(rid, collections.Counter())
         assert len(observed) <= MAX_CLIENTS, rid
-        n = max(client_count(rid), len(observed))
+        n = max(client_count(key), len(observed))
 
         # Top up from the remaining accounts, weighted by hub-month volume (+1).
         volume = hub_month[(r["hub_id"], r["service_date"][:7])]
@@ -163,7 +178,7 @@ def main():
         pool = [c for c in clients if c not in observed]
         while len(chosen) < n:
             # Weighted draw without replacement: smallest -log(u)/w wins (exponential race).
-            pick = min(pool, key=lambda c: (Decimal(1) - Decimal(repr(unit(rid, "pick", c))))
+            pick = min(pool, key=lambda c: (Decimal(1) - Decimal(repr(unit(key, "pick", c))))
                        .ln() / -(volume[c] + 1))
             chosen.append(pick)
             pool.remove(pick)
@@ -181,7 +196,7 @@ def main():
             chosen.append(max(sorted(c for c in clients if c != EQUIPMENT),
                               key=lambda c: volume[c]))
 
-        stop_w = {c: (1 + 2 * observed[c]) * jitter("0.5", "1.5", rid, "stops", c)
+        stop_w = {c: (1 + 2 * observed[c]) * jitter("0.5", "1.5", key, "stops", c)
                   for c in sorted(chosen)}
         if rid in story_routes and len(stop_w) > 1:
             stop_w[EQUIPMENT] = EQUIPMENT_LEAD * max(w for c, w in stop_w.items()
@@ -190,7 +205,7 @@ def main():
             others = max(w for c, w in stop_w.items() if c != EQUIPMENT)
             stop_w[EQUIPMENT] = min(stop_w[EQUIPMENT], QUIET_EQUIPMENT_CAP * others)
 
-        rev_w = {c: w * REVENUE_PER_STOP[c] * jitter("0.85", "1.15", rid, "revenue", c)
+        rev_w = {c: w * REVENUE_PER_STOP[c] * jitter("0.85", "1.15", key, "revenue", c)
                  for c, w in stop_w.items()}
         exc_w = dict(stop_w)
         if rid in story_routes:
@@ -241,9 +256,9 @@ def main():
     for y in sorted(damage_routes):
         rids = damage_routes[y]
         n42 = sum(dominant(by_route[rid]) == EQUIPMENT for rid in rids)
-        cmh = sum(1 for i in damage_incidents[y] if i["hub_id"] == "HUB-CMH")
+        ams = sum(1 for i in damage_incidents[y] if i["hub_id"] == "HUB-AMS")
         print(f"  {y}  {n42:>2} of {len(rids):>2} routes  "
-              f"({len(damage_incidents[y])} incidents, {cmh} at HUB-CMH)")
+              f"({len(damage_incidents[y])} incidents, {ams} at HUB-AMS)")
 
 
 if __name__ == "__main__":

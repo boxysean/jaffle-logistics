@@ -4,29 +4,52 @@ time, adding the quiet years 2023 and 2024 to seeds/support_tickets.csv and the
 matching ground-truth labels to seeds/eval_ticket_triage.csv.
 
 APPEND ONLY: existing bytes are read and re-written untouched; new rows are
-appended after them. New ticket ids continue the plain TKT-2NNNNN sequence
-upward from TKT-200299 (the last existing plain id), and every foreign key
-points at a row that exists (the client / shipment chosen for the ticket).
+appended after them. New ticket ids are pinned to TKT-200300 upward (they
+continued the plain TKT-2NNNNN sequence after TKT-200299 when first written),
+and every foreign key points at a row that exists (the client / shipment chosen
+for the ticket).
 
 Story the numbers tell:
   * 2023 and 2024 are the ordinary, healthy years: a late load, a POD request,
     an accessorial/contact question, the occasional missed delivery -- resolved
     without a systemic pattern.
-  * No storm flood, no recurring Columbus (HUB-CMH) handling-damage cluster and
-    no Jaffle Equipment (CLI-0042) escalation trend: those belong to 2025 and
+  * No storm flood, no recurring Amsterdam (HUB-AMS) handling-damage cluster and
+    no Jaffle Werke (CLI-0042) escalation trend: those belong to 2025 and
     are untouched here. New tickets simply continue the ordinary TKT-200xxx mix.
 
 Every new ticket carries exactly one ground-truth label row (category +
 sentiment) whose values come from the existing vocabulary and match the body.
+
+Later revisions this script replays so a re-run reproduces the same rows:
+  * scripts/generate_volume_variation.py later dropped unreferenced 2023-2024
+    shipments. The shipment draws index into per-month pools, so the dropped rows
+    are put back in their slots as placeholders that can never be drawn. Before
+    that revision each 2023-2024 month ran SHP-YYYYMM-000001 ..
+    ORIGINAL_MONTH_ROWS[month] in order, so a gap in the id sequence is a dropped
+    row; all were delivered except DROPPED_STATUS.
+  * scripts/generate_ticket_timestamps.py later added the response clock columns
+    to every ticket. When the file has them, the new rows get the same clock that
+    script gives them (its seeded stream run over the existing rows, then these).
 """
-import csv, io, os, random, datetime, collections
+import csv, io, os, sys, random, datetime, collections
 
 SEED = 20231002
 HERE = os.path.dirname(os.path.abspath(__file__))
 SEEDS = os.path.join(HERE, "..", "seeds")
 
-HUB_CITY = {"HUB-CMH": "Columbus", "HUB-CHI": "Chicago", "HUB-IND": "Indianapolis",
-            "HUB-DET": "Detroit", "HUB-CIN": "Cincinnati"}
+FIRST_TICKET = 200300      # pinned: the block's ids run TKT-200300 upward
+
+HUB_CITY = {"HUB-AMS": "Amsterdam", "HUB-PAR": "Paris", "HUB-BER": "Berlin",
+            "HUB-VIE": "Vienna", "HUB-ZRH": "Zürich"}
+
+# Pre-revision 2023-2024 shipments (see docstring). 2023 and 2024 had the same
+# monthly row counts.
+_MONTH_ROWS = (183, 143, 160, 145, 151, 139, 171, 162, 159, 169, 203, 224)
+ORIGINAL_MONTH_ROWS = {(year, month): n
+                       for year in (2023, 2024) for month, n in enumerate(_MONTH_ROWS, 1)}
+DROPPED_STATUS = {"SHP-202306-000062": "delayed", "SHP-202306-000087": "delayed",
+                  "SHP-202306-000118": "delayed", "SHP-202310-000147": "delayed",
+                  "SHP-202403-000160": "delayed", "SHP-202412-000221": "returned"}
 AGENTS = ["agent.mruiz", "agent.dfoster", "agent.tpatel",
           "agent.jbrooks", "agent.lchen", "agent.kobrien"]
 
@@ -42,17 +65,31 @@ def load(name):
         return list(csv.DictReader(fh))
 
 
-def append_rows(name, rows):
-    """Append csv rows (CRLF, matching the existing files) after the existing bytes."""
-    path = os.path.join(SEEDS, name + ".csv")
-    with open(path, "rb") as fh:
-        original = fh.read()
+def build_block(rows):
+    """Serialize csv rows (CRLF, matching the existing files) without writing."""
     buf = io.StringIO()
     w = csv.writer(buf, lineterminator="\r\n")
     w.writerows(rows)
-    with open(path, "ab") as fh:
-        fh.write(buf.getvalue().encode())
-    return len(original)
+    return buf.getvalue().encode()
+
+
+def block_present(name, rows, block):
+    """True if the block is already the file's tail, byte for byte; False if none of its
+    ids are on file yet. Any other collision with an existing id is an error."""
+    with open(os.path.join(SEEDS, name + ".csv"), newline="") as fh:
+        existing_ids = {r[0] for r in csv.reader(fh)}
+    if not any(r[0] in existing_ids for r in rows):
+        return False
+    with open(os.path.join(SEEDS, name + ".csv"), "rb") as fh:
+        if fh.read().endswith(block):
+            return True
+    raise RuntimeError("%s.csv already holds %s.. but not this block; refusing to append"
+                       % (name, rows[0][0]))
+
+
+def append_block(name, block):
+    with open(os.path.join(SEEDS, name + ".csv"), "ab") as fh:
+        fh.write(block)
 
 
 def weighted_choice(rng, items, weights):
@@ -221,15 +258,37 @@ def pick_csat(rng, status, sentiment):
     return str(weighted_choice(rng, [1, 2, 3], [5, 3, 1]))
 
 
+def with_response_clock(existing_tk, new_tickets):
+    """The new rows plus the clock columns scripts/generate_ticket_timestamps.py gives
+    them: its seeded stream, run over the existing rows in file order, then these."""
+    sys.path.insert(0, HERE)
+    import generate_ticket_timestamps as tt
+    hubs = tt.load_hubs()
+    rng = random.Random(tt.SEED)
+    own_ids = {values[0] for values in new_tickets}   # skip this block's rows on a re-run
+    for row in existing_tk:
+        if row["ticket_id"] not in own_ids:
+            tt.clock(rng, row, hubs.get(row["shipment_id"]))
+    cols = ["ticket_id", "client_id", "shipment_id", "opened_at", "channel", "status",
+            "csat", "body"]
+    out = []
+    for values in new_tickets:
+        row = dict(zip(cols, values))
+        opened, first, resolved = tt.clock(rng, row, hubs.get(row["shipment_id"]))
+        out.append(values + [first.strftime(tt.FMT),
+                             resolved.strftime(tt.FMT) if resolved else "",
+                             tt.fmt_h(tt.hours(opened, first)),
+                             tt.fmt_h(tt.hours(opened, resolved)) if resolved else ""])
+    return out
+
+
 def main():
     rng = random.Random(SEED)
 
     existing_tk = load("support_tickets")
     shipments = load("shipments")
 
-    max_plain = max(int(r["ticket_id"].split("-")[1])
-                    for r in existing_tk if r["ticket_id"].startswith("TKT-2"))
-    next_id = max_plain + 1
+    next_id = FIRST_TICKET
 
     # shipments grouped by (year, month) and by status class, with parsed dates.
     # Category is chosen first (mirroring the ordinary 2025 mix), then a shipment
@@ -238,19 +297,27 @@ def main():
     def sclass(st):
         return "delivered" if st == "delivered" else ("delayed" if st == "delayed" else "failed")
 
+    # The 2023-2024 shipments as they stood when the tickets were drawn: the surviving
+    # rows, with each dropped row back in its slot as a placeholder (created None).
+    by_id = {s["shipment_id"]: s for s in shipments if s["created_at"][:4] in ("2023", "2024")}
     ships_by_ym = collections.defaultdict(list)
     pool_month = collections.defaultdict(list)
     pool_year = collections.defaultdict(list)
-    for s in shipments:
-        y = int(s["created_at"][:4])
-        if y not in (2023, 2024):
-            continue
-        created = datetime.datetime.strptime(s["created_at"], "%Y-%m-%dT%H:%M:%S")
-        m = int(s["created_at"][5:7])
-        cls = sclass(s["status"])
-        ships_by_ym[(y, m)].append((created, s))
-        pool_month[(y, m, cls)].append((created, s))
-        pool_year[(y, cls)].append((created, s))
+    for (y, m), n in sorted(ORIGINAL_MONTH_ROWS.items()):
+        for seq in range(1, n + 1):
+            sid = "SHP-%04d%02d-%06d" % (y, m, seq)
+            s = by_id.pop(sid, None)
+            if s is None:
+                entry = (None, {"shipment_id": sid,
+                                "status": DROPPED_STATUS.get(sid, "delivered")})
+            else:
+                assert (int(s["created_at"][:4]), int(s["created_at"][5:7])) == (y, m), sid
+                entry = (datetime.datetime.strptime(s["created_at"], "%Y-%m-%dT%H:%M:%S"), s)
+            cls = sclass(entry[1]["status"])
+            ships_by_ym[(y, m)].append(entry)
+            pool_month[(y, m, cls)].append(entry)
+            pool_year[(y, cls)].append(entry)
+    assert not by_id, sorted(by_id)[:5]
 
     CAT_CLASS = {"general_inquiry": "delivered", "wrong_item": "delivered",
                  "delivery_delay": "delayed", "delivery_failed": "failed"}
@@ -272,6 +339,7 @@ def main():
                         or pool_year.get((year, cls))
                         or ships_by_ym[(year, month)])
                 created, ship = rng.choice(pool)
+                assert created is not None, "drew a dropped shipment %s" % ship["shipment_id"]
                 sid = ship["shipment_id"]
                 client = ship["client_id"]
                 hub = ship["origin_hub_id"]
@@ -301,11 +369,26 @@ def main():
                                     channel, status, csat, body])
                 new_labels.append([tid, cat, sent])
 
-    append_rows("support_tickets", new_tickets)
-    append_rows("eval_ticket_triage", new_labels)
+    with open(os.path.join(SEEDS, "support_tickets.csv"), newline="") as fh:
+        header = next(csv.reader(fh))
+    if "first_response_at" in header:
+        new_tickets = with_response_clock(existing_tk, new_tickets)
+
+    tk_block = build_block(new_tickets)
+    lb_block = build_block(new_labels)
+    present = [block_present("support_tickets", new_tickets, tk_block),
+               block_present("eval_ticket_triage", new_labels, lb_block)]
+    if all(present):
+        print("already present: each block is its file's tail, byte for byte; nothing written")
+        return
+    if any(present):
+        raise RuntimeError("only one of support_tickets.csv / eval_ticket_triage.csv holds its "
+                           "block; refusing to append")
+    append_block("support_tickets", tk_block)
+    append_block("eval_ticket_triage", lb_block)
 
     print("added tickets", len(new_tickets), "labels", len(new_labels))
-    print("id range: TKT-%d .. TKT-%d" % (max_plain + 1, next_id - 1))
+    print("id range: TKT-%d .. TKT-%d" % (FIRST_TICKET, next_id - 1))
     print("date range:", new_tickets[0][3], "..", max(r[3] for r in new_tickets))
     print("category dist:", dict(collections.Counter(r[1] for r in new_labels)))
     print("sentiment dist:", dict(collections.Counter(r[2] for r in new_labels)))

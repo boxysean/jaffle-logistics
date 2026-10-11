@@ -17,14 +17,14 @@ Design:
 * ``subcontractor_cost`` = a per-route cover base plus a premium that spikes in exactly the
   months the hub ran into exception trouble: the month's exception load is
   ``dispatch_notes`` count + 2x incidents + 4x *damage* incidents, less the hub's own
-  2023-2024 baseline. The 4x weighting puts the 2025 HUB-CMH handling-damage cluster visibly
-  on CMH while the other hubs stay near their 2024 run rate.
+  2023-2024 baseline. The 4x weighting puts the 2025 HUB-AMS handling-damage cluster visibly
+  on AMS while the other hubs stay near their 2024 run rate.
 * ``facility_cost`` (rent, utilities, dock/door) scales with the hub's function and carries a
   winter utilities bump and a light annual escalation; ``technology_cost`` (telematics, TMS
   licence, handhelds) scales with the hub's fleet size. Both are quiet across 2023-2024.
 * All costs scale with the hub's real size (route volume and fleet), so small hubs cost less.
 
-Nothing is dated after 2025-12-31 and no 2025 signal (storm, CMH damage cluster, the
+Nothing is dated after 2025-12-31 and no 2025 signal (storm, AMS damage cluster, the
 CLI-0042 decline) appears in 2023-2024.
 
 Run:  python3 scripts/generate_cost_ledger.py
@@ -48,14 +48,14 @@ OUT_PATH = os.path.join(SEEDS, "cost_ledger.csv")
 FIRST_MONTH = (2020, 1)
 LAST_MONTH = (2025, 12)
 
-# --- cost shape parameters (USD) ------------------------------------------------------
+# --- cost shape parameters (EUR) ------------------------------------------------------
 FUEL_PER_ROUTE = 780          # baseline diesel for one route-day at the reference price
 SUBCONTRACTOR_PER_ROUTE = 210  # baseline bought-in linehaul/cartage per route-day
-COVER_RATE = 700              # $ of exception cover per unit of load above the hub baseline
+COVER_RATE = 700              # € of exception cover per unit of load above the hub baseline
 
 # Exception load weights. Ordinary dispatch notes are the background; incidents weigh more
 # and handling *damage* weighs most (and by severity), because damage is what forces rework
-# and bought-in cover. This is what puts the 2025 HUB-CMH damage cluster visibly on CMH.
+# and bought-in cover. This is what puts the 2025 HUB-AMS damage cluster visibly on AMS.
 LOAD_DISPATCH = 0.25
 LOAD_INCIDENT = 2
 LOAD_DAMAGE_SEVERITY = {1: 1, 2: 2, 3: 4, 4: 6}  # multiplied by LOAD_DAMAGE
@@ -75,6 +75,9 @@ FUEL_SEASON = {1: 1.14, 2: 1.12, 3: 1.04, 4: 0.99, 5: 0.97, 6: 0.99,
                7: 1.02, 8: 1.02, 9: 0.99, 10: 1.00, 11: 1.06, 12: 1.13}
 UTIL_SEASON = {1: 1.08, 2: 1.08, 3: 1.03, 4: 1.00, 5: 0.99, 6: 1.00,
                7: 1.02, 8: 1.02, 9: 0.99, 10: 1.00, 11: 1.04, 12: 1.07}
+
+# Committed row order within a month (the hubs' legacy codes, alphabetically).
+LEGACY_HUB_ORDER = {"HUB-PAR": 0, "HUB-ZRH": 1, "HUB-AMS": 2, "HUB-VIE": 3, "HUB-BER": 4}
 
 
 def read_csv(path):
@@ -183,7 +186,9 @@ def main():
                 "total_cost": total,
             })
 
-    rows.sort(key=lambda r: (r["cost_month"], r["hub_id"]))
+    # Within a month, rows keep the order the ledger was first written in: the hubs'
+    # legacy (pre-relabel) codes sorted alphabetically, not the current hub ids.
+    rows.sort(key=lambda r: (r["cost_month"], LEGACY_HUB_ORDER[r["hub_id"]]))
 
     # guard rails
     assert len(rows) == 72 * len(hubs), len(rows)
@@ -212,9 +217,9 @@ def main():
         print("  %d total %12d  fuel %9d  maint %7d  sub %9d" % (
             y, sum(r["total_cost"] for r in yr), sum(r["fuel_cost"] for r in yr),
             sum(r["maintenance_cost"] for r in yr), sum(r["subcontractor_cost"] for r in yr)))
-    print("HUB-CMH by year:")
+    print("HUB-AMS by year:")
     for y in range(2020, 2026):
-        yr = [r for r in rows if r["cost_month"][:4] == str(y) and r["hub_id"] == "HUB-CMH"]
+        yr = [r for r in rows if r["cost_month"][:4] == str(y) and r["hub_id"] == "HUB-AMS"]
         print("  %d total %12d  maint %7d  sub %9d" % (
             y, sum(r["total_cost"] for r in yr), sum(r["maintenance_cost"] for r in yr),
             sum(r["subcontractor_cost"] for r in yr)))

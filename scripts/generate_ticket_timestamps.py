@@ -56,7 +56,7 @@ PRESENT = datetime.datetime(2025, 12, 31, 23, 59, 59)
 DESK_OPEN, DESK_CLOSE = 8, 19
 MINUTE = datetime.timedelta(minutes=1)
 
-STRAINED_CLIENT = "CLI-0042"      # Jaffle Werke -- Equipment
+STRAINED_CLIENT = "CLI-0042"      # Jaffle Werke
 BUSIEST_HUB = "HUB-PAR"           # Paris
 
 # Median hours of desk time to a first reply, phone fastest -> email slowest.

@@ -9,10 +9,10 @@ Revenue model:
   * 2023-01 onward (the shipment record exists): derived from that month's shipments
     for the client (created_at month).
       base         = sum of rate(service_level) x client contract factor
-      accessorials = $85 per expedited shipment
-                   + $75 per liftgate/waiting-time shipment (every 5th shipment of the
+      accessorials = €85 per expedited shipment
+                   + €75 per liftgate/waiting-time shipment (every 5th shipment of the
                      month, in shipment_id order, for that client)
-                   + $140 per failed or returned shipment
+                   + €140 per failed or returned shipment
       invoices     = distinct ISO weeks with >= 1 shipment (weekly consolidated billing)
   * 2020-01 .. 2022-12 (no shipment record): imputed from the client's 2023 same-month
     volume x a growth factor, at the client's 2023 average base per shipment x a price
@@ -293,27 +293,27 @@ def main():
                            if r["client_id"] == cid and r["revenue_month"].year == 2025
                            and r["credited_amount"] > 0]
         total_2025 += amt
-        print(f"  {cid}  ${amt:>12,.2f}  months credited: {', '.join(months_credited) or 'none'}")
-    print(f"  total     ${total_2025:>12,.2f}")
+        print(f"  {cid}  €{amt:>12,.2f}  months credited: {', '.join(months_credited) or 'none'}")
+    print(f"  total     €{total_2025:>12,.2f}")
     print("\nCLI-0042 2025 by month (trailing-12m vs SLA -> credit):")
     for r in rows:
         if r["client_id"] == "CLI-0042" and r["revenue_month"].year == 2025:
             gross = r["contracted_base_revenue"] + r["accessorial_revenue"]
             print(f"  {r['revenue_month']}  t12m {r['trailing_12m_ontime_pct']:>5}  "
-                  f"SLA {r['sla_ontime_pct']}  gross ${gross:>11,.2f}  credit ${r['credited_amount']:>10,.2f}")
-    print(f"  CLI-0042 2025 total credits: ${sum(c42.values()):,.2f}")
+                  f"SLA {r['sla_ontime_pct']}  gross €{gross:>11,.2f}  credit €{r['credited_amount']:>10,.2f}")
+    print(f"  CLI-0042 2025 total credits: €{sum(c42.values()):,.2f}")
     print("\nwhole-book revenue by year (gross / credits / net):")
     for year in range(START.year, END.year + 1):
         yr = [r for r in rows if r["revenue_month"].year == year]
         gross = sum(r["contracted_base_revenue"] + r["accessorial_revenue"] for r in yr)
         cred = sum(r["credited_amount"] for r in yr)
         net = sum(r["net_revenue"] for r in yr)
-        print(f"  {year}  ${gross:>14,.2f}  ${cred:>11,.2f}  ${net:>14,.2f}")
+        print(f"  {year}  €{gross:>14,.2f}  €{cred:>11,.2f}  €{net:>14,.2f}")
     print("\nhealthy-book (excl. CLI-0042) gross by year:")
     for year in (2023, 2024, 2025):
         n = sum(r["shipment_count"] for r in rows
                 if r["client_id"] in healthy and r["revenue_month"].year == year)
-        print(f"  {year}  ${healthy_gross[year]:>14,.2f}  ({n} shipments)")
+        print(f"  {year}  €{healthy_gross[year]:>14,.2f}  ({n} shipments)")
     if not healthy_grows:
         print("  CHECK NOT MET (constraint 4): healthy-book revenue does not grow 2023 -> 2025."
               " Volume grows, but these accounts' 2025 freight mix is far thinner than in 2023-24"

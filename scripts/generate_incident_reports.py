@@ -6,15 +6,21 @@ the voice/format of the existing 2025 rows exactly. Reports are the *escalated s
 of seeds/incidents.csv: one report for a significant incident (severity >= 3, or any
 accident/dispute), spread across months, filed a few days after the event.
 
-Idempotent-ish: refuses to run if a row whose report_id is already present would be
-written (it appends only new IR-7xxx ids above the current max).
+Texture is the European network's: a missed departure can be the driver's EC 561/2006
+daily driving limit, a Zürich (HUB-ZRH) delay can be compounded by a Swiss customs hold at
+the border, and the load-check step carries an ADR dangerous-goods sign-off.
+
+Ids are pinned to IR-7035 upward (the first free id when the block was first written).
+Later generators appended rows after it, so on a re-run the block sits inside the file,
+not at its end: if it is already present, byte for byte, the run reports it and writes
+nothing; any other collision with an existing id is an error.
 
 Run:  python3 scripts/generate_incident_reports.py
 """
 import csv
+import io
 import os
 import random
-import sys
 from collections import Counter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -26,14 +32,14 @@ SHIP_PATH = os.path.join(SEEDS, "shipments.csv")
 SEED = 20231010
 YEARS = ("2023", "2024")
 TARGET_PER_YEAR = 16
-FIRST_REPORT_NUM = 7035  # continue IR-7xxx upward (existing max in the 7xxx block is IR-7034)
+FIRST_REPORT_NUM = 7035  # pinned: the block's ids run IR-7035 upward
 
 CITY = {
-    "HUB-CMH": "Columbus",
-    "HUB-CHI": "Chicago",
-    "HUB-IND": "Indianapolis",
-    "HUB-DET": "Detroit",
-    "HUB-CIN": "Cincinnati",
+    "HUB-AMS": "Amsterdam",
+    "HUB-PAR": "Paris",
+    "HUB-BER": "Berlin",
+    "HUB-VIE": "Vienna",
+    "HUB-ZRH": "Zürich",
 }
 
 # Name + function, matching the existing convention. Existing authors first, plus two
@@ -52,7 +58,7 @@ AUTHORS = [
 ]
 
 # Mundane, closed-out root causes only. Deliberately NO storm narrative, no systemic
-# handling-damage finding at HUB-CMH, no bay-3 pattern — none of that may start early.
+# handling-damage finding at HUB-AMS, no bay-3 pattern — none of that may start early.
 ROOT_CAUSE = {
     "accident": [
         "Loss of traction on an unsalted approach; contributing factor was reduced following distance.",
@@ -74,7 +80,7 @@ ROOT_CAUSE = {
     "delay": [
         "Cascading ETA slippage from an upstream hub exception.",
         "A delay at the previous hub pushed this leg past its dispatch window, and the next truck had already left.",
-        "An upstream exception ate the buffer this leg needed; there was no next available departure until the next day.",
+        "An upstream exception ate the buffer this leg needed; the driver had also reached the EC 561/2006 daily driving limit, so there was no next available departure until the next day.",
     ],
     "weather": [
         "Severe weather at the hub exceeded the safe-dispatch threshold.",
@@ -93,7 +99,7 @@ REMEDIATION = {
         "Refresher training booked for the shift; checklist now requires a supervisor sign-off.",
     ],
     "damage": [
-        "Loading crew walked back through the securement checklist; a load-check step added before departure.",
+        "Loading crew walked back through the securement checklist; a load-check step added before departure, with a second sign-off for ADR dangerous-goods consignments.",
         "Retraining scheduled; process checklist updated.",
         "Refresher training booked for the shift; checklist now requires a supervisor sign-off.",
     ],
@@ -124,6 +130,13 @@ TYPE_RANK = {"accident": 0, "dispute": 1, "damage": 2, "mispick": 3, "weather": 
 # Cap how many reports any one incident type can contribute per year, so the escalated
 # subset reads like the existing 2025 block (accident-heavy but not accident-only).
 TYPE_CAP = {"accident": 8, "dispute": 6, "damage": 4, "mispick": 5, "weather": 5, "delay": 5}
+
+
+# At Zürich, the upstream-delay finding names the Swiss customs hold at the border.
+ZRH_ROOT_CAUSE = {
+    "A delay at the previous hub pushed this leg past its dispatch window, and the next truck had already left.":
+    "A delay at the previous hub, compounded by a Swiss customs hold at the Zürich border crossing, pushed this leg past its dispatch window, and the next truck had already left.",
+}
 
 
 def read_csv(path):
@@ -212,9 +225,6 @@ def main():
 
     existing = read_csv(REP_PATH)
     existing_ids = {r["report_id"] for r in existing}
-    max_num = max(
-        int(r["report_id"].split("-")[1]) for r in existing if r["report_id"].startswith("IR-7")
-    )
 
     selected = []
     for year in YEARS:
@@ -222,15 +232,15 @@ def main():
     selected.sort(key=lambda r: (r["occurred_at"], r["incident_id"]))
 
     new_rows = []
-    num = max(max_num + 1, FIRST_REPORT_NUM)
+    num = FIRST_REPORT_NUM
     for inc in selected:
         report_id = "IR-%d" % num
         num += 1
-        if report_id in existing_ids:
-            sys.exit("refusing to overwrite existing %s" % report_id)
         author = rng.choice(AUTHORS)
         inc = dict(inc)
         inc["_root_cause"] = rng.choice(ROOT_CAUSE[inc["type"]])
+        if inc["hub_id"] == "HUB-ZRH":
+            inc["_root_cause"] = ZRH_ROOT_CAUSE.get(inc["_root_cause"], inc["_root_cause"])
         inc["_remediation"] = rng.choice(REMEDIATION[inc["type"]])
         ts = filed_at(inc["occurred_at"], rng)
         assert ts[:4] == inc["incident_id"].split("-")[1], (report_id, ts, inc["incident_id"])
@@ -249,10 +259,22 @@ def main():
         )
 
     header = ["report_id", "incident_id", "author", "filed_at", "severity", "shipment_id", "body"]
-    with open(REP_PATH, "a", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=header, lineterminator="\r\n", quoting=csv.QUOTE_MINIMAL)
-        for row in new_rows:
-            w.writerow(row)
+    buf = io.StringIO()
+    w = csv.DictWriter(buf, fieldnames=header, lineterminator="\r\n", quoting=csv.QUOTE_MINIMAL)
+    for row in new_rows:
+        w.writerow(row)
+    block = buf.getvalue().encode("utf-8")
+
+    if any(row["report_id"] in existing_ids for row in new_rows):
+        with open(REP_PATH, "rb") as fh:
+            if b"\r\n" + block in fh.read():
+                print("already present: the 2023-2024 block is in the file, byte for byte; "
+                      "nothing written")
+                return
+        raise RuntimeError("incident_reports.csv already holds IR-%d.. but not this block; "
+                           "refusing to append" % FIRST_REPORT_NUM)
+    with open(REP_PATH, "ab") as fh:
+        fh.write(block)
 
     print("appended %d rows: %s .. %s" % (len(new_rows), new_rows[0]["report_id"], new_rows[-1]["report_id"]))
     print("filed_at range: %s .. %s" % (min(r["filed_at"] for r in new_rows), max(r["filed_at"] for r in new_rows)))

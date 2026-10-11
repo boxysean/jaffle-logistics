@@ -10,15 +10,22 @@ exit. Voices/authors match the existing rows (X. Y (People Ops)); bodies use the
 New doc_types (review, certification, exit) are added to the accepted_values test on
 stg_hr_docs so the build stays green.
 
-Appends only; continues the HR-6xxx block upward from HR-6059.
+Texture is the European network's: onboarding includes the tachograph and EC 561/2006
+driving-time briefing, Zürich (HUB-ZRH) drivers also get the Swiss customs and border-crossing
+briefing, a contractor's onboarding notes the VAT id on file (CONTRACTOR_VAT), and
+certifications are the EU ones (Group 2 medical, Driver CPC Code 95, ADR).
+
+Appends only; the block's ids are pinned to HR-6060 upward (the first free id when it was
+first written). If the block is already the file's tail, byte for byte, the run reports it
+and writes nothing; any other collision with an existing id is an error.
 
 Run:  python3 scripts/generate_hr_history.py
 """
 import csv
 import datetime as dt
+import io
 import os
 import random
-import sys
 from collections import Counter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -27,7 +34,7 @@ HR_PATH = os.path.join(SEEDS, "hr_docs.csv")
 DRV_PATH = os.path.join(SEEDS, "drivers.csv")
 
 SEED = 20231010
-FIRST_HR_NUM = 6060          # continue HR-6xxx upward (existing 6xxx block ends HR-6059)
+FIRST_HR_NUM = 6060          # pinned: the block's ids run HR-6060 upward
 N_REVIEWS = 30
 N_CERTS = 20
 N_TRAINING = 6
@@ -41,13 +48,23 @@ AUTHORS = [
 ]
 
 CERTIFICATIONS = [
-    "DOT medical examiner's certificate",
+    "Group 2 driver medical certificate (Directive 2006/126/EC)",
     "Defensive driving certification",
-    "Air brake endorsement",
+    "Driver CPC periodic training (Code 95)",
     "First aid / CPR certification",
     "Forklift operator certification",
-    "Hazmat awareness certification",
+    "ADR dangerous-goods driver training certificate",
 ]
+
+# VAT ids on file for the contractors this script onboards (country format by home hub).
+CONTRACTOR_VAT = {
+    "DRV-01189": "NL283962144B01",
+    "DRV-01190": "FR90555387090",
+    "DRV-01192": "CHE-680.764.656 MWST",
+    "DRV-01193": "ATU53912754",
+}
+
+ZRH_BRIEFING = "Swiss customs and Z\u00fcrich border-crossing procedures briefing complete. "
 
 TRAINING_MODULES = [
     "customer service basics",
@@ -138,11 +155,14 @@ def main():
 
     existing = read_csv(HR_PATH)
     existing_ids = {r["hr_doc_id"] for r in existing}
-    nums = [int(r["hr_doc_id"].split("-")[1]) for r in existing
-            if r["hr_doc_id"].startswith("HR-6")]
-    next_num = max(max(nums) + 1, FIRST_HR_NUM)
+    next_num = FIRST_HR_NUM
 
-    have_onboarding = {r["driver_id"] for r in existing if r["doc_type"] == "onboarding"}
+    # Onboarding already on file, not counting this block's own rows (HR-6060 upward in the
+    # HR-6xxx scheme) on a re-run, so the same drivers are found missing either way.
+    def own_block(doc_id):
+        return doc_id.startswith("HR-6") and int(doc_id.split("-")[1]) >= FIRST_HR_NUM
+    have_onboarding = {r["driver_id"] for r in existing
+                       if r["doc_type"] == "onboarding" and not own_block(r["hr_doc_id"])}
 
     new_rows = []
 
@@ -154,11 +174,15 @@ def main():
         kind = d["employment_type"]
         ack = "contractor agreement" if kind == "contractor" else "employee handbook"
         author = rng.choice(AUTHORS)
+        extra = ZRH_BRIEFING if d["hub_id"] == "HUB-ZRH" else ""
+        if kind == "contractor":
+            extra += "Contractor VAT id %s on file. " % CONTRACTOR_VAT[d["driver_id"]]
         body = "~~NL~~".join([
             "ONBOARDING RECORD \u2014 driver %s (%s), home hub %s." % (d["driver_id"], kind, d["hub_id"]),
-            "Hire date %s. Completed orientation, safety briefing, and %s acknowledgment. "
-            "Vehicle familiarization and route-app training complete. Filed by %s."
-            % (d["hire_date"], ack, author),
+            "Hire date %s. Completed orientation, safety briefing, tachograph and EC 561/2006 "
+            "driving-time briefing, and %s acknowledgment. "
+            "Vehicle familiarization and route-app training complete. %sFiled by %s."
+            % (d["hire_date"], ack, extra, author),
         ])
         new_rows.append({
             "driver_id": d["driver_id"], "doc_type": "onboarding",
@@ -263,17 +287,26 @@ def main():
     new_rows.sort(key=lambda r: (r["created_at"], r["hr_doc_id"]))
 
     for row in new_rows:
-        if row["hr_doc_id"] in existing_ids:
-            sys.exit("refusing to overwrite existing %s" % row["hr_doc_id"])
         assert row["driver_id"] in drivers_by_id
         assert row["created_at"] >= drivers_by_id[row["driver_id"]]["hire_date"], row
         assert row["created_at"] <= "2025-12-31"
 
     header = ["hr_doc_id", "driver_id", "doc_type", "created_at", "author", "body"]
-    with open(HR_PATH, "a", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=header, lineterminator="\r\n", quoting=csv.QUOTE_MINIMAL)
-        for row in new_rows:
-            w.writerow(row)
+    buf = io.StringIO()
+    w = csv.DictWriter(buf, fieldnames=header, lineterminator="\r\n", quoting=csv.QUOTE_MINIMAL)
+    for row in new_rows:
+        w.writerow(row)
+    block = buf.getvalue().encode("utf-8")
+
+    if any(row["hr_doc_id"] in existing_ids for row in new_rows):
+        with open(HR_PATH, "rb") as fh:
+            if fh.read().endswith(block):
+                print("already present: the block is the file's tail, byte for byte; nothing written")
+                return
+        raise RuntimeError("hr_docs.csv already holds HR-%d.. but not this block; "
+                           "refusing to append" % FIRST_HR_NUM)
+    with open(HR_PATH, "ab") as fh:
+        fh.write(block)
 
     print("appended %d rows: %s .. %s" % (len(new_rows), new_rows[0]["hr_doc_id"], new_rows[-1]["hr_doc_id"]))
     print("created_at range: %s .. %s" % (

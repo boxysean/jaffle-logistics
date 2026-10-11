@@ -10,10 +10,10 @@ client in the same month (account-level QBRs stay null, as they do today).
 
 Story the notes tell:
   * 2023-2024 are the quiet, healthy years: on-time at or above the contractual
-    target, praise for the Columbus and Cincinnati hubs, ordinary gripes about a
-    specific late load. Jaffle Equipment (CLI-0042) is a good account (~98%).
-  * No storm escalation, no Columbus bay-3 handling-damage pattern, no Jaffle
-    Equipment deterioration: those belong to 2025 and are already written.
+    target, praise for the Amsterdam and Zürich hubs, ordinary gripes about a
+    specific late load. Jaffle Werke (CLI-0042) is a good account (~98%).
+  * No storm escalation, no Amsterdam bay-3 handling-damage pattern, no Jaffle
+    Werke deterioration: those belong to 2025 and are already written.
 Nothing about 2025 is modified.
 """
 import collections
@@ -31,28 +31,28 @@ SEEDS = os.path.join(HERE, "..", "seeds")
 # client_id -> the account-voice facts the notes must stay consistent with
 CLIENTS = {
     "CLI-0007": {
-        "name": "Jaffle Storefronts", "owner": "Dana Whitfield",
-        "sla": 97.0, "lob": "last-mile", "region": "OH",
+        "name": "Jaffle Warenhuis", "owner": "Dana Whitfield",
+        "sla": 97.0, "lob": "last-mile", "region": "Noord-Holland",
         "contract": "CON-0007-01", "eff": "2022-04-16", "mean": 97.8,
     },
     "CLI-0042": {
-        "name": "Jaffle Equipment", "owner": "Marcus Trent",
-        "sla": 97.0, "lob": "LTL", "region": "IL",
+        "name": "Jaffle Werke", "owner": "Marcus Trent",
+        "sla": 97.0, "lob": "LTL", "region": "Île-de-France",
         "contract": "CON-0042-01", "eff": "2023-11-14", "mean": 98.0,
     },
     "CLI-0155": {
-        "name": "Jaffle Crew Outfitters", "owner": "Nora Behrevan",
-        "sla": 95.0, "lob": "last-mile", "region": "IN",
+        "name": "Jaffle Maison", "owner": "Nora Behrevan",
+        "sla": 95.0, "lob": "last-mile", "region": "Berlin",
         "contract": "CON-0155-01", "eff": "2023-07-28", "mean": 97.0,
     },
     "CLI-0169": {
-        "name": "Jaffle Beverage Co", "owner": "Sam Calloway",
-        "sla": 95.0, "lob": "warehousing", "region": "OH",
+        "name": "Jaffle Getränke", "owner": "Sam Calloway",
+        "sla": 95.0, "lob": "warehousing", "region": "Noord-Holland",
         "contract": "CON-0169-01", "eff": "2024-06-24", "mean": 96.0,
     },
     "CLI-0201": {
-        "name": "Jaffle Paper & Packaging", "owner": "Priya Rao",
-        "sla": 92.0, "lob": "LTL", "region": "KY",
+        "name": "Jaffle Papier", "owner": "Priya Rao",
+        "sla": 92.0, "lob": "LTL", "region": "Wien",
         "contract": "CON-0201-01", "eff": "2024-06-14", "mean": 94.0,
     },
 }
@@ -111,10 +111,10 @@ SCHEDULE = [
 POSITIVE_CLOSINGS = [
     "Strong quarter. Discussed expanding volume into new lanes.",
     "Client happy with responsiveness; exploring expanded lanes next quarter.",
-    "Client again praised the Columbus hub turnaround on recent pickups.",
-    "Client complimented the Cincinnati hub team on a steady quarter.",
+    "Client again praised the Amsterdam hub turnaround on recent pickups.",
+    "Client complimented the Zürich hub team on a steady quarter.",
     "No escalations this quarter; client signed off on the lane plan.",
-    "Client singled out the Columbus dock crew for a clean peak week.",
+    "Client singled out the Amsterdam dock crew for a clean peak week.",
     "Volume steady. Client asked about peak-season capacity planning.",
 ]
 NEUTRAL_CLOSINGS = [
