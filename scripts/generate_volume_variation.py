@@ -12,8 +12,9 @@ THIS IS A REVISION OF EXISTING ROWS, NOT AN APPEND. It rewrites both files in pl
   * 2025 routes are byte-identical.
   * The promised-delivery columns (promised_delivery_at, hours_late, late_bucket, from
     scripts/generate_promised_delivery.py) are carried through untouched on every
-    surviving row, the relabelled 2025 rows included. Do not re-run that generator
-    afterwards: its seeded stream is drawn row by row and would redraw every promise.
+    surviving row, the relabelled 2025 rows included. That generator's seeded stream is
+    drawn row by row, so it replays this revision's drops and relabels to keep every
+    promise when re-run.
 
 Why: before this revision 2023, 2024 and 2025 each held exactly 2,009 shipments and
 3,629 routes, so no analysis could separate a volume effect from a reliability effect,

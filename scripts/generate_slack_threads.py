@@ -11,9 +11,9 @@ Story these threads tell:
   * 2023 and 2024 are ordinary, healthy operating years. The chatter is routine --
     a stuck trailer, a driver who cannot find a dock, a mispick, a customer chasing a
     driver, a Friday-afternoon escalation -- all resolved inside the week.
-  * No 2025 signal starts early: no storm, no recurring Columbus handling-damage
+  * No 2025 signal starts early: no storm, no recurring Amsterdam handling-damage
     cluster, no bay-3 pattern. Only severity 1-2 incidents are referenced.
-  * Jaffle Equipment (CLI-0042) is referenced only neutrally-positive (a good quarter,
+  * Jaffle Werke (CLI-0042) is referenced only neutrally-positive (a good quarter,
     a renewal) -- the deliberate contrast with 2025.
 Nothing about 2025 is modified.
 """
@@ -25,8 +25,8 @@ SEEDS = os.path.join(HERE, "..", "seeds")
 
 FIRST_SLK = 9050          # continue SLK-9xxx upward from SLK-9049
 
-HUB_CITY = {"HUB-CMH": "Columbus", "HUB-CHI": "Chicago", "HUB-IND": "Indianapolis",
-            "HUB-DET": "Detroit", "HUB-CIN": "Cincinnati"}
+HUB_CITY = {"HUB-AMS": "Amsterdam", "HUB-PAR": "Paris", "HUB-BER": "Berlin",
+            "HUB-VIE": "Vienna", "HUB-ZRH": "Zürich"}
 
 # Handle vocabulary, read off the existing rows (same people, same style). Two new
 # people are added sparingly -- the prior years' roster is otherwise the same crew.
@@ -60,7 +60,11 @@ def load(name):
 
 
 def append_rows(name, rows):
-    """Append csv rows (CRLF, matching the existing files) after the existing bytes."""
+    """Append csv rows (CRLF, matching the existing files) after the existing bytes.
+
+    Returns the file's prior size, or None if the block is already the file's tail, byte
+    for byte (a re-run: nothing written). Any other collision with an existing id is an error.
+    """
     path = os.path.join(SEEDS, name + ".csv")
     with open(path, "rb") as fh:
         original = fh.read()
@@ -68,8 +72,17 @@ def append_rows(name, rows):
     w = csv.writer(buf, lineterminator="\r\n")
     for r in rows:
         w.writerow(r)
+    block = buf.getvalue().encode()
+    with open(path, newline="") as fh:
+        existing_ids = {r[0] for r in csv.reader(fh)}
+    if any(r[0] in existing_ids for r in rows):
+        if original.endswith(block):
+            print("already present: the block is %s.csv's tail, byte for byte; nothing written" % name)
+            return None
+        raise RuntimeError("%s.csv already holds %s.. but not this block; refusing to append"
+                           % (name, rows[0][0]))
     with open(path, "ab") as fh:
-        fh.write(buf.getvalue().encode())
+        fh.write(block)
     return len(original)
 
 
@@ -125,7 +138,7 @@ def build_thread(rng, thread_id, incident, route_id, hub):
 
 
 def build_account_note(rng, thread_id, when, year, people, lines):
-    """A neutral-positive Jaffle Equipment (CLI-0042) note -- the deliberate contrast."""
+    """A neutral-positive Jaffle Werke (CLI-0042) note -- the deliberate contrast."""
     participants = ", ".join(people)
     body = "~~NL~~".join("%s: %s" % (p, t) for p, t in zip(people, lines))
     return [thread_id, "#accounts", participants, when, "CLI-0042", body]
@@ -163,7 +176,7 @@ def main():
     rows.append(build_account_note(
         rng, "SLK-%d" % tid, "2023-08-11T15:20:00", 2023,
         ["@marcus", "@rhalvorsen", "@dana"],
-        ["Jaffle Equipment (CLI-0042) closed the quarter at 98.7% on-time, best on the book",
+        ["Jaffle Werke (CLI-0042) closed the quarter at 98.7% on-time, best on the book",
          "they've been a clean account all year -- renewals should be straightforward",
          "agreed, worth a mention in the Q3 business review"]))
     tid += 1
@@ -176,6 +189,8 @@ def main():
     tid += 1
 
     before = append_rows("slack_threads", rows)
+    if before is None:
+        return
     print("appended", len(rows), "threads (SLK-%d..SLK-%d); file was %d bytes"
           % (FIRST_SLK, tid - 1, before))
 

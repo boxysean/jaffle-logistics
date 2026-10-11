@@ -38,14 +38,14 @@ Design:
     - OT_BASE: a steady 4.0 hours for every employee-month with hours.
     - ot_hub: OT_DAMAGE_PER_INCIDENT x the hub-month's damage incidents above the hub's own
       worst 2023-2024 month. Zero in every 2023-2024 month by construction; it switches on
-      only in 2025, and the HUB-CMH handling-damage cluster (2, 2 -> 15 damage incidents
-      across 2023/2024/2025) is what lifts CMH overtime.
+      only in 2025, and the HUB-AMS handling-damage cluster (2, 2 -> 15 damage incidents
+      across 2023/2024/2025) is what lifts AMS overtime.
     - ot_c42: OT_PER_C42_EXCEPTION x the hub-month's CLI-0042 exceptions (shipments
       originating at the hub, created that month, status delayed or failed) above the hub's
       own worst 2023-2024 month, 2025 only -- the overtime pressure the CLI-0042 account's
       2025 decline puts on the hubs its freight runs through (see caveat 3).
   Overtime is a subset of hours worked, so it is capped at hours_worked: a thin month (one
-  9-hour route) in a high-damage CMH month would otherwise carry more overtime than hours.
+  9-hour route) in a high-damage AMS month would otherwise carry more overtime than hours.
   The capped driver-months are listed in the review trail.
 
 Data caveats (stated, not smoothed away):
@@ -61,11 +61,11 @@ Data caveats (stated, not smoothed away):
    created in 2025 carries a route_id (against 1588 of 1593 for every other client), so the
    account's 2025 pressure cannot be attached to individual drivers' routes without
    inventing route links. Instead the account's 2025 exception load (delayed + failed
-   CLI-0042 shipments: 67 in 2025 vs 8 in 2023 and 8 in 2024, led by HUB-CHI's 8 in
+   CLI-0042 shipments: 67 in 2025 vs 8 in 2023 and 8 in 2024, led by HUB-PAR's 8 in
    2025-01) is expressed as overtime for every employee working at the hub the freight
    originates from. 2023-2024 are steady: the term is exactly 0 there by construction.
 
-Nothing is dated after 2025-12-31 and no 2025 signal (CMH damage cluster, the CLI-0042
+Nothing is dated after 2025-12-31 and no 2025 signal (AMS damage cluster, the CLI-0042
 decline) appears in 2023-2024.
 
 Run:  python3 scripts/generate_payroll_monthly.py
@@ -255,19 +255,19 @@ def main():
     def ot_total(pred):
         return sum(r["overtime_hours"] for r in rows if pred(r))
 
-    cmh_ot = {y: ot_total(lambda r, y=y: r["hub_id"] == "HUB-CMH" and r["payroll_month"][:4] == str(y))
+    ams_ot = {y: ot_total(lambda r, y=y: r["hub_id"] == "HUB-AMS" and r["payroll_month"][:4] == str(y))
               for y in (2023, 2024, 2025)}
-    assert cmh_ot[2025] > cmh_ot[2023] and cmh_ot[2025] > cmh_ot[2024], cmh_ot
-    assert all(t == 0 for (hub, y, t) in ot_hub_terms if hub == "HUB-CMH" and y in (2023, 2024))
+    assert ams_ot[2025] > ams_ot[2023] and ams_ot[2025] > ams_ot[2024], ams_ot
+    assert all(t == 0 for (hub, y, t) in ot_hub_terms if hub == "HUB-AMS" and y in (2023, 2024))
 
-    # ot_c42 (term values, before any cap): 0 in 2023-2024, live in 2025, led by HUB-CHI.
+    # ot_c42 (term values, before any cap): 0 in 2023-2024, live in 2025, led by HUB-PAR.
     c42_ot = defaultdict(Decimal)   # (hub, year) -> ot_c42 total
     for (hub, y, t) in ot_c42_terms:
         c42_ot[(hub, y)] += t
     assert all(t == 0 for (_hub, y, t) in ot_c42_terms if y in (2023, 2024))
     assert sum(t for (_hub, y, t) in ot_c42_terms if y == 2025) > 0
-    assert (c42_ot[("HUB-CHI", 2025)] > c42_ot[("HUB-CHI", 2023)]
-            and c42_ot[("HUB-CHI", 2025)] > c42_ot[("HUB-CHI", 2024)])
+    assert (c42_ot[("HUB-PAR", 2025)] > c42_ot[("HUB-PAR", 2023)]
+            and c42_ot[("HUB-PAR", 2025)] > c42_ot[("HUB-PAR", 2024)])
 
     header = ["payroll_month", "driver_id", "hub_id", "employment_type", "hours_worked",
               "hourly_rate", "gross_pay", "overtime_hours", "total_cost"]

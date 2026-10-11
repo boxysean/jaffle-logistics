@@ -20,14 +20,21 @@ What the record holds:
 
 Story the record tells:
   * 2023 and 2024 are quiet at every bay: flat dwell, damage scattered, and the
-    Columbus damage of those years lands at bays other than 3.
-  * 2025 at HUB-CMH: the damage cluster sits at HUB-CMH-BAY-3 (BAY3_2025, 11 of 15),
+    Amsterdam damage of those years lands at bays other than 3.
+  * 2025 at HUB-AMS: the damage cluster sits at HUB-AMS-BAY-3 (BAY3_2025, 11 of 15),
     and staging dwell at that bay drifts worse through the year, while every other
     bay and hub stays flat. This is consistent with IR-9003 (bay 3 forklift staging).
 
 Dwell (minutes_at_bay) peaks at the morning outbound and evening inbound, runs longer
-in December and at Columbus, and is longer for staging/inspection than for
+in December and at Amsterdam, and is longer for staging/inspection than for
 loading/unloading. Never below 1.
+
+Zürich sits at the Swiss border, so its no-route inbound linehaul is logged as unloaded
+after Swiss customs clearance.
+
+Ordering: the per-day route loop and the final event sort use each hub's legacy code
+(the code it carried before the hubs were relabelled), so event ids and rng draws keep
+the committed order.
 
 Run:  python3 scripts/generate_dock_bay_events.py
 """
@@ -47,10 +54,13 @@ START = datetime.date(2023, 1, 1)
 END = datetime.date(2025, 12, 31)
 FIRST_EVENT = 100000  # DBE-100000, mirrors DN-100000
 
-BAYS = {"HUB-CMH": 6, "HUB-CHI": 6, "HUB-IND": 4, "HUB-DET": 4, "HUB-CIN": 4}
+BAYS = {"HUB-AMS": 6, "HUB-PAR": 6, "HUB-BER": 4, "HUB-VIE": 4, "HUB-ZRH": 4}
 
-# The 2025 HUB-CMH damage incidents whose dock record is at bay 3 (11 of the 15).
-# The other four (INC-2025-00020, -00041, -00046, -00226) land at other Columbus bays.
+# Current hub code -> legacy code; sort keys use the legacy code (see docstring).
+LEGACY_HUB_CODE = {"AMS": "CMH", "PAR": "CHI", "BER": "IND", "VIE": "DET", "ZRH": "CIN"}
+
+# The 2025 HUB-AMS damage incidents whose dock record is at bay 3 (11 of the 15).
+# The other four (INC-2025-00020, -00041, -00046, -00226) land at other Amsterdam bays.
 # Shared with scripts/generate_incident_reports_missing.py so the report narrative
 # names the same bay the dock record does.
 BAY3_2025 = (
@@ -73,6 +83,13 @@ def read_csv(name):
         return list(csv.DictReader(fh))
 
 
+def legacy(s):
+    """The committed sort key: each hub code in s swapped for its legacy code."""
+    for new, old in LEGACY_HUB_CODE.items():
+        s = s.replace("-%s" % new, "-%s" % old)
+    return s
+
+
 def bay_id(hub, n):
     return "%s-BAY-%d" % (hub, n)
 
@@ -83,8 +100,8 @@ def ts(day, minute_of_day, second=0):
 
 
 def bay3_drift(hub, bay, etype, day):
-    """Columbus bay 3 staging gets slower through 2025; flat everywhere else, every year."""
-    if hub == "HUB-CMH" and bay == 3 and etype == "staging" and day.year == 2025:
+    """Amsterdam bay 3 staging gets slower through 2025; flat everywhere else, every year."""
+    if hub == "HUB-AMS" and bay == 3 and etype == "staging" and day.year == 2025:
         return 1.0 + 0.95 * (day.timetuple().tm_yday / 365.0)
     return 1.0
 
@@ -93,7 +110,7 @@ def dwell(rng, hub, bay, etype, day, minute_of_day):
     h = minute_of_day / 60.0
     peak = 1.0 + 0.40 * math.exp(-((h - 7.0) ** 2) / 2.0) + 0.32 * math.exp(-((h - 18.0) ** 2) / 2.0)
     month = {12: 1.22, 11: 1.07}.get(day.month, 1.0)
-    busy = 1.15 if hub == "HUB-CMH" else 1.0
+    busy = 1.15 if hub == "HUB-AMS" else 1.0
     weekend = 0.9 if day.weekday() >= 5 else 1.0
     m = BASE_DWELL[etype] * peak * month * busy * weekend * bay3_drift(hub, bay, etype, day)
     m *= rng.lognormvariate(0.0, 0.22)
@@ -101,9 +118,9 @@ def dwell(rng, hub, bay, etype, day, minute_of_day):
 
 
 def staging_detail(rng, hub, bay, day, pallets, route_id):
-    # Bay 3 at Columbus starts to show up in the floor log during 2025, more as the
+    # Bay 3 at Amsterdam starts to show up in the floor log during 2025, more as the
     # year goes on. Never before 2025.
-    if hub == "HUB-CMH" and bay == 3 and day.year == 2025:
+    if hub == "HUB-AMS" and bay == 3 and day.year == 2025:
         if rng.random() < 0.10 + 0.45 * (day.timetuple().tm_yday / 365.0):
             return rng.choice([
                 "Bay 3 staging backed up, pallets in forklift lane.",
@@ -124,7 +141,7 @@ def staging_detail(rng, hub, bay, day, pallets, route_id):
 
 
 def damage_detail(rng, hub, bay, inc):
-    if hub == "HUB-CMH" and bay == 3 and inc["occurred_at"][:4] == "2025":
+    if hub == "HUB-AMS" and bay == 3 and inc["occurred_at"][:4] == "2025":
         return rng.choice([
             "Crushed pallet found at bay 3. Staged in forklift lane. %s filed." % inc["incident_id"],
             "Forked carton at bay 3 staging, again. Photos taken, %s." % inc["incident_id"],
@@ -175,12 +192,13 @@ def main():
                 minute = rng.choice([rng.randint(9 * 60, 15 * 60), rng.randint(20 * 60, 22 * 60)])
                 pallets = rng.randint(6, 26)
                 add(day, minute, hub, bay, "unloading",
-                    "Inbound linehaul unloaded, %d pallets." % pallets)
+                    ("Inbound linehaul unloaded after Swiss customs clearance, %d pallets."
+                     if hub == "HUB-ZRH" else "Inbound linehaul unloaded, %d pallets.") % pallets)
                 add(day, minute + rng.randint(25, 60), hub, bay, "staging",
                     staging_detail(rng, hub, bay, day, pallets, ""))
 
         # Route outbound / inbound.
-        for r in sorted(routes_by_day.get(day.isoformat(), []), key=lambda x: x["route_id"]):
+        for r in sorted(routes_by_day.get(day.isoformat(), []), key=lambda x: legacy(x["route_id"])):
             hub = r["hub_id"]
             bay = rng.randint(1, BAYS[hub])
             stops = int(r["stop_count"])
@@ -216,7 +234,7 @@ def main():
         n = BAYS[hub]
         if inc["incident_id"] in BAY3_2025:
             bay = 3
-        elif hub == "HUB-CMH":
+        elif hub == "HUB-AMS":
             bay = rng.choice([b for b in range(1, n + 1) if b != 3])
         else:
             bay = rng.randint(1, n)
@@ -226,7 +244,7 @@ def main():
             damage_detail(rng, hub, bay, inc), route=route,
             incident_id=inc["incident_id"], at=inc["occurred_at"])
 
-    events.sort(key=lambda e: (e[0], e[1], e[2], e[6], e[3]))
+    events.sort(key=lambda e: (e[0], legacy(e[1]), legacy(e[2]), e[6], legacy(e[3])))
     assert all(e[0] <= "2025-12-31T23:59:59" and e[0] >= "2023-01-01" for e in events)
     assert all(e[7] >= 1 for e in events)
 
@@ -243,12 +261,12 @@ def main():
     print("by type:", dict(sorted(Counter(e[6] for e in events).items())))
     dmg = [e for e in events if e[6] == "damage_found"]
     print("damage_found by year:", dict(sorted(Counter(e[0][:4] for e in dmg).items())))
-    print("damage_found HUB-CMH by year:", dict(sorted(Counter(e[0][:4] for e in dmg if e[1] == "HUB-CMH").items())))
-    print("damage_found HUB-CMH 2025 by bay:", dict(sorted(Counter(
-        e[2] for e in dmg if e[1] == "HUB-CMH" and e[0][:4] == "2025").items())))
-    for label, pred in (("HUB-CMH-BAY-3", lambda e: e[2] == "HUB-CMH-BAY-3"),
-                        ("other CMH bays", lambda e: e[1] == "HUB-CMH" and e[2] != "HUB-CMH-BAY-3"),
-                        ("other hubs", lambda e: e[1] != "HUB-CMH")):
+    print("damage_found HUB-AMS by year:", dict(sorted(Counter(e[0][:4] for e in dmg if e[1] == "HUB-AMS").items())))
+    print("damage_found HUB-AMS 2025 by bay:", dict(sorted(Counter(
+        e[2] for e in dmg if e[1] == "HUB-AMS" and e[0][:4] == "2025").items())))
+    for label, pred in (("HUB-AMS-BAY-3", lambda e: e[2] == "HUB-AMS-BAY-3"),
+                        ("other AMS bays", lambda e: e[1] == "HUB-AMS" and e[2] != "HUB-AMS-BAY-3"),
+                        ("other hubs", lambda e: e[1] != "HUB-AMS")):
         avg = {}
         for e in events:
             if e[6] == "staging" and pred(e):

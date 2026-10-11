@@ -8,19 +8,25 @@ format of the existing 2025 rows exactly. Bodies keep the '~~NL~~'-joined
 Prior years are ordinary: preventive maintenance, tyres, brakes, DEF/EGR/wiper faults
 and a lift-gate fault, plus a handful of collision repairs each linked to a *real*
 2023/2024 'accident' incident (same vehicle and hub as that incident). Deliberately no
-storm narrative and no repeated handling-damage pattern at HUB-CMH -- nothing that
+storm narrative and no repeated handling-damage pattern at HUB-AMS -- nothing that
 hints at a fleet-wide problem may start before 2025.
 
-Appends only; never rewrites an existing row. Ids continue WO-3NNNNN upward from the
-current max (WO-300079).
+Amounts are EUR. Zürich (HUB-ZRH) bills its local shop work in CHF, so its bodies add the
+CHF note with the fixed synthetic CHF->EUR assumption (see vars.yml); the cost column is
+unchanged.
+
+Appends only; never rewrites an existing row. Ids are pinned to WO-300080 upward (the
+first free id when the block was first written), so a re-run reproduces the same ids. If
+the block is already the file's tail, byte for byte, the run reports it and writes
+nothing; any other collision with an existing id is an error.
 
 Run:  python3 scripts/generate_fleet_history.py
 """
 import csv
 import datetime as dt
+import io
 import os
 import random
-import sys
 from collections import Counter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -33,7 +39,10 @@ SEED = 20231010
 YEARS = ("2023", "2024")
 TARGET_PER_YEAR = 41          # 41 + 41 = 82 new rows -> 163 total (>= 162 target)
 N_LINKED_PER_YEAR = 8         # collision repairs tied to a real accident incident
-FIRST_WO_NUM = 300080         # continue WO-3NNNNN upward (existing max is WO-300079)
+FIRST_WO_NUM = 300080         # pinned: the block's ids run WO-300080 upward
+
+CHF_NOTE = (" Zürich-local invoice settled in CHF; converted at the fixed synthetic "
+            "CHF\u2192EUR assumption 0.95.")
 
 # --- ordinary (unlinked) maintenance templates, mirroring the existing 2025 rows ---
 ROUTINE = [
@@ -147,6 +156,10 @@ def opened_after(occurred_at, rng):
     return "%sT%02d:%02d:00" % (shop.isoformat(), rng.choice([7, 9, 10, 13, 16]), rng.choice([0, 0, 0, 30]))
 
 
+def total_line(hub, cost):
+    return "Total \u20ac%d.%s" % (cost, CHF_NOTE if hub == "HUB-ZRH" else "")
+
+
 def build_routine(year, vehicles, rng):
     months = spread_months(rng, TARGET_PER_YEAR - N_LINKED_PER_YEAR)
     rows = []
@@ -165,7 +178,8 @@ def build_routine(year, vehicles, rng):
             "DIAGNOSIS: %s" % tpl["diagnosis"],
             "PARTS: %s" % tpl["parts"],
             "LABOR: %d hrs" % labor,
-            "DISPOSITION: returned to service. Odometer %s. Total $%d." % (veh["odometer"], cost),
+            "DISPOSITION: returned to service. Odometer %s. %s" % (
+                veh["odometer"], total_line(veh["hub_id"], cost)),
         ])
         rows.append({
             "vehicle_id": veh["vehicle_id"], "hub_id": veh["hub_id"],
@@ -189,7 +203,7 @@ def build_linked(year, incidents, vehicles_by_id, rng):
             "DIAGNOSIS: %s" % COLLISION_DIAG[idx],
             "PARTS: %s" % COLLISION_PARTS[idx],
             "LABOR: %d hrs" % labor,
-            "DISPOSITION: %s Total $%d." % (disp, cost),
+            "DISPOSITION: %s %s" % (disp, total_line(inc["hub_id"], cost)),
         ])
         rows.append({
             "vehicle_id": veh["vehicle_id"], "hub_id": inc["hub_id"],
@@ -206,9 +220,8 @@ def main():
     vehicles_by_id = {v["vehicle_id"]: v for v in vehicles}
 
     existing = read_csv(WO_PATH)
-    nums = [int(r["wo_id"].split("-")[1]) for r in existing if r["wo_id"].startswith("WO-3")]
     existing_ids = {r["wo_id"] for r in existing}
-    next_num = max(max(nums) + 1, FIRST_WO_NUM)
+    next_num = FIRST_WO_NUM
 
     new_rows = []
     for year in YEARS:
@@ -224,8 +237,6 @@ def main():
     new_rows.sort(key=lambda r: (r["opened_at"], r["wo_id"]))
 
     for row in new_rows:
-        if row["wo_id"] in existing_ids:
-            sys.exit("refusing to overwrite existing %s" % row["wo_id"])
         # guard rails
         assert row["opened_at"][:4] in YEARS
         assert row["opened_at"] <= "2025-12-31"
@@ -233,10 +244,22 @@ def main():
             assert row["linked_incident_id"].startswith("INC-%s-" % row["opened_at"][:4]), row
 
     header = ["wo_id", "vehicle_id", "hub_id", "opened_at", "linked_incident_id", "cost", "body"]
-    with open(WO_PATH, "a", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=header, lineterminator="\r\n", quoting=csv.QUOTE_MINIMAL)
-        for row in new_rows:
-            w.writerow(row)
+    buf = io.StringIO()
+    w = csv.DictWriter(buf, fieldnames=header, lineterminator="\r\n", quoting=csv.QUOTE_MINIMAL)
+    for row in new_rows:
+        w.writerow(row)
+    block = buf.getvalue().encode("utf-8")
+
+    if any(row["wo_id"] in existing_ids for row in new_rows):
+        with open(WO_PATH, "rb") as fh:
+            if fh.read().endswith(block):
+                print("already present: the 2023-2024 block is the file's tail, byte for byte; "
+                      "nothing written")
+                return
+        raise RuntimeError("fleet_work_orders.csv already holds WO-%06d.. but not this block; "
+                           "refusing to append" % FIRST_WO_NUM)
+    with open(WO_PATH, "ab") as fh:
+        fh.write(block)
 
     print("appended %d rows: %s .. %s" % (len(new_rows), new_rows[0]["wo_id"], new_rows[-1]["wo_id"]))
     print("opened_at range: %s .. %s" % (

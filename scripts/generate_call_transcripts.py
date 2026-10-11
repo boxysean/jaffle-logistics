@@ -15,8 +15,8 @@ topic and sentiment.
 Story the transcripts tell (same arc as the notes they transcribe):
   * 2023-2024 are the quiet, healthy years: positive-to-neutral account
     conversations, on-time at or above target, an occasional late load discussed
-    and closed out. Jaffle Equipment (CLI-0042) is a good account.
-  * No storm escalation, no Columbus bay-3 handling-damage pattern, no
+    and closed out. Jaffle Werke (CLI-0042) is a good account.
+  * No storm escalation, no Amsterdam bay-3 handling-damage pattern, no
     deterioration narrative: those belong to 2025 and are already written.
 Nothing about 2025 is modified.
 """
@@ -34,24 +34,24 @@ SEEDS = os.path.join(HERE, "..", "seeds")
 # client_id -> the account-voice facts the transcripts must stay consistent with
 CLIENTS = {
     "CLI-0007": {
-        "name": "Jaffle Storefronts",
-        "contact": "Doug Ferreira", "contact_org": "Jaffle Storefronts",
+        "name": "Jaffle Warenhuis",
+        "contact": "Doug Ferreira", "contact_org": "Jaffle Warenhuis",
     },
     "CLI-0042": {
-        "name": "Jaffle Equipment",
-        "contact": "Janet Feld", "contact_org": "VP supply chain, Jaffle Equipment",
+        "name": "Jaffle Werke",
+        "contact": "Janet Feld", "contact_org": "VP supply chain, Jaffle Werke",
     },
     "CLI-0155": {
-        "name": "Jaffle Crew Outfitters",
-        "contact": "Renee Ortiz", "contact_org": "Jaffle Crew Outfitters",
+        "name": "Jaffle Maison",
+        "contact": "Renee Ortiz", "contact_org": "Jaffle Maison",
     },
     "CLI-0169": {
-        "name": "Jaffle Beverage Co",
-        "contact": "Paul Ashby", "contact_org": "Jaffle Beverage Co",
+        "name": "Jaffle Getränke",
+        "contact": "Paul Ashby", "contact_org": "Jaffle Getränke",
     },
     "CLI-0201": {
-        "name": "Jaffle Paper & Packaging",
-        "contact": "Gina Marsh", "contact_org": "Jaffle Paper & Packaging",
+        "name": "Jaffle Papier",
+        "contact": "Gina Marsh", "contact_org": "Jaffle Papier",
     },
 }
 

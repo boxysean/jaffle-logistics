@@ -16,8 +16,9 @@ The promise. committed_transit (hours) is the account's contracted service windo
   + ACCOUNT_ADJ[client_id]               round((97.0 - sla_ontime_pct) * 6), from the
                                          client's current (latest-effective) contract:
                                          a higher SLA target is a tighter promise
-  + HUB_PAIR_ADJ[origin hub state][client region]
-                                         same state 0, neighbouring state 12, farther 24
+  + LANE_HOURS[origin hub city][client region]
+                                         the lane's band: home lane 0, near lane 12,
+                                         long lane 24 (a fixed table, see LANE_HOURS)
   + jitter                               a seeded per-shipment draw in -6..+6
 
 Rules, by status (lag = delivered_at - created_at, in hours):
@@ -31,7 +32,7 @@ Rules, by status (lag = delivered_at - created_at, in hours):
 
 The 2025 story. overshoot is drawn per delayed shipment:
   2023-2024 (quiet years)            2-10h   barely late
-  January 2025 (the Chicago storm)   72-168h multi-day
+  January 2025 (the Paris storm)     72-168h multi-day
   CLI-0042 in 2025 (the decline)     48-144h multi-day
   other 2025                         12-48h  1-2d
 then clamped to [2, lag - SERVICE_BASE], so the reconstructed promise never falls
@@ -45,11 +46,18 @@ Run from the repo root:  python3 scripts/generate_promised_delivery.py
 Verify without writing:  python3 scripts/generate_promised_delivery.py --check
 (--check exits 1 if the seed on disk differs from what the script would write.)
 
-Superseded as a writer by scripts/generate_volume_variation.py, which later removed
-2023-2024 rows and relabelled some 2025 service levels while carrying these three
-columns through unchanged. The jitter/overshoot stream is drawn row by row, so a re-run
-on the revised file would redraw every surviving promise (2025 included) and --check
-now reports a difference. Do not re-run it to "fix" that.
+Runs on the revised file. scripts/generate_volume_variation.py later removed 2023-2024
+rows and relabelled some 2025 service levels while carrying these three columns through
+unchanged. The jitter/overshoot stream is drawn row by row, so the script replays the
+pre-revision stream to give every surviving row the promise it was drawn with:
+  * Dropped rows. Pre-revision, the 2023-2024 rows ran month by month, each month's ids
+    SHP-YYYYMM-000001 .. ORIGINAL_MONTH_ROWS[month] in order, so a gap in a month's id
+    sequence is a dropped row. Each dropped row still takes its jitter draw, plus its
+    overshoot draw if it was delayed (DROPPED_DELAYED; every other dropped row was
+    delivered or returned, which draw jitter only).
+  * Relabelled rows. Pre-revision every 2025 freight shipment was CLI-0042's, so a 2025
+    CLI-0007 / CLI-0169 freight row was relabelled from expedited, and is drawn as one.
+With that replay a re-run reproduces seeds/shipments.csv byte for byte.
 """
 import collections
 import csv
@@ -77,17 +85,16 @@ SERVICE_BASE = {"expedited": 36, "standard": 60, "freight": 84}
 SLA_REFERENCE = 97.0      # the tightest SLA on the book: no extra hours
 HOURS_PER_SLA_POINT = 6   # each point of SLA below the reference buys 6h of window
 
-# Hub cities are not in hubs.csv as states; map them here.
-HUB_STATE = {"Columbus": "OH", "Chicago": "IL", "Indianapolis": "IN",
-             "Detroit": "MI", "Cincinnati": "OH"}
-
-# Land borders among the states in play. Michigan/Illinois only share Lake Michigan,
-# so they count as farther apart.
-ADJACENT_STATES = {
-    frozenset(p) for p in (("OH", "IN"), ("OH", "MI"), ("OH", "KY"), ("IN", "IL"),
-                           ("IN", "MI"), ("IN", "KY"), ("IL", "KY"))
+# Lane band in hours, by origin hub city and client region: home lane 0, near lane 12,
+# long lane 24. A fixed commercial table (the bands the contracts were priced on), not a
+# distance calculation.
+LANE_HOURS = {
+    "Amsterdam": {"Berlin": 12, "Noord-Holland": 0, "Wien": 12, "Île-de-France": 24},
+    "Paris":     {"Berlin": 12, "Noord-Holland": 24, "Wien": 12, "Île-de-France": 0},
+    "Berlin":    {"Berlin": 0, "Noord-Holland": 12, "Wien": 12, "Île-de-France": 12},
+    "Vienna":    {"Berlin": 12, "Noord-Holland": 12, "Wien": 24, "Île-de-France": 24},
+    "Zürich":    {"Berlin": 12, "Noord-Holland": 0, "Wien": 12, "Île-de-France": 24},
 }
-SAME_STATE_HOURS, NEIGHBOUR_HOURS, FARTHER_HOURS = 0, 12, 24
 
 JITTER_HOURS = 6
 
@@ -99,6 +106,14 @@ OVERSHOOT_OTHER_2025 = (12, 48)
 MIN_OVERSHOOT = 2
 
 LATE_BUCKETS = ["on_time", "<4h", "4-12h", "1-2d", ">2d"]
+
+# Pre-revision replay (see docstring). 2023 and 2024 had the same monthly row counts.
+_MONTH_ROWS = (183, 143, 160, 145, 151, 139, 171, 162, 159, 169, 203, 224)
+ORIGINAL_MONTH_ROWS = {"%s%02d" % (year, month): n
+                       for year in QUIET_YEARS for month, n in enumerate(_MONTH_ROWS, 1)}
+DROPPED_DELAYED = {"SHP-202306-000062", "SHP-202306-000087", "SHP-202306-000118",
+                   "SHP-202310-000147", "SHP-202403-000160"}
+RELABELLED_FROM_EXPEDITED = ("CLI-0007", "CLI-0169")
 
 TS_OUT = "%Y-%m-%dT%H:%M:%S"
 
@@ -125,20 +140,25 @@ def account_adjustments():
 
 def hub_pair_adjustments():
     """HUB_PAIR_ADJ[hub_id][client region] in hours."""
-    hub_state = {h["hub_id"]: HUB_STATE[h["city"]] for h in read("hubs.csv")}
     regions = sorted({c["region"] for c in read("clients.csv")})
-    matrix = {}
-    for hub_id, state in hub_state.items():
-        matrix[hub_id] = {}
-        for region in regions:
-            if region == state:
-                hours = SAME_STATE_HOURS
-            elif frozenset((state, region)) in ADJACENT_STATES:
-                hours = NEIGHBOUR_HOURS
-            else:
-                hours = FARTHER_HOURS
-            matrix[hub_id][region] = hours
-    return matrix
+    return {h["hub_id"]: {region: LANE_HOURS[h["city"]][region] for region in regions}
+            for h in read("hubs.csv")}
+
+
+def drawn_service_level(r):
+    """The service level the row's promise was drawn with (see docstring)."""
+    if (r["created_at"][:4] == "2025" and r["service_level"] == "freight"
+            and r["client_id"] in RELABELLED_FROM_EXPEDITED):
+        return "expedited"
+    return r["service_level"]
+
+
+def replay_dropped(rng, month, seqs):
+    """Take the draws of the dropped rows SHP-<month>-<seq> for seq in seqs."""
+    for seq in seqs:
+        rng.randint(-JITTER_HOURS, JITTER_HOURS)
+        if "SHP-%s-%06d" % (month, seq) in DROPPED_DELAYED:
+            rng.randint(*OVERSHOOT_QUIET)
 
 
 def overshoot_range(created_at, client_id):
@@ -168,9 +188,12 @@ def hours_between(start, end):
     return int(seconds // 3600)
 
 
-def build():
-    with open(SHIPMENTS, "rb") as f:
-        raw = f.read().decode("utf-8")
+def build(raw=None):
+    """Enrich the shipments text (default: seeds/shipments.csv); also used by
+    scripts/generate_history.py to give the rows it appends their promise."""
+    if raw is None:
+        with open(SHIPMENTS, "rb") as f:
+            raw = f.read().decode("utf-8")
     assert raw.endswith("\r\n"), "shipments.csv must end with CRLF"
     lines = raw[:-2].split("\r\n")
 
@@ -185,6 +208,12 @@ def build():
 
     out = [",".join(BASE_COLUMNS + NEW_COLUMNS)]
     rows = []
+    month, last_seq = None, 0   # the current pre-revision 2023-2024 month and its last id
+
+    def close_month():
+        if month is not None:
+            replay_dropped(rng, month, range(last_seq + 1, ORIGINAL_MONTH_ROWS[month] + 1))
+
     for line in lines[1:]:
         fields = line.split(",")
         assert len(fields) == len(header), line
@@ -192,8 +221,16 @@ def build():
         assert len(fields) == 8, line
         r = dict(zip(BASE_COLUMNS, fields))
 
+        row_month, seq = r["shipment_id"][4:10], int(r["shipment_id"][11:])
+        if row_month in ORIGINAL_MONTH_ROWS:
+            if row_month != month:
+                close_month()
+                month, last_seq = row_month, 0
+            replay_dropped(rng, month, range(last_seq + 1, seq))
+            last_seq = seq
+
         created = parse_ts(r["created_at"])
-        base = SERVICE_BASE[r["service_level"]]
+        base = SERVICE_BASE[drawn_service_level(r)]
         committed = (base
                      + account_adj[r["client_id"]]
                      + hub_pair_adj[r["origin_hub_id"]][client_region[r["client_id"]]]
@@ -220,6 +257,7 @@ def build():
         new = [promised.strftime(TS_OUT), hours_late, late_bucket]
         out.append(",".join(fields + new))
         rows.append((r, new))
+    close_month()
 
     return ("\r\n".join(out) + "\r\n").encode("utf-8"), rows
 
