@@ -255,6 +255,31 @@
   .chart .pt.ghost { fill: #c9d3d8; }
   .chart text.ghost { fill: #c9d3d8; }
 
+  /* why-context-engineering slide: body 138-654. three points 138-408, paid for once 432-612, footnote 626-654.
+     fit budget: a point column is 405 wide, 373 inside its 12px pads. headlines at 20px mono 600 (12px/char,
+     23px/line) get 31 chars a line, copy at 18px (10.8px/char, 20.7px/line) 34. the tallest point, the review,
+     needs 2 + 5 + 2 lines with two 6px gaps = 203 of 238 inside. paid for once is the closing statement and
+     the slide's largest type: 1196 inside, the headline at 32px (19.2px/char, 62 chars) breaks at its sentence
+     (47 chars, 902px) = 70 tall, the three clauses at 22px (13.2px/char, 90 chars) one a line (66 at most) = 76,
+     with an 8px gap = 154 of 154. the footnote's 91 characters at 22px need 1201 of 1240.
+     each tab stands 12px above its panel and each shadow 10px below, so the 24px gaps stay clear */
+  .why .hd { height: 96px; }
+  .why .hd .owns { margin-top: 8px; }
+  .why strong { color: var(--amber); font-weight: 600; }
+  .why .pts { position: absolute; left: 20px; top: 138px; width: 1240px; height: 270px; display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 12px; }
+  .why .pts .panel { position: relative; padding: 18px 12px 6px; }
+  .why .pts .k { font-size: 20px; line-height: 1.15; font-weight: 600; color: var(--amber); }
+  .why .pts p { margin: 6px 0 0; font-size: 18px; line-height: 1.15; }
+  .why .pts p.dim { color: var(--dim); }
+  .why .once { left: 20px; top: 432px; width: 1240px; height: 180px; padding: 12px 18px 6px; background: var(--navy-2); border-color: var(--amber); }
+  .why .once > .tab { background: var(--amber); }
+  .why .once .k { font-size: 32px; line-height: 1.1; font-weight: 600; color: var(--text); }
+  .why .once .k .hot { color: var(--hot); }
+  .why .once .k .amb { color: var(--amber); }
+  .why .once ol { list-style: none; margin: 8px 0 0; padding: 0; }
+  .why .once li { font-size: 22px; line-height: 1.15; color: var(--dim); white-space: nowrap; }
+  .why .foot { position: absolute; left: 20px; top: 626px; width: 1240px; font-size: 22px; line-height: 1.2; color: var(--dim); white-space: nowrap; }
+
   /* lineage slide: body 140-648. diagram 140-272, chains 296-442, rebuild 466-606, footnote 620-649.
      each tab stands 12px above its panel and each shadow 10px below, so the 24px gaps stay clear.
      colour carries the lineage: teal = source systems, amber = the platform's layers, teal-hi = the reports */
@@ -1134,7 +1159,45 @@
   </div>
 </section>
 
-<!-- 16. Lineage -->
+<!-- 16. Why context engineering -->
+<section class="why" data-status="the argument">
+  <div class="frame">
+    <div class="panel hd">
+      <h2>WHY CONTEXT ENGINEERING</h2>
+      <div class="owns">The case for modelling the business once, before anything reads it</div>
+    </div>
+    <div class="pts">
+      <div class="panel">
+        <span class="tab">THE REVIEW MOVES UPSTREAM</span>
+        <div class="k">Nobody reviews an agent's every step.</div>
+        <p>So the context has to be right <strong>before</strong> the work runs. The review moves upstream, to the data the agent reads, instead of downstream at the output it produced.</p>
+        <p class="dim">You cannot check every answer, so you have to get the inputs right.</p>
+      </div>
+      <div class="panel">
+        <span class="tab">THE CONTEXT GAP</span>
+        <div class="k">AI rolled out to every employee in a year, and the context those tools read never rolled in.</div>
+        <p>The tools arrived; the shared understanding of the business did not arrive with them.</p>
+      </div>
+      <div class="panel">
+        <span class="tab">TEN WIRES, ONE LAYER</span>
+        <div class="k">Each of those tools wired itself straight to raw — and one shared context layer replaces the wiring.</div>
+        <p>Ten tools wired to raw data is ten integrations and ten versions of the truth. Modelled once in a context layer, every tool reads the same thing.</p>
+      </div>
+    </div>
+    <div class="panel once">
+      <span class="tab">PAID FOR ONCE</span>
+      <div class="k">Unengineered context gets <span class="hot">paid for three times.</span><br>Engineered context is <span class="amb">paid for once.</span></div>
+      <ol>
+        <li>Paid once to wire the raw data again for each tool;</li>
+        <li>paid again to keep that wiring correct as the sources move;</li>
+        <li>and paid a third time by whoever acts on an answer that was wrong.</li>
+      </ol>
+    </div>
+    <div class="foot">An argument, not a measurement. The context layer is built; the agents on top are a design.</div>
+  </div>
+</section>
+
+<!-- 17. Lineage -->
 <section class="lin" data-src="reports/persona-data.md" data-status="sources->marts->reports">
   <div class="frame">
     <div class="panel hd">
@@ -1213,7 +1276,7 @@
   </div>
 </section>
 
-<!-- 17. The dbt audit -->
+<!-- 18. The dbt audit -->
 <section class="aud" data-src="reports/dbt-best-practices-audit.md" data-status="the dbt audit">
   <div class="frame">
     <div class="panel hd">
@@ -1245,7 +1308,7 @@
   </div>
 </section>
 
-<!-- 18. The agentic layer -->
+<!-- 19. The agentic layer -->
 <section class="agt" data-src="reports/persona-coo.md" data-status="a design, not live">
   <div class="frame">
     <div class="panel hd">
