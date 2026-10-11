@@ -1,0 +1,1064 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A worked example of context engineering in dbt: turning free-text operational data into a governed, queryable knowledge base.">
+      
+      
+      
+      
+        <link rel="prev" href="history.html">
+      
+      
+        <link rel="next" href="comparison.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Context engineering - Jaffle Logistics</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#context-engineering-chunk-embed-enrich-search" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Jaffle Logistics" class="md-header__button md-logo" aria-label="Jaffle Logistics" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Jaffle Logistics
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Context engineering
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dbt-labs/jaffle-logistics" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dbt-labs/jaffle-logistics
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Jaffle Logistics" class="md-nav__button md-logo" aria-label="Jaffle Logistics" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Jaffle Logistics
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dbt-labs/jaffle-logistics" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dbt-labs/jaffle-logistics
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="the-problem.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The problem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="history.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context engineering
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="context-engineering.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chunk-on-the-datas-logical-boundaries-or-not-at-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chunk: on the data's logical boundaries, or not at all
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embed-for-recall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embed: for recall
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enrich-for-precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enrich: for precision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combine-a-real-union-of-seven-independent-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combine: a real union of seven independent sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-by-meaning-then-by-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search: by meaning, then by category
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sixteen-ai-jobs-three-cost-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sixteen AI jobs, three cost tiers
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="comparison.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparison
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="governance.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="multi-platform.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-platform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="roadmap.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="shareholder-deck.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shareholder pack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chunk-on-the-datas-logical-boundaries-or-not-at-all" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chunk: on the data's logical boundaries, or not at all
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#embed-for-recall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Embed: for recall
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enrich-for-precision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enrich: for precision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#combine-a-real-union-of-seven-independent-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combine: a real union of seven independent sources
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#search-by-meaning-then-by-category" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search: by meaning, then by category
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sixteen-ai-jobs-three-cost-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sixteen AI jobs, three cost tiers
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="context-engineering-chunk-embed-enrich-search">Context engineering: chunk, embed, enrich, search<a class="headerlink" href="#context-engineering-chunk-embed-enrich-search" title="Permanent link">&para;</a></h1>
+<p><a href="https://github.com/dbt-labs/dbt-context-engineering"><code>dbt_context_engineering</code></a>
+turns the free text <a href="the-problem.html">the problem</a> couldn't reach into a
+governed, searchable knowledge base, entirely in SQL, orchestrated by
+dbt. The fix for exact-match SQL's ceiling isn't leaving SQL. It's SQL
+that can call an embedding function.</p>
+<p>The pipeline has five stages: chunk, embed, enrich, combine, search.
+Seven sources (legal docs, incident reports, CRM notes, call transcripts,
+support tickets, dispatch notes, Slack threads) each run chunk, embed,
+and enrich as their own independent, end-to-end path, and converge only
+at combine (<code>knowledge_base</code>). That's the package's own documented usage of
+<code>knowledge_base()</code> (ADR-0006 in
+<a href="https://github.com/dbt-labs/dbt-context-engineering"><code>dbt_context_engineering</code></a>):
+a conformed union of many independently-maintained sources, each keeping
+its own native shape until the very last step. In a real system these
+seven sources would genuinely arrive via different systems on different
+schedules; this project reuses one taxonomy and prompt across all seven
+classify models since it's a worked example, not because the sources
+are actually identical. Real duplication (seven near-identical
+embed/classify models) is the tradeoff for realistic per-source isolation.
+This project's own search results are the evidence enrichment earns
+its place next to embedding, not after it (see <a href="comparison.html">comparison</a>).</p>
+<p>This is a real, governed, multi-platform building block, not the whole
+of a RAG pattern. <a href="roadmap.html">Roadmap</a> covers what it still needs.</p>
+<p><a href="https://github.com/dbt-labs/jaffle-logistics/tree/main/analyses/the_pattern"><code>analyses/the_pattern/</code></a>
+breaks this same pipeline into seven numbered, runnable queries, one per
+stage, each linked from its matching section below.</p>
+<h2 id="chunk-on-the-datas-logical-boundaries-or-not-at-all">Chunk: on the data's logical boundaries, or not at all<a class="headerlink" href="#chunk-on-the-datas-logical-boundaries-or-not-at-all" title="Permanent link">&para;</a></h2>
+<p>Seven sources, three chunking strategies.</p>
+<p>Call transcripts explode into individual spoken turns
+(<code>int_transcript_turns</code>), then regroup into token-bounded chunks that
+never span a transcript (<code>chunk_transcripts</code>). Legal docs, incident
+reports, and CRM notes each split into sentences first
+(<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/split_legal_docs.sql"><code>split_legal_docs</code></a>,
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/split_incident_reports.sql"><code>split_incident_reports</code></a>,
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/split_crm_notes.sql"><code>split_crm_notes</code></a>),
+then regroup the same way into chunks that never span a document
+(<code>chunk_legal_docs</code>, <code>chunk_incident_reports</code>, <code>chunk_crm_notes</code>). Each
+of these three runs its own splitter and chunker, not a shared one:
+they're different systems in this story, and each keeps its own path
+end to end rather than merging into one documents corpus first.</p>
+<p>Support tickets take none of these paths.
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ticket_records_meta.sql"><code>ticket_records_meta</code></a>
+never calls <code>chunk()</code> at all: a ticket body is already the atomic
+embedding unit, so it's reshaped straight into the chunk-shaped output
+<code>chunk()</code> would have produced, <code>chunk_seq</code> fixed at 1 by construction
+rather than by an assumption about ticket length.</p>
+<p>The two ops-floor sources take the same whole-record path.
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/dispatch_notes_records_meta.sql"><code>dispatch_notes_records_meta</code></a>
+and
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/slack_threads_records_meta.sql"><code>slack_threads_records_meta</code></a>
+treat one dispatch note, or one Slack thread, as one atomic operational
+record, and neither calls <code>chunk()</code>.</p>
+<p>Each source's chunked (or reshaped) output carries <code>client_id</code>,
+<code>source_type</code>, and a citation URL by the time its own <code>*_chunks_meta</code>
+model lands, whether that row was chunked to get there or not. Nothing
+unions across sources yet; that happens once, at the very end, in
+<a href="#combine-a-real-union-of-seven-independent-sources">combine</a>.</p>
+<p>A real example, the Jaffle Werke QBR transcript from
+<a href="comparison.html">comparison</a>, split across an actual chunk boundary:</p>
+<table>
+<thead>
+<tr>
+<th>chunk_id</th>
+<th>client_id</th>
+<th>source_type</th>
+<th>chunk_text (excerpt)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CT-99001::1</code></td>
+<td><code>CLI-0042</code></td>
+<td>call_transcript</td>
+<td>Marcus Trent: Janet, thanks for taking this. I know the last two weeks have been rough, I want to own it.\nJanet Feld: Rough is generous, Marcus. The Paris storm buried a whole batch of our freight.\nMarcus Trent: I know, and it's documented on our side...</td>
+</tr>
+<tr>
+<td><code>CT-99001::2</code></td>
+<td><code>CLI-0042</code></td>
+<td>call_transcript</td>
+<td>Janet Feld: It did. My question is whether you can actually handle our peak volume, because right now I'm not sure.\nMarcus Trent: Fair. Two things: we're issuing an SLA credit for January per your contract...</td>
+</tr>
+</tbody>
+</table>
+<p>The boundary lands on a turn. <code>chunk_transcripts</code> and the three
+<code>chunk_*</code> document models bin whole units (a turn, a sentence) by
+running token count and never split a unit mid-way. This project's
+<code>chunk_overlap_tokens</code> is 0, so adjacent chunks share no context across
+a cut. Overlap is a real technique for recovering that lost context;
+skipping it here isn't a recommendation to skip it generally, it's just
+this project's setting.</p>
+<p>The same binning rule can produce a very short trailing chunk. <code>IR-9001</code>
+splits into three real chunks, and the third is a single sentence,
+"Reviewed with dispatch." <a href="comparison.html">Comparison</a> covers what that
+does to search.</p>
+<p><img alt="Chunking on logical boundaries, not arbitrary token windows" src="assets/chunk-phase.svg" /></p>
+<p>Chunking costs nothing beyond ordinary SQL compute. No <code>embed()</code>,
+<code>generate()</code>, or <code>classify()</code> call happens here.</p>
+<p>Run it yourself:
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/analyses/the_pattern/00_raw_transcript.sql"><code>00_raw_transcript.sql</code></a>
+shows <code>CT-99001</code> before chunking,
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/analyses/the_pattern/01_chunk.sql"><code>01_chunk.sql</code></a>
+shows the same transcript after.</p>
+<h2 id="embed-for-recall">Embed: for recall<a class="headerlink" href="#embed-for-recall" title="Permanent link">&para;</a></h2>
+<p>Seven embedding models, one per source
+(<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/legal_docs_embed.sql"><code>legal_docs_embed</code></a>,
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/incident_reports_embed.sql"><code>incident_reports_embed</code></a>,
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/crm_notes_embed.sql"><code>crm_notes_embed</code></a>,
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/call_transcripts_embed.sql"><code>call_transcripts_embed</code></a>,
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/support_tickets_embed.sql"><code>support_tickets_embed</code></a>,
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/dispatch_notes_embed.sql"><code>dispatch_notes_embed</code></a>,
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/slack_threads_embed.sql"><code>slack_threads_embed</code></a>),
+each incremental: the package's six-column cache metadata (ADR-0023)
+means unchanged rows are never re-embedded, independently per source.</p>
+<p>One embedding model, set by <code>embedding_model</code>, covers every one of the
+seven: all seven must share it, or their vectors land in incomparable
+spaces and cross-source ranking silently breaks (<code>version_guard</code>
+enforces this per model, which is "a real constraint on the caller,"
+in the package's own words, not something the union at the end can
+check for you).</p>
+<p><img alt="Text becomes a vector, comparable by meaning instead of exact match" src="assets/embed-phase.svg" /></p>
+<p>Embedding gets you recall: retrieval by meaning instead of exact string.
+It doesn't get you precision. In this project's own search results, a
+six-token trailing sentence and a contract's signature block outrank
+real account signal on plain cosine similarity (see
+<a href="comparison.html">comparison</a>). That's what enrichment fixes.</p>
+<p>Run it yourself:
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/analyses/the_pattern/02_embed.sql"><code>02_embed.sql</code></a>
+shows <code>CT-99001</code>'s chunks with their populated <code>embedding</code> column.</p>
+<h2 id="enrich-for-precision">Enrich: for precision<a class="headerlink" href="#enrich-for-precision" title="Permanent link">&para;</a></h2>
+<p>Seven classify models, one per source
+(<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/legal_docs_classify.sql"><code>legal_docs_classify</code></a>,
+<code>incident_reports_classify</code>, <code>crm_notes_classify</code>,
+<code>call_transcripts_classify</code>, <code>support_tickets_classify</code>,
+<code>dispatch_notes_classify</code>, <code>slack_threads_classify</code>), each running a
+real <code>classify()</code> call against its own source's hashed corpus,
+independently. All seven share one flat taxonomy and one prompt
+(<code>jaffle_content_type</code> v1): <code>account_assessment</code>, <code>contract_reference</code>,
+<code>weather_disruption</code>, <code>vehicle_or_driver_incident</code>,
+<code>handling_or_warehouse_error</code>, <code>routine_status</code>. Each label is a
+business category, not a judgment of how well the text is written, and
+it matches the weather-vs-handling split the account's own root-cause
+review makes (see <a href="comparison.html">comparison</a>). The ops-floor text needs
+no new label: weather notes land on <code>weather_disruption</code>, mechanical
+ones on <code>vehicle_or_driver_incident</code>, dock and warehouse ones on
+<code>handling_or_warehouse_error</code>, and traffic, address, access, volume,
+NSF, and routine chatter on <code>routine_status</code>. Sharing one taxonomy
+across seven independent models is itself a demo-scale simplification;
+seven genuinely different source systems would plausibly want their own
+prompt tuning over time, which is exactly the kind of per-source
+divergence this architecture makes possible without touching the other
+six.</p>
+<p>Each source's <code>*_embedded_classified</code> model
+(e.g. <a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/legal_docs_embedded_classified.sql"><code>legal_docs_embedded_classified</code></a>)
+joins that source's own classify output onto its own embed output, so
+<code>knowledge_base</code> carries both and <code>search.sql</code> can filter on the label
+directly.</p>
+<p>Same governed pattern as the embedding models: <code>guard_batch</code> and
+<code>log_ai_run</code> as pre-hooks, <code>complete_ai_run</code> as a post-hook, gated
+behind <code>ai_functions_enabled</code>. Not incremental, though: <code>classify()</code> has no
+cache metadata the way <code>embed()</code> does, so every build reclassifies each
+source's whole corpus. At this demo's scale that's a small, disclosed
+cost; a larger corpus would need the equivalent of <code>embed()</code>'s caching
+before copying this pattern as-is.</p>
+<p>Run it yourself:
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/analyses/the_pattern/05_classify.sql"><code>05_classify.sql</code></a>
+shows <code>CT-99001</code>'s chunks with their assigned label.</p>
+<h2 id="combine-a-real-union-of-seven-independent-sources">Combine: a real union of seven independent sources<a class="headerlink" href="#combine-a-real-union-of-seven-independent-sources" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/knowledge_base.sql"><code>knowledge_base</code></a>
+unions all seven <code>*_embedded_classified</code> outputs into the package's
+common shape: <code>source_type</code>, <code>source_id</code>, <code>account_key</code>, <code>text</code>,
+<code>embedding</code>, <code>ts</code>, <code>citation_url</code>, <code>classification</code>. This is
+<code>knowledge_base()</code>'s actual documented job: each source keeps its own
+native path all the way through embedding and classification, and this
+is the one place they ever meet. <code>source_type</code> is a real, per-source
+label (<code>Legal Document</code>, <code>Incident Report</code>, <code>CRM Notes</code>,
+<code>Call Transcript</code>, <code>Support Ticket</code>, <code>Dispatch Note</code>, <code>Slack Thread</code>),
+not a passthrough of an already-unified column, because each one
+genuinely is a different upstream system here. The citation URL
+preserves the finer-grained artifact id (which CRM note, which incident
+report, which ticket), so any result traces back to its source.
+<code>classification</code> is an optional slot in the package's shape; this
+project fills it for every source.</p>
+<p>Dispatch notes and Slack threads are the ops floor, the place an
+operational early warning shows up first. Neither carries a <code>client_id</code>
+of its own, so <code>account_key</code> is derived through the route attribution
+bridge (<code>stg_route_client_attribution</code>), using the route's dominant
+client: the account with the most exceptions attributed on that route,
+then the largest stop share. A dispatch note takes the dominant client
+of its own route. A Slack thread takes, in order, an explicit <code>CLI-</code> id
+it cites, else the dominant client of a cited <code>RTE-</code> route, else the
+dominant client of a cited <code>INC-</code> incident's route. When none of those
+resolve, <code>account_key</code> is null rather than guessed, so those threads
+still surface in whole-corpus search but not in an account-scoped one.</p>
+<p>What the corpus still doesn't cover: the structured tables (shipments,
+routes, invoices, the revenue ledger, payroll) stay out of it. Those
+are answered by joins, not by vector search. Free text outside the
+seven systems above isn't in it either, including email, driver app
+messages, and anything else this project doesn't model. An ops-floor
+record that cites no account, route, or incident id can't be
+attributed, so account-scoped search misses it.</p>
+<p>Run it yourself:
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/analyses/the_pattern/03_knowledge_base.sql"><code>03_knowledge_base.sql</code></a>
+shows the unioned rows for Jaffle Werke (<code>CLI-0042</code>) across all seven sources.</p>
+<h2 id="search-by-meaning-then-by-category">Search: by meaning, then by category<a class="headerlink" href="#search-by-meaning-then-by-category" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/models/context/ai/search.sql"><code>search.sql</code></a>
+embeds a query once, then runs cosine similarity against
+<code>knowledge_base</code>. Two demos, each run twice, raw and filtered on
+<code>classification</code>:</p>
+<ul>
+<li><strong>Account-scoped</strong>: "late deliveries and what is driving them,"
+  filtered to <code>account_key = 'CLI-0042'</code>; the classified run adds
+  <code>classification = 'account_assessment'</code>.</li>
+<li><strong>Whole-corpus</strong>: "truck accident during the Paris winter storm," no
+  account filter, the kind of question a join can't answer since
+  there's no ID to join on; the classified run adds
+  <code>classification = 'weather_disruption'</code>.</li>
+</ul>
+<p>All four ran for real, against real embeddings and a real <code>classify()</code>
+pass. The raw runs don't return a clean top 10. The classified runs
+mostly do, with one disclosed gap. <a href="comparison.html">Comparison</a> has the
+actual ranked output for all four.</p>
+<p>Run it yourself:
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/analyses/the_pattern/04_raw_search.sql"><code>04_raw_search.sql</code></a>
+is the account-scoped demo, raw;
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/analyses/the_pattern/06_search_with_classify.sql"><code>06_search_with_classify.sql</code></a>
+is the same demo filtered on <code>classification</code>.</p>
+<p>Cosine similarity at this scale doesn't need to be indexed.
+<code>dbt run-operation create_vector_index</code> adds one (Snowflake Cortex
+Search, a BigQuery vector index, or a separately-billed Databricks
+Vector Search index) for when that stops being true, torn down
+explicitly rather than left running.</p>
+<h2 id="sixteen-ai-jobs-three-cost-tiers">Sixteen AI jobs, three cost tiers<a class="headerlink" href="#sixteen-ai-jobs-three-cost-tiers" title="Permanent link">&para;</a></h2>
+<p>Everything upstream of embed/enrich costs ordinary compute, the same
+warehouse credits any dbt model burns. From there on, every model makes
+a real, billed AI-function call. Three cost tiers apply project-wide:</p>
+<ul>
+<li><strong>Zero cost</strong>: local DuckDB runs. DuckDB has no <code>embed()</code> or
+  <code>classify()</code> implementation, so nothing bills.</li>
+<li><strong>Cloud compute cost</strong>: the deterministic chunking layer on Snowflake,
+  BigQuery, or Databricks. Ordinary warehouse credits, no AI billing.</li>
+<li><strong>Cloud AI-function cost</strong>: <code>models/context/ai/*</code> on a cloud
+  warehouse. Real, billed <code>embed()</code> or <code>classify()</code> calls.</li>
+</ul>
+<p><img alt="Embed()-calling jobs, gated behind one variable" src="assets/ai-jobs.svg" /></p>
+<p>Two shapes, run once per source, plus two singletons: seven
+<code>*_embed</code> models and seven <code>*_classify</code> models (one pair per source),
+<code>search</code> (embeds each demo query), and the package's own
+<code>embedding_canary</code> monitor. Nine of those sixteen call <code>embed()</code>
+(the seven <code>*_embed</code> models, <code>search</code>, and <code>embedding_canary</code>); the
+other seven call <code>classify()</code>, dispatched to <code>AI_CLASSIFY</code> on Snowflake,
+<code>ai_classify</code> on Databricks, and a schema-constrained <code>AI.GENERATE</code> on
+BigQuery. Sixteen AI-calling jobs total, one gate. The corpus covers
+seven sources: the original five plus dispatch notes and Slack threads,
+attributed to an account through the route bridge described in
+<a href="#combine-a-real-union-of-seven-independent-sources">combine</a>. It still
+doesn't cover the structured tables, or free text this project doesn't
+model. Seven independent
+per-source paths, rather than one shared corpus unified before hashing,
+matches <code>knowledge_base()</code>'s own documented usage pattern (independent
+per-source paths, converged only at the union), trading seven-times the
+near-duplicate boilerplate for isolation each source would realistically
+need: a bad batch or a rate limit on one source's <code>classify()</code> call
+doesn't block the other six's <code>dbt build --select</code> independently.</p>
+<p>That gate is <code>ai_functions_enabled</code> in <code>dbt_project.yml</code>, <code>false</code> by
+default. It's a real dbt <code>+enabled</code> config, so a disabled model can't
+build even under an explicit <code>--select</code>. A plain <code>dbt build</code> never
+triggers AI spend. Turning it on is one flag:
+<code>--vars '{ai_functions_enabled: true}'</code>, covering <code>embedding_canary</code> too, so
+enabling spend is one decision, not several.</p>
+<p>The same var also drives a second, package-level gate: <code>generate</code>,
+<code>classify</code>, <code>embed</code>, <code>extract</code>, and <code>ai_agg</code> each refuse to fire unless
+<code>ai_functions_enabled</code> is <code>true</code> for the target, checked inside the
+function itself rather than a config value a caller has to remember to
+use. One flag, checked at both the selection-time <code>+enabled</code> gate above
+and inside the functions themselves.</p>
+<p>See <a href="governance.html">governance</a> for the cost guards, audit log, and
+incremental design behind that gate.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tracking", "navigation.top", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

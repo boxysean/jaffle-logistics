@@ -1,0 +1,1050 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A worked example of context engineering in dbt: turning free-text operational data into a governed, queryable knowledge base.">
+      
+      
+      
+      
+        <link rel="prev" href="context-engineering.html">
+      
+      
+        <link rel="next" href="governance.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Comparison - Jaffle Logistics</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#comparison-two-narratives-one-account" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Jaffle Logistics" class="md-header__button md-logo" aria-label="Jaffle Logistics" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Jaffle Logistics
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Comparison
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dbt-labs/jaffle-logistics" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dbt-labs/jaffle-logistics
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Jaffle Logistics" class="md-nav__button md-logo" aria-label="Jaffle Logistics" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Jaffle Logistics
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dbt-labs/jaffle-logistics" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dbt-labs/jaffle-logistics
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="the-problem.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The problem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="history.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="context-engineering.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparison
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="comparison.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparison
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-account-jaffle-werke-cli-0042" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The account: Jaffle Werke (CLI-0042)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#told-by-joins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Told by joins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#told-by-search-raw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Told by search, raw
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixing-it-with-classify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixing it with classify()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#told-by-search-the-whole-corpus-case-and-its-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Told by search: the whole-corpus case, and its limit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-it-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading it together
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="governance.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="multi-platform.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-platform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="roadmap.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="shareholder-deck.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shareholder pack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-account-jaffle-werke-cli-0042" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The account: Jaffle Werke (CLI-0042)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#told-by-joins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Told by joins
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#told-by-search-raw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Told by search, raw
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixing-it-with-classify" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixing it with classify()
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#told-by-search-the-whole-corpus-case-and-its-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Told by search: the whole-corpus case, and its limit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reading-it-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reading it together
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="comparison-two-narratives-one-account">Comparison: two narratives, one account<a class="headerlink" href="#comparison-two-narratives-one-account" title="Permanent link">&para;</a></h1>
+<p>The same account's story, told twice: once by hand-written joins, once
+by semantic retrieval. Both ran against real data. The join returns
+every artifact tied to the account by an exact identifier, all 181 rows
+of it; the coherent narrative below exists only because eight of those
+rows were picked out by hand. Semantic retrieval does better than manual assembly, but only once it
+moves past raw cosine similarity. Raw similarity fails for a specific,
+tested reason; a business-scoped <code>classify()</code> pass fixes most of it,
+and that improvement is what this page demonstrates.</p>
+<h2 id="the-account-jaffle-werke-cli-0042">The account: Jaffle Werke (<code>CLI-0042</code>)<a class="headerlink" href="#the-account-jaffle-werke-cli-0042" title="Permanent link">&para;</a></h2>
+<p>On-time delivery for Jaffle Werke degraded through 2025 for two
+unrelated reasons, documented across CRM notes, support tickets, Slack,
+and incident reports.</p>
+<p>Pulled straight from <code>jaffle_equipment_narrative.sql</code>'s actual output
+(181 rows total; support tickets alone account for 144), here are the
+beats that turn a wall of tickets into a root-cause story:</p>
+<table>
+<thead>
+<tr>
+<th>occurred_at</th>
+<th>source</th>
+<th>artifact_id</th>
+<th>excerpt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2023-11-14</td>
+<td>legal_doc</td>
+<td>LGL-4000</td>
+<td>MASTER SERVICES AGREEMENT — Jaffle Logistics and Jaffle Werke (CLI-0042). Effective 2023-11-14...</td>
+</tr>
+<tr>
+<td>2025-01-21</td>
+<td>crm_note</td>
+<td>CRM-9001</td>
+<td>QBR — Jaffle Werke (CLI-0042), Q1 2025. Tense call. The Jan 14-16 Paris storm delayed a large batch of Jaffle Werke freight...</td>
+</tr>
+<tr>
+<td>2025-01-21</td>
+<td>call_transcript</td>
+<td>CT-99001</td>
+<td>Marcus Trent: Janet, thanks for taking this. I know the last two weeks have been rough, I want to own it...</td>
+</tr>
+<tr>
+<td>2025-07-18</td>
+<td>slack_thread</td>
+<td>SLK-99010</td>
+<td>@marcus: on-time for Jaffle Werke (CLI-0042) has been sliding since Q2, and tickets are up. @marcus: storm recovery mostly explains PAR, but I'm also seeing two damage/mispick incidents at AMS in June that don't fit that pattern...</td>
+</tr>
+<tr>
+<td>2025-10-11</td>
+<td>incident_report</td>
+<td>IR-9003</td>
+<td>INCIDENT REPORT INC-2025-00095 — DAMAGE (severity 3). This is the third handling-related incident at HUB-AMS in 2025, following a damage event in June (INC-2025-00136) and a mispick eight days later (INC-2025-00241)...</td>
+</tr>
+<tr>
+<td>2025-10-14</td>
+<td>crm_note</td>
+<td>CRM-9022</td>
+<td>QBR — Jaffle Werke (CLI-0042), Q3 2025. On-time is materially under target. The January Paris storm explains part of it, but a second, weather-independent pattern has emerged: repeated handling damage at the Amsterdam hub...</td>
+</tr>
+<tr>
+<td>2025-10-15</td>
+<td>slack_thread</td>
+<td>SLK-99011</td>
+<td>@marcus: third AMS incident this year for Jaffle Werke (INC-2025-00095, damage) — same pattern as INC-2025-00136 and INC-2025-00241. @gordon: bay 3 forklift staging has come up before...</td>
+</tr>
+<tr>
+<td>2025-10-20</td>
+<td>crm_note</td>
+<td>CRM-9030</td>
+<td>Q4 PERFORMANCE ROOT-CAUSE REVIEW — Jaffle Werke (CLI-0042). Two contributing factors identified for 2025's on-time decline: the January Paris winter storm, and a recurring handling-damage pattern at the Amsterdam hub...</td>
+</tr>
+</tbody>
+</table>
+<p>Contract signed, a one-time storm spikes ticket volume in January, an
+unrelated handling pattern emerges at Amsterdam over the summer. Ops
+traces it to a specific bay, and the Q4 review documents both causes
+side by side, each backed by an incident ID. All eight rows exist in the
+181-row output today; finding them meant scrolling past 173 others.</p>
+<h2 id="told-by-joins">Told by joins<a class="headerlink" href="#told-by-joins" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/analyses/jaffle_equipment_narrative.sql"><code>jaffle_equipment_narrative.sql</code></a>
+reconstructs the account's full history in date order using <code>client_id</code>
+matches, <code>int_shipment_touchpoints</code> joins, and a <code>like '%CLI-0042%'</code>
+pattern for Slack. It surfaces every artifact tied to the account by an
+exact identifier. It has no opinion about which artifacts matter, and it
+can't find anything the account mentions without naming it explicitly.</p>
+<h2 id="told-by-search-raw">Told by search, raw<a class="headerlink" href="#told-by-search-raw" title="Permanent link">&para;</a></h2>
+<p>The same account, asked differently: <code>search.sql</code>'s
+<code>jaffle_werke_performance_issues</code> demo embeds "late deliveries and
+what is driving them" once, then runs cosine similarity over
+<code>knowledge_base</code>, filtered to <code>account_key = 'CLI-0042'</code>. No join, no
+regex, no exact string. Run it yourself:
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/analyses/the_pattern/04_raw_search.sql"><code>04_raw_search.sql</code></a>.</p>
+<p>The real top 10 on Snowflake:</p>
+<table>
+<thead>
+<tr>
+<th>rank</th>
+<th>source_id</th>
+<th>score</th>
+<th>what it actually is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>IR-9001::3</code></td>
+<td>0.754</td>
+<td>a six-token trailing sentence: "Reviewed with dispatch."</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>IR-7003::2</code></td>
+<td>0.658</td>
+<td>an unrelated incident's root-cause/remediation lines</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>IR-7013::2</code></td>
+<td>0.641</td>
+<td>another unrelated incident's remediation line</td>
+</tr>
+<tr>
+<td>4, 6, 8-10</td>
+<td><code>TKT-2000xx</code></td>
+<td>0.55-0.58</td>
+<td>routine "can you confirm the delivery window" check-ins</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>IR-7009::2</code></td>
+<td>0.572</td>
+<td>another unrelated incident's remediation line</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>CT-99021::2</code></td>
+<td>0.565</td>
+<td>real signal: "I'll bring findings next time, not just a promise"</td>
+</tr>
+</tbody>
+</table>
+<p>One real hit makes the top 10 on its own. <code>CRM-9030</code>, <code>CRM-9022</code>, and
+the rest of the QBR arc don't. Six of the ten slots are boilerplate from
+unrelated incidents or routine ticket check-ins.</p>
+<p>Cosine similarity favors short or formulaic text over topically relevant
+text: that text sits close to the center of embedding space, so it
+scores high against almost any query, regardless of topic. The most
+duplicated incident-report boilerplate accounts for some of this
+(rewriting it into distinct phrasing changes those specific scores), but
+not <code>IR-9001::3</code>, which was never duplicated anywhere and doesn't move.
+Duplicate content and short, low-information chunks are separate
+problems (see <a href="governance.html">governance</a>).</p>
+<h2 id="fixing-it-with-classify">Fixing it with classify()<a class="headerlink" href="#fixing-it-with-classify" title="Permanent link">&para;</a></h2>
+<p>Each source's <code>*_classify</code> model labels every chunk and ticket record
+by content type, sharing one taxonomy and prompt across all five:
+<code>account_assessment</code>, <code>contract_reference</code>,
+<code>weather_disruption</code>, <code>vehicle_or_driver_incident</code>,
+<code>handling_or_warehouse_error</code>, or <code>routine_status</code>. Each label is a
+business category, not a judgment of how well the text is written, and
+it matches the weather-vs-handling split <code>CRM-9030</code>'s own root-cause
+review makes.</p>
+<p>This taxonomy was designed for these two demo queries specifically. It's
+not a general-purpose, first-principles categorization validated
+against arbitrary future questions; that's separate work, covered in
+<a href="roadmap.html">roadmap</a>. What follows is real <code>classify()</code> output against
+real data, a demonstration of the mechanism, not proof it generalizes.</p>
+<p>Filtered to <code>classification = 'account_assessment'</code>. Run it yourself:
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/analyses/the_pattern/05_classify.sql"><code>05_classify.sql</code></a>
+shows the labels, then
+<a href="https://github.com/dbt-labs/jaffle-logistics/blob/main/analyses/the_pattern/06_search_with_classify.sql"><code>06_search_with_classify.sql</code></a>
+runs the filtered search below:</p>
+<table>
+<thead>
+<tr>
+<th>rank</th>
+<th>source_id</th>
+<th>score</th>
+<th>what it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>CT-99021::2</code></td>
+<td>0.565</td>
+<td>Q2 transcript close: "I'll bring findings next time"</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>CT-99021::1</code></td>
+<td>0.544</td>
+<td>Q2 transcript open: pattern flagged, cause unknown</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>CT-99022::1</code></td>
+<td>0.501</td>
+<td>Q3 transcript: Amsterdam pattern identified</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>IR-9003::2</code></td>
+<td>0.491</td>
+<td>the Amsterdam incident report's own account-facing note</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>CRM-9001::2</code></td>
+<td>0.483</td>
+<td>Q1: SLA credit issued, "first real crack in the relationship"</td>
+</tr>
+<tr>
+<td>6, 8-10</td>
+<td><code>TKT-910xxx</code></td>
+<td>0.46</td>
+<td>repeated ticket frustration, no churn language</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>CT-99001::2</code></td>
+<td>0.464</td>
+<td>Q1 transcript: SLA credit, recovery plan promised</td>
+</tr>
+</tbody>
+</table>
+<p>Every row is real account-level content, in a coherent order, with no
+boilerplate and no incident noise.</p>
+<h2 id="told-by-search-the-whole-corpus-case-and-its-limit">Told by search: the whole-corpus case, and its limit<a class="headerlink" href="#told-by-search-the-whole-corpus-case-and-its-limit" title="Permanent link">&para;</a></h2>
+<p>The thematic demo, "truck accident during the Paris winter storm," no
+account filter, is the real case for semantic search: there's no join
+path to that question, and no regex a person could write in advance to
+catch every way an incident report might describe a storm.</p>
+<p>Raw, it fails the same way as the account demo: the top 10 is unrelated
+incidents' generic remediation lines plus <code>IR-9001::3</code> again. Filtered to
+<code>classification = 'weather_disruption'</code>, it mostly works: the top 10 is
+dominated by tickets naming the January storm and its incident ID
+(<code>INC-2025-00417</code>) directly, occasionally joined by an incident report
+whose remediation genuinely describes a weather-driven dispatch change.</p>
+<p>The exact mix isn't stable run to run. <code>classify()</code> isn't incremental
+(unlike <code>embed()</code>, it has no ADR-0023 cache metadata), so a full
+reclassification relabels the entire corpus fresh from the LLM every
+time, and the same unchanged text can land differently between runs.
+One incident-report remediation chunk, "Added a manual weather check to
+the dispatch board for this hub before morning departures," has been
+classified both <code>routine_status</code> and <code>weather_disruption</code> across
+different reclassification runs in this project's own testing, each
+time changing which rows pass the filter. <code>IR-9001</code>'s own summary, "a
+semi jackknifed on an icy on-ramp... during the Jan 14-16 winter storm,"
+hasn't cracked the top 10 in either version, plausibly because that text
+reads as <code>vehicle_or_driver_incident</code> as easily as <code>weather_disruption</code>.
+Filtering by category removes irrelevant categories; it doesn't
+guarantee the best chunk within a category outranks every other chunk
+sharing it, and, as this shows, it doesn't guarantee the same chunk gets
+the same category twice.</p>
+<h2 id="reading-it-together">Reading it together<a class="headerlink" href="#reading-it-together" title="Permanent link">&para;</a></h2>
+<p>The join-based story is exact, exhaustive, and blind to anything not
+named explicitly. Raw semantic search asks the right kind of question
+and fails for a specific, tested reason. A real, business-scoped
+<code>classify()</code> taxonomy fixes most of that, with one disclosed gap left
+open. All three results came from running real queries against real
+data on Snowflake. <a href="roadmap.html">Roadmap</a> covers what's still missing.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tracking", "navigation.top", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

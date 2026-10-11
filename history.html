@@ -1,0 +1,1027 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A worked example of context engineering in dbt: turning free-text operational data into a governed, queryable knowledge base.">
+      
+      
+      
+      
+        <link rel="prev" href="the-problem.html">
+      
+      
+        <link rel="next" href="context-engineering.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>The data - Jaffle Logistics</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/extra.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-history-behind-the-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Jaffle Logistics" class="md-header__button md-logo" aria-label="Jaffle Logistics" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Jaffle Logistics
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The data
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/dbt-labs/jaffle-logistics" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dbt-labs/jaffle-logistics
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Jaffle Logistics" class="md-nav__button md-logo" aria-label="Jaffle Logistics" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Jaffle Logistics
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/dbt-labs/jaffle-logistics" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    dbt-labs/jaffle-logistics
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="the-problem.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The problem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The data
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="history.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#three-years-two-stories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three years, two stories
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-was-added" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What was added
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-to-client-attribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route-to-client attribution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#promised-delivery-clock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promised-delivery clock
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revision-year-over-year-volume-and-the-service-level-mix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revision: year-over-year volume and the service-level mix
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="context-engineering.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Context engineering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="comparison.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comparison
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="governance.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Governance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="multi-platform.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi-platform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="roadmap.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="shareholder-deck.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Shareholder pack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#three-years-two-stories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Three years, two stories
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-was-added" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What was added
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#route-to-client-attribution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Route-to-client attribution
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#promised-delivery-clock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Promised-delivery clock
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#revision-year-over-year-volume-and-the-service-level-mix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Revision: year-over-year volume and the service-level mix
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="the-history-behind-the-data">The history behind the data<a class="headerlink" href="#the-history-behind-the-data" title="Permanent link">&para;</a></h1>
+<p>The warehouse holds a fictional operator, <strong>Jaffle Logistics</strong>, with five
+hubs (Amsterdam, Paris, Berlin, Vienna, Zürich) and five
+customers. The seed data was originally a single operating year, <strong>2025</strong>,
+which made every "how are we doing?" question impossible to answer: with
+one year there is nothing to compare against. The dataset has since been
+<strong>extended backwards in time</strong>, adding <strong>2023 and 2024</strong> to the
+operational records so that 2025 reads as the third year of a business
+with a visible past.</p>
+<h2 id="three-years-two-stories">Three years, two stories<a class="headerlink" href="#three-years-two-stories" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>On-time delivery</th>
+<th>Jaffle Werke (<code>CLI-0042</code>)</th>
+<th>What it is</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2023</td>
+<td>≈ 97.5%</td>
+<td>≈ 98%</td>
+<td>Quiet, healthy year</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>≈ 97.2%</td>
+<td>≈ 98%</td>
+<td>Quiet, healthy year</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>behind the 97% SLA target</td>
+<td>down to ≈ 79%</td>
+<td>The year under analysis</td>
+</tr>
+</tbody>
+</table>
+<p><strong>2023 and 2024 are the baseline.</strong> Ordinary operations, ordinary
+weather, an occasional incident resolved inside the week. Whole-book
+on-time delivery sits at or just above the 97% contractual target in both
+years, and Jaffle Werke is a <em>good</em> account in that period, close to
+98% on time.</p>
+<p><strong>2025 is the year the story is about.</strong> The January Paris storm, a
+recurring handling-damage pattern at the Amsterdam hub (<code>HUB-AMS</code>, bay 3
+staging), and Jaffle Werke's decline to roughly 79% on time all live
+in 2025 and nowhere earlier. Every analysis written about 2025 still
+holds; what changed is that it now has two calm years to be measured
+against.</p>
+<h2 id="what-was-added">What was added<a class="headerlink" href="#what-was-added" title="Permanent link">&para;</a></h2>
+<p>The extension was <strong>append-only</strong>. No existing row, id or value was
+rewritten (a later, separate change <em>did</em> revise rows — see
+<a href="#revision-year-over-year-volume-and-the-service-level-mix">Revision: year-over-year volume and the service-level mix</a>),
+and no date was pushed past the dataset's present
+(2025-12-31; a late-December shipment may still deliver a few days into
+January, exactly as the original data already does).</p>
+<ul>
+<li><code>shipments</code>, <code>routes</code> and <code>incidents</code> each gained <strong>two full prior
+  years</strong>, roughly doubling every table.</li>
+<li><code>drivers</code> and <code>vehicles</code> grew slightly, with hire dates in 2022–2024,
+  so the earlier years are credibly staffed.</li>
+<li>New ids continue the existing schemes: <code>SHP-YYYYMM-NNNNNN</code>,
+  <code>RTE-&lt;HUB3&gt;-YYYYMMDD-NNN</code>, and <code>INC-YYYY-NNNNN</code> (the year is embedded
+  in an incident id).</li>
+<li>Every new row points at something that already exists — the same five
+  clients, the same five hubs, and real drivers, vehicles, routes and
+  shipments — so referential integrity holds across the whole timeline.</li>
+<li><code>dock_bay_events</code> (new, <code>DBE-NNNNNN</code>) is the bay-level dock record: every
+  bay at every hub, every day of 2023–2025, with one <code>damage_found</code> row per
+  damage incident. <code>incident_reports</code> gained a report for every severity 1–2
+  incident and every Amsterdam damage incident that lacked one (<code>IR-7067</code> on).</li>
+</ul>
+<p>The quiet years were generated deliberately, not uniformly at random:
+their on-time rates, incident mix and severity were chosen to match the
+story above, so the 2025 decline shows up as a change from a known
+baseline rather than as the only year on record.</p>
+<h2 id="route-to-client-attribution">Route-to-client attribution<a class="headerlink" href="#route-to-client-attribution" title="Permanent link">&para;</a></h2>
+<p>Cost is recorded per route and per hub. Revenue is recorded per account.
+To put cost on accounts you need a bridge that says which accounts each
+route carried. <code>route_client_attribution</code> is that bridge: one row per
+route × client, for <strong>every route from 2023-01-01 to 2025-12-31</strong>, with
+one to four clients per route.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>stop_share</code></td>
+<td>the client's share of the route's stops</td>
+</tr>
+<tr>
+<td><code>revenue_share</code></td>
+<td>the client's share of the route's revenue (may differ from <code>stop_share</code>: LTL freight earns more per stop)</td>
+</tr>
+<tr>
+<td><code>exception_attributed</code></td>
+<td>how many of the route's <code>exceptions_count</code> belong to the client</td>
+</tr>
+</tbody>
+</table>
+<p><strong>It reconciles to the route record.</strong> Per route, <code>stop_share</code> and
+<code>revenue_share</code> each sum to exactly 1.0. Shares are rounded to 4 dp and the
+largest share absorbs the remainder. <code>exception_attributed</code> sums to the
+route's <code>exceptions_count</code>, using a largest-remainder split. Every route
+appears. Two singular tests enforce this:
+<code>assert_route_attribution_shares_sum_to_one</code> and
+<code>assert_route_attribution_exceptions_reconcile</code>.</p>
+<p>The mix starts from the evidence: every client with a shipment on the route.
+Shipments are only a sample of a route's stops, so the mix is topped up from
+each account's shipment volume at that hub that month. On every route
+carrying a 2025 damage incident, Jaffle Werke (<code>CLI-0042</code>) holds the
+largest share of exceptions, so incidents traced through the bridge land the
+Amsterdam handling-damage cluster on that account
+(<code>assert_amsterdam_2025_damage_attributed_to_werke</code>). The 2023–2024
+damage routes are led by other accounts.</p>
+<p><code>fct_client_cost_attribution</code> uses the bridge to give cost per client by
+month: attributed exceptions, plus each hub-month's fleet maintenance spread
+by the client's share of attributed stops. <strong>That allocation is by share and
+is therefore an approximation.</strong> The bridge records the mix on a route, not
+which account caused a given cost.
+Generated by <code>scripts/generate_route_client_attribution.py</code>.</p>
+<h2 id="promised-delivery-clock">Promised-delivery clock<a class="headerlink" href="#promised-delivery-clock" title="Permanent link">&para;</a></h2>
+<p>On-time was originally only a status flag: <code>delivered</code> means on time and
+<code>delayed</code> means late. There was no promised date, so nobody could say <em>how</em>
+late a shipment was. <code>shipments</code> now carries three more columns. The
+existing columns are byte-identical.</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>promised_delivery_at</code></td>
+<td>when the shipment was promised</td>
+</tr>
+<tr>
+<td><code>hours_late</code></td>
+<td>whole hours past the promise; delayed shipments only</td>
+</tr>
+<tr>
+<td><code>late_bucket</code></td>
+<td><code>on_time</code>, <code>&lt;4h</code>, <code>4-12h</code>, <code>1-2d</code> or <code>&gt;2d</code>; null for failed and returned</td>
+</tr>
+</tbody>
+</table>
+<p>The promise is <code>created_at</code> plus the account's committed transit. That is a
+service-level base (expedited 36h, standard 60h, freight 84h), plus hours
+for a looser contract SLA (6h per point below 97%), plus a lane offset
+from the origin hub to the client's region (0h local, 12h neighbouring
+region, 24h farther), plus a small seeded jitter.</p>
+<p><strong>The clock agrees with the flag.</strong> A delivered shipment's promise lands at
+or after its delivery. A delayed shipment's promise is reconstructed as
+<code>delivered_at - hours_late</code>. Failed and returned shipments still carry the
+promise that was made, with no lateness. The singular test
+<code>assert_shipment_lateness_matches_status</code> enforces this.</p>
+<p><strong>It tells the 2025 story in hours.</strong> Late shipments in 2023 and 2024 were
+barely late, 2–10 hours. In 2025 they run a day or more: multi-day during
+the January Paris storm and on Jaffle Werke's (<code>CLI-0042</code>) freight,
+and one to two days elsewhere. The <code>late_hours</code> metric on the <code>shipments</code>
+semantic model sums it.</p>
+<p>One caveat: a delayed promise is never placed before its service-level base
+transit. So a quiet-year late shipment's window comes out close to its
+actual (long) transit. That is deliberate: in the healthy years the
+promise was a generous window, missed by only hours.</p>
+<p>Generated by <code>scripts/generate_promised_delivery.py</code>.</p>
+<h2 id="revision-year-over-year-volume-and-the-service-level-mix">Revision: year-over-year volume and the service-level mix<a class="headerlink" href="#revision-year-over-year-volume-and-the-service-level-mix" title="Permanent link">&para;</a></h2>
+<p><strong>This was a revision of existing rows, not an append.</strong> Unlike the
+extension above, it rewrote <code>seeds/shipments.csv</code> and <code>seeds/routes.csv</code> in
+place. Two things were wrong with the extended data:</p>
+<ul>
+<li><strong>Every year had the same volume</strong>: 2,009 shipments and 3,629 routes in
+  each of 2023, 2024 and 2025. With identical volumes no analysis can tell
+  a volume effect apart from a reliability effect.</li>
+<li><strong><code>service_level</code> was degenerate in 2025</strong>: every 2025 <code>freight</code>
+  shipment belonged to Jaffle Werke (<code>CLI-0042</code>), so "freight" was just
+  another name for that account.</li>
+</ul>
+<p>What changed:</p>
+<table>
+<thead>
+<tr>
+<th>Year</th>
+<th>Shipments</th>
+<th>Routes</th>
+<th>On-time</th>
+<th><code>CLI-0042</code> share</th>
+<th>Freight carried by</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2023</td>
+<td>2,009 → <strong>1,848</strong> (−8%)</td>
+<td>3,629 → <strong>3,338</strong></td>
+<td>97.51% (unchanged)</td>
+<td>20.7% → <strong>19.4%</strong></td>
+<td>all five accounts</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>2,009 → <strong>1,949</strong> (−3%)</td>
+<td>3,629 → <strong>3,521</strong></td>
+<td>97.21% → 97.23%</td>
+<td>20.6% → <strong>20.1%</strong></td>
+<td>all five accounts</td>
+</tr>
+<tr>
+<td>2025</td>
+<td>2,009 (unchanged)</td>
+<td>3,629 (unchanged)</td>
+<td>93.28% (unchanged)</td>
+<td>20.7%</td>
+<td><code>CLI-0042</code> (416), <code>CLI-0169</code> (32), <code>CLI-0007</code> (31)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>2023 and 2024 lost rows; nothing was added, renumbered or re-drawn.</strong>
+  Every surviving row keeps all of its values. A row was dropped only if no
+  other seed refers to it: no incident, support ticket, CRM note, incident
+  report, dispatch note or Slack thread. Drops were chosen so that each
+  month shrinks by the year's factor (the January trough and the Q4 peak
+  are kept), each year's on-time rate holds, and <code>CLI-0042</code>'s share rises
+  2023 → 2024 → 2025 while the other four accounts stay roughly flat.</li>
+<li><strong>Routes shrank by the same annual factor</strong>, month by month. Only routes
+  that no surviving shipment, incident or note refers to were dropped. No
+  2023–2024 driver-month or vehicle-month is now busier than the busiest
+  one in 2025.</li>
+<li><strong>2025 is unchanged apart from its service-level mix.</strong> Every 2025
+  shipment keeps its id, client, hub, dates, status and route. The only
+  change: 63 of them (8% of <code>CLI-0007</code>'s and of <code>CLI-0169</code>'s 2025 book)
+  were relabelled from <code>expedited</code> to <code>freight</code>. That makes three freight
+  accounts in every year, and <code>CLI-0042</code> still has the largest 2025
+  freight book. The 2025 routes are byte-identical.</li>
+<li>No status, incident or date was changed. Nothing is dated after
+  2025-12-31, and no 2025 signal shows up in 2023–2024.</li>
+<li><strong>The promised-delivery clock was carried through, not recomputed.</strong>
+  Every surviving shipment keeps its <code>promised_delivery_at</code>, <code>hours_late</code>
+  and <code>late_bucket</code> exactly. That includes the 63 relabelled 2025 shipments,
+  whose promise was set on the expedited base (36h), not the freight base
+  (84h). The clock still agrees with the status flag. Do not re-run
+  <code>scripts/generate_promised_delivery.py</code>. It draws one seeded stream across
+  all rows, so running it on the shorter file would redraw every
+  shipment's promise, including 2025's. Its <code>--check</code> now reports a
+  difference for the same reason.</li>
+</ul>
+<p><strong>The derived seeds were regenerated as a result</strong>: <code>revenue_ledger</code>,
+<code>payroll_monthly</code>, <code>route_client_attribution</code> and <code>cost_ledger</code> are rebuilt
+from the revised shipments and routes, so their reconciliation tests still
+tie out. Their 2023–2024 figures, and any 2025 figure computed over a
+trailing window or from the service-level mix (revenue, credits), differ
+from the values before the revision. Generated by
+<code>scripts/generate_volume_variation.py</code>. The script refuses to run a second
+time on data that has already been revised.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tracking", "navigation.top", "content.code.copy", "toc.follow"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
