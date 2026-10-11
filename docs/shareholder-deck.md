@@ -1,9 +1,10 @@
 # Shareholder pack
 
 A briefing on the business, assembled from the company's own operating data and skinned as a
-16-bit management game. Twelve slides: the business in brief, the network, the executive group,
-one slide for each seat — finance, operations, revenue, customer experience, fleet, people and
-data — and a case study of the storm week that broke Paris.
+16-bit management game. Fifteen slides: the business in brief, the network, the executive group,
+the year's results and the quarters behind them, one slide for each seat — finance, operations,
+revenue, customer experience, fleet, people and data — and a case study of the storm week that
+broke Paris.
 
 [**Open the deck &rarr;**](shareholder-deck/presentation.html){ .md-button .md-button--primary }
 Use the arrow keys to move, `f` for full screen, and print to PDF for a handout.
@@ -14,14 +15,17 @@ Use the arrow keys to move, `f` for full screen, and print to PDF for a handout.
 [![Slide 2: the business in brief](shareholder-deck/png/deck-01.png)](shareholder-deck/presentation.html)
 [![Slide 3: the network](shareholder-deck/png/deck-02.png)](shareholder-deck/presentation.html)
 [![Slide 4: the executive group](shareholder-deck/png/deck-03.png)](shareholder-deck/presentation.html)
-[![Slide 5: CFO](shareholder-deck/png/deck-04.png)](shareholder-deck/presentation.html)
-[![Slide 6: COO](shareholder-deck/png/deck-05.png)](shareholder-deck/presentation.html)
-[![Slide 7: the storm week](shareholder-deck/png/deck-06.png)](shareholder-deck/presentation.html)
-[![Slide 8: CRO](shareholder-deck/png/deck-07.png)](shareholder-deck/presentation.html)
-[![Slide 9: customer experience](shareholder-deck/png/deck-08.png)](shareholder-deck/presentation.html)
-[![Slide 10: fleet](shareholder-deck/png/deck-09.png)](shareholder-deck/presentation.html)
-[![Slide 11: people](shareholder-deck/png/deck-10.png)](shareholder-deck/presentation.html)
-[![Slide 12: data](shareholder-deck/png/deck-11.png)](shareholder-deck/presentation.html)
+[![Slide 5: the year in numbers](shareholder-deck/png/deck-04.png)](shareholder-deck/presentation.html)
+[![Slide 6: the quarters](shareholder-deck/png/deck-05.png)](shareholder-deck/presentation.html)
+[![Slide 7: actuals against the contract](shareholder-deck/png/deck-06.png)](shareholder-deck/presentation.html)
+[![Slide 8: CFO](shareholder-deck/png/deck-07.png)](shareholder-deck/presentation.html)
+[![Slide 9: COO](shareholder-deck/png/deck-08.png)](shareholder-deck/presentation.html)
+[![Slide 10: the storm week](shareholder-deck/png/deck-09.png)](shareholder-deck/presentation.html)
+[![Slide 11: CRO](shareholder-deck/png/deck-10.png)](shareholder-deck/presentation.html)
+[![Slide 12: customer experience](shareholder-deck/png/deck-11.png)](shareholder-deck/presentation.html)
+[![Slide 13: fleet](shareholder-deck/png/deck-12.png)](shareholder-deck/presentation.html)
+[![Slide 14: people](shareholder-deck/png/deck-13.png)](shareholder-deck/presentation.html)
+[![Slide 15: data](shareholder-deck/png/deck-14.png)](shareholder-deck/presentation.html)
 
 ## The graphics, in three styles
 

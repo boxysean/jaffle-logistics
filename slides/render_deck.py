@@ -11,7 +11,7 @@ import subprocess
 SLIDES_DIR = "/home/hermes/projects/jaffle-logistics/slides"
 DECK = "presentation.html"
 OUT = os.path.join(SLIDES_DIR, "png")
-COUNT = 12
+COUNT = 15
 SIZE = "1280,720"
 
 
