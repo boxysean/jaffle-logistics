@@ -1,14 +1,14 @@
 # Shareholder pack
 
 A briefing on the business, assembled from the company's own operating data and skinned as a
-16-bit management game. Nineteen slides: the business in brief (with the network map), the year's
+16-bit management game. Twenty slides: the business in brief (with the network map), the year's
 numbers and the quarters behind them, the storm week that broke Paris, the customer review, the
 executive group rebuilt in the deck's own artwork, one slide for each seat — finance, operations,
 revenue, customer experience, fleet, people and data — the argument for engineering that context at
 all, the case for the team that already owns that data, a slide showing how every number traces
-back to the system that recorded it, a closing audit of where those numbers can, and cannot, be
-trusted, and finally what that warehouse makes possible: the support-case agent, and where else
-agents slot in.
+back to the system that recorded it, the whole stack that produces it, a closing audit of where
+those numbers can, and cannot, be trusted, and finally what that warehouse makes possible: the
+support-case agent, and where else agents slot in.
 
 [**Open the deck &rarr;**](shareholder-deck/presentation.html){ .md-button .md-button--primary }
 Use the arrow keys to move, `f` for full screen, and print to PDF for a handout.
@@ -32,8 +32,9 @@ Use the arrow keys to move, `f` for full screen, and print to PDF for a handout.
 [![Slide 15: why context engineering](shareholder-deck/png/deck-14.png)](shareholder-deck/presentation.html)
 [![Slide 16: why the data team](shareholder-deck/png/deck-15.png)](shareholder-deck/presentation.html)
 [![Slide 17: every number traces back](shareholder-deck/png/deck-16.png)](shareholder-deck/presentation.html)
-[![Slide 18: we audited ourselves](shareholder-deck/png/deck-17.png)](shareholder-deck/presentation.html)
-[![Slide 19: so what? put agents on it](shareholder-deck/png/deck-18.png)](shareholder-deck/presentation.html)
+[![Slide 18: the whole stack](shareholder-deck/png/deck-17.png)](shareholder-deck/presentation.html)
+[![Slide 19: we audited ourselves](shareholder-deck/png/deck-18.png)](shareholder-deck/presentation.html)
+[![Slide 20: so what? put agents on it](shareholder-deck/png/deck-19.png)](shareholder-deck/presentation.html)
 
 ## The network map and the executive group, in three styles
 
