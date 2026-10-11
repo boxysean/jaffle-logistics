@@ -1,9 +1,9 @@
 # Shareholder pack
 
 A briefing on the business, assembled from the company's own operating data and skinned as a
-16-bit management game. Eleven slides: the business in brief, the network, the executive group,
-and then one slide per seat — finance, operations, revenue, customer experience, fleet, people
-and data.
+16-bit management game. Twelve slides: the business in brief, the network, the executive group,
+one slide for each seat — finance, operations, revenue, customer experience, fleet, people and
+data — and a case study of the storm week that broke Paris.
 
 [**Open the deck &rarr;**](shareholder-deck/presentation.html){ .md-button .md-button--primary }
 Use the arrow keys to move, `f` for full screen, and print to PDF for a handout.
@@ -16,11 +16,12 @@ Use the arrow keys to move, `f` for full screen, and print to PDF for a handout.
 [![Slide 4: the executive group](shareholder-deck/png/deck-03.png)](shareholder-deck/presentation.html)
 [![Slide 5: CFO](shareholder-deck/png/deck-04.png)](shareholder-deck/presentation.html)
 [![Slide 6: COO](shareholder-deck/png/deck-05.png)](shareholder-deck/presentation.html)
-[![Slide 7: CRO](shareholder-deck/png/deck-06.png)](shareholder-deck/presentation.html)
-[![Slide 8: customer experience](shareholder-deck/png/deck-07.png)](shareholder-deck/presentation.html)
-[![Slide 9: fleet](shareholder-deck/png/deck-08.png)](shareholder-deck/presentation.html)
-[![Slide 10: people](shareholder-deck/png/deck-09.png)](shareholder-deck/presentation.html)
-[![Slide 11: data](shareholder-deck/png/deck-10.png)](shareholder-deck/presentation.html)
+[![Slide 7: the storm week](shareholder-deck/png/deck-06.png)](shareholder-deck/presentation.html)
+[![Slide 8: CRO](shareholder-deck/png/deck-07.png)](shareholder-deck/presentation.html)
+[![Slide 9: customer experience](shareholder-deck/png/deck-08.png)](shareholder-deck/presentation.html)
+[![Slide 10: fleet](shareholder-deck/png/deck-09.png)](shareholder-deck/presentation.html)
+[![Slide 11: people](shareholder-deck/png/deck-10.png)](shareholder-deck/presentation.html)
+[![Slide 12: data](shareholder-deck/png/deck-11.png)](shareholder-deck/presentation.html)
 
 ## The graphics, in three styles
 
