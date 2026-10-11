@@ -47,7 +47,8 @@ markdown_extensions:
   - pymdownx.superfences
 
 nav:
-  - Home: index.md
+  - Slideshow: index.md
+  - About the project: about.md
   - The problem: the-problem.md
   - The data: history.md
   - Context engineering: context-engineering.md
