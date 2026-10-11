@@ -366,6 +366,16 @@ models:
           - accepted_values:
               arguments:
                 values: ['email', 'phone', 'chat', 'portal']
+      - name: first_response_at
+        description: "When an agent first replied. Gives the ticket a clock after opened_at, so the CX report can measure how fast we answer, not just how often we're asked."
+        tests: [not_null]
+      - name: resolved_at
+        description: "When the ticket was closed. Set only for status = 'resolved'; null by design for open and pending tickets (both still unresolved)."
+      - name: first_response_hours
+        description: "Hours from opened_at to first_response_at. The response-time measure the CX report was missing; compare by client and hub to see where the desk is strained."
+        tests: [not_null]
+      - name: resolution_hours
+        description: "Hours from opened_at to resolved_at; null while the ticket is unresolved. Always longer than first_response_hours: a reply is not a fix."
 
   - name: stg_crm_notes
     description: "One row per CRM note."
