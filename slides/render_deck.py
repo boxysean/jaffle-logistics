@@ -6,12 +6,14 @@ exactly the deck's own 1280x720 canvas - no letterboxing, no scaling.
 """
 import glob
 import os
+import re
 import subprocess
 
-SLIDES_DIR = "/home/hermes/projects/jaffle-logistics/slides"
+SLIDES_DIR = os.path.dirname(os.path.abspath(__file__))
 DECK = "presentation.html"
 OUT = os.path.join(SLIDES_DIR, "png")
-COUNT = 18
+with open(os.path.join(SLIDES_DIR, DECK), encoding="utf-8") as f:
+    COUNT = len(re.findall(r"<section\b", f.read()))
 SIZE = "1280,720"
 
 

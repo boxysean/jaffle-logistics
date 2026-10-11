@@ -1,12 +1,12 @@
 # Shareholder pack
 
 A briefing on the business, assembled from the company's own operating data and skinned as a
-16-bit management game. Eighteen slides: the business in brief, the network, the executive group,
-the year's results and the quarters behind them, one slide for each seat — finance, operations,
-revenue, customer experience, fleet, people and data — a case study of the storm week that broke
-Paris, a slide showing how every number traces back to the system that recorded it, a closing
-audit of where those numbers can, and cannot, be trusted, and finally what that warehouse makes
-possible: the support-case agent, and where else agents slot in.
+16-bit management game. Seventeen slides: the business in brief (with the network map), the year's
+numbers and the quarters behind them, the storm week that broke Paris, the customer review, the
+executive group rebuilt in the deck's own artwork, one slide for each seat — finance, operations,
+revenue, customer experience, fleet, people and data — a slide showing how every number traces back
+to the system that recorded it, a closing audit of where those numbers can, and cannot, be trusted,
+and finally what that warehouse makes possible: the support-case agent, and where else agents slot in.
 
 [**Open the deck &rarr;**](shareholder-deck/presentation.html){ .md-button .md-button--primary }
 Use the arrow keys to move, `f` for full screen, and print to PDF for a handout.
@@ -15,24 +15,23 @@ Use the arrow keys to move, `f` for full screen, and print to PDF for a handout.
 
 [![Slide 1: title](shareholder-deck/png/deck-00.png)](shareholder-deck/presentation.html)
 [![Slide 2: the business in brief](shareholder-deck/png/deck-01.png)](shareholder-deck/presentation.html)
-[![Slide 3: the network](shareholder-deck/png/deck-02.png)](shareholder-deck/presentation.html)
-[![Slide 4: the executive group](shareholder-deck/png/deck-03.png)](shareholder-deck/presentation.html)
-[![Slide 5: the year in numbers](shareholder-deck/png/deck-04.png)](shareholder-deck/presentation.html)
-[![Slide 6: the quarters](shareholder-deck/png/deck-05.png)](shareholder-deck/presentation.html)
-[![Slide 7: actuals against the contract](shareholder-deck/png/deck-06.png)](shareholder-deck/presentation.html)
+[![Slide 3: the year in numbers](shareholder-deck/png/deck-02.png)](shareholder-deck/presentation.html)
+[![Slide 4: the quarters](shareholder-deck/png/deck-03.png)](shareholder-deck/presentation.html)
+[![Slide 5: the storm week](shareholder-deck/png/deck-04.png)](shareholder-deck/presentation.html)
+[![Slide 6: customer review](shareholder-deck/png/deck-05.png)](shareholder-deck/presentation.html)
+[![Slide 7: executive leadership](shareholder-deck/png/deck-06.png)](shareholder-deck/presentation.html)
 [![Slide 8: CFO](shareholder-deck/png/deck-07.png)](shareholder-deck/presentation.html)
 [![Slide 9: COO](shareholder-deck/png/deck-08.png)](shareholder-deck/presentation.html)
-[![Slide 10: the storm week](shareholder-deck/png/deck-09.png)](shareholder-deck/presentation.html)
-[![Slide 11: CRO](shareholder-deck/png/deck-10.png)](shareholder-deck/presentation.html)
-[![Slide 12: customer experience](shareholder-deck/png/deck-11.png)](shareholder-deck/presentation.html)
-[![Slide 13: fleet](shareholder-deck/png/deck-12.png)](shareholder-deck/presentation.html)
-[![Slide 14: people](shareholder-deck/png/deck-13.png)](shareholder-deck/presentation.html)
-[![Slide 15: data](shareholder-deck/png/deck-14.png)](shareholder-deck/presentation.html)
-[![Slide 16: every number traces back](shareholder-deck/png/deck-15.png)](shareholder-deck/presentation.html)
-[![Slide 17: we audited ourselves](shareholder-deck/png/deck-16.png)](shareholder-deck/presentation.html)
-[![Slide 18: so what? put agents on it](shareholder-deck/png/deck-17.png)](shareholder-deck/presentation.html)
+[![Slide 10: CRO](shareholder-deck/png/deck-09.png)](shareholder-deck/presentation.html)
+[![Slide 11: customer experience](shareholder-deck/png/deck-10.png)](shareholder-deck/presentation.html)
+[![Slide 12: fleet](shareholder-deck/png/deck-11.png)](shareholder-deck/presentation.html)
+[![Slide 13: people](shareholder-deck/png/deck-12.png)](shareholder-deck/presentation.html)
+[![Slide 14: data](shareholder-deck/png/deck-13.png)](shareholder-deck/presentation.html)
+[![Slide 15: every number traces back](shareholder-deck/png/deck-14.png)](shareholder-deck/presentation.html)
+[![Slide 16: we audited ourselves](shareholder-deck/png/deck-15.png)](shareholder-deck/presentation.html)
+[![Slide 17: so what? put agents on it](shareholder-deck/png/deck-16.png)](shareholder-deck/presentation.html)
 
-## The graphics, in three styles
+## The network map and the executive group, in three styles
 
 | Network map | Executive group |
 |---|---|
