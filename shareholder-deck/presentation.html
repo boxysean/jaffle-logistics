@@ -733,7 +733,7 @@
   .talk .title-box .who { margin-top: 72px; font-size: 32px; font-weight: 600; color: var(--teal-hi); }
   .talk .title-box .role { margin-top: 12px; font-size: 24px; color: var(--dim); }
 
-  /* agenda: four numbered items, pixel numerals in amber */
+  /* agenda: three numbered items, pixel numerals in amber */
   .agenda .hd { height: 96px; }
   .agenda .bd { left: 20px; top: 132px; width: 1240px; height: 512px; padding: 56px 64px; }
   .agenda ol { list-style: none; counter-reset: item; margin: 0; padding: 0; }
@@ -756,6 +756,19 @@
   .about .bike .wh { fill: var(--teal-hi); }
   .about .bike .fr { fill: var(--amber); }
   .about .bike .hb { fill: var(--text); }
+
+  /* part 1, the game has changed: the blank title/body layout with three large bullets */
+  .opener .bd { padding: 56px 64px; }
+  .opener ul { list-style: none; margin: 0; padding: 0; }
+  .opener li { position: relative; padding-left: 44px; font-size: 32px; line-height: 1.35; color: var(--text); }
+  .opener li + li { margin-top: 44px; }
+  .opener li::before { content: ""; position: absolute; left: 0; top: 14px; width: 16px; height: 16px; background: var(--amber); }
+
+  /* part divider: the agenda again, with the parts already covered dimmed and the next one lit */
+  .agenda .hd .owns { margin-top: 8px; }
+  .agenda li.past { color: var(--dim); opacity: .55; }
+  .agenda li.past::before { color: var(--dim); }
+  .agenda li.now { color: var(--amber); font-weight: 600; }
 </style>
 </head>
 <body>
@@ -866,24 +879,25 @@
     </div>
     <div class="panel bd">
       <ol>
-        <li>On Context Engineering</li>
+        <li>The game has changed</li>
         <li>Showcase: Jaffle Logistics</li>
-        <li>How dbt and Fivetran help</li>
-        <li>How to get started</li>
+        <li>From Analytics Engineering to Context Engineering</li>
       </ol>
     </div>
   </div>
 </section>
-<!-- On Context Engineering -->
-<section class="blank" data-status="dbt NL · 13 Oct 2026">
+<!-- Part 1: The game has changed -->
+<section class="blank opener" data-status="dbt NL · 13 Oct 2026">
   <div class="frame">
     <div class="panel hd">
-      <h2>On Context Engineering</h2>
+      <h2>The game has changed</h2>
     </div>
     <div class="panel bd">
-      <li>The game has changed: AI is good at reasoning</li>
-      <li>Data is more important than ever</li>
-      <li>We have the opportunity to drive AI adoption at our organizations</li>
+      <ul>
+        <li>AI is good at reasoning</li>
+        <li>Data is more important than ever</li>
+        <li>We have the opportunity to drive AI adoption at our organizations</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -1687,6 +1701,22 @@
   </div>
 </section>
 
+<!-- Part 3 divider: From Analytics Engineering to Context Engineering -->
+<section class="agenda" data-status="dbt NL · 13 Oct 2026">
+  <div class="frame">
+    <div class="panel hd">
+      <h2>PART 3</h2>
+      <div class="owns">up next</div>
+    </div>
+    <div class="panel bd">
+      <ol>
+        <li class="past">The game has changed</li>
+        <li class="past">Showcase: Jaffle Logistics</li>
+        <li class="now">From Analytics Engineering to Context Engineering</li>
+      </ol>
+    </div>
+  </div>
+</section>
 <!-- 16. Why context engineering -->
 <section class="why" data-status="the argument">
   <div class="frame">
