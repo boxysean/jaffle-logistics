@@ -3,7 +3,7 @@
      frame, fonts, panels and status bar, recoloured from --amber and scoped to .sl so no other slide
      changes. body 140-650: the metric map 140-408, then the YAML excerpt and the tests side by side
      436-650. each tab stands 12px above its panel and each shadow 10px below, so the 28px gap stays
-     clear. fit budget at 20px mono (12px/char): the map is 8 rows of 29px = 232 of 232 inside, and
+     clear. fit budget at 20px mono (12px/char): the map is 7 rows of 33px = 231 of 232 inside, and
      its last column is 544px (45 chars, longest row 40); the tests are 160 of 178 inside, names
      488px (40 chars, longest 39). the YAML is 18px mono (10.8px/char), 8 lines of 22px = 176 of
      178 inside, longest line 45 chars = 486 of 552 */
@@ -24,10 +24,10 @@
   .sl .status { background: var(--sl-bg); border-color: var(--sl-edge); }
   .sl code { color: var(--amber); }
 
-  /* which metric makes each figure: a four-column table, one 29px row per figure */
+  /* which metric makes each figure: a four-column table, one 33px row per figure */
   .sl .map { left: 20px; top: 140px; width: 1240px; height: 268px; padding: 18px 20px 10px; }
-  .sl .map .row { display: grid; grid-template-columns: 270px 230px 100px 1fr; column-gap: 16px; font-size: 20px; line-height: 29px; white-space: nowrap; }
-  .sl .map .row.th { font-family: var(--pixel); font-size: 12px; color: var(--sl-dim); line-height: 29px; }
+  .sl .map .row { display: grid; grid-template-columns: 270px 230px 100px 1fr; column-gap: 16px; font-size: 20px; line-height: 33px; white-space: nowrap; }
+  .sl .map .row.th { font-family: var(--pixel); font-size: 12px; color: var(--sl-dim); line-height: 33px; }
   .sl .map .row.no { color: var(--sl-dim); }
   .sl .map .fig { font-weight: 600; }
 
