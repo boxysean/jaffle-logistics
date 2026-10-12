@@ -1,0 +1,46 @@
+
+  /* semantic layer slide: the working behind the year in numbers, in an amber register. the same
+     frame, fonts, panels and status bar, recoloured from --amber and scoped to .sl so no other slide
+     changes. body 140-650: the metric map 140-408, then the YAML excerpt and the tests side by side
+     436-650. each tab stands 12px above its panel and each shadow 10px below, so the 28px gap stays
+     clear. fit budget at 20px mono (12px/char): the map is 8 rows of 29px = 232 of 232 inside, and
+     its last column is 544px (45 chars, longest row 40); the tests are 160 of 178 inside, names
+     488px (40 chars, longest 39). the YAML is 18px mono (10.8px/char), 8 lines of 22px = 176 of
+     178 inside, longest line 45 chars = 486 of 552 */
+  .sl {
+    --sl-bg: #120c01;
+    --sl-panel: #1d1403;
+    --sl-head: #2b1d03;
+    --sl-edge: #7a5400;
+    --sl-text: #fff1d0;
+    --sl-dim: #c9a25a;
+  }
+  .reveal .slides section.sl { background: var(--sl-bg); }
+  .sl .panel { background: var(--sl-panel); border-color: var(--amber); color: var(--sl-text); }
+  .sl .panel > .tab { background: var(--amber); color: var(--deep); }
+  .sl .hd { height: 96px; background: var(--sl-head); }
+  .sl .hd h2 { color: var(--amber); }
+  .sl .hd .owns { margin-top: 8px; color: var(--sl-text); }
+  .sl .status { background: var(--sl-bg); border-color: var(--sl-edge); }
+  .sl .status .r { color: var(--sl-dim); }
+  .sl code { color: var(--amber); }
+
+  /* which metric makes each figure: a four-column table, one 29px row per figure */
+  .sl .map { left: 20px; top: 140px; width: 1240px; height: 268px; padding: 18px 20px 10px; }
+  .sl .map .row { display: grid; grid-template-columns: 270px 230px 100px 1fr; column-gap: 16px; font-size: 20px; line-height: 29px; white-space: nowrap; }
+  .sl .map .row.th { font-family: var(--pixel); font-size: 12px; color: var(--sl-dim); line-height: 29px; }
+  .sl .map .row.no { color: var(--sl-dim); }
+  .sl .map .fig { font-weight: 600; }
+
+  /* the on-time metrics as defined, quoted from models/marts/_marts.yml */
+  .sl .yaml { left: 20px; top: 436px; width: 600px; height: 214px; padding: 18px 20px 10px; }
+  .sl .yaml pre { margin: 0; font-family: var(--mono); font-size: 18px; line-height: 22px; color: var(--sl-text); white-space: pre; }
+  .sl .yaml pre .k { color: var(--sl-dim); }
+  .sl .yaml pre .n { color: var(--amber); font-weight: 600; }
+
+  /* the tests on the metrics' inputs: names left, pass counts right */
+  .sl .tests { left: 632px; top: 436px; width: 628px; height: 214px; padding: 18px 20px 10px; }
+  .sl .tests .tot { font-family: var(--pixel); font-size: 18px; line-height: 30px; color: var(--amber); }
+  .sl .tests .tot span { font-family: var(--mono); font-size: 20px; color: var(--sl-dim); margin-left: 12px; }
+  .sl .tests .row { display: grid; grid-template-columns: 1fr 80px; column-gap: 12px; font-size: 20px; line-height: 26px; white-space: nowrap; }
+  .sl .tests .row b { font-weight: 600; color: var(--amber); text-align: right; }
