@@ -1,16 +1,6 @@
-    /* blank template slides the business user fills in by hand */
+    /* the plain title/body layout: a title panel over one large body panel (THE GAME HAS CHANGED) */
     .blank .hd { height: 96px; }
     .blank .bd {
       position: absolute; left: 20px; top: 132px; width: 1240px; height: 512px; padding: 22px 24px;
     }
-    .blank .bd p, .blank .col p { margin: 0; font-size: 26px; line-height: 1.35; color: var(--dim); }
-    .blank .bd p + p, .blank .col p + p { margin-top: 16px; }
-    .blank .bd strong, .blank .col strong { color: var(--amber); font-weight: 600; }
-    .blank .cols {
-      position: absolute; left: 20px; top: 132px; width: 1240px; height: 512px;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-    }
-    .blank .col { position: relative; padding: 46px 22px 18px; }
-    .blank .col > .tab { position: absolute; left: 0; top: 0; }
-    .blank .hint { margin-top: 20px; font-size: 19px; color: var(--dim); opacity: .7; }
 

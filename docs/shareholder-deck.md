@@ -1,7 +1,7 @@
 # Shareholder pack
 
 A briefing on the business, assembled from the company's own operating data and skinned as a
-16-bit management game. Twenty-nine slides: the business in brief (with the network map), the year's
+16-bit management game. Twenty-five slides: the business in brief (with the network map), the year's
 numbers and the quarters behind them, the storm week that broke Paris, the Q4 decline the storm
 does not explain, the customer review, the three service levels behind that mix, the executive group
 rebuilt in the deck's own artwork, one
@@ -11,9 +11,8 @@ a slide on what that shift looks like in practice — from analytics engineer to
 a slide showing how every number traces back to the system that recorded it, the whole stack that
 produces it, a slide on the process — how a question becomes an answer — and the functions it calls, a closing audit of where those numbers can, and cannot, be
 trusted, and finally what that warehouse makes possible: the support-case agent, and where else
-agents slot in. The last four slides are **blank templates** — two in a title-and-body layout and
-two title-and-two-column — kept so a hand-written slide can be dropped in: each slide is its own file in
-`slides/deck/slides/`, and `python3 slides/build_deck.py` builds the deck.
+agents slot in. To add a hand-written slide, copy an existing slide file in `slides/deck/slides/`
+whose layout fits — each slide is its own file there — and `python3 slides/build_deck.py` builds the deck.
 
 [**Open the deck &rarr;**](shareholder-deck/presentation.html){ .md-button .md-button--primary }
 Use the arrow keys to move, `f` for full screen, and print to PDF for a handout.
