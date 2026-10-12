@@ -7,7 +7,7 @@
   .talk .title-box .who { margin-top: 72px; font-size: 32px; font-weight: 600; color: var(--teal-hi); }
   .talk .title-box .role { margin-top: 12px; font-size: 24px; color: var(--dim); }
 
-  /* agenda: four numbered items, pixel numerals in amber */
+  /* agenda: three numbered items, pixel numerals in amber */
   .agenda .hd { height: 96px; }
   .agenda .bd { left: 20px; top: 132px; width: 1240px; height: 512px; padding: 56px 64px; }
   .agenda ol { list-style: none; counter-reset: item; margin: 0; padding: 0; }
@@ -30,3 +30,16 @@
   .about .bike .wh { fill: var(--teal-hi); }
   .about .bike .fr { fill: var(--amber); }
   .about .bike .hb { fill: var(--text); }
+
+  /* part 1, the game has changed: the blank title/body layout with three large bullets */
+  .opener .bd { padding: 56px 64px; }
+  .opener ul { list-style: none; margin: 0; padding: 0; }
+  .opener li { position: relative; padding-left: 44px; font-size: 32px; line-height: 1.35; color: var(--text); }
+  .opener li + li { margin-top: 44px; }
+  .opener li::before { content: ""; position: absolute; left: 0; top: 14px; width: 16px; height: 16px; background: var(--amber); }
+
+  /* part divider: the agenda again, with the parts already covered dimmed and the next one lit */
+  .agenda .hd .owns { margin-top: 8px; }
+  .agenda li.past { color: var(--dim); opacity: .55; }
+  .agenda li.past::before { color: var(--dim); }
+  .agenda li.now { color: var(--amber); font-weight: 600; }
