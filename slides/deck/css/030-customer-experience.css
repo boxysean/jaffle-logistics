@@ -1,0 +1,11 @@
+  /* customer-experience seat: both panels run on to 650 to hold the ticket topics and the cost line.
+     facts budget: 5 bullet lines 199 + topics 16 + 112 + cost note 12 + 3 lines 86 = 425 of 452 inside */
+  .cx .stats, .cx .facts { height: 502px; }
+  .cx .topics { margin-top: 16px; }
+  .cx .nocost { margin: 12px 0 0; font-size: 24px; line-height: 1.2; color: var(--dim); }
+
+  .stat + .stat { margin-top: 22px; }
+  .stat .v { font-family: var(--pixel); font-size: 30px; line-height: 1.15; color: var(--amber); }
+  .stat .v.hot { color: var(--hot); }
+  .stat .l { font-size: 24px; line-height: 1.3; color: var(--dim); margin-top: 6px; }
+

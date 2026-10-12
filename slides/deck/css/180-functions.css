@@ -1,0 +1,33 @@
+  /* functions slide: body 140-646. table 140-416, how it is run 440-606, footnote 620-646.
+     each tab stands 12px above its panel and each shadow 10px below, so the 24px gaps stay clear.
+     fit budget at 18px mono (10.8px/char, 21px lines): the table is 1204 inside its 14px pads, in
+     columns of 98 (stage, 14px gutter) + 762 (what we run, 70 chars) + 344 (where it lives, 14px gutter, 330 = 30 chars).
+     rows: parse 2 lines (61 + 67 chars), chunk 1 (60), embed 2 (the 62-char call, then its 22-char result),
+     search 2 (the 30-char path under its label), hybrid 2 (69 + 32) = 9 lines = 189, + header 20, + row pads
+     5 x 6, + rules 4 x 2 = 247 of 248 inside. how it is run is 1184 inside its bullets (109 chars): 2 + 1 + 1 + 2
+     lines (103 at most) = 126, + three 5px gaps = 141 of 144. the footnote's 89 characters at 22px need 1175 of 1240.
+     not built is said in --hot: the two stages we did not build are the slide's own point */
+  .fn .hd { height: 96px; }
+  .fn .hd .owns { margin-top: 8px; }
+  .fn strong { color: var(--amber); font-weight: 600; }
+  .fn code { color: var(--teal-hi); white-space: nowrap; }
+  .fn .nw { white-space: nowrap; }
+  .fn .tbl { left: 20px; top: 140px; width: 1240px; height: 276px; padding: 14px 14px 6px; }
+  .fn table { width: 100%; table-layout: fixed; border-collapse: collapse; border-spacing: 0; margin: 0; font-size: 18px; line-height: 21px; }
+  .fn col.s { width: 98px; }
+  .fn col.w { width: 344px; }
+  .fn th, .fn td { padding: 3px 0; border: 0; text-align: left; vertical-align: top; }
+  .fn th { padding: 0 0 6px; font-family: var(--pixel); font-size: 12px; line-height: 12px; font-weight: normal; color: var(--teal-hi); border-bottom: 2px solid var(--teal); }
+  .fn th:first-child, .fn td:first-child { padding-right: 14px; }
+  .fn th:last-child, .fn td:last-child { padding-left: 14px; color: var(--dim); }
+  .fn tbody tr + tr td { border-top: 2px solid var(--navy-2); }
+  .fn td:first-child code { color: var(--amber); }
+  .fn tr.no td:first-child code, .fn strong.no { color: var(--hot); }
+  .fn tr.no td:nth-child(2) { color: var(--dim); }
+  .fn .run { left: 20px; top: 440px; width: 1240px; height: 166px; padding: 12px 14px 2px; }
+  .fn .run ul { list-style: none; margin: 0; padding: 0; }
+  .fn .run li { position: relative; padding-left: 20px; font-size: 18px; line-height: 21px; }
+  .fn .run li + li { margin-top: 5px; }
+  .fn .run li::before { content: ""; position: absolute; left: 0; top: 6px; width: 10px; height: 10px; background: var(--amber); }
+  .fn .foot { position: absolute; left: 20px; top: 620px; width: 1240px; font-size: 22px; line-height: 1.2; color: var(--dim); white-space: nowrap; }
+

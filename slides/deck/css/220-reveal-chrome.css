@@ -1,0 +1,15 @@
+  /* reveal chrome */
+  .reveal .slide-number {
+    top: 10px; right: 10px; bottom: auto; background: var(--deep); color: var(--dim);
+    font-family: var(--pixel); font-size: 12px; padding: 6px 8px; border: 2px solid var(--teal);
+  }
+  /* progress runs along the top edge so the status bar stays the last thing at the bottom */
+  .reveal .progress { color: var(--amber); height: 4px; top: 0; bottom: auto; background: var(--navy-2); }
+  /* the two full-bleed image slides carry their own chrome, so reveal's progress bar is hidden
+     while one of them is showing (the body class is toggled from reveal's own events, below) */
+  body.imgslide .progress { display: none; }
+  .pdf-page:has(> section.img) .slide-number-pdf { display: none; }
+
+  @media print {
+    *, *::before, *::after { animation: none !important; }
+  }

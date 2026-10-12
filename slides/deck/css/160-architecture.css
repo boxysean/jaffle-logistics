@@ -1,0 +1,29 @@
+  /* architecture slide: body 140-648. diagram 140-440, the AI layer and what builds it 464-606, footnote 620-649.
+     each tab stands 12px above its panel and each shadow 10px below, so the 24px gaps stay clear.
+     colour follows the lineage: teal = where the data lives, amber = the platform's layers, teal-hi = what a
+     consumer reads; the dashed amber marker is where the agent plugs in. diagram: 1196 x 274 inside the panel's
+     pads; the svg box is 280 tall, so it runs 6px into the bottom pad to the border's inner edge. its 270-tall
+     viewBox sits at scale 1, centred 5px down: titles 14, boxes 28-168, marker 190-254 (its last line at 248),
+     so the marks end 261 of 274 down, clear of the border. fit budget at 20px mono (12px/char,
+     23px/line): a lower panel is 572 inside its 14px pads = 47 characters a line, 4 nowrap lines (47 at most)
+     = 92 of 116 inside. the footnote's 89 characters at 22px (13.2px/char) need 1175 of 1240 */
+  .arc .hd { height: 96px; }
+  .arc .hd .owns { margin-top: 8px; }
+  .arc .flow { left: 20px; top: 140px; width: 1240px; height: 300px; padding: 12px 18px 6px; }
+  .arc .flow svg { display: block; }
+  .arc .chart text.ttl { font-family: var(--pixel); font-size: 12px; fill: var(--text); }
+  .arc .chart text.hl { font-size: 14px; }
+  .arc .chart text.sub { font-size: 12px; }
+  .arc .chart text.ag { font-family: var(--pixel); font-size: 11px; fill: var(--amber); }
+  .arc .chart text.mk { font-size: 13px; }
+  .arc .chart .sys { fill: var(--deep); stroke: var(--teal); stroke-width: 2; }
+  .arc .chart .plat { fill: var(--deep); stroke: var(--amber); stroke-width: 3; }
+  .arc .chart .rep { fill: var(--deep); stroke: var(--teal-hi); stroke-width: 3; }
+  .arc .chart .agent { fill: none; stroke: var(--amber); stroke-width: 3; stroke-dasharray: 12 8; }
+  .arc .chart .arw { fill: var(--teal-hi); }
+  .arc .ai { left: 20px; top: 464px; width: 608px; height: 142px; padding: 12px 14px 6px; }
+  .arc .bld { left: 652px; top: 464px; width: 608px; height: 142px; padding: 12px 14px 6px; }
+  .arc .ai p, .arc .bld p { margin: 0; font-size: 20px; line-height: 23px; color: var(--dim); white-space: nowrap; }
+  .arc .ai .k, .arc .bld .k { color: var(--text); }
+  .arc .foot { position: absolute; left: 20px; top: 620px; width: 1240px; font-size: 22px; line-height: 1.2; color: var(--dim); white-space: nowrap; }
+

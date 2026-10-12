@@ -1,0 +1,17 @@
+  /* boxed sequence, e.g. 97.5 > 97.2 > 93.3 */
+  .seq { display: flex; align-items: center; gap: 6px; font-family: var(--pixel); font-size: 18px; }
+  .seq span { border: 3px solid var(--teal); padding: 8px 6px; color: var(--text); background: var(--deep); white-space: nowrap; }
+  .seq span.bad { border-color: var(--hot); color: var(--hot); }
+  .seq span.amb { border-color: var(--amber); color: var(--amber); }
+  .seq i { width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 12px solid var(--teal-hi); }
+
+  /* segmented comparison bars */
+  .cmp { display: grid; grid-template-columns: auto 1fr auto; column-gap: 12px; row-gap: 10px; align-items: center; font-size: 24px; }
+  .cmp .k { color: var(--dim); }
+  .cmp .n { text-align: right; }
+  .bar { display: flex; gap: 2px; height: 16px; border: 2px solid var(--teal); padding: 2px; background: var(--deep); }
+  .bar i { flex: 1; }
+  .bar i.on { background: var(--amber); }
+  .bar.hot i.on { background: var(--hot); }
+  .bar.cool i.on { background: var(--teal-hi); }
+

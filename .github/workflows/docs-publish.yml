@@ -32,7 +32,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install mkdocs-material==9.7.7
-      # the deck's source of truth is slides/presentation.html; copy it into the docs tree at build
-      # time so the published copy can never drift from the deck itself
-      - run: cp slides/presentation.html docs/shareholder-deck/presentation.html
+      # the deck's source of truth is its parts in slides/deck/; build it into the docs tree at
+      # publish time so the published copy can never drift from the deck itself
+      - run: python3 slides/build_deck.py --out docs/shareholder-deck/presentation.html
       - run: mkdocs gh-deploy --force

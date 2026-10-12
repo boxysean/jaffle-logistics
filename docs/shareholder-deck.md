@@ -12,8 +12,8 @@ a slide showing how every number traces back to the system that recorded it, the
 produces it, a slide on the process — how a question becomes an answer — and the functions it calls, a closing audit of where those numbers can, and cannot, be
 trusted, and finally what that warehouse makes possible: the support-case agent, and where else
 agents slot in. The last four slides are **blank templates** — two in a title-and-body layout and
-two title-and-two-column — kept in the file so a hand-written slide can be dropped in by editing
-`slides/presentation.html`.
+two title-and-two-column — kept so a hand-written slide can be dropped in: each slide is its own file in
+`slides/deck/slides/`, and `python3 slides/build_deck.py` builds the deck.
 
 [**Open the deck &rarr;**](shareholder-deck/presentation.html){ .md-button .md-button--primary }
 Use the arrow keys to move, `f` for full screen, and print to PDF for a handout.

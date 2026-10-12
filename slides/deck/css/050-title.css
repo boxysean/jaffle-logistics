@@ -1,0 +1,9 @@
+  /* title slide */
+  .title-box { left: 80px; top: 70px; width: 1120px; height: 500px; background: var(--navy-2); text-align: center; padding-top: 70px; }
+  .title-box h1 { margin: 0; font-family: var(--pixel); font-weight: normal; font-size: 60px; line-height: 1.1; color: var(--amber); text-shadow: 6px 6px 0 #000; letter-spacing: 0; text-transform: none; }
+  .title-box .sub { margin-top: 34px; font-family: var(--pixel); font-size: 22px; color: var(--text); }
+  .title-box .cities { margin-top: 34px; font-size: 28px; color: var(--teal-hi); }
+  .title-box .start { margin-top: 56px; font-family: var(--pixel); font-size: 24px; color: var(--amber); animation: blink 1.1s steps(1) infinite; }
+  .title-box .start::before { content: "\25B6"; margin-right: 18px; }
+  .title-box .prep { position: absolute; left: 0; right: 0; bottom: 64px; font-size: 24px; color: var(--dim); }
+

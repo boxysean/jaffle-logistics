@@ -1,0 +1,29 @@
+  /* storm-week slide: the deck's one failure story, emphasis in --hot */
+  .storm .hd { height: 96px; border-color: var(--hot); }
+  .storm .hd h2 { color: var(--hot); display: flex; justify-content: space-between; align-items: baseline; }
+  .storm .hd h2 .when { font-size: 16px; color: var(--deep); background: var(--hot); padding: 5px 10px; }
+  .storm .hd .owns { margin-top: 8px; }
+  .storm .panel > .tab { background: var(--hot); }
+  /* fit budget at 24px mono (14.4px/char, 27.6px/line): body 132-650 = 518 = tiles 74.9 + gap 14 + cols 429.1.
+     cols: panels 1-2 are 390.3 tall (room for 12 lines, need 12); panel 3 runs past the footnote, 429.1 tall (room for 13, needs 13).
+     column widths give 22 / 20 / 30 characters per line, the minimum each panel's copy needs to stay inside those line counts.
+     panel 3's shadow ends at 660, where the status bar's halo begins. */
+  .storm .body { position: absolute; left: 20px; top: 132px; width: 1240px; height: 518px; display: flex; flex-direction: column; gap: 14px; }
+  .storm .tiles4 { display: grid; grid-template-columns: 332px 318px 360px 1fr; gap: 12px; }
+  .storm .tile { border-color: var(--hot); padding: 6px 12px; }
+  .storm .tile .v { font-size: 22px; color: var(--hot); }
+  .storm .tile .note { margin-top: 2px; line-height: 1.15; }
+  .storm .col { top: 0; padding: 14px 12px 10px; }
+  .storm .col ul, .storm .col ol { list-style: none; margin: 0; padding: 0; }
+  .storm .col li { position: relative; padding-left: 20px; font-size: 24px; line-height: 1.15; }
+  .storm .col li + li { margin-top: 8px; }
+  .storm .col ul li::before { content: ""; position: absolute; left: 0; top: 9px; width: 10px; height: 10px; background: var(--hot); }
+  .storm .col ol { counter-reset: mv; }
+  .storm .col ol li { counter-increment: mv; padding-left: 26px; }
+  .storm .col ol li::before { content: counter(mv); position: absolute; left: 0; top: 2px; font-family: var(--pixel); font-size: 16px; color: var(--hot); }
+  .storm .col strong { color: var(--hot); font-weight: 600; }
+  .storm .cols { flex: 1; display: grid; grid-template-columns: 376px 340px 1fr; grid-template-rows: 1fr auto; column-gap: 12px; row-gap: 10px; }
+  .storm .cols .panel { position: relative; }
+  .storm .cols .moves { grid-column: 3; grid-row: 1 / 3; }
+  .storm .wit { grid-column: 1 / 3; font-size: 24px; line-height: 1.2; color: var(--dim); }
+

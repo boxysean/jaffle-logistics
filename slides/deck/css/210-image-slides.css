@@ -1,0 +1,6 @@
+  /* full-bleed image slides */
+  .shot { position: absolute; left: 0; top: 0; width: 1280px; height: 720px; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; object-fit: contain; display: block; }
+  /* the image is the whole slide: no scanline overlay, and its own caption bar replaces the status bar */
+  section.img .frame::after,
+  section.img .status { display: none; }
+

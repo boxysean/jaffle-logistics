@@ -1,0 +1,30 @@
+    /* service levels: volume-share vs failure-share bars, a freight-quarterly line under them, table right */
+    .res .grid.svc { top: 132px; height: 356px; grid-template-columns: 720px 1fr; }
+    .svc .ch svg { top: 4px; left: 6px; }
+    .svc .tbl { position: relative; padding: 44px 12px 8px; }
+    .svc table { width: 100%; border-collapse: collapse; font-family: var(--mono); }
+    .svc th {
+      text-align: left; font-weight: 400; font-size: 14px; color: var(--dim);
+      padding: 0 4px 6px; border-bottom: 1px solid #1d3a5c; white-space: nowrap;
+    }
+    .svc td { font-size: 18px; padding: 10px 4px; border-bottom: 1px solid #12294a; white-space: nowrap; }
+    .svc td.nm { color: var(--amber); }
+    .svc td.hot { color: var(--hot); }
+    .svc td.ok { color: var(--teal-hi); }
+    .svc .note { margin-top: 14px; font-size: 17px; line-height: 1.3; color: var(--dim); }
+    .svc .note strong { color: var(--amber); font-weight: 600; }
+    .svc .b.v { fill: var(--teal-hi); }
+    .svc .b.f { fill: var(--hot); }
+    .svc .lg-v { fill: var(--teal-hi); }
+    .svc .lg-f { fill: var(--hot); }
+    .svc .lg-t { font-size: 15px; fill: var(--dim); }
+    .svc .lv { font-size: 16px; font-weight: 600; fill: var(--text); }
+    .svc .lv.hot { fill: var(--hot); }
+    .svc .bv { font-size: 15px; fill: var(--dim); }
+    .svc .vv { font-size: 15px; fill: var(--hot); }
+    .svc .lc { font-size: 15px; fill: var(--dim); }
+    .svc .band { top: 508px; height: 114px; }
+    .svc .band ul { grid-template-columns: 1fr 1fr 1fr; }
+    .svc .band li { font-size: 20px; }
+    .svc .foot { position: absolute; left: 20px; top: 632px; width: 1240px; font-size: 20px; line-height: 1.2; color: var(--dim); white-space: nowrap; }
+
