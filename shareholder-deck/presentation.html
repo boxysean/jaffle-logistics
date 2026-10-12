@@ -94,7 +94,6 @@
 
   .stat + .stat { margin-top: 22px; }
   .stat .v { font-family: var(--pixel); font-size: 30px; line-height: 1.15; color: var(--amber); }
-  .stat .v.hot { color: var(--hot); }
   .stat .l { font-size: 24px; line-height: 1.3; color: var(--dim); margin-top: 6px; }
 
   /* boxed sequence, e.g. 97.5 > 97.2 > 93.3 */
@@ -342,23 +341,6 @@
   .sl .tests .tot span { font-family: var(--mono); font-size: 20px; color: var(--sl-dim); margin-left: 12px; }
   .sl .tests .row { display: grid; grid-template-columns: 1fr 80px; column-gap: 12px; font-size: 20px; line-height: 26px; white-space: nowrap; }
   .sl .tests .row b { font-weight: 600; color: var(--amber); text-align: right; }
-  /* executive leadership slide: the seven seats, 4 + 3 on a 12-column grid. body 140-650: row one 140-412,
-     row two 440-650. each tab stands 12px above its panel and each shadow 10px below, so the 28px gap stays clear.
-     fit budget at 24px mono (14.4px/char, 27.6px/line): a row-one seat is 269 inside (18 chars), a row-two seat 373 (25).
-     row one needs 2 role + 2 mandate + headline + 3 note lines = 265 of 272; row two 1 + 2 + seq + 1 = 200 of 210 */
-  .exe .hd { height: 96px; }
-  .exe .hd .owns { margin-top: 8px; }
-  .exe .seats { position: absolute; left: 20px; top: 140px; width: 1240px; height: 510px; display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: 272px 1fr; column-gap: 12px; row-gap: 28px; }
-  .exe .seat { position: relative; grid-column: span 3; padding: 18px 12px 10px; }
-  .exe .seat.w { grid-column: span 4; }
-  .exe .seat .role { font-family: var(--pixel); font-size: 14px; line-height: 1.4; color: var(--text); }
-  .exe .seat .mand { margin-top: 6px; font-size: 24px; line-height: 1.15; color: var(--dim); }
-  .exe .seat .mand .px { font-size: 14px; color: var(--amber); margin-right: 10px; vertical-align: 2px; }
-  .exe .seat .v { margin-top: 10px; font-family: var(--pixel); font-size: 26px; line-height: 1.15; color: var(--amber); }
-  .exe .seat .v.hot { color: var(--hot); }
-  .exe .seat .seq { margin-top: 10px; }
-  .exe .seat .l { margin-top: 6px; font-size: 24px; line-height: 1.15; color: var(--dim); }
-
   /* hand-drawn SVG charts: square marks, no gradients or shadows, mono labels */
   .chart { display: block; overflow: visible; shape-rendering: crispEdges; }
   .chart text { font-family: var(--mono); font-size: 16px; fill: var(--dim); }
@@ -1498,148 +1480,6 @@
   </div>
 </section>
 
-<!-- Executive leadership -->
-<section class="exe" data-src="reports/persona-*.md" data-status="the seven seats">
-  <div class="frame">
-    <div class="panel hd">
-      <h2>EXECUTIVE LEADERSHIP</h2>
-      <div class="owns">Seven seats, one headline number each</div>
-    </div>
-    <div class="seats">
-      <div class="panel seat">
-        <span class="tab">No.01</span>
-        <div class="role">CHIEF FINANCIAL OFFICER</div>
-        <div class="mand"><span class="px">OWNS</span>where the money goes</div>
-        <div class="v">+157%</div>
-        <div class="l">maintenance spend, 2024 → 2025</div>
-      </div>
-      <div class="panel seat">
-        <span class="tab">No.02</span>
-        <div class="role">CHIEF OPERATING OFFICER</div>
-        <div class="mand"><span class="px">OWNS</span>whether the network runs</div>
-        <div class="v hot">93.3%</div>
-        <div class="l">on time: 97.5 ▸ 97.2 ▸ 93.3</div>
-      </div>
-      <div class="panel seat">
-        <span class="tab">No.03</span>
-        <div class="role">CHIEF REVENUE OFFICER</div>
-        <div class="mand"><span class="px">OWNS</span>whether the book holds</div>
-        <div class="v">~1/3</div>
-        <div class="l">of revenue in one account, ~1/2 the misses</div>
-      </div>
-      <div class="panel seat">
-        <span class="tab">No.04</span>
-        <div class="role">CUSTOMER EXPERIENCE</div>
-        <div class="mand"><span class="px">OWNS</span>what the customer feels</div>
-        <div class="seq"><span>17</span><i></i><span>17</span><i></i><span class="bad">72</span></div>
-        <div class="l">that account's tickets</div>
-      </div>
-      <div class="panel seat w">
-        <span class="tab">No.05</span>
-        <div class="role">FLEET &amp; MAINTENANCE</div>
-        <div class="mand"><span class="px">OWNS</span>what the assets cost</div>
-        <div class="v">63%</div>
-        <div class="l">collision repair, share of 2025 maintenance</div>
-      </div>
-      <div class="panel seat w">
-        <span class="tab">No.06</span>
-        <div class="role">PEOPLE</div>
-        <div class="mand"><span class="px">OWNS</span>who actually drives</div>
-        <div class="v hot">0 / 56</div>
-        <div class="l">drivers with a current certification</div>
-      </div>
-      <div class="panel seat w">
-        <span class="tab">No.07</span>
-        <div class="role">DATA</div>
-        <div class="mand"><span class="px">OWNS</span>can we trust the numbers</div>
-        <div class="seq"><span>1,848</span><i></i><span>1,949</span><i></i><span>2,009</span></div>
-        <div class="l">shipments by year</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 8. CFO -->
-<section data-src="reports/persona-cfo.md">
-  <div class="frame">
-    <div class="panel hd">
-      <h2><span class="no">No.01</span>CHIEF FINANCIAL OFFICER</h2>
-      <div class="owns"><span class="px">OWNS</span>where the money goes</div>
-    </div>
-    <div class="panel stats">
-      <span class="tab">STATS</span>
-      <div class="cmp">
-        <span class="k">MAINT.</span><span class="bar" data-v="157" data-max="157"></span><span class="n amb">+157%</span>
-        <span class="k">ROUTES</span><span class="bar cool" data-v="3.1" data-max="157"></span><span class="n">+3.1%</span>
-      </div>
-      <div class="stat" style="margin-top:36px"><div class="v">€52,954.86</div><div class="l">service credits paid in 2025</div></div>
-      <div class="stat"><div class="v">1.84%</div><div class="l">of 2025 gross revenue</div></div>
-    </div>
-    <div class="panel facts">
-      <span class="tab">FINDINGS</span>
-      <ul>
-        <li>Maintenance spend rose <strong>157%</strong> while routes rose <strong>3.1%</strong>.</li>
-        <li><strong>€52,954.86</strong> of service credits were paid in 2025.</li>
-        <li>That is <strong>1.84%</strong> of 2025 gross revenue.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- 9. COO -->
-<section data-src="reports/persona-coo.md">
-  <div class="frame">
-    <div class="panel hd">
-      <h2><span class="no">No.02</span>CHIEF OPERATING OFFICER</h2>
-      <div class="owns"><span class="px">OWNS</span>whether the network runs</div>
-    </div>
-    <div class="panel stats">
-      <span class="tab">STATS</span>
-      <div class="seq"><span>97.5</span><i></i><span>97.2</span><i></i><span class="bad">93.3</span></div>
-      <div class="l dim" style="margin-top:8px">whole-book on-time %</div>
-      <div class="stat" style="margin-top:30px"><div class="v">WEEK 45</div><div class="l">w/c 3 Nov 2025 — the turn</div></div>
-      <div class="stat"><div class="v">570</div><div class="l">exceptions, one Paris storm week</div></div>
-    </div>
-    <div class="panel facts">
-      <span class="tab">FINDINGS</span>
-      <ul>
-        <li>Whole-book on-time was <strong>93.3%</strong> in 2025, against <strong>97.5%</strong> and <strong>97.2%</strong> in the two years before.</li>
-        <li>The network turned in <strong>week 45 (w/c 3 Nov 2025)</strong> and never recovered.</li>
-        <li>One winter storm week in Paris produced <strong>570 exceptions</strong>.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- 11. CRO -->
-<section data-src="reports/persona-cro.md">
-  <div class="frame">
-    <div class="panel hd">
-      <h2><span class="no">No.03</span>CHIEF REVENUE OFFICER</h2>
-      <div class="owns"><span class="px">OWNS</span>whether the book holds</div>
-    </div>
-    <div class="panel stats">
-      <span class="tab">STATS</span>
-      <div class="seq"><span>97.96%</span><i></i><span class="bad">83.89%</span></div>
-      <div class="l dim" style="margin-top:8px">CLI-0042 on-time</div>
-      <div class="cmp" style="margin-top:30px">
-        <span class="k">REVENUE</span><span class="bar" data-v="33.5" data-max="40"></span><span class="n amb">33.5%</span>
-        <span class="k">SHIPMENTS</span><span class="bar cool" data-v="20.7" data-max="40"></span><span class="n">20.7%</span>
-      </div>
-      <div class="l dim" style="margin-top:8px">share of 2025, one account</div>
-      <div class="stat" style="margin-top:26px"><div class="v">1.84%</div><div class="l">2025 credits, share of gross revenue</div></div>
-    </div>
-    <div class="panel facts">
-      <span class="tab">FINDINGS</span>
-      <ul>
-        <li><strong>Jaffle Werke (CLI-0042)</strong> fell from <strong>97.96%</strong> to <strong>83.89%</strong> on time.</li>
-        <li>That one account is <strong>33.5% of 2025 revenue</strong> on <strong>20.7% of shipments</strong>.</li>
-        <li>Service credits paid in 2025 came to <strong>1.84%</strong> of gross revenue.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <!-- 12. Customer Experience -->
 <section class="cx" data-src="reports/persona-customer-experience.md">
   <div class="frame">
@@ -1707,61 +1547,6 @@
         <li>Spend rose <strong>157%</strong> (€104,101 → €267,578) while routes rose <strong>3.1%</strong>.</li>
         <li>Collision repair alone was <strong>€169,799</strong>: <strong>63%</strong> of 2025 spend and <strong>69%</strong> of the increase.</li>
         <li>Eight collision repairs (<strong>€64,191</strong>) are under-reported.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- 14. People -->
-<section data-src="reports/persona-people.md">
-  <div class="frame">
-    <div class="panel hd">
-      <h2><span class="no">No.06</span>HEAD OF PEOPLE</h2>
-      <div class="owns"><span class="px">OWNS</span>who actually drives</div>
-    </div>
-    <div class="panel stats">
-      <span class="tab">STATS</span>
-      <div class="stat"><div class="v hot">0 / 56</div><div class="l">drivers with a current certification</div></div>
-      <div class="cmp" style="margin-top:26px">
-        <span class="k">CONTR.</span><span class="bar" data-v="723.02" data-max="723.02"></span><span class="n amb">€723.02</span>
-        <span class="k">EMPL.</span><span class="bar cool" data-v="370.83" data-max="723.02"></span><span class="n">€370.83</span>
-      </div>
-      <div class="l dim" style="margin-top:8px">cost per route</div>
-      <div class="stat" style="margin-top:26px"><div class="v">2.6×</div><div class="l">normal load, six Vienna drivers</div></div>
-    </div>
-    <div class="panel facts">
-      <span class="tab">FINDINGS</span>
-      <ul>
-        <li><strong>Not one of the 56 drivers</strong> holds a current certification; the latest expired <strong>2025-08-26</strong>.</li>
-        <li><strong>Nobody was hired in 2025.</strong></li>
-        <li>A contractor route cost <strong>€723.02</strong> against <strong>€370.83</strong> for an employee route.</li>
-        <li>Six working drivers in Vienna ran <strong>123.5 routes each</strong>, <strong>2.6×</strong> a normal load.</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<!-- 15. Data -->
-<section data-src="reports/persona-data.md">
-  <div class="frame">
-    <div class="panel hd">
-      <h2><span class="no">No.07</span>HEAD OF DATA</h2>
-      <div class="owns"><span class="px">OWNS</span>can we trust the numbers</div>
-    </div>
-    <div class="panel stats">
-      <span class="tab">STATS</span>
-      <div class="seq"><span>97.51</span><i></i><span>97.23</span><i></i><span class="bad">93.3</span></div>
-      <div class="l dim" style="margin-top:8px">on-time %: the headline holds</div>
-      <div class="seq" style="margin-top:30px"><span>1,848</span><i></i><span>1,949</span><i></i><span>2,009</span></div>
-      <div class="l dim" style="margin-top:8px">shipments by year: 2023 / 2024 / 2025</div>
-      <div class="stat"><div class="v">OPEN</div><div class="l">production warehouse reload</div></div>
-    </div>
-    <div class="panel facts">
-      <span class="tab">FINDINGS</span>
-      <ul>
-        <li>The headline numbers hold: <strong>97.51% → 97.23% → 93.3%</strong>.</li>
-        <li>The volume figures were partly repaired: the years now hold <strong>1,848 / 1,949 / 2,009 shipments</strong>, so the earlier "identical 2,009 every year" is obsolete and a small volume effect exists (<strong>~2%, not zero</strong>).</li>
-        <li>The reports now use the European names while <strong>production does not</strong>. The warehouse reload is the open item.</li>
       </ul>
     </div>
   </div>
