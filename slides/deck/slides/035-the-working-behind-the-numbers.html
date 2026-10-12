@@ -1,0 +1,41 @@
+<!-- 5a. The working behind the year in numbers -->
+<section class="sl" data-src="models/marts/_marts.yml" data-status="semantic layer">
+  <div class="frame">
+    <div class="panel hd">
+      <h2>THE WORKING BEHIND THE NUMBERS</h2>
+      <div class="owns">The dbt Semantic Layer metrics behind the last slide, and their tests</div>
+    </div>
+    <div class="panel map">
+      <span class="tab">WHICH METRIC MAKES EACH FIGURE</span>
+      <div class="row th"><span>FIGURE</span><span>METRIC</span><span>TYPE</span><span>BUILT AS</span></div>
+      <div class="row"><span class="fig">€2,879,732 +4.55%</span><code>gross_revenue</code><span>simple</span><span>sum(gross_revenue), FY2025 on FY2024</span></div>
+      <div class="row"><span class="fig hot">93.28% on time</span><code>on_time_rate</code><span>ratio</span><span>on_time_shipments / shipments</span></div>
+      <div class="row"><span class="fig hot">€52,955 credits</span><code>credited_amount</code><span>simple</span><span>sum(credited_amount), FY2025</span></div>
+      <div class="row"><span class="fig hot">1.84% of gross</span><code>credit_rate</code><span>ratio</span><span>credited_amount / gross_revenue</span></div>
+      <div class="row"><span class="fig">1,848 · 1,949 · 2,009</span><code>shipments</code><span>simple</span><span>count(shipment_id), by created_at</span></div>
+      <div class="row no"><span class="fig">97% target</span><span>not a metric</span><span>-</span><span>contract SLA, dim_clients.sla_ontime_pct</span></div>
+      <div class="row no"><span class="fig">€267.6k maintenance</span><span>not a metric</span><span>-</span><span>sum(maintenance_cost), stg_cost_ledger</span></div>
+    </div>
+    <div class="panel yaml">
+      <span class="tab">_MARTS.YML · FCT_SHIPMENTS</span>
+<pre><span class="k">- name:</span> <span class="n">on_time_shipments</span>
+  <span class="k">type:</span> simple
+  <span class="k">agg:</span> sum
+  <span class="k">expr:</span> case when is_ontime then 1 else 0 end
+<span class="k">- name:</span> <span class="n">on_time_rate</span>
+  <span class="k">type:</span> ratio
+  <span class="k">numerator:</span> on_time_shipments
+  <span class="k">denominator:</span> shipments</pre>
+    </div>
+    <div class="panel tests">
+      <span class="tab">TESTS ON THEIR INPUTS</span>
+      <div class="tot">36 OF 36 PASS<span>dbt build, 0 failing</span></div>
+      <div class="row"><code>assert_shipment_lateness_matches_status</code><b>1/1</b></div>
+      <div class="row"><code>assert_revenue_ledger_reconciles</code><b>1/1</b></div>
+      <div class="row"><span><code>status</code>: not_null, accepted_values</span><b>3/3</b></div>
+      <div class="row"><span>amount columns: <code>not_null</code></span><b>4/4</b></div>
+      <div class="row"><span>keys, joins and other columns</span><b>27/27</b></div>
+    </div>
+  </div>
+</section>
+
