@@ -7,6 +7,10 @@
     slides/assets/            the status-bar logos, inlined as data URIs so the built file
                               needs nothing beside it (the docs site publishes only the HTML)
 
+A slide's SVG can place the same logos with a marker comment, which the build swaps for an
+inlined <image> carrying the attributes it is given:
+    <!-- build_deck.py logo: fivetran x="0" y="0" width="86.25" height="24" -->
+
 Parts are joined in file-name order, so the number prefix sets the order: to add a slide
 between 030 and 040, name it 035-*.html. Slide numbers in the status bar are generated in
 JS at load time, so adding or removing a slide never touches the other slides.
@@ -20,6 +24,7 @@ import argparse
 import base64
 import glob
 import os
+import re
 
 SLIDES_DIR = os.path.dirname(os.path.abspath(__file__))
 DECK_DIR = os.path.join(SLIDES_DIR, "deck")
@@ -30,6 +35,7 @@ LOGO_MARK = "<!-- build_deck.py inserts slides/assets/ logos here"
 ASSETS_DIR = os.path.join(SLIDES_DIR, "assets")
 # the official white logos, unmodified, in status-bar order
 LOGOS = [("fivetran-logo-white.svg", "image/svg+xml", "Fivetran"), ("dbt-logo-white.png", "image/png", "dbt")]
+SVG_LOGO_MARK = re.compile(r"<!-- build_deck\.py logo: (\w+) (.*?) -->")
 
 
 def read(path):
@@ -41,13 +47,19 @@ def parts(pattern):
     return "".join(read(p) for p in sorted(glob.glob(os.path.join(DECK_DIR, pattern))))
 
 
+def data_uri(name, mime):
+    with open(os.path.join(ASSETS_DIR, name), "rb") as fh:
+        return f"data:{mime};base64,{base64.b64encode(fh.read()).decode('ascii')}"
+
+
 def logos():
-    out = []
-    for name, mime, alt in LOGOS:
-        with open(os.path.join(ASSETS_DIR, name), "rb") as fh:
-            data = base64.b64encode(fh.read()).decode("ascii")
-        out.append(f'<img src="data:{mime};base64,{data}" alt="{alt}">\n')
-    return "".join(out)
+    return "".join(f'<img src="{data_uri(name, mime)}" alt="{alt}">\n' for name, mime, alt in LOGOS)
+
+
+def svg_logo(match):
+    # the default preserveAspectRatio keeps the logo's own proportions inside the box it is given
+    name, mime, alt = next(logo for logo in LOGOS if logo[2].lower() == match.group(1))
+    return f'<image href="{data_uri(name, mime)}" {match.group(2)}><title>{alt}</title></image>'
 
 
 def build():
@@ -56,7 +68,7 @@ def build():
         if line.strip().startswith(CSS_MARK):
             out.append(parts("css/*.css"))
         elif line.strip().startswith(SLIDE_MARK):
-            out.append(parts("slides/*.html"))
+            out.append(SVG_LOGO_MARK.sub(svg_logo, parts("slides/*.html")))
         elif line.strip().startswith(LOGO_MARK):
             out.append(logos())
         else:
