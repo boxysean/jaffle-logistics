@@ -261,8 +261,8 @@
   /* results slides: data strip, chart panels, footnotes. body 132-650, as on the storm slide.
      a panel's tab stands 12px above its top border, so every chart row starts at least 28px below
      whatever sits over it. years: strip 132-204 (one-line notes: the middle tile is wide enough for
-     its 29 characters), charts 232-551, closing line 563-650. quarters: no closing line, so charts
-     run 140-650 in rows of 250 + 28 + 232. */
+     its 29 characters), then three charts across the row, 232-650. quarters: charts run 140-650 in
+     rows of 250 + 28 + 232. */
   .res .hd { height: 96px; }
   .res .hd .owns { margin-top: 8px; }
   .res .hd .key { position: absolute; right: 24px; top: 16px; font-size: 20px; line-height: 1.2; color: var(--dim); }
@@ -276,7 +276,7 @@
   .res .tile .note { margin-top: 2px; line-height: 1.15; }
   .res .grid { position: absolute; left: 20px; width: 1240px; display: grid; gap: 12px; }
   .res .grid .panel { position: relative; }
-  .res .grid.years { top: 232px; height: 418px; grid-template-columns: repeat(4, 1fr); }
+  .res .grid.years { top: 232px; height: 418px; grid-template-columns: repeat(3, 1fr); }
   .res .grid.quarters { top: 140px; height: 510px; grid-template-columns: repeat(3, 1fr); grid-template-rows: 250px 1fr; row-gap: 28px; }
   .res .grid.quarters .wide { grid-column: 1 / 4; }
   .res .grid.accounts { top: 132px; height: 362px; grid-template-columns: repeat(5, 1fr); }
@@ -299,7 +299,7 @@
      frame, fonts, panels and status bar, recoloured from --amber and scoped to .sl so no other slide
      changes. body 140-650: the metric map 140-408, then the YAML excerpt and the tests side by side
      436-650. each tab stands 12px above its panel and each shadow 10px below, so the 28px gap stays
-     clear. fit budget at 20px mono (12px/char): the map is 8 rows of 29px = 232 of 232 inside, and
+     clear. fit budget at 20px mono (12px/char): the map is 7 rows of 33px = 231 of 232 inside, and
      its last column is 544px (45 chars, longest row 40); the tests are 160 of 178 inside, names
      488px (40 chars, longest 39). the YAML is 18px mono (10.8px/char), 8 lines of 22px = 176 of
      178 inside, longest line 45 chars = 486 of 552 */
@@ -320,10 +320,10 @@
   .sl .status { background: var(--sl-bg); border-color: var(--sl-edge); }
   .sl code { color: var(--amber); }
 
-  /* which metric makes each figure: a four-column table, one 29px row per figure */
+  /* which metric makes each figure: a four-column table, one 33px row per figure */
   .sl .map { left: 20px; top: 140px; width: 1240px; height: 268px; padding: 18px 20px 10px; }
-  .sl .map .row { display: grid; grid-template-columns: 270px 230px 100px 1fr; column-gap: 16px; font-size: 20px; line-height: 29px; white-space: nowrap; }
-  .sl .map .row.th { font-family: var(--pixel); font-size: 12px; color: var(--sl-dim); line-height: 29px; }
+  .sl .map .row { display: grid; grid-template-columns: 270px 230px 100px 1fr; column-gap: 16px; font-size: 20px; line-height: 33px; white-space: nowrap; }
+  .sl .map .row.th { font-family: var(--pixel); font-size: 12px; color: var(--sl-dim); line-height: 33px; }
   .sl .map .row.no { color: var(--sl-dim); }
   .sl .map .fig { font-weight: 600; }
 
@@ -969,89 +969,72 @@
     <div class="grid years">
       <div class="panel ch">
         <span class="tab">REVENUE · €M</span>
-        <svg class="chart" width="293" height="404" viewBox="0 0 293 404" role="img" aria-label="Revenue by year in euro millions: 2023 2.64, 2024 2.75, 2025 2.88">
+        <svg class="chart" width="397" height="404" viewBox="0 0 397 404" role="img" aria-label="Revenue by year in euro millions: 2023 2.64, 2024 2.75, 2025 2.88">
           <text x="12" y="18">€m</text>
-          <text class="t-amb" x="281" y="18" text-anchor="end">+€125,326 on 2024</text>
-          <rect class="b" x="32" y="75.1" width="50" height="298.9"/>
-          <rect class="b" x="122" y="62.6" width="50" height="311.4"/>
-          <rect class="b" x="211" y="48" width="50" height="326"/>
-          <text class="val" x="57" y="67.1" text-anchor="middle">2.64</text>
-          <text class="val" x="147" y="54.6" text-anchor="middle">2.75</text>
-          <text class="val" x="236" y="40" text-anchor="middle">2.88</text>
-          <line class="ax" x1="12" y1="375" x2="281" y2="375"/>
-          <text x="57" y="396" text-anchor="middle">2023</text>
-          <text x="147" y="396" text-anchor="middle">2024</text>
-          <text x="236" y="396" text-anchor="middle">2025</text>
+          <text class="t-amb" x="385" y="18" text-anchor="end">+€125,326 on 2024</text>
+          <rect class="b" x="39.7" y="75.1" width="69.3" height="298.9"/>
+          <rect class="b" x="164.5" y="62.6" width="69.3" height="311.4"/>
+          <rect class="b" x="287.9" y="48" width="69.3" height="326"/>
+          <text class="val" x="74.4" y="67.1" text-anchor="middle">2.64</text>
+          <text class="val" x="199.2" y="54.6" text-anchor="middle">2.75</text>
+          <text class="val" x="322.6" y="40" text-anchor="middle">2.88</text>
+          <line class="ax" x1="12" y1="375" x2="385" y2="375"/>
+          <text x="74.4" y="396" text-anchor="middle">2023</text>
+          <text x="199.2" y="396" text-anchor="middle">2024</text>
+          <text x="322.6" y="396" text-anchor="middle">2025</text>
         </svg>
       </div>
       <div class="panel ch">
         <span class="tab">ON TIME · %</span>
-        <svg class="chart" width="293" height="404" viewBox="0 0 293 404" role="img" aria-label="On-time by year against shipments by year. On time: 2023 97.51%, 2024 97.23%, 2025 93.28%, against the 97% strategic contract. Shipments: 2023 1,848, 2024 1,949, 2025 2,009, up about 3% a year">
-          <text class="t-hot" x="281" y="18" text-anchor="end">−3.95 points</text>
+        <svg class="chart" width="397" height="404" viewBox="0 0 397 404" role="img" aria-label="On-time by year against shipments by year. On time: 2023 97.51%, 2024 97.23%, 2025 93.28%, against the 97% strategic contract. Shipments: 2023 1,848, 2024 1,949, 2025 2,009, up about 3% a year">
+          <text class="t-hot" x="385" y="18" text-anchor="end">−3.95 points</text>
           <rect class="pt" x="12" y="28" width="12" height="12"/>
           <text class="sm" x="28" y="39">on time %</text>
           <rect class="b vol" x="118" y="28" width="12" height="12"/>
           <text class="sm" x="134" y="39">shipments (right)</text>
-          <rect class="b vol" x="68" y="215.4" width="44" height="119.6"/>
-          <rect class="b vol" x="133" y="208.7" width="44" height="126.3"/>
-          <rect class="b vol" x="198" y="204.9" width="44" height="130.1"/>
-          <text class="sm val" x="90" y="327" text-anchor="middle">1,848</text>
-          <text class="sm val" x="155" y="327" text-anchor="middle">1,949</text>
-          <text class="sm val" x="220" y="327" text-anchor="middle">2,009</text>
+          <rect class="b vol" x="78.2" y="215.4" width="65.3" height="119.6"/>
+          <rect class="b vol" x="174.6" y="208.7" width="65.3" height="126.3"/>
+          <rect class="b vol" x="271" y="204.9" width="65.3" height="130.1"/>
+          <text class="sm val" x="110.8" y="327" text-anchor="middle">1,848</text>
+          <text class="sm val" x="207.2" y="327" text-anchor="middle">1,949</text>
+          <text class="sm val" x="303.7" y="327" text-anchor="middle">2,009</text>
           <text x="40" y="340" text-anchor="end">90%</text>
           <text x="40" y="210.5" text-anchor="end">95%</text>
           <text x="40" y="81" text-anchor="end">100%</text>
-          <text class="sm" x="268" y="340">0</text>
-          <text class="sm" x="268" y="210.5">2k</text>
-          <text class="sm" x="268" y="81">4k</text>
+          <text class="sm" x="372" y="340">0</text>
+          <text class="sm" x="372" y="210.5">2k</text>
+          <text class="sm" x="372" y="81">4k</text>
           <line class="ax" x1="47" y1="76" x2="47" y2="335"/>
-          <line class="ax" x1="262" y1="76" x2="262" y2="335"/>
-          <line class="ax" x1="47" y1="335" x2="262" y2="335"/>
-          <line class="tg" x1="47" y1="153.7" x2="262" y2="153.7"/>
-          <text class="sm tg-t" x="258" y="169.7" text-anchor="end">97% strategic contract</text>
-          <rect class="pt" x="84" y="134.4" width="12" height="12"/>
-          <rect class="pt" x="149" y="141.7" width="12" height="12"/>
-          <rect class="pt hot" x="214" y="244" width="12" height="12"/>
-          <text class="val" x="90" y="126.6" text-anchor="middle">97.51</text>
-          <text class="val" x="155" y="134.4" text-anchor="middle">97.23</text>
-          <text class="val" x="220" y="237.5" text-anchor="middle">93.28</text>
-          <text x="90" y="355" text-anchor="middle">2023</text>
-          <text x="155" y="355" text-anchor="middle">2024</text>
-          <text x="220" y="355" text-anchor="middle">2025</text>
+          <line class="ax" x1="366" y1="76" x2="366" y2="335"/>
+          <line class="ax" x1="47" y1="335" x2="366" y2="335"/>
+          <line class="tg" x1="47" y1="153.7" x2="366" y2="153.7"/>
+          <text class="sm tg-t" x="362" y="169.7" text-anchor="end">97% strategic contract</text>
+          <rect class="pt" x="104.8" y="134.4" width="12" height="12"/>
+          <rect class="pt" x="201.2" y="141.7" width="12" height="12"/>
+          <rect class="pt hot" x="297.7" y="244" width="12" height="12"/>
+          <text class="val" x="110.8" y="126.6" text-anchor="middle">97.51</text>
+          <text class="val" x="207.2" y="134.4" text-anchor="middle">97.23</text>
+          <text class="val" x="303.7" y="237.5" text-anchor="middle">93.28</text>
+          <text x="110.8" y="355" text-anchor="middle">2023</text>
+          <text x="207.2" y="355" text-anchor="middle">2024</text>
+          <text x="303.7" y="355" text-anchor="middle">2025</text>
           <text class="sm val" x="12" y="379">volume rose only ~3% a year, so</text>
           <text class="sm val" x="12" y="397">2025 is a reliability fall</text>
         </svg>
       </div>
       <div class="panel ch">
         <span class="tab">CREDITS · €K</span>
-        <svg class="chart" width="293" height="404" viewBox="0 0 293 404" role="img" aria-label="Service credits by year in euro thousands: 2023 0, 2024 0, 2025 52.96">
+        <svg class="chart" width="397" height="404" viewBox="0 0 397 404" role="img" aria-label="Service credits by year in euro thousands: 2023 0, 2024 0, 2025 52.96">
           <text x="12" y="18">€k</text>
-          <text class="t-hot" x="281" y="18" text-anchor="end">1.84% of gross revenue</text>
-          <rect class="b hot" x="211" y="48" width="50" height="326"/>
-          <text class="val" x="57" y="366" text-anchor="middle">0</text>
-          <text class="val" x="147" y="366" text-anchor="middle">0</text>
-          <text class="val" x="236" y="40" text-anchor="middle">52.96</text>
-          <line class="ax" x1="12" y1="375" x2="281" y2="375"/>
-          <text x="57" y="396" text-anchor="middle">2023</text>
-          <text x="147" y="396" text-anchor="middle">2024</text>
-          <text x="236" y="396" text-anchor="middle">2025</text>
-        </svg>
-      </div>
-      <div class="panel ch">
-        <span class="tab">MAINTENANCE · €K</span>
-        <svg class="chart" width="293" height="404" viewBox="0 0 293 404" role="img" aria-label="Maintenance cost by year in euro thousands: 2023 90.4, 2024 104.1, 2025 267.6">
-          <text x="12" y="18">€k</text>
-          <text class="t-hot" x="281" y="18" text-anchor="end">+157%</text>
-          <rect class="b" x="32" y="263.8" width="50" height="110.2"/>
-          <rect class="b" x="122" y="247.2" width="50" height="126.8"/>
-          <rect class="b hot" x="211" y="48" width="50" height="326"/>
-          <text class="val" x="57" y="255.8" text-anchor="middle">90.4</text>
-          <text class="val" x="147" y="239.2" text-anchor="middle">104.1</text>
-          <text class="val" x="236" y="40" text-anchor="middle">267.6</text>
-          <line class="ax" x1="12" y1="375" x2="281" y2="375"/>
-          <text x="57" y="396" text-anchor="middle">2023</text>
-          <text x="147" y="396" text-anchor="middle">2024</text>
-          <text x="236" y="396" text-anchor="middle">2025</text>
+          <text class="t-hot" x="385" y="18" text-anchor="end">1.84% of gross revenue</text>
+          <rect class="b hot" x="287.9" y="48" width="69.3" height="326"/>
+          <text class="val" x="74.4" y="366" text-anchor="middle">0</text>
+          <text class="val" x="199.2" y="366" text-anchor="middle">0</text>
+          <text class="val" x="322.6" y="40" text-anchor="middle">52.96</text>
+          <line class="ax" x1="12" y1="375" x2="385" y2="375"/>
+          <text x="74.4" y="396" text-anchor="middle">2023</text>
+          <text x="199.2" y="396" text-anchor="middle">2024</text>
+          <text x="322.6" y="396" text-anchor="middle">2025</text>
         </svg>
       </div>
     </div>
@@ -1129,6 +1112,25 @@
         </svg>
       </div>
       <div class="panel ch">
+        <span class="tab">DISPATCH EXCEPTIONS</span>
+        <svg class="chart" width="397" height="219" viewBox="0 0 397 219" role="img" aria-label="2025 dispatch exceptions by quarter: 1,209, 176, 255, 781">
+          <text x="12" y="18">count</text>
+          <rect class="b hot" x="34" y="48" width="50" height="141"/>
+          <rect class="b" x="127" y="168.5" width="50" height="20.5"/>
+          <rect class="b" x="220" y="159.3" width="50" height="29.7"/>
+          <rect class="b vio" x="313" y="97.9" width="50" height="91.1"/>
+          <text class="val" x="59" y="40" text-anchor="middle">1,209</text>
+          <text class="val" x="152" y="160.5" text-anchor="middle">176</text>
+          <text class="val" x="245" y="151.3" text-anchor="middle">255</text>
+          <text class="val" x="338" y="89.9" text-anchor="middle">781</text>
+          <line class="ax" x1="12" y1="190" x2="385" y2="190"/>
+          <text x="59" y="211" text-anchor="middle">Q1</text>
+          <text x="152" y="211" text-anchor="middle">Q2</text>
+          <text x="245" y="211" text-anchor="middle">Q3</text>
+          <text x="338" y="211" text-anchor="middle">Q4</text>
+        </svg>
+      </div>
+      <div class="panel ch">
         <span class="tab">SERVICE CREDITS · €K</span>
         <svg class="chart" width="397" height="219" viewBox="0 0 397 219" role="img" aria-label="2025 service credits by quarter in euro thousands: 4.8, 7.2, 13.5, 27.5">
           <text x="12" y="18">€k</text>
@@ -1141,25 +1143,6 @@
           <text class="val" x="152" y="144.1" text-anchor="middle">7.2</text>
           <text class="val" x="245" y="111.8" text-anchor="middle">13.5</text>
           <text class="val" x="338" y="40" text-anchor="middle">27.5</text>
-          <line class="ax" x1="12" y1="190" x2="385" y2="190"/>
-          <text x="59" y="211" text-anchor="middle">Q1</text>
-          <text x="152" y="211" text-anchor="middle">Q2</text>
-          <text x="245" y="211" text-anchor="middle">Q3</text>
-          <text x="338" y="211" text-anchor="middle">Q4</text>
-        </svg>
-      </div>
-      <div class="panel ch">
-        <span class="tab">DISPATCH EXCEPTIONS</span>
-        <svg class="chart" width="397" height="219" viewBox="0 0 397 219" role="img" aria-label="2025 dispatch exceptions by quarter: 1,209, 176, 255, 781">
-          <text x="12" y="18">count</text>
-          <rect class="b hot" x="34" y="48" width="50" height="141"/>
-          <rect class="b" x="127" y="168.5" width="50" height="20.5"/>
-          <rect class="b" x="220" y="159.3" width="50" height="29.7"/>
-          <rect class="b vio" x="313" y="97.9" width="50" height="91.1"/>
-          <text class="val" x="59" y="40" text-anchor="middle">1,209</text>
-          <text class="val" x="152" y="160.5" text-anchor="middle">176</text>
-          <text class="val" x="245" y="151.3" text-anchor="middle">255</text>
-          <text class="val" x="338" y="89.9" text-anchor="middle">781</text>
           <line class="ax" x1="12" y1="190" x2="385" y2="190"/>
           <text x="59" y="211" text-anchor="middle">Q1</text>
           <text x="152" y="211" text-anchor="middle">Q2</text>
@@ -1271,7 +1254,6 @@
       <div class="row"><span class="fig hot">1.84% of gross</span><code>credit_rate</code><span>ratio</span><span>credited_amount / gross_revenue</span></div>
       <div class="row"><span class="fig">1,848 · 1,949 · 2,009</span><code>shipments</code><span>simple</span><span>count(shipment_id), by created_at</span></div>
       <div class="row no"><span class="fig">97% target</span><span>not a metric</span><span>-</span><span>contract SLA, dim_clients.sla_ontime_pct</span></div>
-      <div class="row no"><span class="fig">€267.6k maintenance</span><span>not a metric</span><span>-</span><span>sum(maintenance_cost), stg_cost_ledger</span></div>
     </div>
     <div class="panel yaml">
       <span class="tab">_MARTS.YML · FCT_SHIPMENTS</span>
