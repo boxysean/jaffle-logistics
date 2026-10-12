@@ -85,22 +85,27 @@
   .facts li + li { margin-top: 18px; }
   .facts li::before { content: ""; position: absolute; left: 0; top: 11px; width: 12px; height: 12px; background: var(--amber); }
   .facts strong { color: var(--amber); font-weight: 600; }
-
-  /* customer-experience seat: both panels run on to 650 to hold the topic-by-year chart.
-     facts budget: 5 bullet lines 199 + topics 16 + 222 = 437 of 444 inside the border and padding */
-  .cx .stats, .cx .facts { height: 502px; }
-  .cx .topics { margin-top: 16px; }
-
   .stat + .stat { margin-top: 22px; }
   .stat .v { font-family: var(--pixel); font-size: 30px; line-height: 1.15; color: var(--amber); }
   .stat .l { font-size: 24px; line-height: 1.3; color: var(--dim); margin-top: 6px; }
-  /* boxed sequence, e.g. 97.5 > 97.2 > 93.3 */
-  .seq { display: flex; align-items: center; gap: 6px; font-family: var(--pixel); font-size: 18px; }
-  .seq span { border: 3px solid var(--teal); padding: 8px 6px; color: var(--text); background: var(--deep); white-space: nowrap; }
-  .seq span.bad { border-color: var(--hot); color: var(--hot); }
-  .seq span.amb { border-color: var(--amber); color: var(--amber); }
-  .seq i { width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 12px solid var(--teal-hi); }
 
+  /* customer-experience slide: the storm slide's header and column type on the 148-650 body.
+     numbers 416 on the left; on the right the topic chart (148-406, svg 712x222 centred in 800)
+     over the findings (434-650: 5 lines of 24px mono at 27.6px and two 12px gaps, 162 of 168) */
+  .cx .hd { height: 96px; }
+  .cx .hd .owns { margin-top: 8px; }
+  .cx .nums { left: 20px; top: 148px; width: 416px; height: 502px; padding: 30px 20px 20px; }
+  .cx .topics { left: 452px; top: 148px; width: 808px; height: 258px; }
+  .cx .topics svg { position: absolute; left: 44px; top: 18px; }
+  .cx .find { left: 452px; top: 434px; width: 808px; height: 216px; padding: 26px 20px 14px; }
+  .cx .col .k { font-family: var(--pixel); font-size: 16px; color: var(--amber); line-height: 1; }
+  .cx .col .k ~ .k { margin-top: 28px; }
+  .cx .col p { margin: 12px 0 0; font-size: 24px; line-height: 1.15; }
+  .cx .col ul { list-style: none; margin: 0; padding: 0; }
+  .cx .col li { position: relative; padding-left: 20px; font-size: 24px; line-height: 1.15; }
+  .cx .col li + li { margin-top: 12px; }
+  .cx .col li::before { content: ""; position: absolute; left: 0; top: 9px; width: 10px; height: 10px; background: var(--amber); }
+  .cx .col strong { color: var(--amber); font-weight: 600; }
   /* segmented comparison bars */
   .cmp { display: grid; grid-template-columns: auto 1fr auto; column-gap: 12px; row-gap: 10px; align-items: center; font-size: 24px; }
   .cmp .k { color: var(--dim); }
@@ -1454,31 +1459,27 @@
 <section class="cx" data-src="reports/support-cases-by-topic.md">
   <div class="frame">
     <div class="panel hd">
-      <h2><span class="no">No.04</span>CUSTOMER EXPERIENCE</h2>
-      <div class="owns"><span class="px">OWNS</span>what the customer feels</div>
+      <h2>CUSTOMER EXPERIENCE</h2>
+      <div class="owns">Three years of support cases: what grew, and what got worse</div>
     </div>
-    <div class="panel stats">
-      <span class="tab">STATS</span>
-      <div class="seq"><span>107</span><i></i><span>107</span><i></i><span class="bad">189</span></div>
-      <div class="l dim" style="margin-top:8px">cases a year (+77%)</div>
-      <div class="seq" style="margin-top:26px"><span>18</span><i></i><span>25</span><i></i><span class="bad">66</span></div>
-      <div class="l dim" style="margin-top:8px">graded negative: 17% → 23% → 35% of cases</div>
-      <div class="stat" style="margin-top:26px"><div class="v">72 / 189</div><div class="l">2025 cases from Werke</div></div>
-      <div class="stat"><div class="v">51%</div><div class="l">inquiries: never negative</div></div>
+    <div class="panel col nums">
+      <span class="tab">THE NUMBERS</span>
+      <div class="k">CASES A YEAR</div>
+      <p><strong>107 → 107 → 189</strong>, up 77%.</p>
+      <div class="k">GRADED NEGATIVE</div>
+      <p><strong>18 → 25 → 66</strong>: 17% → 23% → 35% of cases.</p>
+      <div class="k">FROM WERKE</div>
+      <p><strong>72</strong> of 2025's 189 cases.</p>
+      <div class="k">INQUIRIES</div>
+      <p><strong>51%</strong> of cases, never graded negative.</p>
     </div>
-    <div class="panel facts">
-      <span class="tab">FINDINGS</span>
-      <ul>
-        <li>Delay is the swing: <strong>61</strong> cases in 2025, <strong>44</strong> graded negative, CSAT <strong>3.70 → 2.06</strong>.</li>
-        <li>Werke (CLI-0042): <strong>68%</strong> of 2025's negatives.</li>
-        <li>Half the cases are questions: ticket count is not unhappiness.</li>
-      </ul>
+    <div class="panel topics">
+      <span class="tab">GRADED TICKET TOPICS · CASES A YEAR, 2023-2025</span>
       <!-- column height = cases * 1.1 up from y 176; the hot part is the graded-negative cases -->
-      <svg class="chart topics" width="712" height="222" viewBox="0 0 712 222" role="img" aria-label="Support cases by graded ticket topic in 2023, 2024 and 2025, graded-negative cases highlighted. General inquiry 55, 51, 100, none negative. Delivery delay 31, 26, 61, of which 0, 1 and 44 negative. Delivery failed 18, 19, 24, of which 15, 13 and 18 negative. Wrong item 3, 11, 4, all negative.">
-        <text x="0" y="14">GRADED TICKET TOPICS · cases a year, 2023-2025</text>
+      <svg class="chart" width="712" height="222" viewBox="0 0 712 222" role="img" aria-label="Support cases by graded ticket topic in 2023, 2024 and 2025, graded-negative cases highlighted. General inquiry 55, 51, 100, none negative. Delivery delay 31, 26, 61, of which 0, 1 and 44 negative. Delivery failed 18, 19, 24, of which 15, 13 and 18 negative. Wrong item 3, 11, 4, all negative.">
+        <text class="sm" x="0" y="14">graded labels on the ticket text, not output of any model here</text>
         <rect class="b hot" x="540" y="2" width="14" height="14"/>
         <text x="562" y="14">graded negative</text>
-        <text class="sm" x="0" y="34">graded labels on the ticket text, not output of any model here</text>
         <line class="ax" x1="0" y1="177" x2="712" y2="177"/>
         <rect class="b vol" x="21" y="115.5" width="40" height="60.5"/>
         <text x="41" y="109.5" text-anchor="middle">55</text>
@@ -1526,6 +1527,14 @@
         <text class="sm" x="671" y="194" text-anchor="middle">2025</text>
         <text class="val" x="623" y="216" text-anchor="middle">wrong item</text>
       </svg>
+    </div>
+    <div class="panel col find">
+      <span class="tab">FINDINGS</span>
+      <ul>
+        <li>Delay is the swing: <strong>61</strong> cases in 2025, <strong>44</strong> graded negative, CSAT <strong>3.70 → 2.06</strong>.</li>
+        <li>Werke (CLI-0042): <strong>68%</strong> of 2025's negatives.</li>
+        <li>Half the cases are questions: ticket count is not unhappiness.</li>
+      </ul>
     </div>
   </div>
 </section>
