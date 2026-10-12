@@ -188,6 +188,42 @@
   .storm .pic .warn rect { fill: var(--amber); }
   .storm .pic .warn rect.mark { fill: var(--deep); }
   .storm .pic .snow rect { fill: var(--text); }
+  /* after-the-storm slide: the design response to the storm week. header 20-116, the two additions 140-318,
+     the ticket chart and its notes 342-650. register follows the architecture slide: teal = an existing source,
+     amber = the platform's layers, dashed amber = new, hot = the incident and what triggers it.
+     chart: 1 Jan at x 60, 24px a day to 31 Jan at 780; 30px a ticket, 0 at y 230. the band is the highest
+     daily count on the same dates ±7 days in 2023 and 2024; actual is tickets opened that day, all hubs.
+     fit budget at 20px mono (12px/char, 23px/line): the notes panel is 336 wide inside its pads and bullet
+     = 28 characters a line, 9 lines + 2 gaps = 223 of 264 inside. header: 15 + 24 pixel characters = 794 of 1184;
+     the owns line is 74 characters, 1066 at 24px. */
+  .wx .hd { height: 96px; }
+  .wx .hd h2 { display: flex; justify-content: space-between; align-items: baseline; }
+  .wx .hd h2 .when { font-size: 16px; color: var(--deep); background: var(--amber); padding: 5px 10px; }
+  .wx .hd .owns { margin-top: 8px; }
+  .wx .flow { left: 20px; top: 140px; width: 1240px; height: 178px; padding: 22px 18px 8px; }
+  .wx .chart text.ttl { font-family: var(--pixel); font-size: 12px; fill: var(--amber); }
+  .wx .chart text.ttl.t-hot { fill: var(--hot); }
+  .wx .chart text.hl { font-size: 14px; }
+  .wx .chart text.sub { font-size: 12px; }
+  .wx .chart .sys { fill: var(--deep); stroke: var(--teal); stroke-width: 2; }
+  .wx .chart .plat { fill: var(--deep); stroke: var(--amber); stroke-width: 3; }
+  .wx .chart .new { fill: var(--deep); stroke: var(--amber); stroke-width: 3; stroke-dasharray: 12 8; }
+  .wx .chart .inc { fill: var(--deep); stroke: var(--hot); stroke-width: 3; }
+  .wx .chart .arw { fill: var(--teal-hi); }
+  .wx .ch { left: 20px; top: 342px; width: 828px; height: 308px; padding: 6px 10px 0; }
+  .wx .ch svg { margin-top: 4px; }
+  .wx .chart .band, .wx .chart .lg-b { fill: var(--teal); }
+  .wx .chart .over, .wx .chart .lg-h { fill: var(--hot); fill-opacity: .35; }
+  .wx .chart .lg-h { fill-opacity: 1; }
+  .wx .chart .lg-a { fill: var(--amber); }
+  .wx .chart .grd { stroke: #1d3a5c; stroke-width: 1; }
+  .wx .chart .flag { fill: var(--hot); }
+  .wx .nb { left: 872px; top: 342px; width: 388px; height: 308px; padding: 26px 12px 10px; }
+  .wx .nb ul { list-style: none; margin: 0; padding: 0; }
+  .wx .nb li { position: relative; padding-left: 20px; font-size: 20px; line-height: 23px; }
+  .wx .nb li + li { margin-top: 8px; }
+  .wx .nb li::before { content: ""; position: absolute; left: 0; top: 7px; width: 10px; height: 10px; background: var(--hot); }
+  .wx .nb strong { color: var(--hot); font-weight: 600; }
   /* Q4 slide: the storm slide's quieter sibling. violet for text accents only; edges in the muted
      --q4-edge, chip and tabs on the dark --q4-fill; panels stay navy.
      body 132-614: tiles 132-206, account strip 218-294, cols 306-548, band 562-614, footnote 626-654.
@@ -1171,6 +1207,93 @@
     </div>
   </div>
 </section>
+<!-- 10b. After the storm: two additions to the architecture -->
+<section class="wx" data-src="seeds/support_tickets.csv" data-status="a design, not live">
+  <div class="frame">
+    <div class="panel hd">
+      <h2>AFTER THE STORM<span class="when">TWO ADDITIONS · A DESIGN</span></h2>
+      <div class="owns">Weather becomes a source; an hourly check flags tickets above their season</div>
+    </div>
+    <div class="panel flow">
+      <span class="tab">WHAT THE ARCHITECTURE GAINS</span>
+      <svg class="chart" width="1196" height="140" viewBox="0 0 1196 140" role="img" aria-label="Two additions, drawn dashed as new. One: a subscribed weather feed of forecasts and actuals lands as a new source and joins the business metrics, on-time percent, tickets and credits, by hub and date. Two: an hourly check reads the existing support tickets against their season and opens an internal incident when they break the expected band.">
+        <rect class="new" x="2" y="2" width="336" height="56"/>
+        <text class="ttl" x="170" y="24" text-anchor="middle">NEW · WEATHER FEED</text>
+        <text class="sub" x="170" y="46" text-anchor="middle">forecasts + actuals, subscribed</text>
+        <rect class="arw" x="340" y="27.5" width="36" height="5"/><polygon class="arw" points="376,22 388,30 376,38"/>
+        <rect class="new" x="390" y="2" width="416" height="56"/>
+        <text class="ttl" x="598" y="24" text-anchor="middle">NEW SOURCE · WEATHER</text>
+        <text class="sub" x="598" y="46" text-anchor="middle">landed beside the 26 seeded files</text>
+        <rect class="arw" x="808" y="27.5" width="36" height="5"/><polygon class="arw" points="844,22 856,30 844,38"/>
+        <rect class="plat" x="858" y="2" width="336" height="56"/>
+        <text class="hl val" x="1026" y="24" text-anchor="middle">on-time % · tickets · credits</text>
+        <text class="sub" x="1026" y="46" text-anchor="middle">read against the weather, by hub and day</text>
+
+        <rect class="sys" x="2" y="82" width="336" height="56"/>
+        <text class="hl val" x="170" y="104" text-anchor="middle">support tickets</text>
+        <text class="sub" x="170" y="126" text-anchor="middle">the existing source</text>
+        <rect class="arw" x="340" y="107.5" width="36" height="5"/><polygon class="arw" points="376,102 388,110 376,118"/>
+        <rect class="new" x="390" y="82" width="416" height="56"/>
+        <text class="ttl" x="598" y="104" text-anchor="middle">NEW · HOURLY CHECK</text>
+        <text class="sub" x="598" y="126" text-anchor="middle">today's tickets against their season</text>
+        <rect class="arw" x="808" y="107.5" width="36" height="5"/><polygon class="arw" points="844,102 856,110 844,118"/>
+        <rect class="inc" x="858" y="82" width="336" height="56"/>
+        <text class="ttl t-hot" x="1026" y="104" text-anchor="middle">INTERNAL INCIDENT</text>
+        <text class="sub" x="1026" y="126" text-anchor="middle">opened when tickets break the band</text>
+      </svg>
+    </div>
+    <div class="panel ch">
+      <span class="tab">TICKETS PER DAY · JANUARY 2025</span>
+      <svg class="chart" width="800" height="284" viewBox="0 0 800 284" role="img" aria-label="Support tickets opened per day across all hubs, January 2025, against an expected band of zero to the highest daily count on the same dates, plus or minus seven days, in 2023 and 2024. The band tops out at one or two a day. Actual tickets stay inside it until 14 to 16 January, the storm, at 3, 5 and 4 a day, shaded as above the band; the check would open an internal incident on 14 January. After the 17th the count falls back inside the band.">
+        <rect class="lg-b" x="60" y="10" width="14" height="14"/>
+        <text class="sm" x="80" y="22">expected range</text>
+        <rect class="lg-a" x="220" y="15" width="22" height="4"/>
+        <text class="sm" x="248" y="22">actual</text>
+        <rect class="lg-h" x="324" y="10" width="14" height="14"/>
+        <text class="sm" x="344" y="22">above the band = an issue</text>
+
+        <polygon class="band" points="60,230 60,170 96,170 96,200 168,200 168,170 528,170 528,200 648,200 648,170 780,170 780,230"/>
+        <polygon class="over" points="364,170 372,140 396,80 420,110 436,170"/>
+        <line class="ax" x1="60" y1="230" x2="780" y2="230"/>
+        <line class="grd" x1="60" y1="170" x2="780" y2="170"/>
+        <line class="grd" x1="60" y1="110" x2="780" y2="110"/>
+        <line class="grd" x1="60" y1="50" x2="780" y2="50"/>
+        <text class="sm" x="50" y="235" text-anchor="end">0</text>
+        <text class="sm" x="50" y="175" text-anchor="end">2</text>
+        <text class="sm" x="50" y="115" text-anchor="end">4</text>
+        <text class="sm" x="50" y="55" text-anchor="end">6</text>
+
+        <polyline class="ln" points="60,230 84,230 108,200 132,230 156,200 180,200 204,230 228,230 252,200 276,200 300,170 324,200 348,230 372,140 396,80 420,110 444,200 468,200 492,230 516,230 540,230 564,230 588,230 612,230 636,230 660,230 684,170 708,230 732,230 756,230 780,230"/>
+        <polyline class="ln hot" points="364,170 372,140 396,80 420,110 436,170"/>
+        <circle class="pt hot" cx="372" cy="140" r="5"/>
+        <circle class="pt hot" cx="396" cy="80" r="5"/>
+        <circle class="pt hot" cx="420" cy="110" r="5"/>
+        <text class="t-hot" x="358" y="138" text-anchor="end">3</text>
+        <text class="t-hot" x="396" y="68" text-anchor="middle">5</text>
+        <text class="t-hot" x="434" y="108">4</text>
+        <rect class="flag" x="358" y="164" width="12" height="12"/>
+        <text class="t-hot" x="470" y="70">INCIDENT OPENED</text>
+        <text class="sm t-hot" x="470" y="90">14 JAN, the 13:00 run</text>
+
+        <text class="sm" x="60" y="252" text-anchor="middle">1</text>
+        <text class="sm" x="228" y="252" text-anchor="middle">8</text>
+        <text class="sm t-hot" x="372" y="252" text-anchor="middle">14</text>
+        <text class="sm" x="564" y="252" text-anchor="middle">22</text>
+        <text class="sm" x="780" y="252" text-anchor="middle">31 JAN</text>
+        <text class="sm" x="0" y="278">Band: 0 to the highest daily count, same dates ±7 days, 2023 and 2024</text>
+      </svg>
+    </div>
+    <div class="panel nb">
+      <span class="tab">THE STORM, AS THE CHECK SEES IT</span>
+      <ul>
+        <li>14-16 Jan: <strong>3, 5 and 4</strong> tickets a day, against <strong>2</strong> at most.</li>
+        <li>Week 3: <strong>14</strong> tickets; weeks 2-4 of 2023-24 averaged <strong>2.5</strong>.</li>
+        <li>The 14th's third ticket, at 12:26, breaks the band: the <strong>13:00</strong> run opens the incident.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <!-- Q4: what the storm does not explain -->
 <section class="q4" data-src="CRM-9030 + analysis" data-status="CRM-9030 + analysis">
   <div class="frame">
