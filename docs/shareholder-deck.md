@@ -1,11 +1,12 @@
 # Shareholder pack
 
 A briefing on the business, assembled from the company's own operating data and skinned as a
-16-bit management game. Twenty-seven slides: the business in brief (with the network map), the year's
+16-bit management game. Twenty-eight slides: the business in brief (with the network map), the year's
 numbers and the quarters behind them, the storm week that broke Paris, the Q4 decline the storm
 does not explain, the customer review, the executive group rebuilt in the deck's own artwork, one
 slide for each seat — finance, operations, revenue, customer experience, fleet, people and data —
 the argument for engineering that context at all, the case for the team that already owns that data,
+a slide on what that shift looks like in practice — from analytics engineer to context engineer —
 a slide showing how every number traces back to the system that recorded it, the whole stack that
 produces it, a slide on the process — how a question becomes an answer — and the functions it calls, a closing audit of where those numbers can, and cannot, be
 trusted, and finally what that warehouse makes possible: the support-case agent, and where else
@@ -35,16 +36,17 @@ Use the arrow keys to move, `f` for full screen, and print to PDF for a handout.
 [![Slide 15: data](shareholder-deck/png/deck-14.png)](shareholder-deck/presentation.html)
 [![Slide 16: why context engineering](shareholder-deck/png/deck-15.png)](shareholder-deck/presentation.html)
 [![Slide 17: why the data team](shareholder-deck/png/deck-16.png)](shareholder-deck/presentation.html)
-[![Slide 18: every number traces back](shareholder-deck/png/deck-17.png)](shareholder-deck/presentation.html)
-[![Slide 19: the whole stack](shareholder-deck/png/deck-18.png)](shareholder-deck/presentation.html)
-[![Slide 20: how a question becomes an answer](shareholder-deck/png/deck-19.png)](shareholder-deck/presentation.html)
-[![Slide 21: the functions](shareholder-deck/png/deck-20.png)](shareholder-deck/presentation.html)
-[![Slide 22: we audited ourselves](shareholder-deck/png/deck-21.png)](shareholder-deck/presentation.html)
-[![Slide 23: so what? put agents on it](shareholder-deck/png/deck-22.png)](shareholder-deck/presentation.html)
-[![Slide 24: blank template, title and body](shareholder-deck/png/deck-23.png)](shareholder-deck/presentation.html)
+[![Slide 18: from analytics engineer to context engineer](shareholder-deck/png/deck-17.png)](shareholder-deck/presentation.html)
+[![Slide 19: every number traces back](shareholder-deck/png/deck-18.png)](shareholder-deck/presentation.html)
+[![Slide 20: the whole stack](shareholder-deck/png/deck-19.png)](shareholder-deck/presentation.html)
+[![Slide 21: how a question becomes an answer](shareholder-deck/png/deck-20.png)](shareholder-deck/presentation.html)
+[![Slide 22: the functions](shareholder-deck/png/deck-21.png)](shareholder-deck/presentation.html)
+[![Slide 23: we audited ourselves](shareholder-deck/png/deck-22.png)](shareholder-deck/presentation.html)
+[![Slide 24: so what? put agents on it](shareholder-deck/png/deck-23.png)](shareholder-deck/presentation.html)
 [![Slide 25: blank template, title and body](shareholder-deck/png/deck-24.png)](shareholder-deck/presentation.html)
-[![Slide 26: blank template, two columns](shareholder-deck/png/deck-25.png)](shareholder-deck/presentation.html)
+[![Slide 26: blank template, title and body](shareholder-deck/png/deck-25.png)](shareholder-deck/presentation.html)
 [![Slide 27: blank template, two columns](shareholder-deck/png/deck-26.png)](shareholder-deck/presentation.html)
+[![Slide 28: blank template, two columns](shareholder-deck/png/deck-27.png)](shareholder-deck/presentation.html)
 
 ## The network map and the executive group, in three styles
 
