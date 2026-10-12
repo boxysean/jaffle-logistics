@@ -1,9 +1,10 @@
 # Shareholder pack
 
 A briefing on the business, assembled from the company's own operating data and skinned as a
-16-bit management game. Twenty-eight slides: the business in brief (with the network map), the year's
+16-bit management game. Twenty-nine slides: the business in brief (with the network map), the year's
 numbers and the quarters behind them, the storm week that broke Paris, the Q4 decline the storm
-does not explain, the customer review, the executive group rebuilt in the deck's own artwork, one
+does not explain, the customer review, the three service levels behind that mix, the executive group
+rebuilt in the deck's own artwork, one
 slide for each seat — finance, operations, revenue, customer experience, fleet, people and data —
 the argument for engineering that context at all, the case for the team that already owns that data,
 a slide on what that shift looks like in practice — from analytics engineer to context engineer —
@@ -26,27 +27,28 @@ Use the arrow keys to move, `f` for full screen, and print to PDF for a handout.
 [![Slide 5: the storm week](shareholder-deck/png/deck-04.png)](shareholder-deck/presentation.html)
 [![Slide 6: Q4 — what the storm does not explain](shareholder-deck/png/deck-05.png)](shareholder-deck/presentation.html)
 [![Slide 7: customer review](shareholder-deck/png/deck-06.png)](shareholder-deck/presentation.html)
-[![Slide 8: executive leadership](shareholder-deck/png/deck-07.png)](shareholder-deck/presentation.html)
-[![Slide 9: CFO](shareholder-deck/png/deck-08.png)](shareholder-deck/presentation.html)
-[![Slide 10: COO](shareholder-deck/png/deck-09.png)](shareholder-deck/presentation.html)
-[![Slide 11: CRO](shareholder-deck/png/deck-10.png)](shareholder-deck/presentation.html)
-[![Slide 12: customer experience](shareholder-deck/png/deck-11.png)](shareholder-deck/presentation.html)
-[![Slide 13: fleet](shareholder-deck/png/deck-12.png)](shareholder-deck/presentation.html)
-[![Slide 14: people](shareholder-deck/png/deck-13.png)](shareholder-deck/presentation.html)
-[![Slide 15: data](shareholder-deck/png/deck-14.png)](shareholder-deck/presentation.html)
-[![Slide 16: why context engineering](shareholder-deck/png/deck-15.png)](shareholder-deck/presentation.html)
-[![Slide 17: why the data team](shareholder-deck/png/deck-16.png)](shareholder-deck/presentation.html)
-[![Slide 18: from analytics engineer to context engineer](shareholder-deck/png/deck-17.png)](shareholder-deck/presentation.html)
-[![Slide 19: every number traces back](shareholder-deck/png/deck-18.png)](shareholder-deck/presentation.html)
-[![Slide 20: the whole stack](shareholder-deck/png/deck-19.png)](shareholder-deck/presentation.html)
-[![Slide 21: how a question becomes an answer](shareholder-deck/png/deck-20.png)](shareholder-deck/presentation.html)
-[![Slide 22: the functions](shareholder-deck/png/deck-21.png)](shareholder-deck/presentation.html)
-[![Slide 23: we audited ourselves](shareholder-deck/png/deck-22.png)](shareholder-deck/presentation.html)
-[![Slide 24: so what? put agents on it](shareholder-deck/png/deck-23.png)](shareholder-deck/presentation.html)
-[![Slide 25: blank template, title and body](shareholder-deck/png/deck-24.png)](shareholder-deck/presentation.html)
+[![Slide 8: the three service levels](shareholder-deck/png/deck-07.png)](shareholder-deck/presentation.html)
+[![Slide 9: executive leadership](shareholder-deck/png/deck-08.png)](shareholder-deck/presentation.html)
+[![Slide 10: CFO](shareholder-deck/png/deck-09.png)](shareholder-deck/presentation.html)
+[![Slide 11: COO](shareholder-deck/png/deck-10.png)](shareholder-deck/presentation.html)
+[![Slide 12: CRO](shareholder-deck/png/deck-11.png)](shareholder-deck/presentation.html)
+[![Slide 13: customer experience](shareholder-deck/png/deck-12.png)](shareholder-deck/presentation.html)
+[![Slide 14: fleet](shareholder-deck/png/deck-13.png)](shareholder-deck/presentation.html)
+[![Slide 15: people](shareholder-deck/png/deck-14.png)](shareholder-deck/presentation.html)
+[![Slide 16: data](shareholder-deck/png/deck-15.png)](shareholder-deck/presentation.html)
+[![Slide 17: why context engineering](shareholder-deck/png/deck-16.png)](shareholder-deck/presentation.html)
+[![Slide 18: why the data team](shareholder-deck/png/deck-17.png)](shareholder-deck/presentation.html)
+[![Slide 19: from analytics engineer to context engineer](shareholder-deck/png/deck-18.png)](shareholder-deck/presentation.html)
+[![Slide 20: every number traces back](shareholder-deck/png/deck-19.png)](shareholder-deck/presentation.html)
+[![Slide 21: the whole stack](shareholder-deck/png/deck-20.png)](shareholder-deck/presentation.html)
+[![Slide 22: how a question becomes an answer](shareholder-deck/png/deck-21.png)](shareholder-deck/presentation.html)
+[![Slide 23: the functions](shareholder-deck/png/deck-22.png)](shareholder-deck/presentation.html)
+[![Slide 24: we audited ourselves](shareholder-deck/png/deck-23.png)](shareholder-deck/presentation.html)
+[![Slide 25: so what? put agents on it](shareholder-deck/png/deck-24.png)](shareholder-deck/presentation.html)
 [![Slide 26: blank template, title and body](shareholder-deck/png/deck-25.png)](shareholder-deck/presentation.html)
-[![Slide 27: blank template, two columns](shareholder-deck/png/deck-26.png)](shareholder-deck/presentation.html)
+[![Slide 27: blank template, title and body](shareholder-deck/png/deck-26.png)](shareholder-deck/presentation.html)
 [![Slide 28: blank template, two columns](shareholder-deck/png/deck-27.png)](shareholder-deck/presentation.html)
+[![Slide 29: blank template, two columns](shareholder-deck/png/deck-28.png)](shareholder-deck/presentation.html)
 
 ## The network map and the executive group, in three styles
 
