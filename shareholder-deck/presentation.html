@@ -212,46 +212,6 @@
   .wx .nb li + li { margin-top: 8px; }
   .wx .nb li::before { content: ""; position: absolute; left: 0; top: 7px; width: 10px; height: 10px; background: var(--hot); }
   .wx .nb strong { color: var(--hot); font-weight: 600; }
-  /* Q4 slide: the storm slide's quieter sibling. violet for text accents only; edges in the muted
-     --q4-edge, chip and tabs on the dark --q4-fill; panels stay navy.
-     body 132-614: tiles 132-206, account strip 218-294, cols 306-548, band 562-614, footnote 626-654.
-     fit budget: cols at 20px mono (12px/char, 23px/line) are 380 / 380 / 456 wide, 356 / 356 / 432
-     inside, 336 / 336 / 412 after the bullet = 28 / 28 / 34 characters per line. 218px under the tab
-     (padding 12 / 4) holds 9 lines: 2+2+2+2, 6+3 and 4+2+3 lines, with 4px gaps = 196 / 211 / 215.
-     tiles, strip, band and footnote at 24px mono (14.4px/char, 27.6px/line): tiles are 269 inside: one 18-character note each. the account strip is 1196 inside (83 chars):
-     2 lines = 55 of 58. band cells are 383 wide: label + copy wraps to 2 lines at 20px/1.0 = 40 of 40.
-     footnote is 85 characters, 1224 of 1240 */
-  .q4 {
-    /* line and edge accents: a muted violet, deliberately low-saturation so the slide reads calmer
-       than the pink storm slide */
-    --q4-edge: #5f4b96;
-    /* fills behind the chip and the tabs: a dark, near-desaturated violet over the navy panel */
-    --q4-fill: #241b45;
-  }
-  .q4 .hd { height: 96px; border-color: var(--q4-edge); }
-  .q4 .hd h2 { color: var(--violet); display: flex; justify-content: space-between; align-items: baseline; }
-  .q4 .hd h2 .when { font-size: 16px; color: var(--violet); background: var(--q4-fill); padding: 5px 10px; }
-  .q4 .hd .owns { margin-top: 8px; white-space: nowrap; }
-  .q4 .panel > .tab { background: var(--q4-fill); color: var(--violet); }
-  .q4 strong { color: var(--violet); font-weight: 600; }
-  .q4 .tiles4 { position: absolute; left: 20px; top: 132px; width: 1240px; height: 74px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .q4 .tile { position: relative; border-color: var(--q4-edge); padding: 6px 12px; }
-  .q4 .tile .v { font-size: 22px; color: var(--violet); }
-  .q4 .tile .note { margin-top: 2px; line-height: 1.15; }
-  .q4 .acct { left: 20px; top: 218px; width: 1240px; height: 76px; padding: 8px 18px 2px; }
-  .q4 .acct p { margin: 0; font-size: 24px; line-height: 1.15; }
-  .q4 .cols { position: absolute; left: 20px; top: 306px; width: 1240px; height: 242px; display: grid; grid-template-columns: 380px 380px 1fr; column-gap: 12px; }
-  .q4 .cols .panel { position: relative; padding: 12px 12px 4px; }
-  .q4 .cols .point { border-color: var(--q4-edge); }
-  .q4 .col ul { list-style: none; margin: 0; padding: 0; }
-  .q4 .col li { position: relative; padding-left: 20px; font-size: 20px; line-height: 1.15; }
-  .q4 .col li + li { margin-top: 4px; }
-  .q4 .col li::before { content: ""; position: absolute; left: 0; top: 6px; width: 10px; height: 10px; background: var(--violet); }
-  .q4 .rec { left: 20px; top: 562px; width: 1240px; height: 52px; padding: 2px 18px; display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 24px; }
-  .q4 .rec div { font-size: 20px; line-height: 1; }
-  .q4 .rec .px { font-size: 16px; font-weight: normal; line-height: 1; color: var(--violet); margin-right: 12px; vertical-align: 2px; white-space: nowrap; }
-  .q4 .foot { position: absolute; left: 20px; top: 626px; width: 1240px; font-size: 24px; line-height: 1.2; color: var(--dim); white-space: nowrap; }
-
   /* results slides: data strip, chart panels, footnotes. body 132-650, as on the storm slide.
      a panel's tab stands 12px above its top border, so every chart row starts at least 28px below
      whatever sits over it. years: strip 132-204 (one-line notes: the middle tile is wide enough for
@@ -884,6 +844,15 @@
   </div>
 </section>
 
+<!-- Section title: the showcase opens on the headline figures -->
+<section class="sect" data-status="dbt NL · 13 Oct 2026">
+  <div class="frame">
+    <div class="panel bd">
+      <div class="kick">SHOWCASE: JAFFLE LOGISTICS · PART 1</div>
+      <h2>TOP LINE NUMBERS</h2>
+    </div>
+  </div>
+</section>
 <!-- 5. The year in numbers -->
 <section class="res" data-src="revenue_ledger">
   <div class="frame">
@@ -1198,7 +1167,7 @@
 <section class="sect" data-status="dbt NL · 13 Oct 2026">
   <div class="frame">
     <div class="panel bd">
-      <div class="kick">PART 2 · SHOWCASE: JAFFLE LOGISTICS</div>
+      <div class="kick">SHOWCASE: JAFFLE LOGISTICS · PART 2</div>
       <h2>DRILLING INTO THE WHY</h2>
     </div>
   </div>
@@ -1365,58 +1334,6 @@
         <li>The 14th's third ticket, at 12:26, breaks the band: the <strong>13:00</strong> run opens the incident.</li>
       </ul>
     </div>
-  </div>
-</section>
-
-<!-- Q4: what the storm does not explain -->
-<section class="q4" data-src="CRM-9030 + analysis" data-status="CRM-9030 + analysis">
-  <div class="frame">
-    <div class="panel hd">
-      <h2>Q4 — WHAT THE STORM DOES NOT EXPLAIN<span class="when">OCT–DEC 2025</span></h2>
-      <div class="owns">The second-worst quarter of 2025, and it is not the storm</div>
-    </div>
-    <div class="tiles4">
-      <div class="panel tile"><div class="v">92.62%</div><div class="note">Q4 on time</div></div>
-      <div class="panel tile"><div class="v">91.07%</div><div class="note">December on time</div></div>
-      <div class="panel tile"><div class="v">78.69%</div><div class="note">Jaffle Werke, Q4</div></div>
-      <div class="panel tile"><div class="v">77.78%</div><div class="note">worst week, 10 Nov</div></div>
-    </div>
-    <div class="panel acct">
-      <span class="tab">IT IS ONE ACCOUNT</span>
-      <p>Werke <strong>78.69%</strong> · Warenhuis <strong>98.37</strong> · Maison <strong>98.35</strong> · Getränke <strong>95.33</strong> · Papier <strong>92.68</strong><br>The other four are at or near target: the whole-book number is Werke's number.</p>
-    </div>
-    <div class="cols">
-      <div class="panel col">
-        <span class="tab">THE QUARTER</span>
-        <ul>
-          <li>Q4 on time <strong>92.62%</strong>, against 97.06% a year earlier.</li>
-          <li>Q1 90.33 (the storm), Q2&nbsp;95.40, Q3&nbsp;95.12.</li>
-          <li>Oct 95.27 → Nov 92.12 → Dec <strong>91.07</strong>: worse every month.</li>
-          <li>Worst weeks: 10 Nov 77.78%, 8 Dec 84.31%.</li>
-        </ul>
-      </div>
-      <div class="panel col">
-        <span class="tab">WHAT'S DOCUMENTED</span>
-        <ul>
-          <li>20 Oct root-cause review: the January Paris storm, and a recurring <strong>Amsterdam</strong> handling pattern (bay 3 forklift staging, three incidents).</li>
-          <li>Amsterdam, this account: 93.75 → 90.91 → 88.24 → <strong>73.68</strong>.</li>
-        </ul>
-      </div>
-      <div class="panel col point">
-        <span class="tab">WHAT ISN'T</span>
-        <ul>
-          <li>Q4's damage is wider than Amsterdam: Paris fell to <strong>60.87%</strong> (from 94.74 in Q3) and Berlin to&nbsp;<strong>76.92%</strong>.</li>
-          <li>There is <strong>no recorded cause</strong> for either.</li>
-          <li>Paris is the worst hub in the quarter, across all clients (87.93%).</li>
-        </ul>
-      </div>
-    </div>
-    <div class="panel rec">
-      <div><b class="px">SOP AUDIT</b>the Amsterdam superintendent's, under way</div>
-      <div><b class="px">TRACK BY CAUSE</b>weather vs handling, from Q4</div>
-      <div><b class="px">ADD THE FLOOR</b>dispatch notes and Slack miss the corpus</div>
-    </div>
-    <div class="foot">Werke is a third of revenue and the whole-book miss; the exposure is service credits.</div>
   </div>
 </section>
 
