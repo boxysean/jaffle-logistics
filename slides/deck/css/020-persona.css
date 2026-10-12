@@ -13,4 +13,7 @@
   .facts li + li { margin-top: 18px; }
   .facts li::before { content: ""; position: absolute; left: 0; top: 11px; width: 12px; height: 12px; background: var(--amber); }
   .facts strong { color: var(--amber); font-weight: 600; }
+  .stat + .stat { margin-top: 22px; }
+  .stat .v { font-family: var(--pixel); font-size: 30px; line-height: 1.15; color: var(--amber); }
+  .stat .l { font-size: 24px; line-height: 1.3; color: var(--dim); margin-top: 6px; }
 

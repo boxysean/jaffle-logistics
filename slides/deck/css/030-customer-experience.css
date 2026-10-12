@@ -1,8 +1,17 @@
-  /* customer-experience seat: both panels run on to 650 to hold the topic-by-year chart.
-     facts budget: 5 bullet lines 199 + topics 16 + 222 = 437 of 444 inside the border and padding */
-  .cx .stats, .cx .facts { height: 502px; }
-  .cx .topics { margin-top: 16px; }
-
-  .stat + .stat { margin-top: 22px; }
-  .stat .v { font-family: var(--pixel); font-size: 30px; line-height: 1.15; color: var(--amber); }
-  .stat .l { font-size: 24px; line-height: 1.3; color: var(--dim); margin-top: 6px; }
+  /* customer-experience slide: the storm slide's header and column type on the 148-650 body.
+     numbers 416 on the left; on the right the topic chart (148-406, svg 712x222 centred in 800)
+     over the findings (434-650: 5 lines of 24px mono at 27.6px and two 12px gaps, 162 of 168) */
+  .cx .hd { height: 96px; }
+  .cx .hd .owns { margin-top: 8px; }
+  .cx .nums { left: 20px; top: 148px; width: 416px; height: 502px; padding: 30px 20px 20px; }
+  .cx .topics { left: 452px; top: 148px; width: 808px; height: 258px; }
+  .cx .topics svg { position: absolute; left: 44px; top: 18px; }
+  .cx .find { left: 452px; top: 434px; width: 808px; height: 216px; padding: 26px 20px 14px; }
+  .cx .col .k { font-family: var(--pixel); font-size: 16px; color: var(--amber); line-height: 1; }
+  .cx .col .k ~ .k { margin-top: 28px; }
+  .cx .col p { margin: 12px 0 0; font-size: 24px; line-height: 1.15; }
+  .cx .col ul { list-style: none; margin: 0; padding: 0; }
+  .cx .col li { position: relative; padding-left: 20px; font-size: 24px; line-height: 1.15; }
+  .cx .col li + li { margin-top: 12px; }
+  .cx .col li::before { content: ""; position: absolute; left: 0; top: 9px; width: 10px; height: 10px; background: var(--amber); }
+  .cx .col strong { color: var(--amber); font-weight: 600; }
