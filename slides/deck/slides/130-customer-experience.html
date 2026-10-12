@@ -1,5 +1,5 @@
 <!-- 12. Customer Experience -->
-<section class="cx" data-src="reports/persona-customer-experience.md">
+<section class="cx" data-src="reports/support-cases-by-topic.md">
   <div class="frame">
     <div class="panel hd">
       <h2><span class="no">No.04</span>CUSTOMER EXPERIENCE</h2>
@@ -7,37 +7,73 @@
     </div>
     <div class="panel stats">
       <span class="tab">STATS</span>
-      <div class="seq"><span>17</span><i></i><span>17</span><i></i><span class="bad">72</span></div>
-      <div class="l dim" style="margin-top:8px">CLI-0042 tickets</div>
-      <div class="stat" style="margin-top:30px"><div class="v">124 / 327</div><div class="l">"resolved" but not resolved (37.9%)</div></div>
-      <div class="seq" style="margin-top:26px"><span>29</span><i></i><span>16</span></div>
-      <div class="l dim" style="margin-top:8px">Warenhuis tickets: an ordinary year</div>
+      <div class="seq"><span>107</span><i></i><span>107</span><i></i><span class="bad">189</span></div>
+      <div class="l dim" style="margin-top:8px">cases a year (+77%)</div>
+      <div class="seq" style="margin-top:26px"><span>18</span><i></i><span>25</span><i></i><span class="bad">66</span></div>
+      <div class="l dim" style="margin-top:8px">graded negative: 17% → 23% → 35% of cases</div>
+      <div class="stat" style="margin-top:26px"><div class="v">72 / 189</div><div class="l">2025 cases from Werke</div></div>
+      <div class="stat"><div class="v">51%</div><div class="l">inquiries: never negative</div></div>
     </div>
     <div class="panel facts">
       <span class="tab">FINDINGS</span>
       <ul>
-        <li>That account's tickets went <strong>17 → 17 → 72</strong>.</li>
-        <li><strong>124 of 327</strong> tickets closed as <code>resolved</code> (<strong>37.9%</strong>) were not actually resolved.</li>
-        <li>Every other account had an ordinary year (Warenhuis <strong>29 → 16</strong> tickets).</li>
+        <li>Delay is the swing: <strong>61</strong> cases in 2025, <strong>44</strong> graded negative, CSAT <strong>3.70 → 2.06</strong>.</li>
+        <li>Werke (CLI-0042): <strong>68%</strong> of 2025's negatives.</li>
+        <li>Half the cases are questions: ticket count is not unhappiness.</li>
       </ul>
-      <!-- bar x = 214 + count * 4.2 -->
-      <svg class="chart topics" width="712" height="112" viewBox="0 0 712 112" role="img" aria-label="Top ticket topics, machine-graded ticket categories, all 189 tickets of 2025: general inquiry 100, delivery delay 61, delivery failed 24, wrong item 4">
-        <text x="0" y="14">TOP TICKET TOPICS · machine-graded ticket categories, 2025 (all 189)</text>
-        <text class="val" x="200" y="42" text-anchor="end">general inquiry</text>
-        <rect class="b" x="214" y="28" width="420" height="16"/>
-        <text class="t-amb" x="644" y="42">100</text>
-        <text class="val" x="200" y="64" text-anchor="end">delivery delay</text>
-        <rect class="b" x="214" y="50" width="256.2" height="16"/>
-        <text class="t-amb" x="480.2" y="64">61</text>
-        <text class="val" x="200" y="86" text-anchor="end">delivery failed</text>
-        <rect class="b" x="214" y="72" width="100.8" height="16"/>
-        <text class="t-amb" x="324.8" y="86">24</text>
-        <text x="200" y="108" text-anchor="end">wrong item</text>
-        <rect class="b vol" x="214" y="94" width="16.8" height="16"/>
-        <text x="240.8" y="108">4</text>
+      <!-- column height = cases * 1.1 up from y 176; the hot part is the graded-negative cases -->
+      <svg class="chart topics" width="712" height="222" viewBox="0 0 712 222" role="img" aria-label="Support cases by graded ticket topic in 2023, 2024 and 2025, graded-negative cases highlighted. General inquiry 55, 51, 100, none negative. Delivery delay 31, 26, 61, of which 0, 1 and 44 negative. Delivery failed 18, 19, 24, of which 15, 13 and 18 negative. Wrong item 3, 11, 4, all negative.">
+        <text x="0" y="14">GRADED TICKET TOPICS · cases a year, 2023-2025</text>
+        <rect class="b hot" x="540" y="2" width="14" height="14"/>
+        <text x="562" y="14">graded negative</text>
+        <text class="sm" x="0" y="34">graded labels on the ticket text, not output of any model here</text>
+        <line class="ax" x1="0" y1="177" x2="712" y2="177"/>
+        <rect class="b vol" x="21" y="115.5" width="40" height="60.5"/>
+        <text x="41" y="109.5" text-anchor="middle">55</text>
+        <text class="sm" x="41" y="194" text-anchor="middle">2023</text>
+        <rect class="b vol" x="69" y="119.9" width="40" height="56.1"/>
+        <text x="89" y="113.9" text-anchor="middle">51</text>
+        <text class="sm" x="89" y="194" text-anchor="middle">2024</text>
+        <rect class="b vol" x="117" y="66" width="40" height="110"/>
+        <text x="137" y="60" text-anchor="middle">100</text>
+        <text class="sm" x="137" y="194" text-anchor="middle">2025</text>
+        <text class="val" x="89" y="216" text-anchor="middle">general inquiry</text>
+        <rect class="b vol" x="199" y="141.9" width="40" height="34.1"/>
+        <text x="219" y="135.9" text-anchor="middle">31</text>
+        <text class="sm" x="219" y="194" text-anchor="middle">2023</text>
+        <rect class="b vol" x="247" y="147.4" width="40" height="27.5"/>
+        <rect class="b hot" x="247" y="174.9" width="40" height="1.1"/>
+        <text x="267" y="141.4" text-anchor="middle">26</text>
+        <text class="sm" x="267" y="194" text-anchor="middle">2024</text>
+        <rect class="b vol" x="295" y="108.9" width="40" height="18.7"/>
+        <rect class="b hot" x="295" y="127.6" width="40" height="48.4"/>
+        <text class="t-hot" x="315" y="102.9" text-anchor="middle">61</text>
+        <text class="sm" x="315" y="194" text-anchor="middle">2025</text>
+        <text class="t-amb" x="267" y="216" text-anchor="middle">delivery delay</text>
+        <rect class="b vol" x="377" y="156.2" width="40" height="3.3"/>
+        <rect class="b hot" x="377" y="159.5" width="40" height="16.5"/>
+        <text x="397" y="150.2" text-anchor="middle">18</text>
+        <text class="sm" x="397" y="194" text-anchor="middle">2023</text>
+        <rect class="b vol" x="425" y="155.1" width="40" height="6.6"/>
+        <rect class="b hot" x="425" y="161.7" width="40" height="14.3"/>
+        <text x="445" y="149.1" text-anchor="middle">19</text>
+        <text class="sm" x="445" y="194" text-anchor="middle">2024</text>
+        <rect class="b vol" x="473" y="149.6" width="40" height="6.6"/>
+        <rect class="b hot" x="473" y="156.2" width="40" height="19.8"/>
+        <text x="493" y="143.6" text-anchor="middle">24</text>
+        <text class="sm" x="493" y="194" text-anchor="middle">2025</text>
+        <text class="val" x="445" y="216" text-anchor="middle">delivery failed</text>
+        <rect class="b hot" x="555" y="172.7" width="40" height="3.3"/>
+        <text x="575" y="166.7" text-anchor="middle">3</text>
+        <text class="sm" x="575" y="194" text-anchor="middle">2023</text>
+        <rect class="b hot" x="603" y="163.9" width="40" height="12.1"/>
+        <text x="623" y="157.9" text-anchor="middle">11</text>
+        <text class="sm" x="623" y="194" text-anchor="middle">2024</text>
+        <rect class="b hot" x="651" y="171.6" width="40" height="4.4"/>
+        <text x="671" y="165.6" text-anchor="middle">4</text>
+        <text class="sm" x="671" y="194" text-anchor="middle">2025</text>
+        <text class="val" x="623" y="216" text-anchor="middle">wrong item</text>
       </svg>
-      <p class="nocost"><strong>No cost per ticket exists in the data:</strong> tickets carry no cost, costs are booked by hub and month, payroll is driver pay.</p>
     </div>
   </div>
 </section>
-
