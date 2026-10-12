@@ -1,0 +1,16 @@
+  /* talk opening: the meetup title and the agenda, ahead of the Jaffle title slide.
+     the talk title reuses .title-box; at 40px the pixel font is 40px a character, so the
+     26-character second line is 1040 of the box's 1112 inside. */
+  .talk .title-box { padding-top: 96px; }
+  .talk .title-box h1 { font-size: 40px; line-height: 1.4; }
+  .talk .title-box .sub { margin-top: 44px; }
+  .talk .title-box .who { margin-top: 72px; font-size: 32px; font-weight: 600; color: var(--teal-hi); }
+  .talk .title-box .role { margin-top: 12px; font-size: 24px; color: var(--dim); }
+
+  /* agenda: four numbered items, pixel numerals in amber */
+  .agenda .hd { height: 96px; }
+  .agenda .bd { left: 20px; top: 132px; width: 1240px; height: 512px; padding: 56px 64px; }
+  .agenda ol { list-style: none; counter-reset: item; margin: 0; padding: 0; }
+  .agenda li { position: relative; counter-increment: item; padding-left: 84px; font-size: 36px; line-height: 48px; color: var(--text); }
+  .agenda li + li { margin-top: 52px; }
+  .agenda li::before { content: counter(item); position: absolute; left: 0; top: 4px; font-family: var(--pixel); font-size: 32px; line-height: 40px; color: var(--amber); }
