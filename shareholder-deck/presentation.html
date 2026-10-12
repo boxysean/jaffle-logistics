@@ -657,12 +657,64 @@
     .svc .band li { font-size: 20px; }
     .svc .foot { position: absolute; left: 20px; top: 632px; width: 1240px; font-size: 20px; line-height: 1.2; color: var(--dim); white-space: nowrap; }
 
+  /* talk opening: the meetup title and the agenda, ahead of the Jaffle title slide.
+     the talk title reuses .title-box; at 40px the pixel font is 40px a character, so the
+     26-character second line is 1040 of the box's 1112 inside. */
+  .talk .title-box { padding-top: 96px; }
+  .talk .title-box h1 { font-size: 40px; line-height: 1.4; }
+  .talk .title-box .sub { margin-top: 44px; }
+  .talk .title-box .who { margin-top: 72px; font-size: 32px; font-weight: 600; color: var(--teal-hi); }
+  .talk .title-box .role { margin-top: 12px; font-size: 24px; color: var(--dim); }
+
+  /* agenda: four numbered items, pixel numerals in amber */
+  .agenda .hd { height: 96px; }
+  .agenda .bd { left: 20px; top: 132px; width: 1240px; height: 512px; padding: 56px 64px; }
+  .agenda ol { list-style: none; counter-reset: item; margin: 0; padding: 0; }
+  .agenda li { position: relative; counter-increment: item; padding-left: 84px; font-size: 36px; line-height: 48px; color: var(--text); }
+  .agenda li + li { margin-top: 52px; }
+  .agenda li::before { content: counter(item); position: absolute; left: 0; top: 4px; font-family: var(--pixel); font-size: 32px; line-height: 40px; color: var(--amber); }
 </style>
 </head>
 <body>
 <div class="reveal">
 <div class="slides">
 
+<!-- 0. Talk title -->
+<section class="talk" data-status="dbt NL · 13 Oct 2026">
+  <div class="frame">
+    <div class="panel title-box">
+      <h1>Congratulations!<br>You are a Context Engineer</h1>
+      <div class="sub">dbt Netherlands Meetup · 13 October 2026</div>
+      <div class="who">Sean McIntyre</div>
+      <div class="role">Principal Solutions Architect, dbt Labs and Fivetran</div>
+    </div>
+  </div>
+</section>
+<!-- Agenda -->
+<section class="agenda" data-status="dbt NL · 13 Oct 2026">
+  <div class="frame">
+    <div class="panel hd">
+      <h2>AGENDA</h2>
+    </div>
+    <div class="panel bd">
+      <ol>
+        <li>On Context Engineering</li>
+        <li>Showcase: Jaffle Logistics</li>
+        <li>How dbt and Fivetran help</li>
+        <li>How to get started</li>
+      </ol>
+    </div>
+  </div>
+</section>
+<!-- On Context Engineering -->
+<section class="blank" data-status="dbt NL · 13 Oct 2026">
+  <div class="frame">
+    <div class="panel hd">
+      <h2>On Context Engineering</h2>
+    </div>
+    <div class="panel bd"></div>
+  </div>
+</section>
 <!-- 1. Title -->
 <section data-src="reports/company-profile.md" data-status="synthetic dataset">
   <div class="frame">
