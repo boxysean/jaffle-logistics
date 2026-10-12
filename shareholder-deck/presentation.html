@@ -559,21 +559,11 @@
   @media print {
     *, *::before, *::after { animation: none !important; }
   }
-    /* blank template slides the business user fills in by hand */
+    /* the plain title/body layout: a title panel over one large body panel (THE GAME HAS CHANGED) */
     .blank .hd { height: 96px; }
     .blank .bd {
       position: absolute; left: 20px; top: 132px; width: 1240px; height: 512px; padding: 22px 24px;
     }
-    .blank .bd p, .blank .col p { margin: 0; font-size: 26px; line-height: 1.35; color: var(--dim); }
-    .blank .bd p + p, .blank .col p + p { margin-top: 16px; }
-    .blank .bd strong, .blank .col strong { color: var(--amber); font-weight: 600; }
-    .blank .cols {
-      position: absolute; left: 20px; top: 132px; width: 1240px; height: 512px;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
-    }
-    .blank .col { position: relative; padding: 46px 22px 18px; }
-    .blank .col > .tab { position: absolute; left: 0; top: 0; }
-    .blank .hint { margin-top: 20px; font-size: 19px; color: var(--dim); opacity: .7; }
 
     /* product mix: findings left, volume-share vs failure-share bars right with a freight-quarterly line under them */
     .res .grid.svc { top: 132px; height: 518px; grid-template-columns: 1fr 720px; }
@@ -1959,83 +1949,6 @@
     <div class="foot">Seeded, not connected: 26 files stand in for the managed connectors of a live deployment.</div>
   </div>
 </section>
-
-  <!-- BLANK 1: classic title / body - replace this whole slide block with your own -->
-  <section class="blank" data-status="blank template - title and body">
-    <div class="frame">
-      <div class="panel hd">
-        <h2>YOUR TITLE HERE</h2>
-        <div class="owns">your subtitle here</div>
-      </div>
-      <div class="panel bd">
-        <p><strong>Your body text goes here.</strong> Replace this paragraph with whatever the slide needs - plain
-        sentences, a bullet list, a table, or an image.</p>
-        <p class="hint">This is a blank template. Copy any finished slide above and paste your own content into it,
-        or delete these template slides when you are done.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLANK 2: classic title / body - replace this whole slide block with your own -->
-  <section class="blank" data-status="blank template - title and body">
-    <div class="frame">
-      <div class="panel hd">
-        <h2>YOUR TITLE HERE</h2>
-        <div class="owns">your subtitle here</div>
-      </div>
-      <div class="panel bd">
-        <p><strong>Your body text goes here.</strong> Replace this paragraph with whatever the slide needs - plain
-        sentences, a bullet list, a table, or an image.</p>
-        <p class="hint">This is a blank template. Copy any finished slide above and paste your own content into it,
-        or delete these template slides when you are done.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLANK 3: classic title / two columns - replace this whole slide block with your own -->
-  <section class="blank" data-status="blank template - two columns">
-    <div class="frame">
-      <div class="panel hd">
-        <h2>YOUR TITLE HERE</h2>
-        <div class="owns">your subtitle here</div>
-      </div>
-      <div class="cols">
-        <div class="panel col">
-          <span class="tab">LEFT COLUMN</span>
-          <p><strong>Left side goes here.</strong> Points, a list, a chart or an image.</p>
-          <p class="hint">Blank template - replace or delete.</p>
-        </div>
-        <div class="panel col">
-          <span class="tab">RIGHT COLUMN</span>
-          <p><strong>Right side goes here.</strong> The comparison, the detail, or the answer.</p>
-          <p class="hint">Blank template - replace or delete.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLANK 4: classic title / two columns - replace this whole slide block with your own -->
-  <section class="blank" data-status="blank template - two columns">
-    <div class="frame">
-      <div class="panel hd">
-        <h2>YOUR TITLE HERE</h2>
-        <div class="owns">your subtitle here</div>
-      </div>
-      <div class="cols">
-        <div class="panel col">
-          <span class="tab">LEFT COLUMN</span>
-          <p><strong>Left side goes here.</strong> Points, a list, a chart or an image.</p>
-          <p class="hint">Blank template - replace or delete.</p>
-        </div>
-        <div class="panel col">
-          <span class="tab">RIGHT COLUMN</span>
-          <p><strong>Right side goes here.</strong> The comparison, the detail, or the answer.</p>
-          <p class="hint">Blank template - replace or delete.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
 
 </div>
 </div>
