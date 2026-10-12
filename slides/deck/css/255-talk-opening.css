@@ -14,3 +14,19 @@
   .agenda li { position: relative; counter-increment: item; padding-left: 84px; font-size: 36px; line-height: 48px; color: var(--text); }
   .agenda li + li { margin-top: 52px; }
   .agenda li::before { content: counter(item); position: absolute; left: 0; top: 4px; font-family: var(--pixel); font-size: 32px; line-height: 40px; color: var(--amber); }
+
+  /* about me: name and role as on the talk title, four points on amber pixel squares,
+     and a pixel bicycle on an 8px grid to the right */
+  .about .hd { height: 96px; }
+  .about .bd { left: 20px; top: 132px; width: 1240px; height: 512px; padding: 48px 56px; display: flex; align-items: center; gap: 48px; }
+  .about .txt { flex: 1; min-width: 0; }
+  .about .who { font-size: 32px; font-weight: 600; color: var(--teal-hi); }
+  .about .role { margin-top: 12px; font-size: 24px; color: var(--dim); }
+  .about ul { list-style: none; margin: 40px 0 0; padding: 0; }
+  .about li { position: relative; padding-left: 44px; font-size: 28px; line-height: 38px; color: var(--text); }
+  .about li + li { margin-top: 22px; }
+  .about li::before { content: ""; position: absolute; left: 0; top: 13px; width: 12px; height: 12px; background: var(--amber); }
+  .about .bike { flex: none; display: block; shape-rendering: crispEdges; }
+  .about .bike .wh { fill: var(--teal-hi); }
+  .about .bike .fr { fill: var(--amber); }
+  .about .bike .hb { fill: var(--text); }
