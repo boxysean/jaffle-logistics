@@ -1,12 +1,12 @@
   /* business-in-brief slide */
-  .brief { left: 20px; top: 148px; width: 700px; height: 452px; padding: 30px 28px 20px; }
+  .brief { left: 20px; top: 148px; width: 700px; height: 502px; padding: 30px 28px 20px; display: flex; flex-direction: column; justify-content: center; }
   .brief ul { list-style: none; margin: 0; padding: 0; }
   .brief li { position: relative; padding-left: 30px; font-size: 24px; line-height: 1.36; }
   .brief li + li { margin-top: 18px; }
   .brief li::before { content: ""; position: absolute; left: 0; top: 11px; width: 12px; height: 12px; background: var(--amber); }
   .brief strong { color: var(--amber); font-weight: 600; }
   /* network map: city names and the customs point only. teal-hi spokes, the non-EU leg dashed */
-  .netmap { left: 744px; top: 148px; width: 516px; height: 452px; }
+  .netmap { left: 744px; top: 148px; width: 516px; height: 502px; }
   .netmap svg { position: absolute; left: 0; top: 0; }
   .netmap .rt polyline { fill: none; stroke: var(--teal-hi); stroke-width: 8; stroke-linejoin: miter; stroke-linecap: square; }
   .netmap .rt polyline.eu-out { stroke-linecap: butt; stroke-dasharray: 18 12; }
