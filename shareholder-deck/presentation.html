@@ -344,6 +344,34 @@
   .dt .close p { margin: 8px 0 0; font-size: 22px; line-height: 1.15; color: var(--dim); }
   .dt .close p strong { color: var(--amber); }
   .dt .foot { position: absolute; left: 20px; top: 626px; width: 1240px; font-size: 22px; line-height: 1.2; color: var(--dim); white-space: nowrap; }
+  /* analytics engineer -> context engineer: the practitioner's answer. body 138-610: two panels
+     138-400 (the shift, and where the role already stands), the numbered how-to strip 424-610,
+     footnote 626. each tab stands 12px above its panel and each shadow 10px below, so the 24px gaps
+     stay clear. violet accents only, as the Q4 slide uses it: text, list markers and the tab chip.
+     fit budget at 18px mono (10.8px/char, 20px lines): a top panel is 582 inside its 12px pads = 53
+     characters; the shift needs 9 lines (208 of 230 inside), the position 11 (221 of 230). the how-to
+     strip is 1196 inside = 108 characters: three 2-line steps plus a one-line close = 7 lines, 146 of
+     158 inside. */
+  .ae .hd { height: 96px; }
+  .ae .hd .owns { margin-top: 8px; }
+  .ae strong { color: var(--violet); font-weight: 600; }
+  .ae .pts { position: absolute; left: 20px; top: 138px; width: 1240px; height: 262px; display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 12px; }
+  .ae .pts .panel { position: relative; padding: 18px 12px 6px; }
+  .ae .pts .k { font-size: 20px; line-height: 23px; font-weight: 600; color: var(--violet); }
+  .ae .pts p { margin: 6px 0 0; font-size: 18px; line-height: 20px; }
+  .ae .pts p.dim { color: var(--dim); }
+  .ae .pts ul { list-style: none; margin: 0; padding: 0; }
+  .ae .pts li { position: relative; padding-left: 20px; font-size: 18px; line-height: 20px; }
+  .ae .pts li + li { margin-top: 6px; }
+  .ae .pts li::before { content: ""; position: absolute; left: 0; top: 5px; width: 10px; height: 10px; background: var(--violet); }
+  .ae .how { left: 20px; top: 424px; width: 1240px; height: 186px; padding: 14px 18px 6px; }
+  .ae .how > .tab { background: var(--violet); }
+  .ae .how ol { list-style: none; counter-reset: step; margin: 0; padding: 0; }
+  .ae .how li { position: relative; counter-increment: step; padding-left: 30px; font-size: 18px; line-height: 20px; }
+  .ae .how li + li { margin-top: 6px; }
+  .ae .how li::before { content: counter(step); position: absolute; left: 0; top: 1px; font-family: var(--pixel); font-size: 14px; color: var(--violet); }
+  .ae .how .dim { margin: 8px 0 0; font-size: 18px; line-height: 20px; color: var(--dim); }
+  .ae .foot { position: absolute; left: 20px; top: 626px; width: 1240px; font-size: 22px; line-height: 1.2; color: var(--dim); white-space: nowrap; }
 
   /* lineage slide: body 140-648. diagram 140-272, chains 296-442, rebuild 466-606, footnote 620-649.
      each tab stands 12px above its panel and each shadow 10px below, so the 24px gaps stay clear.
@@ -1387,6 +1415,46 @@
       <p>Model quality became answer quality. If the definition of "on time" is wrong in the model, every agent that reads it is wrong — and confidently so.</p>
     </div>
     <div class="foot">An argument, not a measurement. The context layer is built; the agents are a design.</div>
+  </div>
+</section>
+
+<!-- From analytics engineer to context engineer -->
+<section class="ae" data-status="the shift, in practice">
+  <div class="frame">
+    <div class="panel hd">
+      <h2>FROM ANALYTICS ENGINEER TO CONTEXT ENGINEER</h2>
+      <div class="owns">The same craft, aimed at a reader who never asks a clarifying question.</div>
+    </div>
+    <div class="pts">
+      <div class="panel">
+        <span class="tab">THE SHIFT</span>
+        <div class="k">The deliverable changed.</div>
+        <p>For a decade the work product was an answer: a chart, a dashboard.</p>
+        <p>Now the work product is the <strong>meaning</strong> - definitions, grain, caveats, lineage - because that is what an agent reads, and cannot question.</p>
+        <p>A dashboard is a dead end: it answers once. Meaning answers every question downstream of it.</p>
+        <p class="dim">The models are the same. The audience is not.</p>
+      </div>
+      <div class="panel">
+        <span class="tab">ALREADY MOST OF THE WAY</span>
+        <div class="k">They write meaning down for a living.</div>
+        <ul>
+          <li>Grain, definitions, tests, docs: the raw material of a context layer, and it is already in the repo.</li>
+          <li>They own the semantic layer, where a metric's definition, grain and caveats are decided.</li>
+          <li>They already run the gate an agent needs: tests, contracts, freshness, lineage.</li>
+          <li>They write in the one language both readers share: versioned, reviewable, testable code, so the context can be diffed and tested because it is already a repo.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel how">
+      <span class="tab">HOW TO START</span>
+      <ol>
+        <li>Take the question that keeps being re-asked, and answer it in the repo: definition, grain, an owner. Out of someone's head and into a file.</li>
+        <li>Write the caveat next to the number: a description or a test that carries the doubt with the data it applies to, so the reader inherits the doubt.</li>
+        <li>Expose the modelled, documented layer over MCP, then audit what comes back: read the answers, trace them to lineage, and fix the context wherever it was wrong.</li>
+      </ol>
+      <p class="dim">The same loop as a bad dashboard, with a faster consumer.</p>
+    </div>
+    <div class="foot">The job changes when the reader changes. The craft does not.</div>
   </div>
 </section>
 
