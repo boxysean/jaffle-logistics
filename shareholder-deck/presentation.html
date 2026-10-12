@@ -686,21 +686,9 @@
     .blank .col > .tab { position: absolute; left: 0; top: 0; }
     .blank .hint { margin-top: 20px; font-size: 19px; color: var(--dim); opacity: .7; }
 
-    /* service levels: volume-share vs failure-share bars, a freight-quarterly line under them, table right */
-    .res .grid.svc { top: 132px; height: 356px; grid-template-columns: 720px 1fr; }
+    /* product mix: findings left, volume-share vs failure-share bars right with a freight-quarterly line under them */
+    .res .grid.svc { top: 132px; height: 518px; grid-template-columns: 1fr 720px; }
     .svc .ch svg { top: 4px; left: 6px; }
-    .svc .tbl { position: relative; padding: 44px 12px 8px; }
-    .svc table { width: 100%; border-collapse: collapse; font-family: var(--mono); }
-    .svc th {
-      text-align: left; font-weight: 400; font-size: 14px; color: var(--dim);
-      padding: 0 4px 6px; border-bottom: 1px solid #1d3a5c; white-space: nowrap;
-    }
-    .svc td { font-size: 18px; padding: 10px 4px; border-bottom: 1px solid #12294a; white-space: nowrap; }
-    .svc td.nm { color: var(--amber); }
-    .svc td.hot { color: var(--hot); }
-    .svc td.ok { color: var(--teal-hi); }
-    .svc .note { margin-top: 14px; font-size: 17px; line-height: 1.3; color: var(--dim); }
-    .svc .note strong { color: var(--amber); font-weight: 600; }
     .svc .b.v { fill: var(--teal-hi); }
     .svc .b.f { fill: var(--hot); }
     .svc .lg-v { fill: var(--teal-hi); }
@@ -711,11 +699,10 @@
     .svc .bv { font-size: 15px; fill: var(--dim); }
     .svc .vv { font-size: 15px; fill: var(--hot); }
     .svc .lc { font-size: 15px; fill: var(--dim); }
-    .svc .band { top: 508px; height: 114px; }
-    .svc .band ul { grid-template-columns: 1fr 1fr 1fr; }
-    .svc .band li { font-size: 20px; }
-    .svc .foot { position: absolute; left: 20px; top: 632px; width: 1240px; font-size: 20px; line-height: 1.2; color: var(--dim); white-space: nowrap; }
-
+    .svc .band { left: auto; top: auto; width: auto; height: auto; padding: 24px 18px 16px; }
+    .svc .band ul { height: 100%; display: flex; flex-direction: column; justify-content: space-around; }
+    .svc .band li { font-size: 26px; line-height: 1.2; }
+    .svc .band li::before { top: 11px; }
   /* talk opening: the meetup title and the agenda, ahead of the Jaffle title slide.
      the talk title reuses .title-box; at 40px the pixel font is 40px a character, so the
      26-character second line is 1040 of the box's 1112 inside. */
@@ -1154,90 +1141,77 @@
   </div>
 </section>
 
-<!-- 8. The three service levels -->
+<!-- 8. Product mix: the three service levels -->
 <section class="res svc" data-src="fct_shipments" data-status="2025 calendar year">
   <div class="frame">
     <div class="panel hd">
-      <h2>STANDARD, FREIGHT, EXPEDITED</h2>
-      <div class="owns">A quarter of the volume, half of the failures &mdash; and almost all of it one account.</div>
+      <h2>PRODUCT MIX</h2>
+      <div class="owns">Standard, Freight, Expedited</div>
     </div>
     <div class="grid svc">
+      <div class="panel band">
+        <span class="tab">FINDINGS</span>
+        <ul>
+          <li>Standard is the volume backbone at <strong>55.9%</strong>; expedited and freight split the rest, 20/24.</li>
+          <li>Freight is <strong class="hot">23.8%</strong> of shipments but <strong class="hot">49.6%</strong> of the year's 135 missed.</li>
+          <li>Not that freight is hard: <strong>416 of 479</strong> is Werke, and the other 63 never missed.</li>
+        </ul>
+      </div>
       <div class="panel ch">
         <span class="tab">SHARE OF VOLUME vs SHARE OF FAILURES &middot; 2025</span>
-        <svg class="chart" width="700" height="340" viewBox="0 0 700 340" role="img"
+        <svg class="chart" width="700" height="500" viewBox="0 0 700 500" role="img"
              aria-label="Share of volume against share of failures, 2025. Standard: 55.9 percent of volume, 38.5 percent of the 135 misses. Freight: 23.8 percent of volume, 49.6 percent of the misses. Expedited: 20.3 percent of volume, 11.9 percent of the misses. Below, freight's on-time rate by quarter: 87.83, 90.74, 85.22, 81.56 percent.">
           <rect class="lg-v" x="10" y="8" width="14" height="14"/>
           <text class="lg-t" x="30" y="20">share of volume</text>
           <rect class="lg-f" x="200" y="8" width="14" height="14"/>
           <text class="lg-t" x="220" y="20">share of failures</text>
 
-          <text class="lv" x="104" y="69" text-anchor="end">STANDARD</text>
-          <rect class="b v" x="112" y="44" width="503" height="16"/>
-          <rect class="b f" x="112" y="66" width="347" height="16"/>
-          <text class="bv" x="621" y="56">55.9</text>
-          <text class="vv" x="465" y="78">38.5</text>
+          <text class="lv" x="104" y="80" text-anchor="end">STANDARD</text>
+          <rect class="b v" x="112" y="50" width="503" height="22"/>
+          <rect class="b f" x="112" y="78" width="347" height="22"/>
+          <text class="bv" x="621" y="66">55.9</text>
+          <text class="vv" x="465" y="94">38.5</text>
 
-          <text class="lv hot" x="104" y="131" text-anchor="end">FREIGHT</text>
-          <rect class="b v" x="112" y="106" width="214" height="16"/>
-          <rect class="b f" x="112" y="128" width="446" height="16"/>
-          <text class="bv" x="332" y="118">23.8</text>
-          <text class="vv" x="564" y="140">49.6</text>
+          <text class="lv hot" x="104" y="166" text-anchor="end">FREIGHT</text>
+          <rect class="b v" x="112" y="136" width="214" height="22"/>
+          <rect class="b f" x="112" y="164" width="446" height="22"/>
+          <text class="bv" x="332" y="152">23.8</text>
+          <text class="vv" x="564" y="180">49.6</text>
 
-          <text class="lv" x="104" y="193" text-anchor="end">EXPEDITED</text>
-          <rect class="b v" x="112" y="168" width="183" height="16"/>
-          <rect class="b f" x="112" y="190" width="107" height="16"/>
-          <text class="bv" x="301" y="180">20.3</text>
-          <text class="vv" x="225" y="202">11.9</text>
+          <text class="lv" x="104" y="252" text-anchor="end">EXPEDITED</text>
+          <rect class="b v" x="112" y="222" width="183" height="22"/>
+          <rect class="b f" x="112" y="250" width="107" height="22"/>
+          <text class="bv" x="301" y="238">20.3</text>
+          <text class="vv" x="225" y="266">11.9</text>
 
-          <line class="ax" x1="8" y1="212" x2="690" y2="212"/>
+          <line class="ax" x1="8" y1="296" x2="690" y2="296"/>
 
-          <text class="lc" x="10" y="236">FREIGHT ON TIME BY QUARTER</text>
-          <line class="ax" x1="112" y1="240" x2="112" y2="316"/>
-          <line class="ax" x1="112" y1="316" x2="650" y2="316"/>
-          <line class="ax" x1="112" y1="253" x2="650" y2="253"/>
-          <text class="bv" x="104" y="257" text-anchor="end">90%</text>
-          <text class="bv" x="104" y="320" text-anchor="end">80%</text>
+          <text class="lc" x="10" y="326">FREIGHT ON TIME BY QUARTER</text>
+          <line class="ax" x1="112" y1="346" x2="112" y2="476"/>
+          <line class="ax" x1="112" y1="476" x2="650" y2="476"/>
+          <line class="ax" x1="112" y1="366" x2="650" y2="366"/>
+          <text class="bv" x="104" y="370" text-anchor="end">90%</text>
+          <text class="bv" x="104" y="480" text-anchor="end">80%</text>
 
-          <polyline class="ln hot" points="130,266.4 300,248.0 470,282.9 640,306.1"/>
-          <circle class="pt hot" cx="130" cy="266.4" r="5"/>
-          <circle class="pt hot" cx="300" cy="248.0" r="5"/>
-          <circle class="pt hot" cx="470" cy="282.9" r="5"/>
-          <circle class="pt hot" cx="640" cy="306.1" r="5"/>
-          <text class="vv" x="130" y="256" text-anchor="middle">87.8</text>
-          <text class="vv" x="300" y="238" text-anchor="middle">90.7</text>
-          <text class="vv" x="470" y="273" text-anchor="middle">85.2</text>
-          <text class="vv" x="640" y="296" text-anchor="middle">81.6</text>
+          <polyline class="ln hot" points="130,389.9 300,357.9 470,418.6 640,458.8"/>
+          <circle class="pt hot" cx="130" cy="389.9" r="5"/>
+          <circle class="pt hot" cx="300" cy="357.9" r="5"/>
+          <circle class="pt hot" cx="470" cy="418.6" r="5"/>
+          <circle class="pt hot" cx="640" cy="458.8" r="5"/>
+          <text class="vv" x="130" y="380" text-anchor="middle">87.8</text>
+          <text class="vv" x="300" y="348" text-anchor="middle">90.7</text>
+          <text class="vv" x="470" y="409" text-anchor="middle">85.2</text>
+          <text class="vv" x="640" y="449" text-anchor="middle">81.6</text>
 
-          <text class="bv" x="130" y="332" text-anchor="middle">Q1</text>
-          <text class="bv" x="300" y="332" text-anchor="middle">Q2</text>
-          <text class="bv" x="470" y="332" text-anchor="middle">Q3</text>
-          <text class="bv" x="640" y="332" text-anchor="middle">Q4</text>
+          <text class="bv" x="130" y="494" text-anchor="middle">Q1</text>
+          <text class="bv" x="300" y="494" text-anchor="middle">Q2</text>
+          <text class="bv" x="470" y="494" text-anchor="middle">Q3</text>
+          <text class="bv" x="640" y="494" text-anchor="middle">Q4</text>
         </svg>
       </div>
-      <div class="panel tbl">
-        <span class="tab">THE THREE LEVELS</span>
-        <table>
-          <tr><th>LEVEL</th><th>SHIPS</th><th>SHARE</th><th>ON TIME</th><th>MISSED</th><th>HRS LATE</th></tr>
-          <tr><td class="nm">standard</td><td>1,123</td><td>55.9%</td><td class="ok">95.37%</td><td>52</td><td>55.6</td></tr>
-          <tr><td class="nm">freight</td><td>479</td><td>23.8%</td><td class="hot">86.01%</td><td class="hot">67</td><td>58.1</td></tr>
-          <tr><td class="nm">expedited</td><td>407</td><td>20.3%</td><td class="ok">96.07%</td><td>16</td><td>38.9</td></tr>
-        </table>
-        <div class="note"><strong>135 missed</strong> in the year; freight is <strong>49.6%</strong>
-        of them on <strong>23.8%</strong> of the volume.</div>
-      </div>
     </div>
-    <div class="panel band">
-      <span class="tab">FINDINGS</span>
-      <ul>
-        <li>Standard is the volume backbone at <strong>55.9%</strong>; expedited and freight split the rest, 20/24.</li>
-        <li>Freight is <strong class="hot">23.8%</strong> of shipments but <strong class="hot">49.6%</strong> of the year's 135 missed.</li>
-        <li>Not that freight is hard: <strong>416 of 479</strong> is Werke, and the other 63 never missed.</li>
-      </ul>
-    </div>
-    <div class="foot">Revenue is booked per account-month and cannot be split by service level from this data.</div>
   </div>
 </section>
-
 <!-- 8a. The working behind the year in numbers -->
 <section class="sl" data-src="models/marts/_marts.yml" data-status="semantic layer">
   <div class="frame">
