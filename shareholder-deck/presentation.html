@@ -1066,47 +1066,6 @@
   </div>
 </section>
 
-<!-- 5a. The working behind the year in numbers -->
-<section class="sl" data-src="models/marts/_marts.yml" data-status="semantic layer">
-  <div class="frame">
-    <div class="panel hd">
-      <h2>THE WORKING BEHIND THE NUMBERS</h2>
-      <div class="owns">The dbt Semantic Layer metrics behind the last slide, and their tests</div>
-    </div>
-    <div class="panel map">
-      <span class="tab">WHICH METRIC MAKES EACH FIGURE</span>
-      <div class="row th"><span>FIGURE</span><span>METRIC</span><span>TYPE</span><span>BUILT AS</span></div>
-      <div class="row"><span class="fig">€2,879,732 +4.55%</span><code>gross_revenue</code><span>simple</span><span>sum(gross_revenue), FY2025 on FY2024</span></div>
-      <div class="row"><span class="fig hot">93.28% on time</span><code>on_time_rate</code><span>ratio</span><span>on_time_shipments / shipments</span></div>
-      <div class="row"><span class="fig hot">€52,955 credits</span><code>credited_amount</code><span>simple</span><span>sum(credited_amount), FY2025</span></div>
-      <div class="row"><span class="fig hot">1.84% of gross</span><code>credit_rate</code><span>ratio</span><span>credited_amount / gross_revenue</span></div>
-      <div class="row"><span class="fig">1,848 · 1,949 · 2,009</span><code>shipments</code><span>simple</span><span>count(shipment_id), by created_at</span></div>
-      <div class="row no"><span class="fig">97% target</span><span>not a metric</span><span>-</span><span>contract SLA, dim_clients.sla_ontime_pct</span></div>
-      <div class="row no"><span class="fig">€267.6k maintenance</span><span>not a metric</span><span>-</span><span>sum(maintenance_cost), stg_cost_ledger</span></div>
-    </div>
-    <div class="panel yaml">
-      <span class="tab">_MARTS.YML · FCT_SHIPMENTS</span>
-<pre><span class="k">- name:</span> <span class="n">on_time_shipments</span>
-  <span class="k">type:</span> simple
-  <span class="k">agg:</span> sum
-  <span class="k">expr:</span> case when is_ontime then 1 else 0 end
-<span class="k">- name:</span> <span class="n">on_time_rate</span>
-  <span class="k">type:</span> ratio
-  <span class="k">numerator:</span> on_time_shipments
-  <span class="k">denominator:</span> shipments</pre>
-    </div>
-    <div class="panel tests">
-      <span class="tab">TESTS ON THEIR INPUTS</span>
-      <div class="tot">36 OF 36 PASS<span>dbt build, 0 failing</span></div>
-      <div class="row"><code>assert_shipment_lateness_matches_status</code><b>1/1</b></div>
-      <div class="row"><code>assert_revenue_ledger_reconciles</code><b>1/1</b></div>
-      <div class="row"><span><code>status</code>: not_null, accepted_values</span><b>3/3</b></div>
-      <div class="row"><span>amount columns: <code>not_null</code></span><b>4/4</b></div>
-      <div class="row"><span>keys, joins and other columns</span><b>27/27</b></div>
-    </div>
-  </div>
-</section>
-
 <!-- 6. The quarters -->
 <section class="res" data-src="revenue_ledger">
   <div class="frame">
@@ -1216,6 +1175,203 @@
           <text x="338" y="211" text-anchor="middle">Q4</text>
         </svg>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. Customer review -->
+<section class="res" data-src="ledger + contracts">
+    <div class="frame">
+      <div class="panel hd">
+        <h2>CUSTOMER REVIEW</h2>
+        <div class="owns">Each account's quarter, against the promise that was signed</div>
+      </div>
+      <div class="grid cust">
+        <div class="panel ch">
+          <span class="tab">THE 33.5% ACCOUNT vs THE OTHER FOUR &middot; ON TIME %</span>
+          <svg class="chart" width="700" height="318" viewBox="0 0 700 318" role="img"
+               aria-label="On-time by quarter 2025: Jaffle Werke 86.14, 89.58, 82.47, 78.69; the average of the other four accounts 91.58, 97.25, 98.22, 96.18. Werke's contract is 97 percent.">
+            <rect class="cr-do" x="120" y="21" width="12" height="12"/>
+            <text class="cr-t" x="138" y="32">other four, averaged</text>
+            <rect class="cr-dw" x="370" y="21" width="12" height="12"/>
+            <text class="cr-t" x="388" y="32">Jaffle Werke</text>
+
+            <line class="ax" x1="70" y1="96" x2="660" y2="96"/>
+            <line class="ax" x1="70" y1="96" x2="70" y2="296"/>
+            <text class="cr-t" x="62" y="102" text-anchor="end">100%</text>
+            <text class="cr-t" x="62" y="182" text-anchor="end">90%</text>
+            <text class="cr-t" x="62" y="262" text-anchor="end">80%</text>
+
+            <line class="tg" x1="70" y1="120" x2="660" y2="120"/>
+            <text class="t-amb" x="76" y="112">Werke's contract 97%</text>
+
+            <polyline class="cr-lo" points="130,163.4 290,118.0 450,110.2 610,126.6"/>
+            <circle class="cr-do" cx="130" cy="163.4" r="6"/><circle class="cr-do" cx="290" cy="118.0" r="6"/>
+            <circle class="cr-do" cx="450" cy="110.2" r="6"/><circle class="cr-do" cx="610" cy="126.6" r="6"/>
+
+            <polyline class="cr-lw" points="130,207.0 290,179.4 450,236.2 610,266.5"/>
+            <circle class="cr-dw" cx="130" cy="207.0" r="6"/><circle class="cr-dw" cx="290" cy="179.4" r="6"/>
+            <circle class="cr-dw" cx="450" cy="236.2" r="6"/><circle class="cr-dw" cx="610" cy="266.5" r="6"/>
+
+            <text class="cr-vo" x="130" y="152" text-anchor="middle">91.6</text>
+            <text class="cr-vo" x="450" y="99" text-anchor="middle">98.2</text>
+            <text class="cr-vo" x="610" y="115" text-anchor="middle">96.2</text>
+            <text class="cr-vw" x="130" y="196" text-anchor="middle">86.1</text>
+            <text class="cr-vw" x="450" y="258" text-anchor="middle">82.5</text>
+            <text class="cr-vw" x="610" y="288" text-anchor="middle">78.7</text>
+
+            <text class="cr-q" x="130" y="314" text-anchor="middle">Q1</text>
+            <text class="cr-q" x="290" y="314" text-anchor="middle">Q2</text>
+            <text class="cr-q" x="450" y="314" text-anchor="middle">Q3</text>
+            <text class="cr-q" x="610" y="314" text-anchor="middle">Q4</text>
+          </svg>
+        </div>
+        <div class="panel tbl">
+          <span class="tab">THE FIVE ACCOUNTS</span>
+          <table>
+            <tr><th>ACCOUNT</th><th>CONTRACT</th><th>REVENUE</th><th>SHARE</th><th>Q4</th></tr>
+            <tr><td class="nm">Werke</td><td>97%</td><td>&euro;963,695</td><td>33.5%</td><td class="hot">78.69</td></tr>
+            <tr><td class="nm">Papier</td><td>92%</td><td>&euro;524,260</td><td>18.2%</td><td class="ok">92.68</td></tr>
+            <tr><td class="nm">Getr&auml;nke</td><td>95%</td><td>&euro;487,795</td><td>16.9%</td><td class="ok">95.33</td></tr>
+            <tr><td class="nm">Maison</td><td>95%</td><td>&euro;458,802</td><td>15.9%</td><td class="ok">98.35</td></tr>
+            <tr><td class="nm">Warenhuis</td><td>97%</td><td>&euro;445,180</td><td>15.5%</td><td class="ok">98.37</td></tr>
+          </table>
+          <div class="note"><strong>One account is the whole miss.</strong> Werke is a third of revenue,
+          and the only account below its promise in Q4.</div>
+        </div>
+      </div>
+      <div class="panel band">
+        <span class="tab">FINDINGS</span>
+        <ul>
+          <li>A third of revenue sits on the account <strong>17.5 points</strong> behind the rest.</li>
+          <li>The other four held: <strong>96.2%</strong> in Q4 while Werke fell to <strong>78.7%</strong>.</li>
+          <li>Both written to 97%: Warenhuis delivered 98.4%, Werke 78.7%.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+<!-- 8. The three service levels -->
+<section class="res svc" data-src="fct_shipments" data-status="2025 calendar year">
+  <div class="frame">
+    <div class="panel hd">
+      <h2>STANDARD, FREIGHT, EXPEDITED</h2>
+      <div class="owns">A quarter of the volume, half of the failures &mdash; and almost all of it one account.</div>
+    </div>
+    <div class="grid svc">
+      <div class="panel ch">
+        <span class="tab">SHARE OF VOLUME vs SHARE OF FAILURES &middot; 2025</span>
+        <svg class="chart" width="700" height="340" viewBox="0 0 700 340" role="img"
+             aria-label="Share of volume against share of failures, 2025. Standard: 55.9 percent of volume, 38.5 percent of the 135 misses. Freight: 23.8 percent of volume, 49.6 percent of the misses. Expedited: 20.3 percent of volume, 11.9 percent of the misses. Below, freight's on-time rate by quarter: 87.83, 90.74, 85.22, 81.56 percent.">
+          <rect class="lg-v" x="10" y="8" width="14" height="14"/>
+          <text class="lg-t" x="30" y="20">share of volume</text>
+          <rect class="lg-f" x="200" y="8" width="14" height="14"/>
+          <text class="lg-t" x="220" y="20">share of failures</text>
+
+          <text class="lv" x="104" y="69" text-anchor="end">STANDARD</text>
+          <rect class="b v" x="112" y="44" width="503" height="16"/>
+          <rect class="b f" x="112" y="66" width="347" height="16"/>
+          <text class="bv" x="621" y="56">55.9</text>
+          <text class="vv" x="465" y="78">38.5</text>
+
+          <text class="lv hot" x="104" y="131" text-anchor="end">FREIGHT</text>
+          <rect class="b v" x="112" y="106" width="214" height="16"/>
+          <rect class="b f" x="112" y="128" width="446" height="16"/>
+          <text class="bv" x="332" y="118">23.8</text>
+          <text class="vv" x="564" y="140">49.6</text>
+
+          <text class="lv" x="104" y="193" text-anchor="end">EXPEDITED</text>
+          <rect class="b v" x="112" y="168" width="183" height="16"/>
+          <rect class="b f" x="112" y="190" width="107" height="16"/>
+          <text class="bv" x="301" y="180">20.3</text>
+          <text class="vv" x="225" y="202">11.9</text>
+
+          <line class="ax" x1="8" y1="212" x2="690" y2="212"/>
+
+          <text class="lc" x="10" y="236">FREIGHT ON TIME BY QUARTER</text>
+          <line class="ax" x1="112" y1="240" x2="112" y2="316"/>
+          <line class="ax" x1="112" y1="316" x2="650" y2="316"/>
+          <line class="ax" x1="112" y1="253" x2="650" y2="253"/>
+          <text class="bv" x="104" y="257" text-anchor="end">90%</text>
+          <text class="bv" x="104" y="320" text-anchor="end">80%</text>
+
+          <polyline class="ln hot" points="130,266.4 300,248.0 470,282.9 640,306.1"/>
+          <circle class="pt hot" cx="130" cy="266.4" r="5"/>
+          <circle class="pt hot" cx="300" cy="248.0" r="5"/>
+          <circle class="pt hot" cx="470" cy="282.9" r="5"/>
+          <circle class="pt hot" cx="640" cy="306.1" r="5"/>
+          <text class="vv" x="130" y="256" text-anchor="middle">87.8</text>
+          <text class="vv" x="300" y="238" text-anchor="middle">90.7</text>
+          <text class="vv" x="470" y="273" text-anchor="middle">85.2</text>
+          <text class="vv" x="640" y="296" text-anchor="middle">81.6</text>
+
+          <text class="bv" x="130" y="332" text-anchor="middle">Q1</text>
+          <text class="bv" x="300" y="332" text-anchor="middle">Q2</text>
+          <text class="bv" x="470" y="332" text-anchor="middle">Q3</text>
+          <text class="bv" x="640" y="332" text-anchor="middle">Q4</text>
+        </svg>
+      </div>
+      <div class="panel tbl">
+        <span class="tab">THE THREE LEVELS</span>
+        <table>
+          <tr><th>LEVEL</th><th>SHIPS</th><th>SHARE</th><th>ON TIME</th><th>MISSED</th><th>HRS LATE</th></tr>
+          <tr><td class="nm">standard</td><td>1,123</td><td>55.9%</td><td class="ok">95.37%</td><td>52</td><td>55.6</td></tr>
+          <tr><td class="nm">freight</td><td>479</td><td>23.8%</td><td class="hot">86.01%</td><td class="hot">67</td><td>58.1</td></tr>
+          <tr><td class="nm">expedited</td><td>407</td><td>20.3%</td><td class="ok">96.07%</td><td>16</td><td>38.9</td></tr>
+        </table>
+        <div class="note"><strong>135 missed</strong> in the year; freight is <strong>49.6%</strong>
+        of them on <strong>23.8%</strong> of the volume.</div>
+      </div>
+    </div>
+    <div class="panel band">
+      <span class="tab">FINDINGS</span>
+      <ul>
+        <li>Standard is the volume backbone at <strong>55.9%</strong>; expedited and freight split the rest, 20/24.</li>
+        <li>Freight is <strong class="hot">23.8%</strong> of shipments but <strong class="hot">49.6%</strong> of the year's 135 missed.</li>
+        <li>Not that freight is hard: <strong>416 of 479</strong> is Werke, and the other 63 never missed.</li>
+      </ul>
+    </div>
+    <div class="foot">Revenue is booked per account-month and cannot be split by service level from this data.</div>
+  </div>
+</section>
+
+<!-- 8a. The working behind the year in numbers -->
+<section class="sl" data-src="models/marts/_marts.yml" data-status="semantic layer">
+  <div class="frame">
+    <div class="panel hd">
+      <h2>THE WORKING BEHIND THE NUMBERS</h2>
+      <div class="owns">The dbt Semantic Layer metrics behind THE YEAR IN NUMBERS, and their tests</div>
+    </div>
+    <div class="panel map">
+      <span class="tab">WHICH METRIC MAKES EACH FIGURE</span>
+      <div class="row th"><span>FIGURE</span><span>METRIC</span><span>TYPE</span><span>BUILT AS</span></div>
+      <div class="row"><span class="fig">€2,879,732 +4.55%</span><code>gross_revenue</code><span>simple</span><span>sum(gross_revenue), FY2025 on FY2024</span></div>
+      <div class="row"><span class="fig hot">93.28% on time</span><code>on_time_rate</code><span>ratio</span><span>on_time_shipments / shipments</span></div>
+      <div class="row"><span class="fig hot">€52,955 credits</span><code>credited_amount</code><span>simple</span><span>sum(credited_amount), FY2025</span></div>
+      <div class="row"><span class="fig hot">1.84% of gross</span><code>credit_rate</code><span>ratio</span><span>credited_amount / gross_revenue</span></div>
+      <div class="row"><span class="fig">1,848 · 1,949 · 2,009</span><code>shipments</code><span>simple</span><span>count(shipment_id), by created_at</span></div>
+      <div class="row no"><span class="fig">97% target</span><span>not a metric</span><span>-</span><span>contract SLA, dim_clients.sla_ontime_pct</span></div>
+      <div class="row no"><span class="fig">€267.6k maintenance</span><span>not a metric</span><span>-</span><span>sum(maintenance_cost), stg_cost_ledger</span></div>
+    </div>
+    <div class="panel yaml">
+      <span class="tab">_MARTS.YML · FCT_SHIPMENTS</span>
+<pre><span class="k">- name:</span> <span class="n">on_time_shipments</span>
+  <span class="k">type:</span> simple
+  <span class="k">agg:</span> sum
+  <span class="k">expr:</span> case when is_ontime then 1 else 0 end
+<span class="k">- name:</span> <span class="n">on_time_rate</span>
+  <span class="k">type:</span> ratio
+  <span class="k">numerator:</span> on_time_shipments
+  <span class="k">denominator:</span> shipments</pre>
+    </div>
+    <div class="panel tests">
+      <span class="tab">TESTS ON THEIR INPUTS</span>
+      <div class="tot">36 OF 36 PASS<span>dbt build, 0 failing</span></div>
+      <div class="row"><code>assert_shipment_lateness_matches_status</code><b>1/1</b></div>
+      <div class="row"><code>assert_revenue_ledger_reconciles</code><b>1/1</b></div>
+      <div class="row"><span><code>status</code>: not_null, accepted_values</span><b>3/3</b></div>
+      <div class="row"><span>amount columns: <code>not_null</code></span><b>4/4</b></div>
+      <div class="row"><span>keys, joins and other columns</span><b>27/27</b></div>
     </div>
   </div>
 </section>
@@ -1434,162 +1590,6 @@
       <div><b class="px">ADD THE FLOOR</b>dispatch notes and Slack miss the corpus</div>
     </div>
     <div class="foot">Werke is a third of revenue and the whole-book miss; the exposure is service credits.</div>
-  </div>
-</section>
-
-<!-- 7. Customer review -->
-<section class="res" data-src="ledger + contracts">
-    <div class="frame">
-      <div class="panel hd">
-        <h2>CUSTOMER REVIEW</h2>
-        <div class="owns">Each account's quarter, against the promise that was signed</div>
-      </div>
-      <div class="grid cust">
-        <div class="panel ch">
-          <span class="tab">THE 33.5% ACCOUNT vs THE OTHER FOUR &middot; ON TIME %</span>
-          <svg class="chart" width="700" height="318" viewBox="0 0 700 318" role="img"
-               aria-label="On-time by quarter 2025: Jaffle Werke 86.14, 89.58, 82.47, 78.69; the average of the other four accounts 91.58, 97.25, 98.22, 96.18. Werke's contract is 97 percent.">
-            <rect class="cr-do" x="120" y="21" width="12" height="12"/>
-            <text class="cr-t" x="138" y="32">other four, averaged</text>
-            <rect class="cr-dw" x="370" y="21" width="12" height="12"/>
-            <text class="cr-t" x="388" y="32">Jaffle Werke</text>
-
-            <line class="ax" x1="70" y1="96" x2="660" y2="96"/>
-            <line class="ax" x1="70" y1="96" x2="70" y2="296"/>
-            <text class="cr-t" x="62" y="102" text-anchor="end">100%</text>
-            <text class="cr-t" x="62" y="182" text-anchor="end">90%</text>
-            <text class="cr-t" x="62" y="262" text-anchor="end">80%</text>
-
-            <line class="tg" x1="70" y1="120" x2="660" y2="120"/>
-            <text class="t-amb" x="76" y="112">Werke's contract 97%</text>
-
-            <polyline class="cr-lo" points="130,163.4 290,118.0 450,110.2 610,126.6"/>
-            <circle class="cr-do" cx="130" cy="163.4" r="6"/><circle class="cr-do" cx="290" cy="118.0" r="6"/>
-            <circle class="cr-do" cx="450" cy="110.2" r="6"/><circle class="cr-do" cx="610" cy="126.6" r="6"/>
-
-            <polyline class="cr-lw" points="130,207.0 290,179.4 450,236.2 610,266.5"/>
-            <circle class="cr-dw" cx="130" cy="207.0" r="6"/><circle class="cr-dw" cx="290" cy="179.4" r="6"/>
-            <circle class="cr-dw" cx="450" cy="236.2" r="6"/><circle class="cr-dw" cx="610" cy="266.5" r="6"/>
-
-            <text class="cr-vo" x="130" y="152" text-anchor="middle">91.6</text>
-            <text class="cr-vo" x="450" y="99" text-anchor="middle">98.2</text>
-            <text class="cr-vo" x="610" y="115" text-anchor="middle">96.2</text>
-            <text class="cr-vw" x="130" y="196" text-anchor="middle">86.1</text>
-            <text class="cr-vw" x="450" y="258" text-anchor="middle">82.5</text>
-            <text class="cr-vw" x="610" y="288" text-anchor="middle">78.7</text>
-
-            <text class="cr-q" x="130" y="314" text-anchor="middle">Q1</text>
-            <text class="cr-q" x="290" y="314" text-anchor="middle">Q2</text>
-            <text class="cr-q" x="450" y="314" text-anchor="middle">Q3</text>
-            <text class="cr-q" x="610" y="314" text-anchor="middle">Q4</text>
-          </svg>
-        </div>
-        <div class="panel tbl">
-          <span class="tab">THE FIVE ACCOUNTS</span>
-          <table>
-            <tr><th>ACCOUNT</th><th>CONTRACT</th><th>REVENUE</th><th>SHARE</th><th>Q4</th></tr>
-            <tr><td class="nm">Werke</td><td>97%</td><td>&euro;963,695</td><td>33.5%</td><td class="hot">78.69</td></tr>
-            <tr><td class="nm">Papier</td><td>92%</td><td>&euro;524,260</td><td>18.2%</td><td class="ok">92.68</td></tr>
-            <tr><td class="nm">Getr&auml;nke</td><td>95%</td><td>&euro;487,795</td><td>16.9%</td><td class="ok">95.33</td></tr>
-            <tr><td class="nm">Maison</td><td>95%</td><td>&euro;458,802</td><td>15.9%</td><td class="ok">98.35</td></tr>
-            <tr><td class="nm">Warenhuis</td><td>97%</td><td>&euro;445,180</td><td>15.5%</td><td class="ok">98.37</td></tr>
-          </table>
-          <div class="note"><strong>One account is the whole miss.</strong> Werke is a third of revenue,
-          and the only account below its promise in Q4.</div>
-        </div>
-      </div>
-      <div class="panel band">
-        <span class="tab">FINDINGS</span>
-        <ul>
-          <li>A third of revenue sits on the account <strong>17.5 points</strong> behind the rest.</li>
-          <li>The other four held: <strong>96.2%</strong> in Q4 while Werke fell to <strong>78.7%</strong>.</li>
-          <li>Both written to 97%: Warenhuis delivered 98.4%, Werke 78.7%.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-<!-- 8. The three service levels -->
-<section class="res svc" data-src="fct_shipments" data-status="2025 calendar year">
-  <div class="frame">
-    <div class="panel hd">
-      <h2>STANDARD, FREIGHT, EXPEDITED</h2>
-      <div class="owns">A quarter of the volume, half of the failures &mdash; and almost all of it one account.</div>
-    </div>
-    <div class="grid svc">
-      <div class="panel ch">
-        <span class="tab">SHARE OF VOLUME vs SHARE OF FAILURES &middot; 2025</span>
-        <svg class="chart" width="700" height="340" viewBox="0 0 700 340" role="img"
-             aria-label="Share of volume against share of failures, 2025. Standard: 55.9 percent of volume, 38.5 percent of the 135 misses. Freight: 23.8 percent of volume, 49.6 percent of the misses. Expedited: 20.3 percent of volume, 11.9 percent of the misses. Below, freight's on-time rate by quarter: 87.83, 90.74, 85.22, 81.56 percent.">
-          <rect class="lg-v" x="10" y="8" width="14" height="14"/>
-          <text class="lg-t" x="30" y="20">share of volume</text>
-          <rect class="lg-f" x="200" y="8" width="14" height="14"/>
-          <text class="lg-t" x="220" y="20">share of failures</text>
-
-          <text class="lv" x="104" y="69" text-anchor="end">STANDARD</text>
-          <rect class="b v" x="112" y="44" width="503" height="16"/>
-          <rect class="b f" x="112" y="66" width="347" height="16"/>
-          <text class="bv" x="621" y="56">55.9</text>
-          <text class="vv" x="465" y="78">38.5</text>
-
-          <text class="lv hot" x="104" y="131" text-anchor="end">FREIGHT</text>
-          <rect class="b v" x="112" y="106" width="214" height="16"/>
-          <rect class="b f" x="112" y="128" width="446" height="16"/>
-          <text class="bv" x="332" y="118">23.8</text>
-          <text class="vv" x="564" y="140">49.6</text>
-
-          <text class="lv" x="104" y="193" text-anchor="end">EXPEDITED</text>
-          <rect class="b v" x="112" y="168" width="183" height="16"/>
-          <rect class="b f" x="112" y="190" width="107" height="16"/>
-          <text class="bv" x="301" y="180">20.3</text>
-          <text class="vv" x="225" y="202">11.9</text>
-
-          <line class="ax" x1="8" y1="212" x2="690" y2="212"/>
-
-          <text class="lc" x="10" y="236">FREIGHT ON TIME BY QUARTER</text>
-          <line class="ax" x1="112" y1="240" x2="112" y2="316"/>
-          <line class="ax" x1="112" y1="316" x2="650" y2="316"/>
-          <line class="ax" x1="112" y1="253" x2="650" y2="253"/>
-          <text class="bv" x="104" y="257" text-anchor="end">90%</text>
-          <text class="bv" x="104" y="320" text-anchor="end">80%</text>
-
-          <polyline class="ln hot" points="130,266.4 300,248.0 470,282.9 640,306.1"/>
-          <circle class="pt hot" cx="130" cy="266.4" r="5"/>
-          <circle class="pt hot" cx="300" cy="248.0" r="5"/>
-          <circle class="pt hot" cx="470" cy="282.9" r="5"/>
-          <circle class="pt hot" cx="640" cy="306.1" r="5"/>
-          <text class="vv" x="130" y="256" text-anchor="middle">87.8</text>
-          <text class="vv" x="300" y="238" text-anchor="middle">90.7</text>
-          <text class="vv" x="470" y="273" text-anchor="middle">85.2</text>
-          <text class="vv" x="640" y="296" text-anchor="middle">81.6</text>
-
-          <text class="bv" x="130" y="332" text-anchor="middle">Q1</text>
-          <text class="bv" x="300" y="332" text-anchor="middle">Q2</text>
-          <text class="bv" x="470" y="332" text-anchor="middle">Q3</text>
-          <text class="bv" x="640" y="332" text-anchor="middle">Q4</text>
-        </svg>
-      </div>
-      <div class="panel tbl">
-        <span class="tab">THE THREE LEVELS</span>
-        <table>
-          <tr><th>LEVEL</th><th>SHIPS</th><th>SHARE</th><th>ON TIME</th><th>MISSED</th><th>HRS LATE</th></tr>
-          <tr><td class="nm">standard</td><td>1,123</td><td>55.9%</td><td class="ok">95.37%</td><td>52</td><td>55.6</td></tr>
-          <tr><td class="nm">freight</td><td>479</td><td>23.8%</td><td class="hot">86.01%</td><td class="hot">67</td><td>58.1</td></tr>
-          <tr><td class="nm">expedited</td><td>407</td><td>20.3%</td><td class="ok">96.07%</td><td>16</td><td>38.9</td></tr>
-        </table>
-        <div class="note"><strong>135 missed</strong> in the year; freight is <strong>49.6%</strong>
-        of them on <strong>23.8%</strong> of the volume.</div>
-      </div>
-    </div>
-    <div class="panel band">
-      <span class="tab">FINDINGS</span>
-      <ul>
-        <li>Standard is the volume backbone at <strong>55.9%</strong>; expedited and freight split the rest, 20/24.</li>
-        <li>Freight is <strong class="hot">23.8%</strong> of shipments but <strong class="hot">49.6%</strong> of the year's 135 missed.</li>
-        <li>Not that freight is hard: <strong>416 of 479</strong> is Werke, and the other 63 never missed.</li>
-      </ul>
-    </div>
-    <div class="foot">Revenue is booked per account-month and cannot be split by service level from this data.</div>
   </div>
 </section>
 
