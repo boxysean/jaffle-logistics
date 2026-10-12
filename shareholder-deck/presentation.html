@@ -748,6 +748,12 @@
   .agenda li.past { color: var(--dim); opacity: .55; }
   .agenda li.past::before { color: var(--dim); }
   .agenda li.now { color: var(--amber); font-weight: 600; }
+  /* section title: a quieter break than .title-box. one centred panel in the normal navy,
+     a pixel kicker over an amber title. at 36px the pixel font is 36px a character, so a
+     21-character title is 756 of the panel's 872 inside. */
+  .sect .bd { left: 200px; top: 192px; width: 880px; height: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .sect .kick { font-family: var(--pixel); font-size: 16px; line-height: 1; color: var(--teal-hi); }
+  .sect h2 { margin: 36px 0 0; font-family: var(--pixel); font-weight: normal; font-size: 36px; line-height: 1.2; color: var(--amber); text-shadow: 4px 4px 0 #000; letter-spacing: 0; text-transform: none; }
 </style>
 </head>
 <body>
@@ -1252,6 +1258,15 @@
   </div>
 </section>
 
+<!-- Section title: from what the numbers were to why -->
+<section class="sect" data-status="dbt NL · 13 Oct 2026">
+  <div class="frame">
+    <div class="panel bd">
+      <div class="kick">PART 2 · SHOWCASE: JAFFLE LOGISTICS</div>
+      <h2>DRILLING INTO THE WHY</h2>
+    </div>
+  </div>
+</section>
 <!-- 10. The storm week -->
 <section class="storm" data-src="reports/persona-coo.md">
   <div class="frame">
