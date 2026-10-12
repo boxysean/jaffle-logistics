@@ -1,0 +1,40 @@
+<!-- From analytics engineer to context engineer -->
+<section class="ae" data-status="the shift, in practice">
+  <div class="frame">
+    <div class="panel hd">
+      <h2>FROM ANALYTICS ENGINEER TO CONTEXT ENGINEER</h2>
+      <div class="owns">The same craft, aimed at a reader who never asks a clarifying question.</div>
+    </div>
+    <div class="pts">
+      <div class="panel">
+        <span class="tab">THE SHIFT</span>
+        <div class="k">The deliverable changed.</div>
+        <p>For a decade the work product was an answer: a chart, a dashboard.</p>
+        <p>Now the work product is the <strong>meaning</strong> - definitions, grain, caveats, lineage - because that is what an agent reads, and cannot question.</p>
+        <p>A dashboard is a dead end: it answers once. Meaning answers every question downstream of it.</p>
+        <p class="dim">The models are the same. The audience is not.</p>
+      </div>
+      <div class="panel">
+        <span class="tab">ALREADY MOST OF THE WAY</span>
+        <div class="k">They write meaning down for a living.</div>
+        <ul>
+          <li>Grain, definitions, tests, docs: the raw material of a context layer, and it is already in the repo.</li>
+          <li>They own the semantic layer, where a metric's definition, grain and caveats are decided.</li>
+          <li>They already run the gate an agent needs: tests, contracts, freshness, lineage.</li>
+          <li>They write in the one language both readers share: versioned, reviewable, testable code, so the context can be diffed and tested because it is already a repo.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="panel how">
+      <span class="tab">HOW TO START</span>
+      <ol>
+        <li>Take the question that keeps being re-asked, and answer it in the repo: definition, grain, an owner. Out of someone's head and into a file.</li>
+        <li>Write the caveat next to the number: a description or a test that carries the doubt with the data it applies to, so the reader inherits the doubt.</li>
+        <li>Expose the modelled, documented layer over MCP, then audit what comes back: read the answers, trace them to lineage, and fix the context wherever it was wrong.</li>
+      </ol>
+      <p class="dim">The same loop as a bad dashboard, with a faster consumer.</p>
+    </div>
+    <div class="foot">The job changes when the reader changes. The craft does not.</div>
+  </div>
+</section>
+

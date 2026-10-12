@@ -1,0 +1,24 @@
+  /* audit slide: body 140-650 in two columns. left: runs 140-384, fixed 408-650; right: not fixed 140-598,
+     footnote 622-650. fit budget at 24px mono (14.4px/char, 27.6px/line): runs is 522px inside (36 chars,
+     7 lines = 241 of 244), fixed 502 (34 chars, 7 lines = 233 of 242), not fixed 626 (43 chars, 13 lines =
+     407 of 458), and the footnote's 47 characters need 677 of the column's 678. each tab stands 12px above
+     its panel and each shadow 10px below, so the 24px gaps stay clear. not fixed is said in --hot */
+  .aud .hd { height: 96px; }
+  .aud .hd .owns { margin-top: 8px; }
+  .aud .runs { left: 20px; top: 140px; width: 550px; height: 244px; padding: 14px 10px 10px; }
+  .aud .runs .it + .it { margin-top: 8px; }
+  .aud .runs .k, .aud .runs .l { font-size: 24px; line-height: 1.15; }
+  .aud .runs .k { font-weight: 600; color: var(--amber); }
+  .aud .runs .l { color: var(--dim); }
+  .aud .fixed { left: 20px; top: 408px; width: 550px; height: 242px; padding: 14px 10px 10px; }
+  .aud .unfixed { left: 582px; top: 140px; width: 678px; height: 458px; padding: 14px 12px 10px; border-color: var(--hot); }
+  .aud .unfixed > .tab { background: var(--hot); }
+  .aud ul { list-style: none; margin: 0; padding: 0; }
+  .aud li { position: relative; padding-left: 20px; font-size: 24px; line-height: 1.15; }
+  .aud li + li { margin-top: 8px; }
+  .aud li::before { content: ""; position: absolute; left: 0; top: 9px; width: 10px; height: 10px; background: var(--amber); }
+  .aud .unfixed li::before { background: var(--hot); }
+  .aud strong { color: var(--amber); font-weight: 600; }
+  .aud .unfixed strong { color: var(--hot); }
+  .aud .foot { position: absolute; left: 582px; top: 622px; width: 678px; font-size: 24px; line-height: 1.2; color: var(--dim); white-space: nowrap; }
+

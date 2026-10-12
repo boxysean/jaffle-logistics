@@ -1,0 +1,16 @@
+  /* persona header */
+  .hd { left: 20px; top: 20px; width: 1240px; height: 106px; background: var(--navy-2); padding: 12px 24px; }
+  .hd h2 { margin: 0; font-family: var(--pixel); font-weight: normal; font-size: 26px; line-height: 1.2; color: var(--text); letter-spacing: 0; text-transform: none; }
+  .hd h2 .no { color: var(--amber); font-size: 18px; margin-right: 18px; vertical-align: 3px; }
+  .hd .owns { margin-top: 10px; font-size: 24px; line-height: 1.25; color: var(--text); }
+  .hd .owns .px { font-size: 16px; color: var(--amber); margin-right: 12px; vertical-align: 2px; }
+
+  /* persona body: stats left, facts right */
+  .stats { left: 20px; top: 148px; width: 440px; height: 452px; padding: 30px 24px 20px; }
+  .facts { left: 484px; top: 148px; width: 776px; height: 452px; padding: 30px 28px 20px; }
+  .facts ul { list-style: none; margin: 0; padding: 0; }
+  .facts li { position: relative; padding-left: 30px; font-size: 24px; line-height: 1.36; }
+  .facts li + li { margin-top: 18px; }
+  .facts li::before { content: ""; position: absolute; left: 0; top: 11px; width: 12px; height: 12px; background: var(--amber); }
+  .facts strong { color: var(--amber); font-weight: 600; }
+

@@ -1,0 +1,24 @@
+  /* business-in-brief slide */
+  .brief { left: 20px; top: 148px; width: 700px; height: 452px; padding: 30px 28px 20px; }
+  .brief ul { list-style: none; margin: 0; padding: 0; }
+  .brief li { position: relative; padding-left: 30px; font-size: 24px; line-height: 1.36; }
+  .brief li + li { margin-top: 18px; }
+  .brief li::before { content: ""; position: absolute; left: 0; top: 11px; width: 12px; height: 12px; background: var(--amber); }
+  .brief strong { color: var(--amber); font-weight: 600; }
+  /* network map: city names and the customs point only. teal-hi spokes, the non-EU leg dashed */
+  .netmap { left: 744px; top: 148px; width: 516px; height: 452px; }
+  .netmap svg { position: absolute; left: 0; top: 0; }
+  .netmap .rt polyline { fill: none; stroke: var(--teal-hi); stroke-width: 8; stroke-linejoin: miter; stroke-linecap: square; }
+  .netmap .rt polyline.eu-out { stroke-linecap: butt; stroke-dasharray: 18 12; }
+  .netmap .nd rect { fill: var(--text); stroke: var(--deep); stroke-width: 4; }
+  .netmap .nd rect.sh { fill: #000; stroke: none; }
+  .netmap .nd rect.hq { fill: var(--amber); }
+  .netmap .nd rect.dot { fill: var(--deep); stroke: none; }
+  .netmap .gate rect + rect { fill: var(--amber); }
+  .chart text.city { font-family: var(--pixel); font-size: 16px; fill: var(--text); paint-order: stroke; stroke: var(--navy); stroke-width: 6px; stroke-linejoin: miter; }
+  .chart text.cus { font-family: var(--pixel); font-size: 12px; fill: var(--amber); paint-order: stroke; stroke: var(--navy); stroke-width: 6px; }
+  .tile { position: relative; padding: 14px 20px; }
+  .tile .v { font-family: var(--pixel); font-size: 28px; color: var(--amber); line-height: 1.15; }
+  .tile .l { font-family: var(--pixel); font-size: 16px; color: var(--text); margin-top: 10px; line-height: 1.4; }
+  .tile .note { font-size: 24px; line-height: 1.25; color: var(--dim); margin-top: 4px; }
+

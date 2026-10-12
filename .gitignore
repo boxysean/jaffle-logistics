@@ -30,3 +30,7 @@ slides/png/deck-*.png
 
 # dispatcher worktrees
 .worktrees/
+
+# the built deck: its source is slides/deck/, built by slides/build_deck.py (and by the docs workflow)
+slides/presentation.html
+docs/shareholder-deck/presentation.html

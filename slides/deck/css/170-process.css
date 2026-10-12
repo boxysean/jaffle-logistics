@@ -1,0 +1,39 @@
+  /* process slide: body 140-648. the walk 140-440, the evidence and the action 464-606, footnote 620-648.
+     each tab stands 12px above its panel and each shadow 10px below, so the 24px gaps stay clear.
+     colour follows the lineage: teal = where the data lives, amber = the platform's layers, teal-hi = what a
+     consumer reads; dashed amber is the agent, drawn as the architecture slide draws its marker.
+     the walk: 1196 x 280 at scale 1, the svg running 6px into the bottom pad as on the architecture slide.
+     steps 0-205, the closing band 220-271. five steps are 150 wide and step 3 is 336, because it carries two
+     sub-boxes of verified copy that will not fit 150 at 12px; 22px arrow gaps (2 clear, 8 shaft, 10 head, 2 clear).
+     at 12px mono (7.2px/char) a narrow step's 144px interior takes 18 characters (130px): 3, 6, 6, 6 lines from
+     64 (step 2 from 80, under its 3-line label), 16px apart, the last at 160 of 202. labels at 12px pixel (12px/char)
+     hold 12 characters: 2 lines, 3 for step 2. step 3's label is 24 characters = 288 of 330; its sub-boxes are 310
+     inside: an 11px pixel label (27 characters = 297) + 3 lines of 38 characters at most (274) in 80px each.
+     the band's second line at 13px (7.8px/char) is 141 characters = 1100 of 1190.
+     lower panels at 18px mono (10.8px/char, 21px lines) are 572 inside their 14px pads = 52 characters, broken by
+     hand and held nowrap: the evidence needs 3 + 2 lines (48 at most) + a 5px gap = 110 of 116, the action 1 + 3
+     (48 at most) + 5 = 89 of 116. the footnote's 87 characters at 22px (13.2px/char) need 1148 of 1240.
+     the action panel is dashed amber: the agent half of it is a design */
+  .prc .hd { height: 96px; }
+  .prc .hd .owns { margin-top: 8px; }
+  .prc .flow { left: 20px; top: 140px; width: 1240px; height: 300px; padding: 12px 18px 6px; }
+  .prc .flow svg { display: block; }
+  .prc .chart text.ttl { font-family: var(--pixel); font-size: 12px; fill: var(--text); }
+  .prc .chart text.tag { font-family: var(--pixel); font-size: 11px; }
+  .prc .chart text.cp { font-size: 12px; }
+  .prc .chart text.bd { font-size: 13px; }
+  .prc .chart text.bd.t-amb { font-weight: 600; }
+  .prc .chart .sys { fill: var(--deep); stroke: var(--teal); stroke-width: 3; }
+  .prc .chart .plat { fill: var(--deep); stroke: var(--amber); stroke-width: 3; }
+  .prc .chart .rep { fill: var(--deep); stroke: var(--teal-hi); stroke-width: 3; }
+  .prc .chart .agent { fill: none; stroke: var(--amber); stroke-width: 3; stroke-dasharray: 12 8; }
+  .prc .chart .arw { fill: var(--teal-hi); }
+  .prc .ev { left: 20px; top: 464px; width: 608px; height: 142px; padding: 12px 14px 6px; }
+  .prc .action { left: 652px; top: 464px; width: 608px; height: 142px; padding: 12px 14px 6px; border-style: dashed; border-color: var(--amber); }
+  .prc .action > .tab { background: var(--amber); }
+  .prc .ev p, .prc .action p { margin: 0; font-size: 18px; line-height: 21px; white-space: nowrap; }
+  .prc .ev p + p, .prc .action p + p { margin-top: 5px; }
+  .prc code { color: var(--teal-hi); }
+  .prc strong { color: var(--amber); font-weight: 600; }
+  .prc .foot { position: absolute; left: 20px; top: 620px; width: 1240px; font-size: 22px; line-height: 1.2; color: var(--dim); white-space: nowrap; }
+

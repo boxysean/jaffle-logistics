@@ -1,0 +1,35 @@
+  /* lineage slide: body 140-648. diagram 140-272, chains 296-442, rebuild 466-606, footnote 620-649.
+     each tab stands 12px above its panel and each shadow 10px below, so the 24px gaps stay clear.
+     colour carries the lineage: teal = source systems, amber = the platform's layers, teal-hi = the reports */
+  .lin .hd { height: 96px; }
+  .lin .hd .owns { margin-top: 8px; }
+  .lin .flow { left: 20px; top: 140px; width: 1240px; height: 132px; padding: 12px 18px 6px; }
+  .lin .flow svg { display: block; }
+  .lin .chart text.ttl { font-family: var(--pixel); font-size: 12px; fill: var(--text); }
+  .lin .chart text.lb { font-size: 14px; fill: var(--text); }
+  .lin .chart text.lb.t-amb { fill: var(--amber); }
+  .lin .chart text.dk { font-size: 14px; font-weight: 600; fill: var(--deep); }
+  .lin .chart text.out { font-weight: 600; fill: var(--text); }
+  .lin .chart .sys { fill: var(--deep); stroke: var(--teal); stroke-width: 2; }
+  .lin .chart .plat { fill: none; stroke: var(--amber); stroke-width: 3; }
+  .lin .chart .lay { fill: var(--amber); }
+  .lin .chart .rep { fill: var(--deep); stroke: var(--teal-hi); stroke-width: 3; }
+  .lin .chart .arw { fill: var(--teal-hi); }
+  .lin .trace { left: 20px; top: 296px; width: 1240px; height: 146px; padding: 12px 18px 6px; display: flex; align-items: center; gap: 28px; }
+  .lin .chains { display: flex; flex-direction: column; gap: 8px; flex: none; }
+  .lin .chain { display: flex; align-items: center; gap: 4px; font-size: 18px; line-height: 21px; }
+  .lin .chain span { border: 3px solid var(--amber); padding: 4px 6px; background: var(--deep); white-space: nowrap; }
+  .lin .chain span.num { border-color: var(--teal-hi); font-weight: 600; }
+  .lin .chain span.sys { border-color: var(--teal); }
+  .lin .chain i { flex: none; width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 12px solid var(--teal-hi); }
+  .lin .said { font-size: 24px; line-height: 1.15; }
+  .lin .said p { margin: 0; }
+  .lin .said strong { color: var(--amber); font-weight: 600; }
+  /* rebuild + data volume: 4 nowrap lines (80 of 81 characters at most) = 110 of 112 inside; one-line footnote 620-649 */
+  .lin .cost { left: 20px; top: 466px; width: 1240px; height: 140px; padding: 12px 18px 6px; }
+  .lin .cost ul { list-style: none; margin: 0; padding: 0; }
+  .lin .cost li { position: relative; padding-left: 20px; font-size: 24px; line-height: 1.15; white-space: nowrap; }
+  .lin .cost li::before { content: ""; position: absolute; left: 0; top: 9px; width: 10px; height: 10px; background: var(--amber); }
+  .lin .cost strong { color: var(--amber); font-weight: 600; }
+  .lin .foot { position: absolute; left: 20px; top: 620px; width: 1240px; font-size: 24px; line-height: 1.2; color: var(--dim); }
+

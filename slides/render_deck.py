@@ -2,16 +2,21 @@
 """Render every slide of the Reveal.js deck to a PNG.
 
 Reveal moves between slides by hash (``#/3``), so each slide is a separate chromium load at
-exactly the deck's own 1280x720 canvas - no letterboxing, no scaling.
+exactly the deck's own 1280x720 canvas - no letterboxing, no scaling. The deck is built from
+slides/deck/ first, so the renders always match the parts.
 """
 import glob
 import os
 import re
 import subprocess
 
+import build_deck
+
 SLIDES_DIR = os.path.dirname(os.path.abspath(__file__))
 DECK = "presentation.html"
 OUT = os.path.join(SLIDES_DIR, "png")
+with open(os.path.join(SLIDES_DIR, DECK), "w", encoding="utf-8") as f:
+    f.write(build_deck.build())
 with open(os.path.join(SLIDES_DIR, DECK), encoding="utf-8") as f:
     COUNT = len(re.findall(r"<section\b", f.read()))
 SIZE = "1280,720"

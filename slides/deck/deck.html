@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Jaffle Logistics — Shareholder Briefing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  /* build_deck.py inserts slides/deck/css/*.css here, in file-name order */
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- build_deck.py inserts slides/deck/slides/*.html here, in file-name order -->
+</div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
+<script>
+(function () {
+  // segmented bars: 14 blocks, filled in proportion to data-v / data-max
+  document.querySelectorAll('.bar').forEach(function (el) {
+    var n = 14, on = Math.max(1, Math.round(+el.dataset.v / +el.dataset.max * n));
+    for (var i = 0; i < n; i++) {
+      var b = document.createElement('i');
+      if (i < on) b.className = 'on';
+      el.appendChild(b);
+    }
+  });
+
+  // persistent status bar on every slide; the right-hand label is the slide's source report
+  var slides = document.querySelectorAll('.reveal .slides > section');
+  var pad = function (k) { return (k < 10 ? '0' : '') + k; };
+  slides.forEach(function (s, i) {
+    var bar = document.createElement('div');
+    bar.className = 'panel status';
+    bar.innerHTML = '<span>JAFFLE LOGISTICS</span>' +
+      '<span class="c">SLIDE ' + pad(i + 1) + ' / ' + pad(slides.length) + '</span>' +
+      '<span class="r"><span class="lbl"></span><i class="cursor"></i></span>';
+    var label = s.dataset.status || s.dataset.src;
+    bar.querySelector('.lbl').textContent = label;
+    bar.querySelector('.r').title = label;
+    s.querySelector('.frame').appendChild(bar);
+  });
+
+  // a source path too wide for the right-hand column loses its directory. measured on a canvas
+  // (hidden slides have no layout): the column is (1192 inner - centre - 2 x 32 gap) / 2, less the cursor
+  var fitLabels = function () {
+    var ctx = document.createElement('canvas').getContext('2d');
+    ctx.font = '18px ' + getComputedStyle(document.documentElement).getPropertyValue('--pixel');
+    document.querySelectorAll('.status').forEach(function (bar) {
+      var lbl = bar.querySelector('.lbl'), full = bar.querySelector('.r').title;
+      var room = (1192 - ctx.measureText(bar.querySelector('.c').textContent).width - 64) / 2 - 22;
+      lbl.textContent = ctx.measureText(full).width <= room ? full : full.split('/').pop();
+    });
+  };
+  document.fonts.load('18px "Press Start 2P"').then(fitLabels, fitLabels);
+
+  Reveal.initialize({
+    width: 1280,
+    height: 720,
+    margin: 0,
+    center: false,
+    controls: false,
+    progress: true,
+    slideNumber: false,
+    hash: true,
+    transition: 'none',
+    backgroundTransition: 'none',
+    pdfMaxPagesPerSlide: 1,
+    pdfSeparateFragments: false
+  });
+
+  // the deck's own status bar carries the slide number, and each full-bleed image slide carries
+  // its own chrome - so flag those slides on <body> and let the CSS drop the progress bar there
+  var setChrome = function (slide) {
+    document.body.classList.toggle('imgslide', !!(slide && slide.classList.contains('img')));
+  };
+  Reveal.on('ready', function (e) { setChrome(e.currentSlide); });
+  Reveal.on('slidechanged', function (e) { setChrome(e.currentSlide); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+  :root {
+    --deep: #050b18;
+    --navy: #0a1630;
+    --navy-2: #0f2145;
+    --teal: #1d6b68;
+    --teal-hi: #5fd3c8;
+    --hot: #ff3d6e;
+    --amber: #ffb000;
+    --violet: #a06bff;
+    --text: #e4f3ef;
+    --dim: #8fb5bb;
+    --pixel: "Press Start 2P", "Courier New", monospace;
+    --mono: "IBM Plex Mono", ui-monospace, "Courier New", monospace;
+  }
+  html, body, .reveal-viewport, .reveal { background: var(--deep); }
+  .reveal { font-family: var(--mono); font-size: 24px; color: var(--text); }
+  .reveal .slides { text-align: left; }
+  .reveal .slides section { width: 1280px; height: 720px; padding: 0; box-sizing: border-box; background: var(--deep); }
+  .reveal .slides section.img { background: var(--deep); }
+
+  /* every slide is a fixed 1280x720 game screen */
+  .frame { position: absolute; inset: 0; overflow: hidden; }
+  .frame::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: repeating-linear-gradient(to bottom, rgba(0,0,0,0) 0 3px, rgba(0,0,0,.16) 3px 4px);
+  }
+  .panel {
+    position: absolute; box-sizing: border-box;
+    background: var(--navy);
+    border: 4px solid var(--teal-hi);
+    box-shadow: 0 0 0 4px var(--deep), 6px 6px 0 4px #000;
+  }
+  .panel > .tab {
+    position: absolute; top: -4px; left: 20px; transform: translateY(-50%);
+    background: var(--teal-hi); color: var(--deep);
+    font-family: var(--pixel); font-size: 14px; padding: 5px 10px; line-height: 1;
+  }
+  .amb { color: var(--amber); }
+  .hot { color: var(--hot); }
+  .dim { color: var(--dim); }
+  .px { font-family: var(--pixel); }
+  code { font-family: var(--mono); }
+
+  /* status bar, injected on every slide */
+  .status {
+    left: 20px; top: 664px; width: 1240px; height: 44px;
+    background: var(--deep); border-color: var(--teal);
+    display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); column-gap: 32px; align-items: center; padding: 0 20px;
+    font-family: var(--pixel); font-size: 18px; white-space: nowrap; z-index: 2;
+  }
+  .status .c { color: var(--amber); }
+  /* the right label is held to its own column: it can never reach the slide number, and a label
+     too long for the column is shortened (directory dropped, below; an ellipsis as the last resort) */
+  .status .r { display: flex; justify-content: flex-end; align-items: center; min-width: 0; color: var(--dim); }
+  .status .r .lbl { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  .status .r .cursor { flex: none; }
+  .cursor { display: inline-block; width: 12px; height: 18px; background: var(--text); vertical-align: -2px; margin-left: 10px; animation: blink 1s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  /* source line: a caption inside the bottom-left of its panel */
+  .src { position: absolute; left: 24px; bottom: 14px; font-size: 24px; line-height: 1.2; color: var(--dim); white-space: nowrap; text-align: left; }
+  .src b { font-family: var(--pixel); font-size: 16px; font-weight: normal; color: var(--teal-hi); margin-right: 12px; vertical-align: 2px; }
+  .src code { color: var(--dim); }
+

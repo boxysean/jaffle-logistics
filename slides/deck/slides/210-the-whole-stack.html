@@ -1,0 +1,68 @@
+<!-- 19. The whole stack -->
+<section class="arc" data-status="the architecture">
+  <div class="frame">
+    <div class="panel hd">
+      <h2>THE WHOLE STACK</h2>
+      <div class="owns">Twelve operational systems, one build overnight, and the way out to an agent</div>
+    </div>
+    <div class="panel flow">
+      <span class="tab">THE STACK, LEFT TO RIGHT</span>
+      <svg class="chart" width="1196" height="280" viewBox="0 0 1196 270" role="img" aria-label="Five layers, left to right: 26 source files from 12 operational systems, seeded; raw relations landed in the lakehouse; 24 staging, 3 intermediate and 8 mart models built by dbt on the dbt Platform; 25 context models, 23 of them AI, with vectors and 10 semantic-layer metrics; consumed by the persona reports, this deck and the docs site, and read over MCP. An agent plugs in under the context and consumption layers through an MCP tool surface of 43 tools.">
+        <text class="ttl" x="103.5" y="14" text-anchor="middle">SOURCES</text>
+        <rect class="sys" x="0" y="28" width="207" height="140"/>
+        <text class="hl val" x="103.5" y="70" text-anchor="middle">26 SOURCE FILES</text>
+        <text class="sub" x="103.5" y="96" text-anchor="middle">12 operational</text>
+        <text class="sub" x="103.5" y="118" text-anchor="middle">systems, seeded</text>
+        <text class="sub" x="103.5" y="140" text-anchor="middle">not connected</text>
+        <rect class="arw" x="207" y="94" width="28" height="5"/><polygon class="arw" points="235,88.5 247,96.5 235,104.5"/>
+        <text class="ttl" x="350.5" y="14" text-anchor="middle">LANDING</text>
+        <rect class="sys" x="247" y="28" width="207" height="140"/>
+        <text class="hl val" x="350.5" y="70" text-anchor="middle">raw relations</text>
+        <text class="sub" x="350.5" y="96" text-anchor="middle">in the lakehouse</text>
+        <text class="sub" x="350.5" y="118" text-anchor="middle">structured +</text>
+        <text class="sub" x="350.5" y="140" text-anchor="middle">unstructured text</text>
+        <rect class="arw" x="454" y="94" width="28" height="5"/><polygon class="arw" points="482,88.5 494,96.5 482,104.5"/>
+        <text class="ttl" x="597.5" y="14" text-anchor="middle">TRANSFORMATION</text>
+        <rect class="plat" x="494" y="28" width="207" height="140"/>
+        <text class="hl val" x="597.5" y="70" text-anchor="middle">24 staging · 3 int</text>
+        <text class="sub" x="597.5" y="96" text-anchor="middle">8 marts</text>
+        <text class="sub" x="597.5" y="118" text-anchor="middle">dbt on the</text>
+        <text class="sub" x="597.5" y="140" text-anchor="middle">dbt Platform</text>
+        <rect class="arw" x="701" y="94" width="28" height="5"/><polygon class="arw" points="729,88.5 741,96.5 729,104.5"/>
+        <text class="ttl" x="844.5" y="14" text-anchor="middle">CONTEXT + AI</text>
+        <rect class="plat" x="741" y="28" width="207" height="140"/>
+        <text class="hl val" x="844.5" y="70" text-anchor="middle">25 context models</text>
+        <text class="sub" x="844.5" y="96" text-anchor="middle">23 of them AI</text>
+        <text class="sub" x="844.5" y="118" text-anchor="middle">vectors · 10 metrics</text>
+        <text class="sub" x="844.5" y="140" text-anchor="middle">semantic layer</text>
+        <rect class="arw" x="948" y="94" width="28" height="5"/><polygon class="arw" points="976,88.5 988,96.5 976,104.5"/>
+        <text class="ttl" x="1091.5" y="14" text-anchor="middle">CONSUMPTION</text>
+        <rect class="rep" x="988" y="28" width="207" height="140"/>
+        <text class="hl val" x="1091.5" y="70" text-anchor="middle">the persona reports</text>
+        <text class="sub tg-t" x="1091.5" y="96" text-anchor="middle">this deck · the docs site</text>
+        <text class="sub tg-t" x="1091.5" y="118" text-anchor="middle">read over MCP</text>
+        <rect class="arw" x="857.5" y="180" width="5" height="10"/><polygon class="arw" points="851.5,180 860,168 868.5,180"/>
+        <rect class="agent" x="741" y="190" width="455" height="64"/>
+        <text class="ag" x="968.5" y="214" text-anchor="middle">AGENT PLUGS IN HERE</text>
+        <text class="mk val" x="968.5" y="232" text-anchor="middle">MCP tool surface · 43 tools · lookup + vector cosine</text>
+        <text class="mk" x="968.5" y="248" text-anchor="middle">scoped per account and time</text>
+      </svg>
+    </div>
+    <div class="panel ai">
+      <span class="tab">THE AI LAYER</span>
+      <p>Embeddings: <span class="k">ai_query('databricks-gte-large-en')</span></p>
+      <p>Retrieval: <span class="k">vector_cosine_similarity</span>, top k</p>
+      <p>Seven document sources, one <span class="k">knowledge_base</span></p>
+      <p>Queries embed with the same model as the corpus</p>
+    </div>
+    <div class="panel bld">
+      <span class="tab">WHAT BUILDS IT</span>
+      <p>Nightly job <span class="k">933320</span> - one build, end to end</p>
+      <p>seed <span class="k">5.4</span> min · run <span class="k">35.3</span> · test <span class="k">0.9</span> = <span class="k">42</span> min</p>
+      <p>Same three commands every night, on a schedule</p>
+      <p>A failing test stops the release</p>
+    </div>
+    <div class="foot">Seeded, not connected: 26 files stand in for the managed connectors of a live deployment.</div>
+  </div>
+</section>
+

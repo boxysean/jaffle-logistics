@@ -1,0 +1,23 @@
+  /* hand-drawn SVG charts: square marks, no gradients or shadows, mono labels */
+  .chart { display: block; overflow: visible; shape-rendering: crispEdges; }
+  .chart text { font-family: var(--mono); font-size: 16px; fill: var(--dim); }
+  .chart text.sm { font-size: 14px; }
+  .accounts .chart text.sm[y="310"] { font-size: 13px; }
+  .chart text.nm { font-size: 20px; font-weight: 600; fill: var(--text); }
+  .chart text.val { fill: var(--text); }
+  .chart text.t-amb { fill: var(--amber); }
+  .chart text.t-hot { fill: var(--hot); }
+  .chart text.tg-t { fill: var(--teal-hi); }
+  .chart .ax { stroke: var(--dim); stroke-width: 2; }
+  .chart .tg { stroke: var(--teal-hi); stroke-width: 2; stroke-dasharray: 8 6; }
+  .chart .b, .chart .pt { fill: var(--amber); }
+  .chart .b.hot, .chart .pt.hot { fill: var(--hot); }
+  .chart .ln { fill: none; stroke: var(--amber); stroke-width: 3; }
+  .chart .ln.hot { stroke: var(--hot); }
+  .chart .b.vio, .chart .pt.vio { fill: var(--violet); }
+  .chart text.t-vio { fill: var(--violet); }
+  .chart .b.vol { fill: var(--teal); }
+  .chart .ln.ghost { stroke: #c9d3d8; stroke-width: 3; }
+  .chart .pt.ghost { fill: #c9d3d8; }
+  .chart text.ghost { fill: #c9d3d8; }
+
