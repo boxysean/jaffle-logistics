@@ -49,12 +49,9 @@
     font-family: var(--pixel); font-size: 18px; white-space: nowrap; z-index: 2;
   }
   .status .c { color: var(--amber); }
-  /* the right label is held to its own column: it can never reach the slide number, and a label
-     too long for the column is shortened (directory dropped, below; an ellipsis as the last resort) */
-  .status .r { display: flex; justify-content: flex-end; align-items: center; min-width: 0; color: var(--dim); }
-  .status .r .lbl { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
-  .status .r .cursor { flex: none; }
-  .cursor { display: inline-block; width: 12px; height: 18px; background: var(--text); vertical-align: -2px; margin-left: 10px; animation: blink 1s steps(1) infinite; }
+  /* the right column holds the Fivetran and dbt logos, each 24px tall at its own aspect ratio */
+  .status .r { display: flex; justify-content: flex-end; align-items: center; gap: 24px; min-width: 0; }
+  .status .r img { display: block; height: 24px; width: auto; }
   @keyframes blink { 50% { opacity: 0; } }
 
   /* source line: a caption inside the bottom-left of its panel */

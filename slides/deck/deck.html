@@ -20,6 +20,11 @@
 </div>
 </div>
 
+<!-- the status bar's right-hand logos, copied into every slide's bar by the script below -->
+<template id="logos">
+<!-- build_deck.py inserts slides/assets/ logos here, as data URIs -->
+</template>
+
 <script src="https://cdn.jsdelivr.net/npm/reveal.js@5/dist/reveal.js"></script>
 <script>
 (function () {
@@ -33,33 +38,18 @@
     }
   });
 
-  // persistent status bar on every slide; the right-hand label is the slide's source report
+  // persistent status bar on every slide; the right-hand side is the Fivetran and dbt logos
   var slides = document.querySelectorAll('.reveal .slides > section');
   var pad = function (k) { return (k < 10 ? '0' : '') + k; };
+  var logos = document.getElementById('logos').innerHTML;
   slides.forEach(function (s, i) {
     var bar = document.createElement('div');
     bar.className = 'panel status';
     bar.innerHTML = '<span>JAFFLE LOGISTICS</span>' +
       '<span class="c">SLIDE ' + pad(i + 1) + ' / ' + pad(slides.length) + '</span>' +
-      '<span class="r"><span class="lbl"></span><i class="cursor"></i></span>';
-    var label = s.dataset.status || s.dataset.src;
-    bar.querySelector('.lbl').textContent = label;
-    bar.querySelector('.r').title = label;
+      '<span class="r">' + logos + '</span>';
     s.querySelector('.frame').appendChild(bar);
   });
-
-  // a source path too wide for the right-hand column loses its directory. measured on a canvas
-  // (hidden slides have no layout): the column is (1192 inner - centre - 2 x 32 gap) / 2, less the cursor
-  var fitLabels = function () {
-    var ctx = document.createElement('canvas').getContext('2d');
-    ctx.font = '18px ' + getComputedStyle(document.documentElement).getPropertyValue('--pixel');
-    document.querySelectorAll('.status').forEach(function (bar) {
-      var lbl = bar.querySelector('.lbl'), full = bar.querySelector('.r').title;
-      var room = (1192 - ctx.measureText(bar.querySelector('.c').textContent).width - 64) / 2 - 22;
-      lbl.textContent = ctx.measureText(full).width <= room ? full : full.split('/').pop();
-    });
-  };
-  document.fonts.load('18px "Press Start 2P"').then(fitLabels, fitLabels);
 
   Reveal.initialize({
     width: 1280,

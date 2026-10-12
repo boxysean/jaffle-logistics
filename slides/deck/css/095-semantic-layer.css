@@ -22,7 +22,6 @@
   .sl .hd h2 { color: var(--amber); }
   .sl .hd .owns { margin-top: 8px; color: var(--sl-text); }
   .sl .status { background: var(--sl-bg); border-color: var(--sl-edge); }
-  .sl .status .r { color: var(--sl-dim); }
   .sl code { color: var(--amber); }
 
   /* which metric makes each figure: a four-column table, one 29px row per figure */
