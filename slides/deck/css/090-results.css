@@ -1,8 +1,8 @@
   /* results slides: data strip, chart panels, footnotes. body 132-650, as on the storm slide.
      a panel's tab stands 12px above its top border, so every chart row starts at least 28px below
      whatever sits over it. years: strip 132-204 (one-line notes: the middle tile is wide enough for
-     its 29 characters), charts 232-551, closing line 563-650. quarters: no closing line, so charts
-     run 140-650 in rows of 250 + 28 + 232. */
+     its 29 characters), then three charts across the row, 232-650. quarters: charts run 140-650 in
+     rows of 250 + 28 + 232. */
   .res .hd { height: 96px; }
   .res .hd .owns { margin-top: 8px; }
   .res .hd .key { position: absolute; right: 24px; top: 16px; font-size: 20px; line-height: 1.2; color: var(--dim); }
@@ -16,7 +16,7 @@
   .res .tile .note { margin-top: 2px; line-height: 1.15; }
   .res .grid { position: absolute; left: 20px; width: 1240px; display: grid; gap: 12px; }
   .res .grid .panel { position: relative; }
-  .res .grid.years { top: 232px; height: 418px; grid-template-columns: repeat(4, 1fr); }
+  .res .grid.years { top: 232px; height: 418px; grid-template-columns: repeat(3, 1fr); }
   .res .grid.quarters { top: 140px; height: 510px; grid-template-columns: repeat(3, 1fr); grid-template-rows: 250px 1fr; row-gap: 28px; }
   .res .grid.quarters .wide { grid-column: 1 / 4; }
   .res .grid.accounts { top: 132px; height: 362px; grid-template-columns: repeat(5, 1fr); }
