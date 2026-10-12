@@ -1,0 +1,36 @@
+  /* after-the-storm slide: the design response to the storm week. header 20-116, the two additions 140-318,
+     the ticket chart and its notes 342-650. register follows the architecture slide: teal = an existing source,
+     amber = the platform's layers, dashed amber = new, hot = the incident and what triggers it.
+     chart: 1 Jan at x 60, 24px a day to 31 Jan at 780; 30px a ticket, 0 at y 230. the band is the highest
+     daily count on the same dates ±7 days in 2023 and 2024; actual is tickets opened that day, all hubs.
+     fit budget at 20px mono (12px/char, 23px/line): the notes panel is 336 wide inside its pads and bullet
+     = 28 characters a line, 9 lines + 2 gaps = 223 of 264 inside. header: 15 + 24 pixel characters = 794 of 1184;
+     the owns line is 74 characters, 1066 at 24px. */
+  .wx .hd { height: 96px; }
+  .wx .hd h2 { display: flex; justify-content: space-between; align-items: baseline; }
+  .wx .hd h2 .when { font-size: 16px; color: var(--deep); background: var(--amber); padding: 5px 10px; }
+  .wx .hd .owns { margin-top: 8px; }
+  .wx .flow { left: 20px; top: 140px; width: 1240px; height: 178px; padding: 22px 18px 8px; }
+  .wx .chart text.ttl { font-family: var(--pixel); font-size: 12px; fill: var(--amber); }
+  .wx .chart text.ttl.t-hot { fill: var(--hot); }
+  .wx .chart text.hl { font-size: 14px; }
+  .wx .chart text.sub { font-size: 12px; }
+  .wx .chart .sys { fill: var(--deep); stroke: var(--teal); stroke-width: 2; }
+  .wx .chart .plat { fill: var(--deep); stroke: var(--amber); stroke-width: 3; }
+  .wx .chart .new { fill: var(--deep); stroke: var(--amber); stroke-width: 3; stroke-dasharray: 12 8; }
+  .wx .chart .inc { fill: var(--deep); stroke: var(--hot); stroke-width: 3; }
+  .wx .chart .arw { fill: var(--teal-hi); }
+  .wx .ch { left: 20px; top: 342px; width: 828px; height: 308px; padding: 6px 10px 0; }
+  .wx .ch svg { margin-top: 4px; }
+  .wx .chart .band, .wx .chart .lg-b { fill: var(--teal); }
+  .wx .chart .over, .wx .chart .lg-h { fill: var(--hot); fill-opacity: .35; }
+  .wx .chart .lg-h { fill-opacity: 1; }
+  .wx .chart .lg-a { fill: var(--amber); }
+  .wx .chart .grd { stroke: #1d3a5c; stroke-width: 1; }
+  .wx .chart .flag { fill: var(--hot); }
+  .wx .nb { left: 872px; top: 342px; width: 388px; height: 308px; padding: 26px 12px 10px; }
+  .wx .nb ul { list-style: none; margin: 0; padding: 0; }
+  .wx .nb li { position: relative; padding-left: 20px; font-size: 20px; line-height: 23px; }
+  .wx .nb li + li { margin-top: 8px; }
+  .wx .nb li::before { content: ""; position: absolute; left: 0; top: 7px; width: 10px; height: 10px; background: var(--hot); }
+  .wx .nb strong { color: var(--hot); font-weight: 600; }
