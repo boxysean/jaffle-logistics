@@ -15,19 +15,25 @@
   .lin .chart .lay { fill: var(--amber); }
   .lin .chart .arw { fill: var(--amber); }
 
-  /* two numbers, traced: number -> Semantic Layer metric -> mart column -> staging -> source.
-     fit budget at 18px mono (10.8px/char) plus 18px of border and padding a box, 20px an arrow:
-     the on-time chain is 1109 of 1196 inside (the metric box 29 chars wide), the credit chain
-     1012. height: chains 80 + 12 + 80, closing lines 64, 28px gap = 264 of 286 inside */
+  /* two numbers, traced, in the direction the data flows: source column -> staging column ->
+     mart column -> Semantic Layer metric -> number. each hop is model, then .column, then (where
+     the column is derived) a 14px note of how. fit budget at 18px mono (10.8px/char), 14px notes
+     (8.4px/char), plus 18px of border and padding a box, 20px an arrow: the credit chain is 1109
+     of 1196 inside (fct_account_revenue 19 chars, the metric 24), the on-time chain about 1030
+     (the metric 29). height: the tallest box is tag or note 18 + 24 + 24 + 14 = 80, so chains
+     80 + 12 + 80, closing lines 64, 28px gap = 264 of 286 inside */
   .lin .trace { left: 20px; top: 328px; width: 1240px; height: 322px; padding: 18px 18px 10px; display: flex; flex-direction: column; justify-content: center; gap: 28px; }
   .lin .chains { display: flex; flex-direction: column; gap: 12px; }
   .lin .chain { display: flex; align-items: center; gap: 4px; font-size: 18px; line-height: 24px; }
   .lin .chain span { border: 3px solid var(--amber); padding: 4px 6px; background: var(--sl-bg); white-space: nowrap; }
   .lin .chain span.num { border-color: var(--sl-text); font-weight: 600; }
   .lin .chain span.sys { border-color: var(--sl-dim); }
+  /* the source box is tagged with the system that recorded it, as the metric is tagged SEMANTIC LAYER */
+  .lin .chain span b { display: block; font-family: var(--pixel); font-size: 10px; line-height: 18px; font-weight: normal; }
+  .lin .chain span.sys b { color: var(--sl-dim); }
+  .lin .chain span em { display: block; font-style: normal; font-size: 14px; line-height: 18px; color: var(--sl-dim); }
   /* the metric hop is an amber chip with a SEMANTIC LAYER tag, as the metric names read on THE WORKING BEHIND THE NUMBERS */
   .lin .chain span.met { background: var(--amber); color: var(--deep); }
-  .lin .chain span.met b { display: block; font-family: var(--pixel); font-size: 10px; line-height: 18px; font-weight: normal; }
   .lin .chain span.met code { color: var(--deep); font-weight: 600; }
   .lin .chain i { flex: none; width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 12px solid var(--amber); }
   .lin .said { font-size: 28px; line-height: 1.15; }
