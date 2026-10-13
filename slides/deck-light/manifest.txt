@@ -32,8 +32,8 @@ question-answer.html
 
 # part 3: from analytics engineer to context engineer
 165-part-3-from-ae-to-ce.html
-240-semantic-layer-to-context-layer.html
 ae-ce.html
+240-semantic-layer-to-context-layer.html
 close.html
 
 # appendix: the dense working, kept for questions
