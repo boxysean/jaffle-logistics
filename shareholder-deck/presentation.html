@@ -507,6 +507,38 @@
   .prc strong { color: var(--amber); font-weight: 600; }
   .prc .foot { position: absolute; left: 20px; top: 620px; width: 1240px; font-size: 22px; line-height: 1.2; color: var(--dim); white-space: nowrap; }
 
+  /* the DAG behind the knowledge base: knowledge_base and its 67 parents (10 seeds, 57 models) from the
+     parsed manifest, one lane a document source, left to right in build order. body 140-650, one panel.
+     columns: source 0-120, then six 84-wide steps on a 98 step, the AI fork 722-830, joined 844-928, the
+     knowledge base 958-1076 spanning all seven lanes, search 1090-1196. lanes on a 52 pitch from 56, nodes
+     38 tall: the last ends at 406, the legend 434-450. colour follows the cost: teal-hi is plain SQL at zero
+     AI cost, hot is a metered AI function, amber is the one table an agent reads. the dashed wire is the
+     split/chunk path a short record skips. labels at 11.5px mono (6.9px/char): the longest seed name,
+     incident_reports, is 16 characters = 110 of 117; column heads at 10px pixel hold 8 characters in 84 */
+  .kbd .hd { height: 96px; }
+  .kbd .hd .owns { margin-top: 8px; }
+  .kbd .dag { left: 20px; top: 140px; width: 1240px; height: 510px; padding: 22px 18px 0; }
+  .kbd .dag svg { display: block; }
+  .kbd .chart text.hh { font-family: var(--pixel); font-size: 10px; fill: var(--text); }
+  .kbd .chart text.hh.t-hot { fill: var(--hot); }
+  .kbd .chart text.hd2 { font-size: 12px; fill: var(--dim); }
+  .kbd .chart text.src { font-size: 11.5px; fill: var(--text); }
+  .kbd .chart text.nt { font-size: 11px; fill: var(--teal-hi); }
+  .kbd .chart text.sk-t { font-size: 12px; fill: var(--dim); }
+  .kbd .chart text.ai-t { font-size: 11px; fill: var(--hot); }
+  .kbd .chart text.lg { font-size: 13px; fill: var(--dim); }
+  .kbd .chart text.kb-h { font-size: 13px; font-weight: 600; fill: var(--deep); }
+  .kbd .chart text.kb-t { font-size: 13px; fill: var(--deep); }
+  .kbd .chart text.srch { font-size: 15px; font-weight: 600; fill: var(--hot); }
+  .kbd .chart text.srch-t { font-size: 11px; fill: var(--text); }
+  .kbd .chart .seed { fill: var(--navy-2); stroke: var(--dim); stroke-width: 3; }
+  .kbd .chart .det { fill: var(--deep); stroke: var(--teal-hi); stroke-width: 3; }
+  .kbd .chart .ai { fill: var(--deep); stroke: var(--hot); stroke-width: 3; }
+  .kbd .chart .kb { fill: var(--amber); }
+  .kbd .chart .wire { stroke: var(--teal); stroke-width: 3; }
+  .kbd .chart .wire.sk { stroke: var(--dim); stroke-dasharray: 6 6; }
+  .kbd .chart .wire.kbw { stroke: var(--amber); }
+  .kbd .chart .ah { fill: var(--teal-hi); }
   /* full-bleed image slides */
   .shot { position: absolute; left: 0; top: 0; width: 1280px; height: 720px; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; object-fit: contain; display: block; }
   /* the image is the whole slide: no scanline overlay, and its own caption bar replaces the status bar */
@@ -1936,6 +1968,256 @@
   </div>
 </section>
 
+<!-- Part 3: the dbt DAG behind the knowledge base -->
+<section class="kbd" data-src="target/manifest.json" data-status="the context layer">
+  <div class="frame">
+    <div class="panel hd">
+      <h2>THE DAG BEHIND THE KNOWLEDGE BASE</h2>
+      <div class="owns">Seven unstructured sources, 10 seeds, 57 dbt models, one table an agent searches</div>
+    </div>
+    <div class="panel dag">
+      <span class="tab">THE dbt DAG, SEED TO SEARCH</span>
+      <svg class="chart" width="1196" height="456" viewBox="0 0 1196 456" role="img"
+           aria-label="The dbt lineage of knowledge_base, left to right. Seven seeds, one per document source: legal_docs, incident_reports, crm_notes, call_transcripts, support_tickets, dispatch_notes and slack_threads. Each is staged, then the four long-text sources become one row per document (incident reports joined to shipments; call transcripts as turns), legal docs, incident reports and CRM notes are split into sentences, and all four are packed into token-bounded chunks. The three short-record sources, support tickets, dispatch notes and Slack threads, skip splitting and chunking because a record is already one chunk. Every source then gets its account metadata (dispatch notes through the route attribution bridge; Slack threads through routes, incidents and shipments) and a content hash. Each source forks into two AI-function models, classify and embed, both guarded and logged to ai_run_log, and joins them back into one embedded, classified model per source. All seven union into knowledge_base, one account-scoped table of text, embedding and classification over seven source types, which the search model reads with cosine similarity, embedding the query with the same model.">
+        <text class="hh" x="60" y="12" text-anchor="middle">SOURCE</text>
+        <text class="hd2" x="60" y="30" text-anchor="middle">a seed</text>
+        <text class="hh" x="176" y="12" text-anchor="middle">STAGING</text>
+        <text class="hd2" x="176" y="30" text-anchor="middle">typed view</text>
+        <text class="hh" x="274" y="12" text-anchor="middle">DOCUMENT</text>
+        <text class="hd2" x="274" y="30" text-anchor="middle">one per doc</text>
+        <text class="hh" x="372" y="12" text-anchor="middle">SPLIT</text>
+        <text class="hd2" x="372" y="30" text-anchor="middle">sentences</text>
+        <text class="hh" x="470" y="12" text-anchor="middle">CHUNK</text>
+        <text class="hd2" x="470" y="30" text-anchor="middle">token-bound</text>
+        <text class="hh" x="568" y="12" text-anchor="middle">METADATA</text>
+        <text class="hd2" x="568" y="30" text-anchor="middle">+ account</text>
+        <text class="hh" x="666" y="12" text-anchor="middle">HASH</text>
+        <text class="hd2" x="666" y="30" text-anchor="middle">content_hash</text>
+        <text class="hh t-hot" x="776" y="12" text-anchor="middle">CLASSIFY</text>
+        <text class="hh t-hot" x="776" y="27" text-anchor="middle">+ EMBED</text>
+        <text class="hh" x="886" y="12" text-anchor="middle">JOINED</text>
+        <text class="hd2" x="886" y="30" text-anchor="middle">per source</text>
+        <text class="hh t-hot" x="1143" y="12" text-anchor="middle">SEARCH</text>
+        <text class="hd2" x="1143" y="30" text-anchor="middle">cosine top k</text>
+        <line class="wire" x1="120" y1="75" x2="134" y2="75"/>
+        <polygon class="ah" points="127,70 134,75 127,80"/>
+        <line class="wire" x1="218" y1="75" x2="232" y2="75"/>
+        <polygon class="ah" points="225,70 232,75 225,80"/>
+        <line class="wire" x1="316" y1="75" x2="330" y2="75"/>
+        <polygon class="ah" points="323,70 330,75 323,80"/>
+        <line class="wire" x1="414" y1="75" x2="428" y2="75"/>
+        <polygon class="ah" points="421,70 428,75 421,80"/>
+        <line class="wire" x1="512" y1="75" x2="526" y2="75"/>
+        <polygon class="ah" points="519,70 526,75 519,80"/>
+        <line class="wire" x1="610" y1="75" x2="624" y2="75"/>
+        <polygon class="ah" points="617,70 624,75 617,80"/>
+        <line class="wire" x1="708" y1="75" x2="722" y2="75"/>
+        <polygon class="ah" points="715,70 722,75 715,80"/>
+        <rect class="seed" x="1.5" y="57.5" width="117" height="35"/>
+        <text class="src" x="60" y="79" text-anchor="middle">legal_docs</text>
+        <rect class="det" x="135.5" y="57.5" width="81" height="35"/>
+        <rect class="det" x="233.5" y="57.5" width="81" height="35"/>
+        <rect class="det" x="331.5" y="57.5" width="81" height="35"/>
+        <rect class="det" x="429.5" y="57.5" width="81" height="35"/>
+        <rect class="det" x="527.5" y="57.5" width="81" height="35"/>
+        <rect class="det" x="625.5" y="57.5" width="81" height="35"/>
+        <rect class="ai" x="723.5" y="57.5" width="105" height="14"/>
+        <text class="ai-t" x="776" y="68" text-anchor="middle">classify()</text>
+        <rect class="ai" x="723.5" y="78.5" width="105" height="14"/>
+        <text class="ai-t" x="776" y="89" text-anchor="middle">embed()</text>
+        <line class="wire" x1="830" y1="75" x2="844" y2="75"/>
+        <polygon class="ah" points="837,70 844,75 837,80"/>
+        <rect class="det" x="845.5" y="57.5" width="81" height="35"/>
+        <line class="wire kbw" x1="928" y1="75" x2="958" y2="75"/>
+        <polygon class="ah" points="951,70 958,75 951,80"/>
+        <line class="wire" x1="120" y1="127" x2="134" y2="127"/>
+        <polygon class="ah" points="127,122 134,127 127,132"/>
+        <line class="wire" x1="218" y1="127" x2="232" y2="127"/>
+        <polygon class="ah" points="225,122 232,127 225,132"/>
+        <line class="wire" x1="316" y1="127" x2="330" y2="127"/>
+        <polygon class="ah" points="323,122 330,127 323,132"/>
+        <line class="wire" x1="414" y1="127" x2="428" y2="127"/>
+        <polygon class="ah" points="421,122 428,127 421,132"/>
+        <line class="wire" x1="512" y1="127" x2="526" y2="127"/>
+        <polygon class="ah" points="519,122 526,127 519,132"/>
+        <line class="wire" x1="610" y1="127" x2="624" y2="127"/>
+        <polygon class="ah" points="617,122 624,127 617,132"/>
+        <line class="wire" x1="708" y1="127" x2="722" y2="127"/>
+        <polygon class="ah" points="715,122 722,127 715,132"/>
+        <rect class="seed" x="1.5" y="109.5" width="117" height="35"/>
+        <text class="src" x="60" y="131" text-anchor="middle">incident_reports</text>
+        <rect class="det" x="135.5" y="109.5" width="81" height="35"/>
+        <rect class="det" x="233.5" y="109.5" width="81" height="35"/>
+        <text class="nt" x="274" y="131" text-anchor="middle">+ shipments</text>
+        <rect class="det" x="331.5" y="109.5" width="81" height="35"/>
+        <rect class="det" x="429.5" y="109.5" width="81" height="35"/>
+        <rect class="det" x="527.5" y="109.5" width="81" height="35"/>
+        <rect class="det" x="625.5" y="109.5" width="81" height="35"/>
+        <rect class="ai" x="723.5" y="109.5" width="105" height="14"/>
+        <text class="ai-t" x="776" y="120" text-anchor="middle">classify()</text>
+        <rect class="ai" x="723.5" y="130.5" width="105" height="14"/>
+        <text class="ai-t" x="776" y="141" text-anchor="middle">embed()</text>
+        <line class="wire" x1="830" y1="127" x2="844" y2="127"/>
+        <polygon class="ah" points="837,122 844,127 837,132"/>
+        <rect class="det" x="845.5" y="109.5" width="81" height="35"/>
+        <line class="wire kbw" x1="928" y1="127" x2="958" y2="127"/>
+        <polygon class="ah" points="951,122 958,127 951,132"/>
+        <line class="wire" x1="120" y1="179" x2="134" y2="179"/>
+        <polygon class="ah" points="127,174 134,179 127,184"/>
+        <line class="wire" x1="218" y1="179" x2="232" y2="179"/>
+        <polygon class="ah" points="225,174 232,179 225,184"/>
+        <line class="wire" x1="316" y1="179" x2="330" y2="179"/>
+        <polygon class="ah" points="323,174 330,179 323,184"/>
+        <line class="wire" x1="414" y1="179" x2="428" y2="179"/>
+        <polygon class="ah" points="421,174 428,179 421,184"/>
+        <line class="wire" x1="512" y1="179" x2="526" y2="179"/>
+        <polygon class="ah" points="519,174 526,179 519,184"/>
+        <line class="wire" x1="610" y1="179" x2="624" y2="179"/>
+        <polygon class="ah" points="617,174 624,179 617,184"/>
+        <line class="wire" x1="708" y1="179" x2="722" y2="179"/>
+        <polygon class="ah" points="715,174 722,179 715,184"/>
+        <rect class="seed" x="1.5" y="161.5" width="117" height="35"/>
+        <text class="src" x="60" y="183" text-anchor="middle">crm_notes</text>
+        <rect class="det" x="135.5" y="161.5" width="81" height="35"/>
+        <rect class="det" x="233.5" y="161.5" width="81" height="35"/>
+        <rect class="det" x="331.5" y="161.5" width="81" height="35"/>
+        <rect class="det" x="429.5" y="161.5" width="81" height="35"/>
+        <rect class="det" x="527.5" y="161.5" width="81" height="35"/>
+        <rect class="det" x="625.5" y="161.5" width="81" height="35"/>
+        <rect class="ai" x="723.5" y="161.5" width="105" height="14"/>
+        <text class="ai-t" x="776" y="172" text-anchor="middle">classify()</text>
+        <rect class="ai" x="723.5" y="182.5" width="105" height="14"/>
+        <text class="ai-t" x="776" y="193" text-anchor="middle">embed()</text>
+        <line class="wire" x1="830" y1="179" x2="844" y2="179"/>
+        <polygon class="ah" points="837,174 844,179 837,184"/>
+        <rect class="det" x="845.5" y="161.5" width="81" height="35"/>
+        <line class="wire kbw" x1="928" y1="179" x2="958" y2="179"/>
+        <polygon class="ah" points="951,174 958,179 951,184"/>
+        <line class="wire" x1="120" y1="231" x2="134" y2="231"/>
+        <polygon class="ah" points="127,226 134,231 127,236"/>
+        <line class="wire" x1="218" y1="231" x2="232" y2="231"/>
+        <polygon class="ah" points="225,226 232,231 225,236"/>
+        <line class="wire" x1="316" y1="231" x2="428" y2="231"/>
+        <polygon class="ah" points="421,226 428,231 421,236"/>
+        <line class="wire" x1="512" y1="231" x2="526" y2="231"/>
+        <polygon class="ah" points="519,226 526,231 519,236"/>
+        <line class="wire" x1="610" y1="231" x2="624" y2="231"/>
+        <polygon class="ah" points="617,226 624,231 617,236"/>
+        <line class="wire" x1="708" y1="231" x2="722" y2="231"/>
+        <polygon class="ah" points="715,226 722,231 715,236"/>
+        <rect class="seed" x="1.5" y="213.5" width="117" height="35"/>
+        <text class="src" x="60" y="235" text-anchor="middle">call_transcripts</text>
+        <rect class="det" x="135.5" y="213.5" width="81" height="35"/>
+        <rect class="det" x="233.5" y="213.5" width="81" height="35"/>
+        <text class="nt" x="274" y="235" text-anchor="middle">turns</text>
+        <rect class="det" x="429.5" y="213.5" width="81" height="35"/>
+        <rect class="det" x="527.5" y="213.5" width="81" height="35"/>
+        <rect class="det" x="625.5" y="213.5" width="81" height="35"/>
+        <rect class="ai" x="723.5" y="213.5" width="105" height="14"/>
+        <text class="ai-t" x="776" y="224" text-anchor="middle">classify()</text>
+        <rect class="ai" x="723.5" y="234.5" width="105" height="14"/>
+        <text class="ai-t" x="776" y="245" text-anchor="middle">embed()</text>
+        <line class="wire" x1="830" y1="231" x2="844" y2="231"/>
+        <polygon class="ah" points="837,226 844,231 837,236"/>
+        <rect class="det" x="845.5" y="213.5" width="81" height="35"/>
+        <line class="wire kbw" x1="928" y1="231" x2="958" y2="231"/>
+        <polygon class="ah" points="951,226 958,231 951,236"/>
+        <line class="wire" x1="120" y1="283" x2="134" y2="283"/>
+        <polygon class="ah" points="127,278 134,283 127,288"/>
+        <line class="wire sk" x1="218" y1="283" x2="526" y2="283"/>
+        <polygon class="ah" points="519,278 526,283 519,288"/>
+        <line class="wire" x1="610" y1="283" x2="624" y2="283"/>
+        <polygon class="ah" points="617,278 624,283 617,288"/>
+        <line class="wire" x1="708" y1="283" x2="722" y2="283"/>
+        <polygon class="ah" points="715,278 722,283 715,288"/>
+        <text class="sk-t" x="372" y="277" text-anchor="middle">whole record, one chunk</text>
+        <rect class="seed" x="1.5" y="265.5" width="117" height="35"/>
+        <text class="src" x="60" y="287" text-anchor="middle">support_tickets</text>
+        <rect class="det" x="135.5" y="265.5" width="81" height="35"/>
+        <rect class="det" x="527.5" y="265.5" width="81" height="35"/>
+        <rect class="det" x="625.5" y="265.5" width="81" height="35"/>
+        <rect class="ai" x="723.5" y="265.5" width="105" height="14"/>
+        <text class="ai-t" x="776" y="276" text-anchor="middle">classify()</text>
+        <rect class="ai" x="723.5" y="286.5" width="105" height="14"/>
+        <text class="ai-t" x="776" y="297" text-anchor="middle">embed()</text>
+        <line class="wire" x1="830" y1="283" x2="844" y2="283"/>
+        <polygon class="ah" points="837,278 844,283 837,288"/>
+        <rect class="det" x="845.5" y="265.5" width="81" height="35"/>
+        <line class="wire kbw" x1="928" y1="283" x2="958" y2="283"/>
+        <polygon class="ah" points="951,278 958,283 951,288"/>
+        <line class="wire" x1="120" y1="335" x2="134" y2="335"/>
+        <polygon class="ah" points="127,330 134,335 127,340"/>
+        <line class="wire sk" x1="218" y1="335" x2="526" y2="335"/>
+        <polygon class="ah" points="519,330 526,335 519,340"/>
+        <line class="wire" x1="610" y1="335" x2="624" y2="335"/>
+        <polygon class="ah" points="617,330 624,335 617,340"/>
+        <line class="wire" x1="708" y1="335" x2="722" y2="335"/>
+        <polygon class="ah" points="715,330 722,335 715,340"/>
+        <text class="sk-t" x="372" y="329" text-anchor="middle">whole record, one chunk</text>
+        <rect class="seed" x="1.5" y="317.5" width="117" height="35"/>
+        <text class="src" x="60" y="339" text-anchor="middle">dispatch_notes</text>
+        <rect class="det" x="135.5" y="317.5" width="81" height="35"/>
+        <rect class="det" x="527.5" y="317.5" width="81" height="35"/>
+        <text class="nt" x="568" y="339" text-anchor="middle">+ routes</text>
+        <rect class="det" x="625.5" y="317.5" width="81" height="35"/>
+        <rect class="ai" x="723.5" y="317.5" width="105" height="14"/>
+        <text class="ai-t" x="776" y="328" text-anchor="middle">classify()</text>
+        <rect class="ai" x="723.5" y="338.5" width="105" height="14"/>
+        <text class="ai-t" x="776" y="349" text-anchor="middle">embed()</text>
+        <line class="wire" x1="830" y1="335" x2="844" y2="335"/>
+        <polygon class="ah" points="837,330 844,335 837,340"/>
+        <rect class="det" x="845.5" y="317.5" width="81" height="35"/>
+        <line class="wire kbw" x1="928" y1="335" x2="958" y2="335"/>
+        <polygon class="ah" points="951,330 958,335 951,340"/>
+        <line class="wire" x1="120" y1="387" x2="134" y2="387"/>
+        <polygon class="ah" points="127,382 134,387 127,392"/>
+        <line class="wire sk" x1="218" y1="387" x2="526" y2="387"/>
+        <polygon class="ah" points="519,382 526,387 519,392"/>
+        <line class="wire" x1="610" y1="387" x2="624" y2="387"/>
+        <polygon class="ah" points="617,382 624,387 617,392"/>
+        <line class="wire" x1="708" y1="387" x2="722" y2="387"/>
+        <polygon class="ah" points="715,382 722,387 715,392"/>
+        <text class="sk-t" x="372" y="381" text-anchor="middle">whole record, one chunk</text>
+        <rect class="seed" x="1.5" y="369.5" width="117" height="35"/>
+        <text class="src" x="60" y="391" text-anchor="middle">slack_threads</text>
+        <rect class="det" x="135.5" y="369.5" width="81" height="35"/>
+        <rect class="det" x="527.5" y="369.5" width="81" height="35"/>
+        <text class="nt" x="568" y="391" text-anchor="middle">+ 3 joins</text>
+        <rect class="det" x="625.5" y="369.5" width="81" height="35"/>
+        <rect class="ai" x="723.5" y="369.5" width="105" height="14"/>
+        <text class="ai-t" x="776" y="380" text-anchor="middle">classify()</text>
+        <rect class="ai" x="723.5" y="390.5" width="105" height="14"/>
+        <text class="ai-t" x="776" y="401" text-anchor="middle">embed()</text>
+        <line class="wire" x1="830" y1="387" x2="844" y2="387"/>
+        <polygon class="ah" points="837,382 844,387 837,392"/>
+        <rect class="det" x="845.5" y="369.5" width="81" height="35"/>
+        <line class="wire kbw" x1="928" y1="387" x2="958" y2="387"/>
+        <polygon class="ah" points="951,382 958,387 951,392"/>
+        <rect class="kb" x="958" y="56" width="118" height="350"/>
+        <text class="kb-h" x="1017" y="160" text-anchor="middle">knowledge_base</text>
+        <text class="kb-t" x="1017" y="214" text-anchor="middle">1 table</text>
+        <text class="kb-t" x="1017" y="240" text-anchor="middle">7 source</text>
+        <text class="kb-t" x="1017" y="258" text-anchor="middle">types</text>
+        <text class="kb-t" x="1017" y="284" text-anchor="middle">text +</text>
+        <text class="kb-t" x="1017" y="302" text-anchor="middle">embedding +</text>
+        <text class="kb-t" x="1017" y="320" text-anchor="middle">label</text>
+        <text class="kb-t" x="1017" y="346" text-anchor="middle">account-</text>
+        <text class="kb-t" x="1017" y="364" text-anchor="middle">scoped</text>
+        <line class="wire kbw" x1="1076" y1="231" x2="1090" y2="231"/>
+        <polygon class="ah" points="1083,226 1090,231 1083,236"/>
+        <rect class="ai" x="1091.5" y="191" width="103" height="80"/>
+        <text class="srch" x="1143" y="213" text-anchor="middle">search</text>
+        <text class="srch-t" x="1143" y="233" text-anchor="middle">the query is</text>
+        <text class="srch-t" x="1143" y="249" text-anchor="middle">embedded with</text>
+        <text class="srch-t" x="1143" y="265" text-anchor="middle">the same model</text>
+        <rect class="seed" x="1.5" y="434.5" width="17" height="15"/><text class="lg" x="26" y="447">seed</text>
+        <rect class="det" x="88.5" y="434.5" width="17" height="15"/><text class="lg" x="113" y="447">dbt model, plain SQL, zero AI cost</text>
+        <rect class="ai" x="409.5" y="434.5" width="17" height="15"/><text class="lg" x="434" y="447">AI function, guarded, logged to ai_run_log</text>
+        <line class="wire sk" x1="792" y1="442" x2="824" y2="442"/><text class="lg" x="832" y="447">skipped: a short record is already one chunk</text>
+      </svg>
+    </div>
+  </div>
+</section>
 <!-- How a question becomes an answer -->
 <section class="prc" data-status="the process">
   <div class="frame">
