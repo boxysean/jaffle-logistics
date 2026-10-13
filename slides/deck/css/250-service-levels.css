@@ -1,4 +1,4 @@
-    /* product mix: findings left, volume-share vs failure-share bars right with a freight-quarterly line under them */
+    /* product mix: the Werke vs the other four on-time line chart left, volume-share vs failure-share bars right with a freight-quarterly line under them */
     .res .grid.svc { top: 132px; height: 518px; grid-template-columns: 1fr 720px; }
     .svc .ch svg { top: 4px; left: 6px; }
     .svc .b.v { fill: var(--teal-hi); }
@@ -11,7 +11,13 @@
     .svc .bv { font-size: 15px; fill: var(--dim); }
     .svc .vv { font-size: 15px; fill: var(--hot); }
     .svc .lc { font-size: 15px; fill: var(--dim); }
-    .svc .band { left: auto; top: auto; width: auto; height: auto; padding: 24px 18px 16px; }
-    .svc .band ul { height: 100%; display: flex; flex-direction: column; justify-content: space-around; }
-    .svc .band li { font-size: 26px; line-height: 1.2; }
-    .svc .band li::before { top: 11px; }
+    .svc .cr > .tab { left: 8px; font-size: 10px; }
+    .svc .cr-lw { fill: none; stroke: var(--hot); stroke-width: 4; }
+    .svc .cr-lo { fill: none; stroke: var(--teal-hi); stroke-width: 4; }
+    .svc .cr-dw { fill: var(--hot); }
+    .svc .cr-do { fill: var(--teal-hi); }
+    .svc .cr-ct { stroke: var(--amber); stroke-width: 2; stroke-dasharray: 8 6; }
+    .svc .cr-t { font-size: 18px; fill: var(--dim); }
+    .svc .cr-q { font-size: 19px; fill: var(--dim); }
+    .svc .cr-vw { font-size: 19px; fill: var(--hot); }
+    .svc .cr-vo { font-size: 19px; fill: var(--teal-hi); }
