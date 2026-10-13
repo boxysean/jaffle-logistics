@@ -1844,29 +1844,6 @@
     </div>
   </div>
 </section>
-<!-- 16a. RAG is now a commodity in the data layer -->
-<section class="rag" data-status="the argument">
-  <div class="frame">
-    <div class="panel hd">
-      <div class="kick">WHY RAG · THE COMMODITY SHIFT</div>
-      <h2>RAG IS NOW A COMMODITY IN THE DATA LAYER</h2>
-      <div class="owns">Every warehouse ships the primitives in SQL</div>
-    </div>
-    <div class="panel wh">
-      <span class="tab">THE RAG PRIMITIVES, BY WAREHOUSE</span>
-      <table>
-        <colgroup><col class="st"><col class="sf"><col class="db"><col class="bq"><col class="pg"></colgroup>
-        <tr class="th"><th>STAGE</th><th>SNOWFLAKE</th><th class="on">DATABRICKS</th><th>BIGQUERY</th><th>POSTGRES</th></tr>
-        <tr><td>parse</td><td><code>AI_PARSE_DOCUMENT</code></td><td class="on"><code>ai_parse_document</code></td><td><code>ML.PROCESS_DOCUMENT</code></td><td class="no">—</td></tr>
-        <tr><td>chunk</td><td><code>SPLIT_TEXT_RECURSIVE_CHARACTER</code></td><td class="on"><code>ai_prep_search</code> (Beta)</td><td>Layout Parser chunking</td><td>your SQL</td></tr>
-        <tr><td>embed</td><td><code>AI_EMBED</code></td><td class="on"><code>ai_query()</code></td><td><code>ML.GENERATE_EMBEDDING</code></td><td>external call</td></tr>
-        <tr><td>search</td><td><code>VECTOR_COSINE_SIMILARITY</code></td><td class="on">Vector Search</td><td><code>VECTOR_SEARCH</code></td><td><code>&lt;=&gt;</code> operator</td></tr>
-        <tr><td>hybrid</td><td>Cortex Search (default)</td><td class="on">hybrid search</td><td>vector + <code>SEARCH</code></td><td>+ tsvector</td></tr>
-      </table>
-    </div>
-    <div class="foot">Documented 2026-09-07. The functions are table stakes - the pipeline between the calls is the engineering.</div>
-  </div>
-</section>
 <!-- From analytics engineer to context engineer -->
 <section class="ae" data-status="the shift, in practice">
   <div class="frame">
@@ -2005,6 +1982,29 @@
   </div>
 </section>
 
+<!-- RAG is now a commodity in the data layer -->
+<section class="rag" data-status="the argument">
+  <div class="frame">
+    <div class="panel hd">
+      <div class="kick">WHY RAG · THE COMMODITY SHIFT</div>
+      <h2>RAG IS NOW A COMMODITY IN THE DATA LAYER</h2>
+      <div class="owns">Every warehouse ships the primitives in SQL</div>
+    </div>
+    <div class="panel wh">
+      <span class="tab">THE RAG PRIMITIVES, BY WAREHOUSE</span>
+      <table>
+        <colgroup><col class="st"><col class="sf"><col class="db"><col class="bq"><col class="pg"></colgroup>
+        <tr class="th"><th>STAGE</th><th>SNOWFLAKE</th><th class="on">DATABRICKS</th><th>BIGQUERY</th><th>POSTGRES</th></tr>
+        <tr><td>parse</td><td><code>AI_PARSE_DOCUMENT</code></td><td class="on"><code>ai_parse_document</code></td><td><code>ML.PROCESS_DOCUMENT</code></td><td class="no">—</td></tr>
+        <tr><td>chunk</td><td><code>SPLIT_TEXT_RECURSIVE_CHARACTER</code></td><td class="on"><code>ai_prep_search</code> (Beta)</td><td>Layout Parser chunking</td><td>your SQL</td></tr>
+        <tr><td>embed</td><td><code>AI_EMBED</code></td><td class="on"><code>ai_query()</code></td><td><code>ML.GENERATE_EMBEDDING</code></td><td>external call</td></tr>
+        <tr><td>search</td><td><code>VECTOR_COSINE_SIMILARITY</code></td><td class="on">Vector Search</td><td><code>VECTOR_SEARCH</code></td><td><code>&lt;=&gt;</code> operator</td></tr>
+        <tr><td>hybrid</td><td>Cortex Search (default)</td><td class="on">hybrid search</td><td>vector + <code>SEARCH</code></td><td>+ tsvector</td></tr>
+      </table>
+    </div>
+    <div class="foot">Documented 2026-09-07. The functions are table stakes - the pipeline between the calls is the engineering.</div>
+  </div>
+</section>
 <!-- Start with the Semantic Layer, then widen into the Context Layer -->
 <section class="s2c" data-status="zero to one, one to many">
   <div class="frame">
