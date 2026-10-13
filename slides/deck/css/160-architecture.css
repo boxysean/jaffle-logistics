@@ -1,31 +1,32 @@
-  /* architecture slide: body 140-648. diagram 140-470, the AI layer and what builds it 494-636.
-     each tab stands 12px above its panel and each shadow 10px below, so the 24px gaps stay clear.
-     colour follows the lineage: teal = where the data lives, amber = the platform's layers, teal-hi = what a
-     consumer reads; the dashed amber marker is where the agent plugs in. diagram: 1196 x 304 inside the panel's
-     pads; the svg box is 310 tall, so it runs 6px into the bottom pad to the border's inner edge. its 300-tall
-     viewBox sits at scale 1, centred 5px down: titles 14, boxes 28-198, marker 220-284 (its last line at 278),
-     so the marks end 291 of 304 down, clear of the border. LANDING and TRANSFORMATION carry their logo 24px
-     tall at 50-74 above their four lines; the caption under LANDING (23 characters at 12px mono, 7.2px/char,
-     166 of 207) sits at 224 and 242, left of the marker. fit budget at 20px mono (12px/char,
-     23px/line): a lower panel is 572 inside its 14px pads = 47 characters a line, 4 nowrap lines (47 at most)
-     = 92 of 116 inside */
-  .arc .hd { height: 96px; }
-  .arc .hd .owns { margin-top: 8px; }
-  .arc .flow { left: 20px; top: 140px; width: 1240px; height: 330px; padding: 12px 18px 6px; }
+  /* architecture slide: a sibling of THE WORKING BEHIND THE CONTEXT, so the section is .sl.arc and
+     takes the amber frame, tabs, header and status bar from 095-semantic-layer.css; everything here
+     is scoped to .arc, so the other .sl slides don't change. body 140-648: diagram 140-416, the AI
+     layer and what builds it 440-636. each tab stands 12px above its panel and each shadow 10px
+     below, so the 24px gaps stay clear. colour follows the lineage: dim = where the data lives,
+     amber = the platform's layers, cream = what a consumer reads; the dashed amber box is the agent,
+     a consumer beside the reports, fed by the same arrow. diagram: 1196 x 250 inside the panel's
+     pads, at scale 1: titles 14, boxes 28-198 (CONSUMPTION split into the reports 28-100 and the
+     agent 112-198), the caption under LANDING at 224 and 242, so the marks end 245 of 250. in the
+     207px CONSUMPTION column the agent's longest line is 27 characters at 12px mono (7.2px/char) =
+     194, and its title 19 at 10px pixel = 190. LANDING and TRANSFORMATION carry their logo 24px
+     tall at 50-74 above their four lines, on the dark stage fill so the white logos still read.
+     fit budget at 20px mono (12px/char): a lower panel is 572 inside its 14px pads = 47 characters
+     a line, 4 nowrap lines (47 at most) of 30px = 120 of 170 inside, centred */
+  .arc .flow { left: 20px; top: 140px; width: 1240px; height: 276px; padding: 12px 18px 6px; }
   .arc .flow svg { display: block; }
-  .arc .chart text.ttl { font-family: var(--pixel); font-size: 12px; fill: var(--text); }
+  .arc .chart text { fill: var(--sl-dim); }
+  .arc .chart text.val, .arc .chart text.tg-t { fill: var(--sl-text); }
+  .arc .chart text.ttl { font-family: var(--pixel); font-size: 12px; fill: var(--sl-text); }
   .arc .chart text.hl { font-size: 14px; }
   .arc .chart text.sub { font-size: 12px; }
-  .arc .chart text.ag { font-family: var(--pixel); font-size: 11px; fill: var(--amber); }
-  .arc .chart text.mk { font-size: 13px; }
+  .arc .chart text.ag { font-family: var(--pixel); font-size: 10px; fill: var(--amber); }
   .arc .chart text.cap { font-size: 12px; }
-  .arc .chart .sys { fill: var(--deep); stroke: var(--teal); stroke-width: 2; }
-  .arc .chart .plat { fill: var(--deep); stroke: var(--amber); stroke-width: 3; }
-  .arc .chart .rep { fill: var(--deep); stroke: var(--teal-hi); stroke-width: 3; }
-  .arc .chart .agent { fill: none; stroke: var(--amber); stroke-width: 3; stroke-dasharray: 12 8; }
-  .arc .chart .arw { fill: var(--teal-hi); }
-  .arc .ai { left: 20px; top: 494px; width: 608px; height: 142px; padding: 12px 14px 6px; }
-  .arc .bld { left: 652px; top: 494px; width: 608px; height: 142px; padding: 12px 14px 6px; }
-  .arc .ai p, .arc .bld p { margin: 0; font-size: 20px; line-height: 23px; color: var(--dim); white-space: nowrap; }
-  .arc .ai .k, .arc .bld .k { color: var(--text); }
-
+  .arc .chart .sys { fill: var(--sl-bg); stroke: var(--sl-dim); stroke-width: 2; }
+  .arc .chart .plat { fill: var(--sl-bg); stroke: var(--amber); stroke-width: 3; }
+  .arc .chart .rep { fill: var(--sl-bg); stroke: var(--sl-text); stroke-width: 3; }
+  .arc .chart .agent { fill: var(--sl-bg); stroke: var(--amber); stroke-width: 3; stroke-dasharray: 12 8; }
+  .arc .chart .arw { fill: var(--amber); }
+  .arc .ai { left: 20px; top: 440px; width: 608px; height: 196px; padding: 12px 14px 6px; display: flex; flex-direction: column; justify-content: center; }
+  .arc .bld { left: 652px; top: 440px; width: 608px; height: 196px; padding: 12px 14px 6px; display: flex; flex-direction: column; justify-content: center; }
+  .arc .ai p, .arc .bld p { margin: 0; font-size: 20px; line-height: 30px; color: var(--sl-dim); white-space: nowrap; }
+  .arc .ai .k, .arc .bld .k { color: var(--sl-text); }
