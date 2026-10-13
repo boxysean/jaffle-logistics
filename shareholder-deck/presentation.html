@@ -1715,26 +1715,28 @@
     </div>
   </div>
 </section>
-<!-- RAG is a commodity: the four primitives, then the point -->
+<!-- Layering on the context: one Paris incident report, followed into the knowledge base. No reveal: every stage shows at once -->
 <section class="lt lt-flow">
   <div class="frame">
     <div class="panel hd">
-      <h2>RAG IS NOW A COMMODITY</h2>
-      <div class="owns">Every warehouse ships the primitives in SQL</div>
+      <h2>LAYERING ON THE CONTEXT</h2>
+      <div class="owns">Follow one Paris storm report from its source system into the knowledge base</div>
     </div>
-    <div class="flow" style="top:176px;height:190px">
-      <div class="st fragment"><div class="nm">PARSE</div><div class="tx">documents to text</div></div>
-      <div class="ar fragment">&#9654;</div>
-      <div class="st fragment"><div class="nm">CHUNK</div><div class="tx">text to passages</div></div>
-      <div class="ar fragment">&#9654;</div>
-      <div class="st fragment"><div class="nm">EMBED</div><div class="tx">passages to vectors</div></div>
-      <div class="ar fragment">&#9654;</div>
-      <div class="st fragment"><div class="nm">SEARCH</div><div class="tx">vectors to answers</div></div>
+    <div class="flow" style="top:176px;height:290px">
+      <div class="st"><div class="no">RECORDED BY</div><div class="nm">the incident system</div><div class="tx">IR-9001, a free-text report</div></div>
+      <div class="ar">&#9654;</div>
+      <div class="st"><div class="no">PARSED INTO</div><div class="nm code">int_incident_<wbr>reports_<wbr>documents</div><div class="tx">one document, joined to its shipment</div></div>
+      <div class="ar">&#9654;</div>
+      <div class="st"><div class="no">CHUNKED AS</div><div class="nm code">chunk_incident_<wbr>reports</div><div class="tx">13 sentences packed into 3 passages</div></div>
+      <div class="ar">&#9654;</div>
+      <div class="st"><div class="no">EMBEDDED AS</div><div class="nm code">incident_<wbr>reports_<wbr>embed</div><div class="tx">3 vectors, hashed so unchanged text isn't paid for twice</div></div>
+      <div class="ar">&#9654;</div>
+      <div class="st ambb"><div class="no">LANDS IN</div><div class="nm code">knowledge_<wbr>base</div><div class="tx">3 rows: Incident Report, Jaffle Werke, cited to IR-9001</div></div>
     </div>
-    <div class="foot" style="top:430px">Snowflake, Databricks, BigQuery: <em>one function each.</em></div>
-    <div class="foot fragment" style="top:500px;font-size:34px">The functions are commodity.<br><em>The pipeline between them is the engineering.</em></div>
+    <div class="foot" style="top:516px">Every passage an agent retrieves is a row with a lineage.</div>
+    <div class="foot" style="top:576px"><em>It cites the report it came from.</em></div>
   </div>
-  <aside class="notes">Parse, chunk, embed, search: Snowflake, Databricks and BigQuery each ship these as SQL functions (AI_PARSE_DOCUMENT, AI_EMBED, VECTOR_COSINE_SIMILARITY on Snowflake; ai_parse_document, ai_query, Vector Search on Databricks; ML.PROCESS_DOCUMENT, ML.GENERATE_EMBEDDING, VECTOR_SEARCH on BigQuery). Documented 2026-09-07. The function stakes are table stakes. What decides quality is the pipeline between the calls: what gets chunked, what is hashed so unchanged text is not paid for twice, how each row keeps a citation, how batches are governed. The per-warehouse table is in the appendix.</aside>
+  <aside class="notes">Read left to right. On 16 January 2025 the safety team filed IR-9001 for incident INC-2025-00417: during the 14 to 16 January storm a semi jackknifed on an icy on-ramp leaving the Paris hub, no injuries. It arrives as free text, so parsing here means shaping, not OCR: staging restores its line breaks and int_incident_reports_documents joins it to its shipment, which gives it an account, Jaffle Werke. split_incident_reports cuts it into 13 sentences and chunk_incident_reports packs them into 3 token-bounded passages that never span two reports. incident_reports_embed turns each passage into a vector with embed(), and checks each passage's content hash so one that has not changed is not embedded and paid for again. knowledge_base lands them as 3 rows with source_type Incident Report, the account, the text, the embedding and a citation back to IR-9001. None of the functions are the hard part: Snowflake, Databricks and BigQuery each ship parse, chunk, embed and search as SQL functions. The per-warehouse table is in the appendix. The engineering is the pipeline between the calls.</aside>
 </section>
 <!-- From analytics engineer to context engineer: before and after -->
 <section class="lt lt-cards">
