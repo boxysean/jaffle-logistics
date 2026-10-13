@@ -1,11 +1,11 @@
 # the light deck, in order. a line is a slide file (deck-light/slides first, then deck/slides),
 # optionally followed by ' | title=...', ' | sub=...' or ' | notes=...'
 
-# opening: who, then the hook, then the road map
-001-talk-title.html | notes=Welcome. Do not read the title. Introduce yourself, then go to the question.
+# opening: who, then the road map, then the hook
+001-talk-title.html | notes=Welcome. Do not read the title. Introduce yourself, then the road map.
 0015-about-me.html | notes=Thirty seconds, no more. Credibility, then a human detail (the bike), then move on.
-hook.html
 002-agenda.html | notes=Three parts. Say them once and move on.
+hook.html
 
 # part 1: the game has changed, and why the data team
 003-the-game-has-changed.html | notes=About 30 seconds. Preparing data for AI-aided analysis and agents is now the game; the model reasons well enough, so what it reads decides whether the answer is right. That is the opportunity the rest of the talk earns.
