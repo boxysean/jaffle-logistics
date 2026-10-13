@@ -1,5 +1,9 @@
 # jaffle logistics
 
+- **Package:** [`dbt-labs/dbt-context-engineering`](https://github.com/dbt-labs/dbt-context-engineering)
+- **Webinar:** [From analytics engineer to context engineer: a dbt playbook](https://www.getdbt.com/resources/webinars/from-analytics-engineer-to-context-engineer-a-dbt-playbook)
+- **Slides:** [the presentation](https://boxysean.github.io/jaffle-logistics-europe/shareholder-deck/presentation.html)
+
 A fictional logistics company's data, scattered across roughly eight
 disconnected systems (CRM, support tickets, dispatch notes, incident
 reports, legal contracts, Slack, call transcripts), used as a worked
