@@ -100,3 +100,10 @@
   .cx .callout .v { font-size: 36px; white-space: nowrap; }
   .cx .callout .v.one { font-size: 80px; }
   .lt-flow .st .nm.code { font-family: var(--mono); font-size: 19px; font-weight: 600; }
+
+  /* the four "how this report was made" slides: a numbered title and a pixel icon at the header's right */
+  .lt .hd .ico { position: absolute; right: 24px; top: 50%; transform: translateY(-50%); width: 64px; height: 64px; }
+  .lt .hd:has(.ico) { padding-right: 104px; }
+  /* a size down, so the longest title (with its number) and subtitle still fit on one line beside the icon */
+  .lt .hd:has(.ico) h2 { font-size: 24px; }
+  .lt .hd:has(.ico) .owns { font-size: 22px; }
