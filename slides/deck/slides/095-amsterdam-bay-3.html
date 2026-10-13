@@ -1,9 +1,9 @@
-<!-- 10c. The second cause: handling damage at Amsterdam bay 3 -->
+<!-- 10c. Analysis: Amsterdam bay 3, the second cause, what it means, and a pixel-art dock -->
 <section class="bay3" data-src="reports/amsterdam-damage-forensics.md">
   <div class="frame">
     <div class="panel hd">
-      <h2>THE SECOND CAUSE: AMSTERDAM BAY 3<span class="when">HUB-AMS · 2025</span></h2>
-      <div class="owns">Not weather, not the fleet: handling damage at one dock bay</div>
+      <h2>ANALYSIS: AMSTERDAM BAY 3<span class="when">HUB-AMS · 2025</span></h2>
+      <div class="owns">Identified issue leading to lower on-time performance</div>
     </div>
     <div class="panel col issue">
       <span class="tab">THE ISSUE</span>
@@ -24,33 +24,73 @@
         <text class="sm" x="190" y="134" text-anchor="middle">2025</text>
       </svg>
       <ul>
-        <li><strong>Not the fleet, drivers or freight:</strong> vehicles and drivers within ordinary variation, an ordinary maintenance record, the hub's own freight mix.</li>
-        <li><strong>A place:</strong> bay 3 had no damage in 2023-24; its staging dwell rose from ~46 to 70 min.</li>
         <li>Leading explanation: a dock-staging process fault, at <strong>moderate confidence</strong>.</li>
+        <li><strong>Bay 3:</strong> its staging dwell rose from ~46 to 70 min despite no damage.</li>
+        <li><strong>No other plausible explanation:</strong> vehicles and drivers within ordinary variation, an ordinary maintenance record.</li>
       </ul>
     </div>
-    <div class="panel col impact">
-      <span class="tab">THE IMPACT</span>
+    <div class="panel col means">
+      <span class="tab">WHAT IT MEANS</span>
       <ul>
-        <li>The <strong>second contributing factor</strong> in Jaffle Werke's 2025 on-time decline, beside the Paris storm (CRM review, 20 Oct).</li>
-        <li>From Q4, its on-time is <strong>tracked by cause</strong>, and the hub runs an <strong>SOP audit</strong>.</li>
-        <li>Bay 3 under audit, <strong>peak volume kept off it</strong> (#dispatch, 24 Nov).</li>
-        <li><strong>Not measured:</strong> damage cost in euros.</li>
-        <li>Damage rose at <strong>four of five hubs</strong> in 2025: bay 3 is not the whole network's rise.</li>
+        <li><b>Impact:</b> the second contributing factor in Jaffle Werke's 2025 on-time decline, beside the Paris storm.</li>
+        <li><b>Discovered:</b> only by joining four systems: the <strong>incident reports</strong> (14 of 15 name dock staging), <strong>Slack</strong> (#accounts: June's AMS incidents "don't fit that pattern"), the <strong>CRM</strong>'s 20 Oct root-cause review and the <strong>bay record</strong>.</li>
+        <li><b>Next step:</b> the bay 3 equipment inspection IR-9003 asks for, the one result that would settle it, beside the hub's SOP audit; until then, keep peak volume off bay 3.</li>
       </ul>
     </div>
-    <div class="panel col docs">
-      <span class="tab">HOW IT WAS DOCUMENTED</span>
-      <div class="k">INCIDENT REPORTS</div>
-      <p>14 of 15 name dock staging; IR-9003 (11 Oct) calls for a bay 3 inspection.</p>
-      <div class="k">SLACK #ACCOUNTS</div>
-      <p>Jul: June AMS incidents "don't fit that pattern" of the storm. Oct: "bay 3 on both damage events".</p>
-      <div class="k">CRM · BAY RECORD</div>
-      <p>The 20 Oct root-cause review; <code>dock_bay_events</code> locates the damage.</p>
-      <div class="k hot">NOT CLEAN</div>
-      <p>5 reports cite IR-9003, 4 filed months before it. Free text needs <strong>provenance</strong>, not just retrieval.</p>
-      <div class="k">WOULD SETTLE IT</div>
-      <p>Bay 3 equipment-inspection results.</p>
+    <div class="panel col dock">
+      <span class="tab">HUB-AMS</span>
+      <svg class="trucks" width="256" height="376" viewBox="0 0 256 376" role="img" aria-label="Pixel-art delivery trucks backed up to dock doors 2, 3 and 4, with a dropped parcel beside bay 3.">
+        <g transform="translate(0 0)">
+          <rect class="dr" x="0" y="0" width="24" height="64"/>
+          <text class="n" x="12" y="38" text-anchor="middle">2</text>
+          <rect class="bx" x="40" y="0" width="128" height="64"/>
+          <rect class="rb" x="72" y="8" width="8" height="48"/>
+          <rect class="rb" x="104" y="8" width="8" height="48"/>
+          <rect class="rb" x="136" y="8" width="8" height="48"/>
+          <rect class="cb" x="176" y="16" width="56" height="48"/>
+          <rect class="cb" x="232" y="32" width="16" height="32"/>
+          <rect class="wn" x="200" y="24" width="24" height="16"/>
+          <rect class="ch" x="40" y="64" width="208" height="8"/>
+          <rect class="wh" x="56" y="72" width="24" height="16"/>
+          <rect class="wh" x="128" y="72" width="24" height="16"/>
+          <rect class="wh" x="200" y="72" width="24" height="16"/>
+        </g>
+        <g transform="translate(0 136)">
+          <rect class="dr d3" x="0" y="0" width="24" height="64"/>
+          <text class="n" x="12" y="38" text-anchor="middle">3</text>
+          <rect class="bx" x="40" y="0" width="128" height="64"/>
+          <rect class="rb" x="72" y="8" width="8" height="48"/>
+          <rect class="rb" x="104" y="8" width="8" height="48"/>
+          <rect class="rb" x="136" y="8" width="8" height="48"/>
+          <rect class="cb" x="176" y="16" width="56" height="48"/>
+          <rect class="cb" x="232" y="32" width="16" height="32"/>
+          <rect class="wn" x="200" y="24" width="24" height="16"/>
+          <rect class="ch" x="40" y="64" width="208" height="8"/>
+          <rect class="wh" x="56" y="72" width="24" height="16"/>
+          <rect class="wh" x="128" y="72" width="24" height="16"/>
+          <rect class="wh" x="200" y="72" width="24" height="16"/>
+        </g>
+        <rect class="hot-px" x="88" y="232" width="8" height="8"/>
+        <rect class="pc" x="96" y="232" width="32" height="24"/>
+        <rect class="tp" x="108" y="232" width="8" height="24"/>
+        <rect class="hot-px" x="136" y="240" width="8" height="8"/>
+        <g transform="translate(0 272)">
+          <rect class="dr" x="0" y="0" width="24" height="64"/>
+          <text class="n" x="12" y="38" text-anchor="middle">4</text>
+          <rect class="bx" x="40" y="0" width="128" height="64"/>
+          <rect class="rb" x="72" y="8" width="8" height="48"/>
+          <rect class="rb" x="104" y="8" width="8" height="48"/>
+          <rect class="rb" x="136" y="8" width="8" height="48"/>
+          <rect class="cb" x="176" y="16" width="56" height="48"/>
+          <rect class="cb" x="232" y="32" width="16" height="32"/>
+          <rect class="wn" x="200" y="24" width="24" height="16"/>
+          <rect class="ch" x="40" y="64" width="208" height="8"/>
+          <rect class="wh" x="56" y="72" width="24" height="16"/>
+          <rect class="wh" x="128" y="72" width="24" height="16"/>
+          <rect class="wh" x="200" y="72" width="24" height="16"/>
+        </g>
+        <rect class="gd" x="0" y="368" width="256" height="8"/>
+      </svg>
     </div>
   </div>
 </section>
