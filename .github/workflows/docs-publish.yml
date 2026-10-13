@@ -35,4 +35,5 @@ jobs:
       # the deck's source of truth is its parts in slides/deck/; build it into the docs tree at
       # publish time so the published copy can never drift from the deck itself
       - run: python3 slides/build_deck.py --out docs/shareholder-deck/presentation.html
+      - run: python3 slides/build_deck.py --variant light --out docs/shareholder-deck/presentation-light.html
       - run: mkdocs gh-deploy --force

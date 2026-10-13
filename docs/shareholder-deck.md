@@ -15,7 +15,10 @@ agents slot in. To add a hand-written slide, copy an existing slide file in `sli
 whose layout fits — each slide is its own file there — and `python3 slides/build_deck.py` builds the deck.
 
 [**Open the deck &rarr;**](shareholder-deck/presentation.html){ .md-button .md-button--primary }
-Use the arrow keys to move, `f` for full screen, and print to PDF for a handout.
+[**Open the light version &rarr;**](shareholder-deck/presentation-light.html){ .md-button }
+Use the arrow keys to move, `f` for full screen, and print to PDF for a handout. The light version tells
+the same story with one idea per slide, steps that light up on each click, speaker notes (`s`) and the
+dense working moved to an appendix.
 
 ## Slide by slide
 
