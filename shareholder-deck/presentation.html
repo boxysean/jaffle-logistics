@@ -412,19 +412,25 @@
   .lin .chart .lay { fill: var(--amber); }
   .lin .chart .arw { fill: var(--amber); }
 
-  /* two numbers, traced: number -> Semantic Layer metric -> mart column -> staging -> source.
-     fit budget at 18px mono (10.8px/char) plus 18px of border and padding a box, 20px an arrow:
-     the on-time chain is 1109 of 1196 inside (the metric box 29 chars wide), the credit chain
-     1012. height: chains 80 + 12 + 80, closing lines 64, 28px gap = 264 of 286 inside */
+  /* two numbers, traced, in the direction the data flows: source column -> staging column ->
+     mart column -> Semantic Layer metric -> number. each hop is model, then .column, then (where
+     the column is derived) a 14px note of how. fit budget at 18px mono (10.8px/char), 14px notes
+     (8.4px/char), plus 18px of border and padding a box, 20px an arrow: the credit chain is 1109
+     of 1196 inside (fct_account_revenue 19 chars, the metric 24), the on-time chain about 1030
+     (the metric 29). height: the tallest box is tag or note 18 + 24 + 24 + 14 = 80, so chains
+     80 + 12 + 80, closing lines 64, 28px gap = 264 of 286 inside */
   .lin .trace { left: 20px; top: 328px; width: 1240px; height: 322px; padding: 18px 18px 10px; display: flex; flex-direction: column; justify-content: center; gap: 28px; }
   .lin .chains { display: flex; flex-direction: column; gap: 12px; }
   .lin .chain { display: flex; align-items: center; gap: 4px; font-size: 18px; line-height: 24px; }
   .lin .chain span { border: 3px solid var(--amber); padding: 4px 6px; background: var(--sl-bg); white-space: nowrap; }
   .lin .chain span.num { border-color: var(--sl-text); font-weight: 600; }
   .lin .chain span.sys { border-color: var(--sl-dim); }
+  /* the source box is tagged with the system that recorded it, as the metric is tagged SEMANTIC LAYER */
+  .lin .chain span b { display: block; font-family: var(--pixel); font-size: 10px; line-height: 18px; font-weight: normal; }
+  .lin .chain span.sys b { color: var(--sl-dim); }
+  .lin .chain span em { display: block; font-style: normal; font-size: 14px; line-height: 18px; color: var(--sl-dim); }
   /* the metric hop is an amber chip with a SEMANTIC LAYER tag, as the metric names read on THE WORKING BEHIND THE NUMBERS */
   .lin .chain span.met { background: var(--amber); color: var(--deep); }
-  .lin .chain span.met b { display: block; font-family: var(--pixel); font-size: 10px; line-height: 18px; font-weight: normal; }
   .lin .chain span.met code { color: var(--deep); font-weight: 600; }
   .lin .chain i { flex: none; width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 12px solid var(--amber); }
   .lin .said { font-size: 28px; line-height: 1.15; }
@@ -560,7 +566,7 @@
       position: absolute; left: 20px; top: 132px; width: 1240px; height: 512px; padding: 22px 24px;
     }
 
-    /* product mix: findings left, volume-share vs failure-share bars right with a freight-quarterly line under them */
+    /* product mix: the Werke vs the other four on-time line chart left, volume-share vs failure-share bars right with a freight-quarterly line under them */
     .res .grid.svc { top: 132px; height: 518px; grid-template-columns: 1fr 720px; }
     .svc .ch svg { top: 4px; left: 6px; }
     .svc .b.v { fill: var(--teal-hi); }
@@ -573,10 +579,16 @@
     .svc .bv { font-size: 15px; fill: var(--dim); }
     .svc .vv { font-size: 15px; fill: var(--hot); }
     .svc .lc { font-size: 15px; fill: var(--dim); }
-    .svc .band { left: auto; top: auto; width: auto; height: auto; padding: 24px 18px 16px; }
-    .svc .band ul { height: 100%; display: flex; flex-direction: column; justify-content: space-around; }
-    .svc .band li { font-size: 26px; line-height: 1.2; }
-    .svc .band li::before { top: 11px; }
+    .svc .cr > .tab { left: 8px; font-size: 10px; }
+    .svc .cr-lw { fill: none; stroke: var(--hot); stroke-width: 4; }
+    .svc .cr-lo { fill: none; stroke: var(--teal-hi); stroke-width: 4; }
+    .svc .cr-dw { fill: var(--hot); }
+    .svc .cr-do { fill: var(--teal-hi); }
+    .svc .cr-ct { stroke: var(--amber); stroke-width: 2; stroke-dasharray: 8 6; }
+    .svc .cr-t { font-size: 18px; fill: var(--dim); }
+    .svc .cr-q { font-size: 19px; fill: var(--dim); }
+    .svc .cr-vw { font-size: 19px; fill: var(--hot); }
+    .svc .cr-vo { font-size: 19px; fill: var(--teal-hi); }
   /* talk opening: the meetup title and the agenda, ahead of the Jaffle title slide.
      the talk title reuses .title-box; at 40px the pixel font is 40px a character, so the
      26-character second line is 1040 of the box's 1112 inside. */
@@ -1019,13 +1031,44 @@
       <div class="owns">Standard, Freight, Expedited</div>
     </div>
     <div class="grid svc">
-      <div class="panel band">
-        <span class="tab">FINDINGS</span>
-        <ul>
-          <li>Standard is the volume backbone at <strong>55.9%</strong>; expedited and freight split the rest, 20/24.</li>
-          <li>Freight is <strong class="hot">23.8%</strong> of shipments but <strong class="hot">49.6%</strong> of the year's 135 missed.</li>
-          <li>Not that freight is hard: <strong>416 of 479</strong> is Werke, and the other 63 never missed.</li>
-        </ul>
+      <div class="panel ch cr">
+        <span class="tab">THE 33.5% ACCOUNT vs THE OTHER FOUR &middot; ON TIME %</span>
+        <svg class="chart" width="490" height="500" viewBox="0 0 490 500" role="img"
+             aria-label="On-time by quarter 2025: Jaffle Werke 86.14, 89.58, 82.47, 78.69; the average of the other four accounts 91.58, 97.24, 98.22, 96.18. Werke's contract is 97 percent.">
+          <rect class="cr-do" x="10" y="14" width="12" height="12"/>
+          <text class="cr-t" x="28" y="25">other four, averaged</text>
+          <rect class="cr-dw" x="270" y="14" width="12" height="12"/>
+          <text class="cr-t" x="288" y="25">Jaffle Werke</text>
+
+          <line class="ax" x1="56" y1="70" x2="484" y2="70"/>
+          <line class="ax" x1="56" y1="70" x2="56" y2="450"/>
+          <text class="cr-t" x="50" y="76" text-anchor="end">100%</text>
+          <text class="cr-t" x="50" y="228" text-anchor="end">90%</text>
+          <text class="cr-t" x="50" y="380" text-anchor="end">80%</text>
+
+          <line class="cr-ct" x1="56" y1="115.6" x2="484" y2="115.6"/>
+          <text class="t-amb" x="226" y="138">Werke's contract 97%</text>
+
+          <polyline class="cr-lo" points="100,198.0 220,111.9 340,97.1 460,128.1"/>
+          <circle class="cr-do" cx="100" cy="198.0" r="6"/><circle class="cr-do" cx="220" cy="111.9" r="6"/>
+          <circle class="cr-do" cx="340" cy="97.1" r="6"/><circle class="cr-do" cx="460" cy="128.1" r="6"/>
+
+          <polyline class="cr-lw" points="100,280.7 220,228.4 340,336.5 460,393.9"/>
+          <circle class="cr-dw" cx="100" cy="280.7" r="6"/><circle class="cr-dw" cx="220" cy="228.4" r="6"/>
+          <circle class="cr-dw" cx="340" cy="336.5" r="6"/><circle class="cr-dw" cx="460" cy="393.9" r="6"/>
+
+          <text class="cr-vo" x="100" y="224" text-anchor="middle">91.6</text>
+          <text class="cr-vo" x="340" y="88" text-anchor="middle">98.2</text>
+          <text class="cr-vo" x="460" y="154" text-anchor="middle">96.2</text>
+          <text class="cr-vw" x="100" y="306" text-anchor="middle">86.1</text>
+          <text class="cr-vw" x="340" y="362" text-anchor="middle">82.5</text>
+          <text class="cr-vw" x="460" y="420" text-anchor="middle">78.7</text>
+
+          <text class="cr-q" x="100" y="480" text-anchor="middle">Q1</text>
+          <text class="cr-q" x="220" y="480" text-anchor="middle">Q2</text>
+          <text class="cr-q" x="340" y="480" text-anchor="middle">Q3</text>
+          <text class="cr-q" x="460" y="480" text-anchor="middle">Q4</text>
+        </svg>
       </div>
       <div class="panel ch">
         <span class="tab">SHARE OF VOLUME vs SHARE OF FAILURES &middot; 2025</span>
@@ -1239,7 +1282,7 @@
   <div class="frame">
     <div class="panel hd">
       <h2>EVERY NUMBER TRACES BACK</h2>
-      <div class="owns">From the boardroom to the system that recorded it, in one direction</div>
+      <div class="owns">From the system that recorded it to the boardroom, in one direction</div>
     </div>
     <div class="panel flow">
       <span class="tab">THE LINEAGE</span>
@@ -1284,8 +1327,8 @@
     <div class="panel trace">
       <span class="tab">TWO NUMBERS, TRACED</span>
       <div class="chains">
-        <div class="chain"><span class="num">93.28%<br>on time</span><i></i><span class="met"><b>SEMANTIC LAYER</b><code>on_time_rate</code> · ratio<br>on_time_shipments / shipments</span><i></i><span>fct_shipments<br>.is_ontime</span><i></i><span>stg_shipments +<br>int_shipment_touchpoints</span><i></i><span class="sys">the transport<br>system</span></div>
-        <div class="chain"><span class="num">€52,954.86<br>credited</span><i></i><span class="met"><b>SEMANTIC LAYER</b><code>credited_amount</code> · simple<br>sum(credited_amount)</span><i></i><span>fct_account_revenue<br>.credited_amount</span><i></i><span>stg_revenue_ledger</span><i></i><span class="sys">billing</span></div>
+        <div class="chain"><span class="sys"><b>TRANSPORT SYSTEM</b>shipments<br>.status</span><i></i><span>stg_shipments<br>.status</span><i></i><span>fct_shipments<br>.is_ontime<em>status = 'delivered'</em></span><i></i><span class="met"><b>SEMANTIC LAYER</b><code>on_time_rate</code> · ratio<br>on_time_shipments / shipments</span><i></i><span class="num">93.28%<br>on time</span></div>
+        <div class="chain"><span class="sys"><b>BILLING</b>revenue_ledger<br>.credited_amount</span><i></i><span>stg_revenue_ledger<br>.credited_amount<em>cast to numeric</em></span><i></i><span>fct_account_revenue<br>.credited_amount</span><i></i><span class="met"><b>SEMANTIC LAYER</b><code>credited_amount</code> · simple<br>sum(credited_amount)</span><i></i><span class="num">€52,954.86<br>credited</span></div>
       </div>
       <div class="said">
         <p>Nothing in this deck is a number someone typed.</p>
