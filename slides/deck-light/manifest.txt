@@ -26,12 +26,12 @@ bay3.html
 customer-experience.html
 stack.html
 trace.html
+question-answer.html
 
 # part 3: from analytics engineer to context engineer
 165-part-3-from-ae-to-ce.html
 layering-context.html
 ae-ce.html
-question-answer.html
 how-to-start.html
 close.html
 
