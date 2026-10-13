@@ -35,6 +35,7 @@ question-answer.html
 ae-ce.html
 240-semantic-layer-to-context-layer.html
 close.html
+thank-you.html
 
 # appendix: the dense working, kept for questions
 appendix.html
