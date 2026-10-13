@@ -1699,6 +1699,31 @@
   </div>
   <aside class="notes">Read left to right: the transport system records a shipment status; it is staged as stg_shipments.status, becomes fct_shipments.is_ontime, rolls up in the on_time_rate metric (on-time shipments over shipments) and arrives as 93.28%. The same trace works for EUR 52,954.86 of credits: the billing revenue ledger, staged with credited_amount cast to numeric, into fct_account_revenue, summed by the credited_amount metric. 340 tests run on every build, and a failing test stops the release.</aside>
 </section>
+<!-- How a question becomes an answer: the loop, lit one step at a time -->
+<section class="lt lt-flow">
+  <div class="frame">
+    <div class="panel hd">
+      <h2>HOW A QUESTION BECOMES AN ANSWER</h2>
+      <div class="owns">The same loop, whether a person or an agent is asking</div>
+    </div>
+    <div class="flow" style="top:176px;height:250px">
+      <div class="st fragment"><div class="no">1</div><div class="nm">ASK</div><div class="tx">why did Paris miss so many in January?</div></div>
+      <div class="ar fragment">&#9654;</div>
+      <div class="st fragment"><div class="no">2</div><div class="nm">LOOK UP</div><div class="tx">tools over MCP. Never a guessed number</div></div>
+      <div class="ar fragment">&#9654;</div>
+      <div class="st ambb fragment"><div class="no">3</div><div class="nm">TWO TRUTHS</div><div class="tx">the number, and the cause</div></div>
+      <div class="ar fragment">&#9654;</div>
+      <div class="st fragment"><div class="no">4</div><div class="nm">ANSWER</div><div class="tx">56.60% on time &middot; the 14-16 Jan storm</div></div>
+      <div class="ar fragment">&#9654;</div>
+      <div class="st fragment"><div class="no">5</div><div class="nm">PROVE</div><div class="tx">lineage and the tests behind it</div></div>
+      <div class="ar fragment">&#9654;</div>
+      <div class="st hotb fragment"><div class="no">6</div><div class="nm">ACT</div><div class="tx">a person decides, or an agent acts</div></div>
+    </div>
+    <div class="foot" style="top:470px"><em>A design, not a running system.</em></div>
+    <div class="foot dimf" style="top:530px;font-size:24px">The warehouse, the semantic layer and the retrieval are built. The agent on top is what the data now makes possible.</div>
+  </div>
+  <aside class="notes">Click through the six steps. A question arrives; the warehouse's tools answer over MCP, never a guessed number. There are two sources of truth, kept visibly apart: the semantic layer owns the number (10 governed metrics, the definition belongs to the business) and the knowledge base owns the cause (vector search over 7 document sources: transcripts, CRM notes, incidents, dispatch). The answer is the number and the cause: 56.60% on time, and the 14-16 January storm. Then the evidence: lineage back to the source system, and 340 tests per build. Then the action: a person decides, or an agent acts, for example routing a complaint, raising the service-level risk before the customer feels it, or stopping a dispatch when a driver's certification has lapsed. Be clear that this loop is a design, not a running system. Adapted from the context-layer pattern, not copied.</aside>
+</section>
 <!-- Part 3 divider: From Analytics Engineering to Context Engineering -->
 <section class="agenda" data-status="dbt NL · 13 Oct 2026">
   <div class="frame">
@@ -1761,31 +1786,6 @@
     </div>
   </div>
   <aside class="notes">For a decade the work product was an answer: a chart, a dashboard. Now it is the meaning, because that is what an agent reads, and an agent cannot ask a clarifying question. A dashboard answers once; meaning answers every question downstream of it. The models are the same. The audience is not. The job changes when the reader changes; the craft does not. And you are already most of the way there: you write meaning down for a living, you own the semantic layer, you already run the gate an agent needs (tests, contracts, freshness, lineage), and you write in the one language both readers share, versioned code.</aside>
-</section>
-<!-- How a question becomes an answer: the loop, lit one step at a time -->
-<section class="lt lt-flow">
-  <div class="frame">
-    <div class="panel hd">
-      <h2>HOW A QUESTION BECOMES AN ANSWER</h2>
-      <div class="owns">The same loop, whether a person or an agent is asking</div>
-    </div>
-    <div class="flow" style="top:176px;height:250px">
-      <div class="st fragment"><div class="no">1</div><div class="nm">ASK</div><div class="tx">why did Paris miss so many in January?</div></div>
-      <div class="ar fragment">&#9654;</div>
-      <div class="st fragment"><div class="no">2</div><div class="nm">LOOK UP</div><div class="tx">tools over MCP. Never a guessed number</div></div>
-      <div class="ar fragment">&#9654;</div>
-      <div class="st ambb fragment"><div class="no">3</div><div class="nm">TWO TRUTHS</div><div class="tx">the number, and the cause</div></div>
-      <div class="ar fragment">&#9654;</div>
-      <div class="st fragment"><div class="no">4</div><div class="nm">ANSWER</div><div class="tx">56.60% on time &middot; the 14-16 Jan storm</div></div>
-      <div class="ar fragment">&#9654;</div>
-      <div class="st fragment"><div class="no">5</div><div class="nm">PROVE</div><div class="tx">lineage and the tests behind it</div></div>
-      <div class="ar fragment">&#9654;</div>
-      <div class="st hotb fragment"><div class="no">6</div><div class="nm">ACT</div><div class="tx">a person decides, or an agent acts</div></div>
-    </div>
-    <div class="foot" style="top:470px"><em>A design, not a running system.</em></div>
-    <div class="foot dimf" style="top:530px;font-size:24px">The warehouse, the semantic layer and the retrieval are built. The agent on top is what the data now makes possible.</div>
-  </div>
-  <aside class="notes">Click through the six steps. A question arrives; the warehouse's tools answer over MCP, never a guessed number. There are two sources of truth, kept visibly apart: the semantic layer owns the number (10 governed metrics, the definition belongs to the business) and the knowledge base owns the cause (vector search over 7 document sources: transcripts, CRM notes, incidents, dispatch). The answer is the number and the cause: 56.60% on time, and the 14-16 January storm. Then the evidence: lineage back to the source system, and 340 tests per build. Then the action: a person decides, or an agent acts, for example routing a complaint, raising the service-level risk before the customer feels it, or stopping a dispatch when a driver's certification has lapsed. Be clear that this loop is a design, not a running system. Adapted from the context-layer pattern, not copied.</aside>
 </section>
 <!-- How to start: three steps for Monday -->
 <section class="lt lt-cards">
