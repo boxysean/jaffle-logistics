@@ -32,8 +32,10 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install mkdocs-material==9.7.7
-      # the deck's source of truth is its parts in slides/deck/; build it into the docs tree at
-      # publish time so the published copy can never drift from the deck itself
-      - run: python3 slides/build_deck.py --out docs/shareholder-deck/presentation.html
-      - run: python3 slides/build_deck.py --variant light --out docs/shareholder-deck/presentation-light.html
+      # the decks' source of truth is their parts in slides/deck/ and slides/deck-light/; build them
+      # into the docs tree at publish time so the published copies can never drift from the parts.
+      # the light deck is the main deck, at presentation.html (where the site root redirects); the
+      # full deck it draws on stays published beside it, at presentation-full.html
+      - run: python3 slides/build_deck.py --variant light --out docs/shareholder-deck/presentation.html
+      - run: python3 slides/build_deck.py --out docs/shareholder-deck/presentation-full.html
       - run: mkdocs gh-deploy --force
