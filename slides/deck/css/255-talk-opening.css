@@ -31,12 +31,19 @@
   .about .bike .fr { fill: var(--amber); }
   .about .bike .hb { fill: var(--text); }
 
-  /* part 1, the game has changed: the blank title/body layout with two large bullets */
-  .opener .bd { padding: 56px 64px; }
-  .opener ul { list-style: none; margin: 0; padding: 0; }
+  /* part 1, the game has changed: the blank title/body layout with one large bullet on the left,
+     vertically centred, and a pixel robot on an 8px grid to the right, as on ABOUT ME */
+  .opener .bd { padding: 56px 64px; display: flex; align-items: center; gap: 64px; }
+  .opener ul { flex: 1; min-width: 0; list-style: none; margin: 0; padding: 0; }
   .opener li { position: relative; padding-left: 44px; font-size: 32px; line-height: 1.35; color: var(--text); }
   .opener li + li { margin-top: 44px; }
   .opener li::before { content: ""; position: absolute; left: 0; top: 14px; width: 16px; height: 16px; background: var(--amber); }
+  .opener .bot { flex: none; display: block; margin-right: 48px; shape-rendering: crispEdges; }
+  .opener .bot .bo { fill: var(--teal-hi); }
+  .opener .bot .mt { fill: var(--dim); }
+  .opener .bot .sc { fill: var(--deep); }
+  .opener .bot .ey { fill: var(--amber); }
+  .opener .bot .sm { fill: var(--text); }
 
   /* part divider: the agenda again, with the parts already covered dimmed and the next one lit */
   .agenda .hd .owns { margin-top: 8px; }
