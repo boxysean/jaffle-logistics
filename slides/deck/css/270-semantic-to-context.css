@@ -1,9 +1,11 @@
-  /* semantic layer to context layer slide: body 136-650. lead 136-184, the three boxes 236-484, the same-project
-     strip 520-588. each tab stands 12px above its panel and each shadow 10px below, so the gaps stay clear.
-     the title's 86 characters at 26px pixel (26px/char) wrap at 45 a line inside the header's 1184, so two lines.
-     left to right: Fivetran 20-265, a 30px arrow, the dbt project 295-985, a 30px arrow, the AI 1015-1260.
+  /* how to get started slide: body 136-650. the three boxes 216-464, the same-project strip 500-568. each tab stands
+     12px above its panel and each shadow 10px below, so the gaps stay clear.
+     the title's 18 characters fit one line, so the header keeps the usual 96px. the subtitle's 87 characters run at
+     22px mono (13.2px/char, 1148) to fit the header's 1184 inside its border and pads; at 24px they would wrap.
+     left to right: Fivetran 20-265, a 30px arrow, the data platform 295-985, a 30px arrow, the AI 1015-1260.
      the project holds two rows of three 196px steps, 24px arrows between them, from x 311 (its 4px border and 12px pad);
-     the third step's arrow runs out through the project's edge and lands on the AI's at 1015.
+     each third step's arrow leaves its right edge at x 947 and is turned to land, head over the AI's border, at x 1024,
+     beside its heading (294-318): the Semantic Layer's from y 297 to 310, the Context Layer's from y 413 up to 334.
      fit budget at 18px mono (10.8px/char, 21px lines): a step is 174 inside its border and 9px pads = 16 characters,
      two lines each ("Prepare the data" is the longest at 16). a side box is 213 inside its 12px pads: the 20px heading
      is 17 characters at most (204), its line 19 a line. the side tabs are 20 characters of 12px pixel at most (252),
@@ -11,10 +13,9 @@
      colour follows the screenshot: teal-hi = Fivetran, amber = the dbt project and its Context Layer row,
      violet = the Semantic Layer row and the customer's AI; each arrow takes its row's colour */
   .s2c .hd { height: 96px; }
-  .s2c .lead { position: absolute; left: 20px; top: 136px; width: 1240px; font-size: 20px; line-height: 24px; color: var(--text); white-space: nowrap; }
-  .s2c .lead strong { color: var(--amber); font-weight: 600; }
+  .s2c .hd .owns { margin-top: 8px; font-size: 22px; white-space: nowrap; }
 
-  .s2c .side, .s2c .proj { top: 236px; height: 248px; }
+  .s2c .side, .s2c .proj { top: 216px; height: 248px; }
   .s2c .side { width: 245px; padding: 12px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
   .s2c .side > .tab { left: 50%; transform: translate(-50%, -50%); font-size: 12px; padding: 5px 6px; white-space: nowrap; }
   .s2c .side .logo { display: block; margin-bottom: 18px; }
@@ -35,22 +36,27 @@
 
   /* the steps and arrows sit on the frame, over the panels, in slide coordinates */
   .s2c .step { position: absolute; z-index: 1; box-sizing: border-box; width: 196px; height: 66px; padding: 10px 9px; display: flex; align-items: center; justify-content: center; text-align: center; background: var(--deep); border: 2px solid; font-size: 18px; line-height: 21px; color: var(--text); }
-  .s2c .step.sl { top: 284px; border-color: var(--violet); }
-  .s2c .step.cl { top: 400px; border-color: var(--amber); }
+  .s2c .step.sl { top: 264px; border-color: var(--violet); }
+  .s2c .step.cl { top: 380px; border-color: var(--amber); }
   .s2c .step.c1 { left: 311px; }
   .s2c .step.c2 { left: 531px; }
   .s2c .step.c3 { left: 751px; }
   /* an arrow is a 6px shaft and a 12px head, the head drawn past the shaft's end */
   .s2c .arw { position: absolute; z-index: 1; height: 6px; background: var(--c); }
   .s2c .arw::after { content: ""; position: absolute; right: -12px; top: -6px; border-left: 12px solid var(--c); border-top: 9px solid transparent; border-bottom: 9px solid transparent; }
-  .s2c .arw.in { --c: var(--teal-hi); left: 265px; top: 357px; width: 18px; }
-  .s2c .arw.sl { --c: var(--violet); top: 314px; }
-  .s2c .arw.cl { --c: var(--amber); top: 430px; }
+  .s2c .arw.in { --c: var(--teal-hi); left: 265px; top: 337px; width: 18px; }
+  .s2c .arw.sl { --c: var(--violet); top: 294px; }
+  .s2c .arw.cl { --c: var(--amber); top: 410px; }
   .s2c .arw.c1 { left: 507px; width: 12px; }
   .s2c .arw.c2 { left: 727px; width: 12px; }
-  .s2c .arw.out { left: 947px; width: 56px; }
+  /* the out arrows turn about their start, so shaft plus head (12) spans start to tip: 78 at 9.6deg, 110 at -45.7deg */
+  .s2c .arw.out { left: 947px; transform-origin: 0 50%; }
+  .s2c .arw.sl.out { width: 66px; transform: rotate(9.6deg); }
+  .s2c .arw.cl.out { width: 98px; transform: rotate(-45.7deg); }
 
-  /* the chips' 68 characters (734), pads, borders and margins run 860 wide, so the strip spans the slide, centred under the project at 640 */
-  .s2c .same { position: absolute; left: 20px; top: 520px; width: 1240px; text-align: center; white-space: nowrap; }
+  /* the chips' 107 characters at 17px mono (10.2px/char, 1091), pads, borders and margins run 1195 wide, so the strip
+     spans the slide, centred under the project at 640. the last chip is amber, the Context Layer's colour */
+  .s2c .same { position: absolute; left: 20px; top: 500px; width: 1240px; text-align: center; white-space: nowrap; }
   .s2c .same .lbl { font-family: var(--pixel); font-size: 14px; line-height: 14px; color: var(--amber); margin-bottom: 14px; }
-  .s2c .same .chip { display: inline-block; margin: 0 7px; padding: 8px 12px; background: var(--navy-2); border: 2px solid var(--teal); font-size: 18px; line-height: 21px; color: var(--dim); white-space: nowrap; }
+  .s2c .same .chip { display: inline-block; margin: 0 4px; padding: 8px 7px; background: var(--navy-2); border: 2px solid var(--teal); font-size: 17px; line-height: 21px; color: var(--dim); white-space: nowrap; }
+  .s2c .same .chip.ctx { border-color: var(--amber); color: var(--amber); }
