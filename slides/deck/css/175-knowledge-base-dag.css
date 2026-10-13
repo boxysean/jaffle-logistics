@@ -1,32 +1,33 @@
-  /* the DAG behind the knowledge base: knowledge_base and its 67 parents (10 seeds, 57 models) from the
+  /* the DAG behind the knowledge base, in the amber register: the section is .sl.kbd and takes the
+     frame, tabs, header and status bar from 095-semantic-layer.css; everything here is scoped to .kbd,
+     so the other .sl slides don't change. knowledge_base and its 67 parents (10 seeds, 57 models) from the
      parsed manifest, one lane a document source, left to right in build order. body 140-650, one panel.
      columns: source 0-120, then six 84-wide steps on a 98 step, the AI fork 722-830, joined 844-928, the
      knowledge base 958-1076 spanning all seven lanes, search 1090-1196. lanes on a 52 pitch from 56, nodes
-     38 tall: the last ends at 406, the legend 434-450. colour follows the cost: teal-hi is plain SQL at zero
-     AI cost, hot is a metered AI function, amber is the one table an agent reads. the dashed wire is the
-     split/chunk path a short record skips. labels at 11.5px mono (6.9px/char): the longest seed name,
+     38 tall: the last ends at 406, the legend 434-450. colour follows the cost, as the lineage does: seeds are dim
+     source boxes, amber is plain SQL at zero AI cost, hot is a metered AI function, and the one table an
+     agent reads is inverted, a cream block in the amber frame. the dashed dim wire is the split/chunk
+     path a short record skips. labels at 11.5px mono (6.9px/char): the longest seed name,
      incident_reports, is 16 characters = 110 of 117; column heads at 10px pixel hold 8 characters in 84 */
-  .kbd .hd { height: 96px; }
-  .kbd .hd .owns { margin-top: 8px; }
   .kbd .dag { left: 20px; top: 140px; width: 1240px; height: 510px; padding: 22px 18px 0; }
   .kbd .dag svg { display: block; }
-  .kbd .chart text.hh { font-family: var(--pixel); font-size: 10px; fill: var(--text); }
+  .kbd .chart text.hh { font-family: var(--pixel); font-size: 10px; fill: var(--sl-text); }
   .kbd .chart text.hh.t-hot { fill: var(--hot); }
-  .kbd .chart text.hd2 { font-size: 12px; fill: var(--dim); }
-  .kbd .chart text.src { font-size: 11.5px; fill: var(--text); }
-  .kbd .chart text.nt { font-size: 11px; fill: var(--teal-hi); }
-  .kbd .chart text.sk-t { font-size: 12px; fill: var(--dim); }
+  .kbd .chart text.hd2 { font-size: 12px; fill: var(--sl-dim); }
+  .kbd .chart text.src { font-size: 11.5px; fill: var(--sl-text); }
+  .kbd .chart text.nt { font-size: 11px; fill: var(--amber); }
+  .kbd .chart text.sk-t { font-size: 12px; fill: var(--sl-dim); }
   .kbd .chart text.ai-t { font-size: 11px; fill: var(--hot); }
-  .kbd .chart text.lg { font-size: 13px; fill: var(--dim); }
+  .kbd .chart text.lg { font-size: 13px; fill: var(--sl-dim); }
   .kbd .chart text.kb-h { font-size: 13px; font-weight: 600; fill: var(--deep); }
   .kbd .chart text.kb-t { font-size: 13px; fill: var(--deep); }
   .kbd .chart text.srch { font-size: 15px; font-weight: 600; fill: var(--hot); }
-  .kbd .chart text.srch-t { font-size: 11px; fill: var(--text); }
-  .kbd .chart .seed { fill: var(--navy-2); stroke: var(--dim); stroke-width: 3; }
-  .kbd .chart .det { fill: var(--deep); stroke: var(--teal-hi); stroke-width: 3; }
-  .kbd .chart .ai { fill: var(--deep); stroke: var(--hot); stroke-width: 3; }
-  .kbd .chart .kb { fill: var(--amber); }
-  .kbd .chart .wire { stroke: var(--teal); stroke-width: 3; }
-  .kbd .chart .wire.sk { stroke: var(--dim); stroke-dasharray: 6 6; }
-  .kbd .chart .wire.kbw { stroke: var(--amber); }
-  .kbd .chart .ah { fill: var(--teal-hi); }
+  .kbd .chart text.srch-t { font-size: 11px; fill: var(--sl-text); }
+  .kbd .chart .seed { fill: var(--sl-bg); stroke: var(--sl-dim); stroke-width: 3; }
+  .kbd .chart .det { fill: var(--sl-bg); stroke: var(--amber); stroke-width: 3; }
+  .kbd .chart .ai { fill: var(--sl-bg); stroke: var(--hot); stroke-width: 3; }
+  .kbd .chart .kb { fill: var(--sl-text); }
+  .kbd .chart .wire { stroke: var(--sl-edge); stroke-width: 3; }
+  .kbd .chart .wire.sk { stroke: var(--sl-dim); stroke-dasharray: 6 6; }
+  .kbd .chart .wire.kbw { stroke: var(--sl-text); }
+  .kbd .chart .ah { fill: var(--amber); }
