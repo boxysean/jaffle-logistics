@@ -31,6 +31,7 @@ trace.html
 165-part-3-from-ae-to-ce.html
 layering-context.html
 ae-ce.html
+ae-ce-loop.html
 question-answer.html
 how-to-start.html
 close.html
@@ -44,5 +45,4 @@ appendix.html
 095-amsterdam-bay-3.html
 135-the-dag-behind-the-knowledge-base.html
 225-rag-is-a-commodity.html
-190-from-analytics-engineer-to-context-engineer.html
 240-semantic-layer-to-context-layer.html

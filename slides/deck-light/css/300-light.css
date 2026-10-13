@@ -100,3 +100,6 @@
   .cx .callout .v { font-size: 36px; white-space: nowrap; }
   .cx .callout .v.one { font-size: 80px; }
   .lt-flow .st .nm.code { font-family: var(--mono); font-size: 19px; font-weight: 600; }
+
+  /* the light copy of the loop drops its two bullets: centre the 300px loop in the 140-640 body */
+  .ae-loop .flow { top: 240px; }
