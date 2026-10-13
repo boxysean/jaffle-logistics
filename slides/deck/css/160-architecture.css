@@ -1,36 +1,26 @@
-  /* architecture slide: a sibling of THE WORKING BEHIND THE CONTEXT, so the section is .sl.arc and
+  /* architecture slide: a sibling of THE DAG BEHIND THE KNOWLEDGE BASE, so the section is .sl.arc and
      takes the amber frame, tabs, header and status bar from 095-semantic-layer.css; everything here
-     is scoped to .arc, so the other .sl slides don't change. body 140-640: the stack 140-378 reads
-     left to right, the loop 402-640 reads right to left beneath it, back through the same columns.
-     each tab stands 12px above its panel and each shadow 10px below, so the 24px gap stays clear.
-     both panels are 1196 x 218 inside 10px top and 2px bottom pads. colour follows the lineage:
-     dim = where the data lives, amber = the platform's layers, cream = what a consumer reads; the
-     dashed amber box is the agent, a consumer beside the reports, fed by the same arrow.
-     the stack, at scale 1: titles 14, boxes 28-180 (CONSUMPTION split into the reports 28-92 and
-     the agent 102-180), the caption under LANDING at 198 and 214, so the marks end 217 of 218. in
-     the 207px CONSUMPTION column the agent's longest line is 27 characters at 12px mono (7.2px/char)
-     = 194, and its title 19 at 10px pixel = 190. LANDING and TRANSFORMATION carry their logo 24px
-     tall at 42-66 above their four lines, on the dark stage fill so the white logos still read.
-     the loop, mirrored so the question sits under CONSUMPTION and the action at the left: steps
-     0-178, the closing band 186-217. five steps are 150 wide and step 3 is 336, for its two
-     sub-boxes; 22px arrow gaps (2 clear, 10 head, 8 shaft, 2 clear), pointing left. at 12px mono a
-     narrow step's 144px interior takes 18 characters, lines 15px apart, the last at 166 of 176.
-     labels at 12px pixel hold 12 characters; step 3's sub-box labels are 11px pixel (27 characters
-     = 297 of 310). the band is one line of 158 characters at 12px = 1138 of 1190 */
-  .arc .flow { left: 20px; top: 140px; width: 1240px; height: 238px; padding: 10px 18px 2px; }
-  .arc .loop { left: 20px; top: 402px; width: 1240px; height: 238px; padding: 10px 18px 2px; }
-  .arc .flow svg, .arc .loop svg { display: block; }
+     is scoped to .arc, so the other .sl slides don't change. body 140-642: the stack, left to right,
+     1196 x 482 inside 10px top and 2px bottom pads. its tab stands 12px above the panel and its
+     shadow 10px below. colour follows the lineage: dim = where the data lives, amber = the
+     platform's layers, cream = what a consumer reads; the dashed amber box is the agent, a consumer
+     beside the reports, fed by the same arrow.
+     at scale 1: titles at 24, boxes 40-432 (CONSUMPTION split into the reports 40-200 and the agent
+     220-432), the caption under LANDING at 458 and 478, so the marks end 481 of 482. the columns are
+     207 wide, about 200 inside their strokes: 17px mono (10.2px/char) holds 19 characters (194),
+     15px mono (9px/char) 22 (198), so the reports and the agent break onto more lines. titles are
+     14px pixel, TRANSFORMATION 14 characters = 196; the agent's title is 12px pixel on two lines.
+     LANDING and TRANSFORMATION carry their logo 32px tall at 159-191 above their four lines, on the
+     dark stage fill so the white logos still read; every column's lines centre on the arrows at 236 */
+  .arc .flow { left: 20px; top: 140px; width: 1240px; height: 502px; padding: 10px 18px 2px; }
+  .arc .flow svg { display: block; }
   .arc .chart text { fill: var(--sl-dim); }
   .arc .chart text.val, .arc .chart text.tg-t { fill: var(--sl-text); }
-  .arc .chart text.t-amb, .arc .chart tspan.t-amb { fill: var(--amber); }
-  .arc .chart text.ttl { font-family: var(--pixel); font-size: 12px; fill: var(--sl-text); }
-  .arc .chart text.hl { font-size: 14px; }
-  .arc .chart text.sub { font-size: 12px; }
-  .arc .chart text.ag { font-family: var(--pixel); font-size: 10px; fill: var(--amber); }
-  .arc .chart text.cap { font-size: 12px; }
-  .arc .chart text.tag { font-family: var(--pixel); font-size: 11px; }
-  .arc .chart text.cp, .arc .chart text.bd { font-size: 12px; }
-  .arc .chart tspan.t-amb { font-weight: 600; }
+  .arc .chart text.ttl { font-family: var(--pixel); font-size: 14px; fill: var(--sl-text); }
+  .arc .chart text.hl { font-size: 17px; }
+  .arc .chart text.sub { font-size: 15px; }
+  .arc .chart text.ag { font-family: var(--pixel); font-size: 12px; fill: var(--amber); }
+  .arc .chart text.cap { font-size: 15px; }
   .arc .chart .sys { fill: var(--sl-bg); stroke: var(--sl-dim); stroke-width: 2; }
   .arc .chart .plat { fill: var(--sl-bg); stroke: var(--amber); stroke-width: 3; }
   .arc .chart .rep { fill: var(--sl-bg); stroke: var(--sl-text); stroke-width: 3; }
