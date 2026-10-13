@@ -29,7 +29,7 @@ trace.html
 
 # part 3: from analytics engineer to context engineer
 165-part-3-from-ae-to-ce.html
-rag.html
+layering-context.html
 ae-ce.html
 question-answer.html
 how-to-start.html
