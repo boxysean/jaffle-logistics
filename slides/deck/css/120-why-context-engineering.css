@@ -1,8 +1,8 @@
-  /* why-context-engineering slide: body 138-650 in two columns, the case 20-776 and paid for once 800-1260.
-     fit budget: the case is 748 inside its border, 628 for text after its 40px pads and the 40px marker
+  /* why-context-engineering slide: body 138-650 in two columns, the problem 20-776 and the solution 800-1260.
+     fit budget: the problem is 748 inside its border, 628 for text after its 40px pads and the 40px marker
      indent. bullets at 34px mono (20.4px/char, 44px/line) get 30 chars a line: the context gap (91 chars)
      takes four lines, the review (38) two and ten wires (70) three, so 9 lines and two 32px gaps = 462 of
-     472 under the 32px top pad. paid for once is 452 inside, 412 after its 20px pads: the headline at 30px
+     472 under the 32px top pad. the solution is 452 inside, 412 after its 20px pads: the headline at 30px
      (18px/char, 22 chars) takes two lines = 72, the three-times line at 24px (14.4px/char, 28 chars) two
      = 60, the three steps at 24px after a 44px numeral indent (25 chars) two lines each = 180, with gaps
      of 20, 18 and 2x18 = 386 of 472. each tab stands 12px above its panel and each shadow 10px below,
