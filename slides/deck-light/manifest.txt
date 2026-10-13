@@ -39,11 +39,11 @@ close.html
 appendix.html
 070-the-working-behind-the-numbers.html
 072-every-number-traces-back.html
-073-the-whole-stack.html
+137-the-whole-stack.html
 090-after-the-storm-two-additions.html
 095-amsterdam-bay-3.html
 135-the-working-behind-the-context.html
-175-rag-is-a-commodity.html
+225-rag-is-a-commodity.html
 190-from-analytics-engineer-to-context-engineer.html
 220-how-a-question-becomes-an-answer.html
-230-the-functions-and-how-it-runs.html
+240-semantic-layer-to-context-layer.html
