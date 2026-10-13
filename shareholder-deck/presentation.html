@@ -1684,20 +1684,20 @@
       <div class="owns">Follow one figure from the system that recorded it to the boardroom</div>
     </div>
     <div class="flow" style="top:176px;height:230px">
-      <div class="st fragment"><div class="no">RECORDED BY</div><div class="nm">the transport system</div></div>
-      <div class="ar fragment">&#9654;</div>
-      <div class="st fragment"><div class="no">STAGED AS</div><div class="nm code">stg_shipments</div><div class="tx">.status</div></div>
-      <div class="ar fragment">&#9654;</div>
-      <div class="st fragment"><div class="no">THE TABLE</div><div class="nm code">fct_shipments</div><div class="tx">.is_ontime</div></div>
-      <div class="ar fragment">&#9654;</div>
-      <div class="st fragment"><div class="no">THE METRIC</div><div class="nm code">on_time_rate</div><div class="tx">on-time shipments / shipments</div></div>
-      <div class="ar fragment">&#9654;</div>
-      <div class="st ambb fragment"><div class="no">THE NUMBER</div><div class="nm" style="font-size:30px">93.28%</div><div class="tx">on time, against a 97% target</div></div>
+      <div class="st"><div class="no">RECORDED BY</div><div class="nm">the transport system</div></div>
+      <div class="ar">&#9654;</div>
+      <div class="st"><div class="no">STAGED AS</div><div class="nm code">stg_shipments</div><div class="tx">.status</div></div>
+      <div class="ar">&#9654;</div>
+      <div class="st"><div class="no">THE TABLE</div><div class="nm code">fct_shipments</div><div class="tx">.is_ontime</div></div>
+      <div class="ar">&#9654;</div>
+      <div class="st"><div class="no">THE METRIC</div><div class="nm code">on_time_rate</div><div class="tx">on-time shipments / shipments</div></div>
+      <div class="ar">&#9654;</div>
+      <div class="st ambb"><div class="no">THE NUMBER</div><div class="nm" style="font-size:30px">93.28%</div><div class="tx">on time, against a 97% target</div></div>
     </div>
     <div class="foot" style="top:470px">Nothing in this deck is a number someone typed.</div>
     <div class="foot" style="top:530px"><em>Each one is a column with a lineage.</em></div>
   </div>
-  <aside class="notes">Read left to right as you click: the transport system records a shipment status; it is staged as stg_shipments.status, becomes fct_shipments.is_ontime, rolls up in the on_time_rate metric (on-time shipments over shipments) and arrives as 93.28%. The same trace works for EUR 52,954.86 of credits: the billing revenue ledger, staged with credited_amount cast to numeric, into fct_account_revenue, summed by the credited_amount metric. 340 tests run on every build, and a failing test stops the release.</aside>
+  <aside class="notes">Read left to right: the transport system records a shipment status; it is staged as stg_shipments.status, becomes fct_shipments.is_ontime, rolls up in the on_time_rate metric (on-time shipments over shipments) and arrives as 93.28%. The same trace works for EUR 52,954.86 of credits: the billing revenue ledger, staged with credited_amount cast to numeric, into fct_account_revenue, summed by the credited_amount metric. 340 tests run on every build, and a failing test stops the release.</aside>
 </section>
 <!-- Part 3 divider: From Analytics Engineering to Context Engineering -->
 <section class="agenda" data-status="dbt NL · 13 Oct 2026">
