@@ -627,8 +627,8 @@
      panel look. header 20-116, three panels 148-650: issue 432, what it means 480, dock 296, 16px gaps.
      chart: 6px an incident, 0 at y 116; the 2025 bar stacks bay 3 (amber, 11) under the other bays (teal, 4).
      fit budget, 448 of 494 inside after the pads: issue at 18px mono (10.8px/char, 21px/line) holds 34
-     characters a line, 9 lines + 2 gaps under the chart = 361; what it means at 20px (12px/char, 24px/line)
-     holds 34 a line, 16 lines + 2 gaps = 428. dock: trucks on an 8px grid, 256x376 in its 256x448.
+     characters a line, 11 lines + 2 gaps under the chart = 403; what it means at the same 18px holds 39
+     a line, 18 lines + 2 gaps = 422. dock: trucks on an 8px grid, 256x376 in its 256x448.
      header: 25 + 14 pixel characters = 894 of 1184. */
   .bay3 .hd { height: 96px; }
   .bay3 .hd h2 { display: flex; justify-content: space-between; align-items: baseline; }
@@ -643,11 +643,9 @@
   .bay3 .col ul { list-style: none; margin: 0; padding: 0; }
   .bay3 .col li { position: relative; padding-left: 20px; font-size: 18px; line-height: 21px; }
   .bay3 .col li + li { margin-top: 14px; }
-  .bay3 .means li { font-size: 20px; line-height: 24px; }
   .bay3 .means li + li { margin-top: 22px; }
   .bay3 .means li b { color: var(--teal-hi); font-weight: 600; }
   .bay3 .col li::before { content: ""; position: absolute; left: 0; top: 6px; width: 10px; height: 10px; background: var(--amber); }
-  .bay3 .means li::before { top: 7px; }
   .bay3 .col strong { color: var(--amber); font-weight: 600; }
   .bay3 .trucks { display: block; shape-rendering: crispEdges; }
   .bay3 .trucks .dr { fill: var(--dim); }
@@ -1610,16 +1608,16 @@
       </svg>
       <ul>
         <li>Leading explanation: a dock-staging process fault, at <strong>moderate confidence</strong>.</li>
-        <li><strong>Bay 3:</strong> its staging dwell rose from ~46 to 70 min despite no damage.</li>
+        <li><strong>Bay 3:</strong> no damage in 2023–24; in 2025 its staging dwell rose from ~46 to 70 min and 11 of 15 incidents were found there.</li>
         <li><strong>No other plausible explanation:</strong> vehicles and drivers within ordinary variation, an ordinary maintenance record.</li>
       </ul>
     </div>
     <div class="panel col means">
       <span class="tab">WHAT IT MEANS</span>
       <ul>
-        <li><b>Impact:</b> the second contributing factor in Jaffle Werke's 2025 on-time decline, beside the Paris storm.</li>
+        <li><b>Impact:</b> freight is being damaged at one loading bay: 15 damage incidents at the Amsterdam hub in 2025, up from 2 a year, <strong>11 of them at bay 3</strong>. Our largest customer's Amsterdam deliveries ran <strong>86% on time</strong>, against the 97% its contract promises.</li>
         <li><b>Discovered:</b> only by joining four systems: the <strong>incident reports</strong> (14 of 15 name dock staging), <strong>Slack</strong> (#accounts: June's AMS incidents "don't fit that pattern"), the <strong>CRM</strong>'s 20 Oct root-cause review and the <strong>bay record</strong>.</li>
-        <li><b>Next step:</b> the bay 3 equipment inspection IR-9003 asks for, the one result that would settle it, beside the hub's SOP audit; until then, keep peak volume off bay 3.</li>
+        <li><b>Next step:</b> inspect bay 3's forklifts and staging lanes, and check how freight is staged there against the standard procedure. Until then, <strong>keep peak volume off bay 3</strong>.</li>
       </ul>
     </div>
     <div class="panel col dock">
