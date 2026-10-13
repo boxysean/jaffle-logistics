@@ -3,7 +3,7 @@
   <div class="frame">
     <div class="panel hd">
       <h2>EVERY NUMBER TRACES BACK</h2>
-      <div class="owns">From the boardroom to the system that recorded it, in one direction</div>
+      <div class="owns">From the system that recorded it to the boardroom, in one direction</div>
     </div>
     <div class="panel flow">
       <span class="tab">THE LINEAGE</span>
@@ -48,8 +48,8 @@
     <div class="panel trace">
       <span class="tab">TWO NUMBERS, TRACED</span>
       <div class="chains">
-        <div class="chain"><span class="num">93.28%<br>on time</span><i></i><span class="met"><b>SEMANTIC LAYER</b><code>on_time_rate</code> · ratio<br>on_time_shipments / shipments</span><i></i><span>fct_shipments<br>.is_ontime</span><i></i><span>stg_shipments +<br>int_shipment_touchpoints</span><i></i><span class="sys">the transport<br>system</span></div>
-        <div class="chain"><span class="num">€52,954.86<br>credited</span><i></i><span class="met"><b>SEMANTIC LAYER</b><code>credited_amount</code> · simple<br>sum(credited_amount)</span><i></i><span>fct_account_revenue<br>.credited_amount</span><i></i><span>stg_revenue_ledger</span><i></i><span class="sys">billing</span></div>
+        <div class="chain"><span class="sys"><b>TRANSPORT SYSTEM</b>shipments<br>.status</span><i></i><span>stg_shipments<br>.status</span><i></i><span>fct_shipments<br>.is_ontime<em>status = 'delivered'</em></span><i></i><span class="met"><b>SEMANTIC LAYER</b><code>on_time_rate</code> · ratio<br>on_time_shipments / shipments</span><i></i><span class="num">93.28%<br>on time</span></div>
+        <div class="chain"><span class="sys"><b>BILLING</b>revenue_ledger<br>.credited_amount</span><i></i><span>stg_revenue_ledger<br>.credited_amount<em>cast to numeric</em></span><i></i><span>fct_account_revenue<br>.credited_amount</span><i></i><span class="met"><b>SEMANTIC LAYER</b><code>credited_amount</code> · simple<br>sum(credited_amount)</span><i></i><span class="num">€52,954.86<br>credited</span></div>
       </div>
       <div class="said">
         <p>Nothing in this deck is a number someone typed.</p>

@@ -1,26 +1,40 @@
   /* amsterdam bay 3 slide: the storm week's second-cause counterpart, in the storm slide's header and
-     panel look. header 20-116, three panels 148-650: issue 432, impact 360, documented 416, 16px gaps.
+     panel look. header 20-116, three panels 148-650: issue 432, what it means 480, dock 296, 16px gaps.
      chart: 6px an incident, 0 at y 116; the 2025 bar stacks bay 3 (amber, 11) under the other bays (teal, 4).
-     fit budget at 18px mono (10.8px/char, 21px/line), 448 of 494 inside after the pads: issue holds 34
-     characters a line, 11 lines under the chart = 435; impact 27 a line, 16 lines + 4 gaps = 424;
-     documented 34 a line, 14 lines under 5 kickers = 440. header: 33 + 14 pixel characters = 1102 of 1184. */
+     fit budget, 448 of 494 inside after the pads: issue at 18px mono (10.8px/char, 21px/line) holds 34
+     characters a line, 9 lines + 2 gaps under the chart = 361; what it means at 20px (12px/char, 24px/line)
+     holds 34 a line, 16 lines + 2 gaps = 428. dock: trucks on an 8px grid, 256x376 in its 256x448.
+     header: 25 + 14 pixel characters = 894 of 1184. */
   .bay3 .hd { height: 96px; }
   .bay3 .hd h2 { display: flex; justify-content: space-between; align-items: baseline; }
   .bay3 .hd h2 .when { font-size: 16px; color: var(--deep); background: var(--amber); padding: 5px 10px; }
   .bay3 .hd .owns { margin-top: 8px; }
   .bay3 .col { top: 148px; height: 502px; padding: 30px 18px 16px; }
   .bay3 .issue { left: 20px; width: 432px; }
-  .bay3 .impact { left: 468px; width: 360px; }
-  .bay3 .docs { left: 844px; width: 416px; }
+  .bay3 .means { left: 468px; width: 480px; }
+  .bay3 .dock { left: 964px; width: 296px; padding: 30px 16px 16px; display: flex; align-items: center; justify-content: center; }
   .bay3 .col .k { font-family: var(--pixel); font-size: 12px; color: var(--amber); line-height: 1; }
-  .bay3 .col .k.hot { color: var(--hot); }
   .bay3 .issue svg { margin: 14px 0; }
   .bay3 .col ul { list-style: none; margin: 0; padding: 0; }
   .bay3 .col li { position: relative; padding-left: 20px; font-size: 18px; line-height: 21px; }
   .bay3 .col li + li { margin-top: 14px; }
-  .bay3 .impact li + li { margin-top: 22px; }
+  .bay3 .means li { font-size: 20px; line-height: 24px; }
+  .bay3 .means li + li { margin-top: 22px; }
+  .bay3 .means li b { color: var(--teal-hi); font-weight: 600; }
   .bay3 .col li::before { content: ""; position: absolute; left: 0; top: 6px; width: 10px; height: 10px; background: var(--amber); }
-  .bay3 .docs .k ~ .k { margin-top: 14px; }
-  .bay3 .docs p { margin: 6px 0 0; font-size: 18px; line-height: 21px; }
-  .bay3 .docs code { color: var(--teal-hi); }
+  .bay3 .means li::before { top: 7px; }
   .bay3 .col strong { color: var(--amber); font-weight: 600; }
+  .bay3 .trucks { display: block; shape-rendering: crispEdges; }
+  .bay3 .trucks .dr { fill: var(--dim); }
+  .bay3 .trucks .d3 { fill: var(--amber); }
+  .bay3 .trucks .n { font-family: var(--pixel); font-size: 12px; fill: var(--navy); }
+  .bay3 .trucks .bx { fill: var(--teal-hi); }
+  .bay3 .trucks .rb { fill: var(--teal); }
+  .bay3 .trucks .cb { fill: var(--amber); }
+  .bay3 .trucks .wn { fill: var(--navy); }
+  .bay3 .trucks .ch { fill: var(--teal); }
+  .bay3 .trucks .wh { fill: var(--dim); }
+  .bay3 .trucks .pc { fill: var(--amber); }
+  .bay3 .trucks .tp { fill: var(--navy); }
+  .bay3 .trucks .hot-px { fill: var(--hot); }
+  .bay3 .trucks .gd { fill: var(--dim); }

@@ -1,22 +1,14 @@
-  /* why-the-data-team slide: body 176-650. the closing statement 176-340 on top, the two bullets
-     364-650 beneath. the header runs to 148 because the subheading carries the business user's
-     two-sentence pivot on two lines. fit budget at the deck's type sizes: the closing statement is
-     1204 inside, its headline at 32px (19.2px/char) breaks at 62 characters = 2 lines = 70 tall, the
-     clause beneath at 22px (13.2px/char, 25.3px/line) = 2 lines = 51, with an 8px gap = 129 of 146.
-     the bullets panel is 1196 inside, 1152 past the 44px marker indent: at 28px (16.8px/char) that
-     is 68 characters a line, so each bullet takes 2 lines of 40 = 80, the pair with a 32px gap = 192
-     of the 242 inside. the tab stands 12px above its panel and the shadow 10px below, so the 24px
-     gap stays clear */
-  .dt .hd { height: 128px; }
-  .dt .hd .owns { margin-top: 8px; }
-  .dt strong { color: var(--amber); font-weight: 600; }
-  .dt .close { left: 20px; top: 176px; width: 1240px; height: 164px; padding: 12px 18px 6px; background: var(--navy-2); border-color: var(--amber); }
-  .dt .close > .tab { background: var(--amber); }
-  .dt .close .k { font-size: 32px; line-height: 1.1; font-weight: 600; color: var(--text); }
-  .dt .close p { margin: 8px 0 0; font-size: 22px; line-height: 1.15; color: var(--dim); }
-  .dt .close p strong { color: var(--amber); }
-  .dt .bd { left: 20px; top: 364px; width: 1240px; height: 286px; padding: 18px; display: flex; align-items: center; }
-  .dt .bd ul { list-style: none; margin: 0; padding: 0; }
+  /* why-the-data-team slide: the usual 96px header, then one box filling the body 132-650 with a
+     headline and two bullets beneath it. fit budget at the deck's type sizes: the box is 1136
+     inside its 48px side padding, so the headline at 36px (21.6px/char) breaks at 52 characters =
+     2 lines of 46 = 92 tall. the bullets sit 1092 past the 44px marker indent: at 28px (16.8px/char)
+     that is 65 characters a line, so the 129-character first bullet takes up to 3 lines of 40 = 120
+     and the 97-character second 2 lines = 80, with a 32px gap between and 44px under the headline
+     = 368 of the 430 inside, centred */
+  .dt .hd { height: 96px; }
+  .dt .bd { left: 20px; top: 132px; width: 1240px; height: 518px; padding: 40px 48px; background: var(--navy-2); border-color: var(--amber); display: flex; flex-direction: column; justify-content: center; }
+  .dt .bd .k { font-size: 36px; line-height: 46px; font-weight: 600; color: var(--text); }
+  .dt .bd ul { list-style: none; margin: 44px 0 0; padding: 0; }
   .dt .bd li { position: relative; padding-left: 44px; font-size: 28px; line-height: 40px; color: var(--text); }
   .dt .bd li + li { margin-top: 32px; }
   .dt .bd li::before { content: ""; position: absolute; left: 0; top: 13px; width: 14px; height: 14px; background: var(--amber); }

@@ -9,7 +9,7 @@ slide for each seat — finance, operations, revenue, customer experience, fleet
 the argument for engineering that context at all, the case for the team that already owns that data,
 a slide on what that shift looks like in practice — from analytics engineer to context engineer —
 a slide showing how every number traces back to the system that recorded it, the whole stack that
-produces it, a slide on the process — how a question becomes an answer — and the functions it calls, a closing audit of where those numbers can, and cannot, be
+produces it, a slide on the process — how a question becomes an answer, a closing audit of where those numbers can, and cannot, be
 trusted, and finally what that warehouse makes possible: the support-case agent, and where else
 agents slot in. To add a hand-written slide, copy an existing slide file in `slides/deck/slides/`
 whose layout fits — each slide is its own file there — and `python3 slides/build_deck.py` builds the deck.
