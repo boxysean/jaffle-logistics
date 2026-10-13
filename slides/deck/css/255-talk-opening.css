@@ -31,7 +31,7 @@
   .about .bike .fr { fill: var(--amber); }
   .about .bike .hb { fill: var(--text); }
 
-  /* part 1, the game has changed: the blank title/body layout with three large bullets */
+  /* part 1, the game has changed: the blank title/body layout with two large bullets */
   .opener .bd { padding: 56px 64px; }
   .opener ul { list-style: none; margin: 0; padding: 0; }
   .opener li { position: relative; padding-left: 44px; font-size: 32px; line-height: 1.35; color: var(--text); }
