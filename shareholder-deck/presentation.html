@@ -615,34 +615,35 @@
   .sect .bd { left: 200px; top: 192px; width: 880px; height: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
   .sect .kick { font-family: var(--pixel); font-size: 16px; line-height: 1; color: var(--teal-hi); }
   .sect h2 { margin: 36px 0 0; font-family: var(--pixel); font-weight: normal; font-size: 36px; line-height: 1.2; color: var(--amber); text-shadow: 4px 4px 0 #000; letter-spacing: 0; text-transform: none; }
-  /* rag-is-a-commodity slide: header 20-148, the warehouse table 172-604, footnote 622-644.
+  /* rag-is-a-commodity slide: header 20-148, the warehouse table 172-650.
      the header stacks a pixel kicker, the 40-character title at 26px pixel (1040 of 1184 inside)
-     and the subtitle, 93 of 98 inside. fit budget for the table at 20px mono (12px/char), every
-     cell on one line: the panel is 1216 wide inside its 8px pads, columns 96 + 380 + 276 + 288 + 176
-     = 1216, each with 8px cell pads. the longest cell per column is 6, 30, 21, 22 and 13 characters
-     = 72, 360, 252, 264 and 156 of 80, 364, 260, 272 and 160. rows are 48 + 5 x 66 + 10 of rules
-     = 388 of 394 inside. the footnote's 106 characters at 18px (10.8px/char) need 1145 of 1240.
-     the databricks column, the warehouse this project runs on, is tinted and its header is teal-hi */
+     and the subtitle, 93 of 98 inside. fit budget for the table at 18px mono (10.8px/char), every
+     cell on one line: the panel is 1216 wide inside its 8px pads, columns 90 + 342 + 246 + 256 + 282
+     = 1216, each with 8px cell pads. the longest cell per column is 6, 30, 21, 22 and 23 characters
+     = 65, 324, 227, 238 and 248 of 74, 326, 230, 240 and 266; the 14px pixel headers need at most
+     70 (STAGE), and the 23-character package header at 18px mono needs 248 of 266. rows are
+     48 + 5 x 76 + 10 of rules = 438 of 448 inside.
+     the dbt_context_engineering column, the package this project builds on, is tinted amber and its
+     header is inverted: deep text on an amber fill */
   .rag .hd { height: 128px; padding-top: 10px; }
   .rag .hd .kick { font-family: var(--pixel); font-size: 14px; line-height: 1; color: var(--teal-hi); margin-bottom: 10px; }
   .rag .hd .owns { margin-top: 8px; }
-  .rag .wh { left: 20px; top: 172px; width: 1240px; height: 432px; padding: 22px 8px 8px; }
-  .rag table { width: 1216px; table-layout: fixed; border-collapse: collapse; border-spacing: 0; margin: 0; font-size: 20px; line-height: 1.2; }
-  .rag col.st { width: 96px; }
-  .rag col.sf { width: 380px; }
-  .rag col.db { width: 276px; }
-  .rag col.bq { width: 288px; }
-  .rag col.pg { width: 176px; }
+  .rag .wh { left: 20px; top: 172px; width: 1240px; height: 478px; padding: 22px 8px 8px; }
+  .rag table { width: 1216px; table-layout: fixed; border-collapse: collapse; border-spacing: 0; margin: 0; font-size: 18px; line-height: 1.2; }
+  .rag col.st { width: 90px; }
+  .rag col.sf { width: 342px; }
+  .rag col.db { width: 246px; }
+  .rag col.bq { width: 256px; }
+  .rag col.ce { width: 282px; }
   .rag th, .rag td { padding: 0 8px; text-align: left; white-space: nowrap; border: 0; border-bottom: 2px solid var(--teal); }
   .rag th { height: 48px; font-family: var(--pixel); font-size: 14px; font-weight: normal; color: var(--amber); vertical-align: middle; }
-  .rag td { height: 66px; vertical-align: middle; }
+  .rag td { height: 76px; vertical-align: middle; }
   .rag tr:last-child td { border-bottom: 0; }
   .rag td:first-child { font-weight: 600; }
   .rag td.no { color: var(--dim); }
   .rag code { color: var(--teal-hi); }
-  .rag .on { background: rgba(95, 211, 200, .08); }
-  .rag th.on { color: var(--teal-hi); }
-  .rag .foot { position: absolute; left: 20px; top: 622px; width: 1240px; font-size: 18px; line-height: 1.2; color: var(--dim); white-space: nowrap; }
+  .rag .on { background: rgba(255, 176, 0, .10); }
+  .rag th.on { background: var(--amber); color: var(--deep); font-family: var(--mono); font-size: 18px; font-weight: 600; }
   /* amsterdam bay 3 slide: the storm week's second-cause counterpart, in the storm slide's header and
      panel look. header 20-116, three panels 148-650: issue 432, what it means 480, dock 296, 16px gaps.
      chart: 6px an incident, 0 at y 116; the 2025 bar stacks bay 3 (amber, 11) under the other bays (teal, 4).
@@ -2044,16 +2045,15 @@
     <div class="panel wh">
       <span class="tab">THE RAG PRIMITIVES, BY WAREHOUSE</span>
       <table>
-        <colgroup><col class="st"><col class="sf"><col class="db"><col class="bq"><col class="pg"></colgroup>
-        <tr class="th"><th>STAGE</th><th>SNOWFLAKE</th><th class="on">DATABRICKS</th><th>BIGQUERY</th><th>POSTGRES</th></tr>
-        <tr><td>parse</td><td><code>AI_PARSE_DOCUMENT</code></td><td class="on"><code>ai_parse_document</code></td><td><code>ML.PROCESS_DOCUMENT</code></td><td class="no">—</td></tr>
-        <tr><td>chunk</td><td><code>SPLIT_TEXT_RECURSIVE_CHARACTER</code></td><td class="on"><code>ai_prep_search</code> (Beta)</td><td>Layout Parser chunking</td><td>your SQL</td></tr>
-        <tr><td>embed</td><td><code>AI_EMBED</code></td><td class="on"><code>ai_query()</code></td><td><code>ML.GENERATE_EMBEDDING</code></td><td>external call</td></tr>
-        <tr><td>search</td><td><code>VECTOR_COSINE_SIMILARITY</code></td><td class="on">Vector Search</td><td><code>VECTOR_SEARCH</code></td><td><code>&lt;=&gt;</code> operator</td></tr>
-        <tr><td>hybrid</td><td>Cortex Search (default)</td><td class="on">hybrid search</td><td>vector + <code>SEARCH</code></td><td>+ tsvector</td></tr>
+        <colgroup><col class="st"><col class="sf"><col class="db"><col class="bq"><col class="ce"></colgroup>
+        <tr class="th"><th>STAGE</th><th>SNOWFLAKE</th><th>DATABRICKS</th><th>BIGQUERY</th><th class="on">dbt_context_engineering</th></tr>
+        <tr><td>parse</td><td><code>AI_PARSE_DOCUMENT</code></td><td><code>ai_parse_document</code></td><td><code>ML.PROCESS_DOCUMENT</code></td><td class="on no">—</td></tr>
+        <tr><td>chunk</td><td><code>SPLIT_TEXT_RECURSIVE_CHARACTER</code></td><td><code>ai_prep_search</code> (Beta)</td><td>Layout Parser chunking</td><td class="on"><code>split_sentences</code> + <code>chunk</code></td></tr>
+        <tr><td>embed</td><td><code>AI_EMBED</code></td><td><code>ai_query()</code></td><td><code>ML.GENERATE_EMBEDDING</code></td><td class="on"><code>embed()</code> + <code>content_hash</code></td></tr>
+        <tr><td>search</td><td><code>VECTOR_COSINE_SIMILARITY</code></td><td>Vector Search</td><td><code>VECTOR_SEARCH</code></td><td class="on"><code>vector_search</code></td></tr>
+        <tr><td>hybrid</td><td>Cortex Search (default)</td><td>hybrid search</td><td>vector + <code>SEARCH</code></td><td class="on"><code>classify()</code> + filter</td></tr>
       </table>
     </div>
-    <div class="foot">Documented 2026-09-07. The functions are table stakes - the pipeline between the calls is the engineering.</div>
   </div>
 </section>
 <!-- Start with the Semantic Layer, then widen into the Context Layer -->
