@@ -1,0 +1,21 @@
+<!-- RAG is a commodity: the four primitives, then the point -->
+<section class="lt lt-flow">
+  <div class="frame">
+    <div class="panel hd">
+      <h2>RAG IS NOW A COMMODITY</h2>
+      <div class="owns">Every warehouse ships the primitives in SQL</div>
+    </div>
+    <div class="flow" style="top:176px;height:190px">
+      <div class="st fragment"><div class="nm">PARSE</div><div class="tx">documents to text</div></div>
+      <div class="ar fragment">&#9654;</div>
+      <div class="st fragment"><div class="nm">CHUNK</div><div class="tx">text to passages</div></div>
+      <div class="ar fragment">&#9654;</div>
+      <div class="st fragment"><div class="nm">EMBED</div><div class="tx">passages to vectors</div></div>
+      <div class="ar fragment">&#9654;</div>
+      <div class="st fragment"><div class="nm">SEARCH</div><div class="tx">vectors to answers</div></div>
+    </div>
+    <div class="foot" style="top:430px">Snowflake, Databricks, BigQuery: <em>one function each.</em></div>
+    <div class="foot fragment" style="top:500px;font-size:34px">The functions are commodity.<br><em>The pipeline between them is the engineering.</em></div>
+  </div>
+  <aside class="notes">Parse, chunk, embed, search: Snowflake, Databricks and BigQuery each ship these as SQL functions (AI_PARSE_DOCUMENT, AI_EMBED, VECTOR_COSINE_SIMILARITY on Snowflake; ai_parse_document, ai_query, Vector Search on Databricks; ML.PROCESS_DOCUMENT, ML.GENERATE_EMBEDDING, VECTOR_SEARCH on BigQuery). Documented 2026-09-07. The function stakes are table stakes. What decides quality is the pipeline between the calls: what gets chunked, what is hashed so unchanged text is not paid for twice, how each row keeps a citation, how batches are governed. The per-warehouse table is in the appendix.</aside>
+</section>

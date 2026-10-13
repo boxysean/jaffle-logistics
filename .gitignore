@@ -33,4 +33,7 @@ slides/png/deck-*.png
 
 # the built deck: its source is slides/deck/, built by slides/build_deck.py (and by the docs workflow)
 slides/presentation.html
+slides/presentation-light.html
 docs/shareholder-deck/presentation.html
+docs/shareholder-deck/presentation-light.html
+docs/shareholder-deck/presentation-full.html
