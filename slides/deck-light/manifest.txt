@@ -32,6 +32,7 @@ question-answer.html
 
 # part 3: from analytics engineer to context engineer
 165-part-3-from-ae-to-ce.html
+240-semantic-layer-to-context-layer.html
 ae-ce.html
 how-to-start.html
 close.html
@@ -46,4 +47,3 @@ appendix.html
 135-the-dag-behind-the-knowledge-base.html
 225-rag-is-a-commodity.html
 190-from-analytics-engineer-to-context-engineer.html
-240-semantic-layer-to-context-layer.html

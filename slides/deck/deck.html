@@ -42,11 +42,17 @@
   var slides = document.querySelectorAll('.reveal .slides > section');
   var pad = function (k) { return (k < 10 ? '0' : '') + k; };
   var logos = document.getElementById('logos').innerHTML;
+  // the count stops at the slide before a data-appendix divider; the backup slides after it
+  // are numbered on their own (APPENDIX 01, 02, ...) so the talk's total reads true
+  var end = Array.prototype.findIndex.call(slides, function (s) { return s.hasAttribute('data-appendix'); });
+  if (end < 0) end = slides.length;
   slides.forEach(function (s, i) {
     var bar = document.createElement('div');
     bar.className = 'panel status';
+    var label = i < end ? 'SLIDE ' + pad(i + 1) + ' / ' + pad(end)
+      : 'APPENDIX' + (i > end ? ' ' + pad(i - end) : '');
     bar.innerHTML = '<span>JAFFLE LOGISTICS</span>' +
-      '<span class="c">SLIDE ' + pad(i + 1) + ' / ' + pad(slides.length) + '</span>' +
+      '<span class="c">' + label + '</span>' +
       '<span class="r">' + logos + '</span>';
     s.querySelector('.frame').appendChild(bar);
   });
