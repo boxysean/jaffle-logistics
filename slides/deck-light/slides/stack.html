@@ -5,19 +5,17 @@
       <h2>ONE BUILD TAKES TWELVE SYSTEMS TO AN AGENT</h2>
       <div class="owns">Operational data in, governed context out</div>
     </div>
-    <div class="flow" style="top:176px;height:250px">
+    <div class="flow" style="top:263px;height:250px">
       <div class="st fragment"><div class="no">1</div><div class="nm">SOURCES</div><div class="tx">12 operational systems, 26 files</div></div>
       <div class="ar fragment">&#9654;</div>
       <div class="st fragment"><div class="no">2</div><div class="nm">LAND</div><div class="tx"><svg width="86" height="24" viewBox="0 0 86 24" style="display:block;margin:0 auto 8px"><!-- build_deck.py logo: fivetran x="0" y="0" width="86.25" height="24" --></svg>raw tables, in the lakehouse</div></div>
       <div class="ar fragment">&#9654;</div>
-      <div class="st fragment"><div class="no">3</div><div class="nm">MODEL</div><div class="tx"><svg width="86" height="24" viewBox="0 0 86 24" style="display:block;margin:0 auto 8px"><!-- build_deck.py logo: dbt x="20" y="0" width="46" height="24" --></svg>staging, intermediate, marts</div></div>
+      <div class="st fragment"><div class="no">3</div><div class="nm">MODEL</div><div class="tx"><svg width="86" height="24" viewBox="0 0 86 24" style="display:block;margin:0 auto 8px"><!-- build_deck.py logo: dbt x="20" y="0" width="46" height="24" --></svg>staging, intermediate, marts, <strong class="amb">context</strong></div></div>
       <div class="ar fragment">&#9654;</div>
-      <div class="st ambb fragment"><div class="no">4</div><div class="nm">CONTEXT</div><div class="tx">10 governed metrics and 25 context models</div></div>
+      <div class="st ambb fragment"><div class="no">4</div><div class="nm">CONTEXT +&nbsp;SL</div><div class="tx">10 governed metrics and 25 context models</div></div>
       <div class="ar fragment">&#9654;</div>
       <div class="st fragment"><div class="no">5</div><div class="nm">ASK</div><div class="tx">people and agents, over MCP</div></div>
     </div>
-    <div class="foot" style="top:480px"><em>Built overnight.</em> A failing test stops the release.</div>
-    <div class="foot dimf" style="top:540px;font-size:24px">dbt Platform &middot; 36 of 36 tests on the metrics' inputs pass</div>
   </div>
-  <aside class="notes">Walk left to right, one stage per click. Twelve operational systems, seeded as 26 source files in this demo (not connected). Fivetran lands them raw; dbt models 24 staging, 3 intermediate and 8 mart models; on top sit 25 context models (23 of them AI) and 10 governed metrics, exposed over MCP. One nightly job rebuilds everything from source, and a failing test stops the release. The detailed version of this slide is in the appendix.</aside>
+  <aside class="notes">Walk left to right, one stage per click. Twelve operational systems, seeded as 26 source files in this demo (not connected). Fivetran lands them raw; dbt models 24 staging, 3 intermediate and 8 mart models; the 25 context models (23 of them AI) are built in that same dbt step, and with the 10 governed metrics in the Semantic Layer they are exposed over MCP. The detailed version of this slide is in the appendix.</aside>
 </section>
