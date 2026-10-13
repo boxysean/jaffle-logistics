@@ -1,10 +1,10 @@
 # the light deck, in order. a line is a slide file (deck-light/slides first, then deck/slides),
 # optionally followed by ' | title=...', ' | sub=...' or ' | notes=...'
 
-# opening: hook, then who, then the road map
-001-talk-title.html | notes=Welcome. Do not read the title. Go straight to the question on the next slide.
-hook.html
+# opening: who, then the hook, then the road map
+001-talk-title.html | notes=Welcome. Do not read the title. Introduce yourself, then go to the question.
 0015-about-me.html | notes=Thirty seconds, no more. Credibility, then a human detail (the bike), then move on.
+hook.html
 002-agenda.html | notes=Three parts. Say them once and move on.
 
 # part 1: the game has changed, and why the data team
@@ -24,13 +24,14 @@ storm.html
 storm-learned.html
 bay3.html
 customer-experience.html
+how-made.html
 stack.html
 trace.html
+layering-context.html
 question-answer.html
 
 # part 3: from analytics engineer to context engineer
 165-part-3-from-ae-to-ce.html
-layering-context.html
 ae-ce.html
 how-to-start.html
 close.html
