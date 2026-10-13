@@ -1,11 +1,11 @@
 # the light deck, in order. a line is a slide file (deck-light/slides first, then deck/slides),
 # optionally followed by ' | title=...', ' | sub=...' or ' | notes=...'
 
-# opening: hook, then who, then the road map
-001-talk-title.html | notes=Welcome. Do not read the title. Go straight to the question on the next slide.
-hook.html
+# opening: who, then the road map, then the hook
+001-talk-title.html | notes=Welcome. Do not read the title. Introduce yourself, then the road map.
 0015-about-me.html | notes=Thirty seconds, no more. Credibility, then a human detail (the bike), then move on.
 002-agenda.html | notes=Three parts. Say them once and move on.
+hook.html
 
 # part 1: the game has changed, and why the data team
 003-the-game-has-changed.html | notes=About 30 seconds. Preparing data for AI-aided analysis and agents is now the game; the model reasons well enough, so what it reads decides whether the answer is right. That is the opportunity the rest of the talk earns.
@@ -24,17 +24,19 @@ storm.html
 storm-learned.html
 bay3.html
 customer-experience.html
+how-made.html
 stack.html
 trace.html
+layering-context.html
+question-answer.html
 
 # part 3: from analytics engineer to context engineer
 165-part-3-from-ae-to-ce.html
-layering-context.html
 ae-ce.html
 ae-ce-loop.html
-question-answer.html
-how-to-start.html
+240-semantic-layer-to-context-layer.html
 close.html
+thank-you.html
 
 # appendix: the dense working, kept for questions
 appendix.html
@@ -45,4 +47,3 @@ appendix.html
 095-amsterdam-bay-3.html
 135-the-dag-behind-the-knowledge-base.html
 225-rag-is-a-commodity.html
-240-semantic-layer-to-context-layer.html
