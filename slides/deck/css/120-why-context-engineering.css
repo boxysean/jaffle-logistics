@@ -1,22 +1,25 @@
-  /* why-context-engineering slide: body 138-650. the case 138-438, paid for once 462-650.
-     fit budget: the case is 1232 inside its border, 1112 for text after its 40px pads and the 40px marker
-     indent. bullets at 30px mono (18px/char, 39px/line) get 61 chars a line: the context gap (91 chars) and
-     ten wires (70) take two lines each, the review one, so 5 lines and two 22px gaps = 239 of 264 under the
-     28px top pad. paid for once is the closing statement and the slide's largest type: 1196 inside, the
-     headline at 32px (19.2px/char, 62 chars) breaks at its sentence (47 chars, 902px) = 70 tall, the three
-     clauses at 22px (13.2px/char, 90 chars) one a line (66 at most) = 76, with an 8px gap = 154 of 156.
-     each tab stands 12px above its panel and each shadow 10px below, so the 24px gap stays clear */
+  /* why-context-engineering slide: body 138-650 in two columns, the case 20-776 and paid for once 800-1260.
+     fit budget: the case is 748 inside its border, 628 for text after its 40px pads and the 40px marker
+     indent. bullets at 34px mono (20.4px/char, 44px/line) get 30 chars a line: the context gap (91 chars)
+     takes four lines, the review (38) two and ten wires (70) three, so 9 lines and two 32px gaps = 462 of
+     472 under the 32px top pad. paid for once is 452 inside, 412 after its 20px pads: the headline at 30px
+     (18px/char, 22 chars) takes two lines = 72, the three-times line at 24px (14.4px/char, 28 chars) two
+     = 60, the three steps at 24px after a 44px numeral indent (25 chars) two lines each = 180, with gaps
+     of 20, 18 and 2x18 = 386 of 472. each tab stands 12px above its panel and each shadow 10px below,
+     so the 24px gap stays clear */
   .why .hd { height: 96px; }
-  .why .hd .owns { margin-top: 8px; }
-  .why .case { left: 20px; top: 138px; width: 1240px; height: 300px; padding: 28px 40px 0; }
+  .why .case { left: 20px; top: 138px; width: 756px; height: 512px; padding: 32px 40px 0; }
   .why .case ul { list-style: none; margin: 0; padding: 0; }
-  .why .case li { position: relative; padding-left: 40px; font-size: 30px; line-height: 1.3; color: var(--text); }
-  .why .case li + li { margin-top: 22px; }
-  .why .case li::before { content: ""; position: absolute; left: 0; top: 12px; width: 16px; height: 16px; background: var(--amber); }
-  .why .once { left: 20px; top: 462px; width: 1240px; height: 188px; padding: 18px 18px 6px; background: var(--navy-2); border-color: var(--amber); }
+  .why .case li { position: relative; padding-left: 40px; font-size: 34px; line-height: 1.3; color: var(--text); }
+  .why .case li + li { margin-top: 32px; }
+  .why .case li::before { content: ""; position: absolute; left: 0; top: 14px; width: 16px; height: 16px; background: var(--amber); }
+  .why .once { left: 800px; top: 138px; width: 460px; height: 512px; padding: 32px 20px 0; background: var(--navy-2); border-color: var(--amber); }
   .why .once > .tab { background: var(--amber); }
-  .why .once .k { font-size: 32px; line-height: 1.1; font-weight: 600; color: var(--text); }
-  .why .once .k .hot { color: var(--hot); }
-  .why .once .k .amb { color: var(--amber); }
-  .why .once ol { list-style: none; margin: 8px 0 0; padding: 0; }
-  .why .once li { font-size: 22px; line-height: 1.15; color: var(--dim); white-space: nowrap; }
+  .why .once .k { font-size: 30px; line-height: 1.2; font-weight: 600; color: var(--text); }
+  .why .once .amb { color: var(--amber); }
+  .why .once .three { margin-top: 20px; font-size: 24px; line-height: 1.25; color: var(--text); }
+  .why .once .hot { color: var(--hot); }
+  .why .once ol { list-style: none; counter-reset: step; margin: 18px 0 0; padding: 0; }
+  .why .once li { position: relative; counter-increment: step; padding-left: 44px; font-size: 24px; line-height: 1.25; color: var(--dim); }
+  .why .once li + li { margin-top: 18px; }
+  .why .once li::before { content: counter(step); position: absolute; left: 0; top: 4px; font-family: var(--pixel); font-size: 22px; line-height: 1; color: var(--amber); }
