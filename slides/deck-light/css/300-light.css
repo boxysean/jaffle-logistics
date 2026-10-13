@@ -1,0 +1,102 @@
+  /* the light deck's kit: one idea per slide, so type is big and panels are few.
+     headline (.hd) is a sentence that states the point, at most 45 pixel characters a line.
+     the stage (.lt-stage) is the 1240x512 body under it. */
+  .lt .hd { height: 96px; }
+  .lt .hd .owns { margin-top: 8px; }
+  .lt .lt-stage { left: 20px; top: 132px; width: 1240px; height: 512px; }
+  .lt .center { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 56px; }
+
+  /* statement: a single sentence, large, with amber for the words that carry it */
+  .lt-stmt .stmt { font-size: 52px; line-height: 1.25; font-weight: 600; margin: 0; }
+  .lt-stmt .stmt em { font-style: normal; color: var(--amber); }
+  .lt-stmt .stmt .x { color: var(--hot); font-style: normal; }
+  .lt-stmt .kick { font-family: var(--pixel); font-size: 18px; color: var(--teal-hi); margin-bottom: 36px; line-height: 1; }
+  .lt-stmt .sub { margin-top: 40px; font-size: 28px; color: var(--dim); }
+  .lt-stmt .chips { margin-top: 48px; display: flex; align-items: center; gap: 24px; font-family: var(--pixel); font-size: 20px; line-height: 1; }
+  .lt-stmt .chips span { padding: 14px 18px; border: 4px solid var(--teal-hi); background: var(--navy-2); }
+  .lt-stmt .chips span.on { border-color: var(--amber); color: var(--amber); }
+  .lt-stmt .chips b { color: var(--amber); font-weight: normal; }
+  .lt-stmt .ask { margin-top: 56px; font-family: var(--pixel); font-size: 22px; color: var(--amber); animation: blink 1.1s steps(1) infinite; }
+  .lt-stmt .ask::before { content: "\25B6"; margin-right: 18px; }
+
+  /* cards: N equal panels, an icon, a pixel label, one line */
+  .lt-cards .row { position: absolute; left: 20px; top: 148px; width: 1240px; height: 480px; display: grid; gap: 24px; }
+  .lt-cards .row.n3 { grid-template-columns: repeat(3, 1fr); }
+  .lt-cards .row.n2 { grid-template-columns: repeat(2, 1fr); }
+  .lt-cards .card { position: relative; padding: 40px 28px 28px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .lt-cards .card svg { display: block; shape-rendering: crispEdges; }
+  .lt-cards .card .lbl { margin-top: 36px; font-family: var(--pixel); font-size: 26px; line-height: 1.25; color: var(--amber); }
+  .lt-cards .card .big { margin-top: 28px; font-size: 34px; line-height: 1.25; font-weight: 600; }
+  .lt-cards .card .line { margin-top: 20px; font-size: 26px; line-height: 1.3; color: var(--dim); }
+  .lt-cards .card .num { font-family: var(--pixel); font-size: 56px; line-height: 1; color: var(--amber); }
+  .lt-cards .card .num.hot { color: var(--hot); }
+  .lt-cards .card .n { position: absolute; top: 18px; left: 22px; font-family: var(--pixel); font-size: 22px; color: var(--teal-hi); }
+  .lt-cards .card.hotc { border-color: var(--hot); }
+  .lt-cards .card.amb { border-color: var(--amber); }
+
+  /* a big number with its caption and a picture beside it */
+  .lt-big .figs { position: absolute; display: flex; flex-direction: column; justify-content: center; gap: 30px; padding: 28px 32px; }
+  .lt-big .figs .v { font-family: var(--pixel); font-size: 72px; line-height: 1; color: var(--amber); }
+  .lt-big .figs .v.hot { color: var(--hot); }
+  .lt-big .figs .l { margin-top: 12px; font-size: 26px; line-height: 1.25; color: var(--text); }
+  .lt-big .figs .l .dim { font-size: 24px; }
+
+  /* a flow: boxes joined by arrows; fragments light them one at a time */
+  .lt-flow .flow { position: absolute; left: 20px; width: 1240px; display: flex; align-items: stretch; justify-content: space-between; gap: 0; }
+  .lt-flow .st { flex: 1 1 0; min-width: 0; position: relative; background: var(--navy); border: 4px solid var(--teal-hi); box-shadow: 6px 6px 0 #000; padding: 22px 12px 18px; text-align: center; }
+  .lt-flow .st .no { font-family: var(--pixel); font-size: 16px; color: var(--teal-hi); line-height: 1; }
+  .lt-flow .st .nm { margin-top: 16px; font-family: var(--pixel); font-size: 20px; line-height: 1.3; color: var(--amber); }
+  .lt-flow .st .tx { margin-top: 14px; font-size: 20px; line-height: 1.25; color: var(--text); }
+  .lt-flow .st.hotb { border-color: var(--hot); }
+  .lt-flow .st.hotb .nm { color: var(--hot); }
+  .lt-flow .st.ambb { border-color: var(--amber); }
+  .lt-flow .ar { flex: none; width: 36px; align-self: center; text-align: center; font-family: var(--pixel); font-size: 22px; color: var(--teal-hi); }
+  .lt-flow .st.fragment, .lt-flow .ar.fragment { transition: none; }
+  .lt-flow .foot { position: absolute; left: 20px; width: 1240px; text-align: center; font-size: 28px; line-height: 1.3; color: var(--text); }
+  .lt-flow .foot em { font-style: normal; color: var(--amber); font-weight: 600; }
+  .lt-flow .foot.dimf { color: var(--dim); }
+
+  /* sentence under a picture */
+  .lt .cap { position: absolute; left: 20px; width: 1240px; text-align: center; font-size: 28px; line-height: 1.3; }
+  .lt .cap em { font-style: normal; color: var(--amber); font-weight: 600; }
+  .lt .cap .x { color: var(--hot); font-style: normal; font-weight: 600; }
+
+  /* appendix divider reuses .sect; dim kicker */
+  .lt-app .kick { color: var(--dim); }
+
+  /* ten wires: two panels, each a diagram over one verdict */
+  .lt-wires .wire { top: 148px; height: 502px; width: 608px; }
+  .lt-wires .wire.l { left: 20px; }
+  .lt-wires .wire.r { left: 652px; }
+  .lt-wires .wire svg { position: absolute; left: 24px; top: 32px; }
+  .lt-wires .verdict { position: absolute; left: 0; right: 0; bottom: 24px; text-align: center; font-family: var(--pixel); font-size: 24px; line-height: 1; }
+  .lt-wires .verdict.hot { color: var(--hot); }
+  .lt-wires .verdict.amb { color: var(--amber); }
+  .lt-wires .wire.r { border-color: var(--amber); }
+
+  /* product mix and customer experience keep their chart; the findings become one callout */
+  .lt .callout { height: 100%; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+  .lt .callout .v { font-family: var(--pixel); font-size: 44px; line-height: 1.1; color: var(--amber); }
+  .lt .callout .v.hot { color: var(--hot); }
+  .lt .callout .l { font-size: 26px; line-height: 1.25; margin-bottom: 20px; }
+  .lt .callout .l em { font-style: normal; color: var(--amber); font-weight: 600; }
+  .lt .facts { display: flex; flex-direction: column; justify-content: center; height: 100%; }
+  .lt .facts .v { font-family: var(--pixel); font-size: 40px; line-height: 1.1; color: var(--amber); }
+  .lt .facts .v.hot { color: var(--hot); margin-top: 36px; }
+  .lt .facts .l { margin-top: 14px; font-size: 26px; line-height: 1.3; }
+  .lt .facts .l em { font-style: normal; color: var(--amber); font-weight: 600; }
+  .lt-big .figs .l em { font-style: normal; color: var(--amber); font-weight: 600; }
+  .lt-big .chartp { position: absolute; left: 20px; top: 148px; width: 592px; height: 502px; }
+  .lt-big .chartp svg { position: absolute; left: 24px; top: 48px; }
+  .svc .band .callout .v { font-size: 56px; }
+  .lt .facts { width: 100%; }
+
+  /* the whole flow is on screen from the start, dimmed; each click lights the next step
+     (the closing line, if it has fragment, stays hidden until its click) */
+  .reveal .lt-flow .st.fragment, .reveal .lt-flow .ar.fragment { opacity: .3; visibility: visible; }
+  .reveal .lt-flow .st.fragment.visible, .reveal .lt-flow .ar.fragment.visible { opacity: 1; }
+  .reveal .lt-flow .st.fragment.current-fragment { box-shadow: 0 0 0 4px var(--amber), 6px 6px 0 4px #000; }
+  .lt-big .figs .v { font-size: 56px; }
+  .cx .callout .v { font-size: 36px; white-space: nowrap; }
+  .cx .callout .v.one { font-size: 80px; }
+  .lt-flow .st .nm.code { font-family: var(--mono); font-size: 19px; font-weight: 600; }

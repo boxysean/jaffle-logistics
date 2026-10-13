@@ -1,0 +1,49 @@
+# the light deck, in order. a line is a slide file (deck-light/slides first, then deck/slides),
+# optionally followed by ' | title=...', ' | sub=...' or ' | notes=...'
+
+# opening: hook, then who, then the road map
+001-talk-title.html | notes=Welcome. Do not read the title. Go straight to the question on the next slide.
+hook.html
+0015-about-me.html | notes=Thirty seconds, no more. Credibility, then a human detail (the bike), then move on.
+002-agenda.html | notes=Three parts. Say them once and move on.
+
+# part 1: the game has changed, and why the data team
+game-changed.html
+ten-wires.html
+data-team-owns.html
+
+# part 2: showcase
+010-title.html | notes=Jaffle Logistics is a synthetic dataset. Everything from here is built from the company's own operating data.
+business-in-brief.html
+025-top-line-numbers.html
+030-the-year-in-numbers.html | title=REVENUE GREW. RELIABILITY FELL. | sub=FY2023 to FY2025: on time slipped to 93.28% against a 97% target | notes=Three tiles, three charts. Revenue up 4.55% to EUR 2,879,732. On time 93.28% against a 97% contract, down 3.95 points. EUR 52,955 in service credits, none in 2023-24. Shipments rose only about 3% a year, so 2025 is a reliability fall, not a volume story.
+product-mix.html
+040-the-quarters.html | title=Q1 BROKE. Q4 SLIPPED AGAIN. | sub=FY2025 by quarter: on time, revenue, dispatch exceptions, service credits | notes=On time by quarter: Q1 90.33 with the storm in week 3, Q2 95.40, Q3 95.12, Q4 92.62. Service credits rose 5.8x through the year, to 27.5k in Q4. The storm explains Q1. It does not explain Q4.
+075-drilling-into-the-why.html
+storm.html
+storm-learned.html
+bay3.html
+customer-experience.html
+stack.html
+trace.html
+
+# part 3: from analytics engineer to context engineer
+165-part-3-from-ae-to-ce.html
+rag.html
+ae-ce.html
+question-answer.html
+how-to-start.html
+close.html
+
+# appendix: the dense working, kept for questions
+appendix.html
+070-the-working-behind-the-numbers.html
+072-every-number-traces-back.html
+073-the-whole-stack.html
+090-after-the-storm-two-additions.html
+095-amsterdam-bay-3.html
+135-the-working-behind-the-context.html
+175-rag-is-a-commodity.html
+190-from-analytics-engineer-to-context-engineer.html
+220-how-a-question-becomes-an-answer.html
+230-the-functions-and-how-it-runs.html
