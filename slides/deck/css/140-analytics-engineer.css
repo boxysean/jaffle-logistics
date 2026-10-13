@@ -1,29 +1,34 @@
-  /* analytics engineer -> context engineer: the practitioner's answer. body 138-610: two panels
-     138-400 (the shift, and where the role already stands), the numbered how-to strip 424-610,
-     footnote 626. each tab stands 12px above its panel and each shadow 10px below, so the 24px gaps
-     stay clear. violet accents only, as the Q4 slide uses it: text, list markers and the tab chip.
-     fit budget at 18px mono (10.8px/char, 20px lines): a top panel is 582 inside its 12px pads = 53
-     characters; the shift needs 9 lines (208 of 230 inside), the position 11 (221 of 230). the how-to
-     strip is 1196 inside = 108 characters: three 2-line steps plus a one-line close = 7 lines, 146 of
-     158 inside. */
+  /* analytics engineer -> context engineer: the question loop, then why it matters. body 140-640:
+     the loop 140-440, two bullets 468-640. each tab stands 12px above its panel and each shadow
+     10px below, so the 28px gap stays clear. colour follows the lineage: teal = where the data
+     lives, amber = the platform's layers, teal-hi = what a consumer reads; dashed amber is the
+     agent, drawn as the stack draws its marker.
+     the loop: 1196 x 280 at scale 1, the svg running 6px into the bottom pad. steps 0-205, the
+     closing band 220-271. five steps are 150 wide and step 3 is 336, because it carries two
+     sub-boxes of verified copy that will not fit 150 at 12px; 22px arrow gaps (2 clear, 8 shaft,
+     10 head, 2 clear). at 12px mono (7.2px/char) a narrow step's 144px interior takes 18
+     characters: 3, 6, 6, 6 lines from 64 (step 2 from 80, under its 3-line label), 16px apart, the
+     last at 160 of 202. labels at 12px pixel hold 12 characters: 2 lines, 3 for step 2. step 3's
+     label is 24 characters = 288 of 330; its sub-boxes are 310 inside: an 11px pixel label (27
+     characters = 297) + 3 lines of 38 characters at most (274) in 80px each. the band's second
+     line at 13px (7.8px/char) is 141 characters = 1100 of 1190.
+     the bullets at 26px mono (15.6px/char, 36px lines) sit 1200 past the 40px marker indent = 76
+     characters a line: two lines each, 4 x 36 + a 24px gap = 168 of 172 */
   .ae .hd { height: 96px; }
   .ae .hd .owns { margin-top: 8px; }
-  .ae strong { color: var(--violet); font-weight: 600; }
-  .ae .pts { position: absolute; left: 20px; top: 138px; width: 1240px; height: 262px; display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 12px; }
-  .ae .pts .panel { position: relative; padding: 18px 12px 6px; }
-  .ae .pts .k { font-size: 20px; line-height: 23px; font-weight: 600; color: var(--violet); }
-  .ae .pts p { margin: 6px 0 0; font-size: 18px; line-height: 20px; }
-  .ae .pts p.dim { color: var(--dim); }
-  .ae .pts ul { list-style: none; margin: 0; padding: 0; }
-  .ae .pts li { position: relative; padding-left: 20px; font-size: 18px; line-height: 20px; }
-  .ae .pts li + li { margin-top: 6px; }
-  .ae .pts li::before { content: ""; position: absolute; left: 0; top: 5px; width: 10px; height: 10px; background: var(--violet); }
-  .ae .how { left: 20px; top: 424px; width: 1240px; height: 186px; padding: 14px 18px 6px; }
-  .ae .how > .tab { background: var(--violet); }
-  .ae .how ol { list-style: none; counter-reset: step; margin: 0; padding: 0; }
-  .ae .how li { position: relative; counter-increment: step; padding-left: 30px; font-size: 18px; line-height: 20px; }
-  .ae .how li + li { margin-top: 6px; }
-  .ae .how li::before { content: counter(step); position: absolute; left: 0; top: 1px; font-family: var(--pixel); font-size: 14px; color: var(--violet); }
-  .ae .how .dim { margin: 8px 0 0; font-size: 18px; line-height: 20px; color: var(--dim); }
-  .ae .foot { position: absolute; left: 20px; top: 626px; width: 1240px; font-size: 22px; line-height: 1.2; color: var(--dim); white-space: nowrap; }
-
+  .ae .flow { left: 20px; top: 140px; width: 1240px; height: 300px; padding: 12px 18px 6px; }
+  .ae .flow svg { display: block; }
+  .ae .chart text.ttl { font-family: var(--pixel); font-size: 12px; fill: var(--text); }
+  .ae .chart text.tag { font-family: var(--pixel); font-size: 11px; }
+  .ae .chart text.cp { font-size: 12px; }
+  .ae .chart text.bd { font-size: 13px; }
+  .ae .chart text.bd.t-amb { font-weight: 600; }
+  .ae .chart .sys { fill: var(--deep); stroke: var(--teal); stroke-width: 3; }
+  .ae .chart .plat { fill: var(--deep); stroke: var(--amber); stroke-width: 3; }
+  .ae .chart .rep { fill: var(--deep); stroke: var(--teal-hi); stroke-width: 3; }
+  .ae .chart .agent { fill: none; stroke: var(--amber); stroke-width: 3; stroke-dasharray: 12 8; }
+  .ae .chart .arw { fill: var(--teal-hi); }
+  .ae .so { position: absolute; left: 20px; top: 468px; width: 1240px; list-style: none; margin: 0; padding: 0; }
+  .ae .so li { position: relative; padding-left: 40px; font-size: 26px; line-height: 36px; color: var(--text); }
+  .ae .so li + li { margin-top: 24px; }
+  .ae .so li::before { content: ""; position: absolute; left: 0; top: 11px; width: 14px; height: 14px; background: var(--amber); }
