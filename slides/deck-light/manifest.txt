@@ -8,7 +8,7 @@ hook.html
 002-agenda.html | notes=Three parts. Say them once and move on.
 
 # part 1: the game has changed, and why the data team
-game-changed.html
+003-the-game-has-changed.html | notes=About 30 seconds. Preparing data for AI-aided analysis and agents is now the game; the model reasons well enough, so what it reads decides whether the answer is right. That is the opportunity the rest of the talk earns.
 ten-wires.html
 data-team-owns.html
 
