@@ -37,3 +37,11 @@ slides/presentation-light.html
 docs/shareholder-deck/presentation.html
 docs/shareholder-deck/presentation-light.html
 docs/shareholder-deck/presentation-full.html
+
+# the deck video: the clip (out/*.mp4) and its sources are committed; the frame cache,
+# the ffmpeg sequence dir and the throwaway chromium profile are not
+slides/video/out/frames/
+slides/video/out/seq/
+slides/video/out/chrome-profile/
+slides/video/out/presentation-video.html
+__pycache__/
