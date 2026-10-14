@@ -107,3 +107,6 @@
   /* a size down, so the longest title (with its number) and subtitle still fit on one line beside the icon */
   .lt .hd:has(.ico) h2 { font-size: 24px; }
   .lt .hd:has(.ico) .owns { font-size: 22px; }
+
+  /* the light copy of the loop drops its two bullets: centre the 300px loop in the 140-640 body */
+  .ae-loop .flow { top: 240px; }
