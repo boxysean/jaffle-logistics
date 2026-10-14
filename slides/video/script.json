@@ -1,0 +1,48 @@
+{
+  "fps": 30,
+  "size": [1280, 720],
+  "clips": [
+    {
+      "slide": "001-talk-title",
+      "seconds": 2.0,
+      "narration": "PLACEHOLDER - title card, held. Dropped in from Sean's talk track.",
+      "cues": [{"at": 0.2, "anim": "panels-in"}]
+    },
+    {
+      "slide": "020-the-business-in-brief",
+      "seconds": 4.0,
+      "narration": "PLACEHOLDER - what Jaffle Logistics is: a European LTL, last-mile and warehousing carrier that sells a promise, not just transport.",
+      "cues": [{"at": 0.2, "anim": "panels-in"}, {"at": 0.9, "anim": "charts"}]
+    },
+    {
+      "slide": "030-the-year-in-numbers",
+      "seconds": 6.0,
+      "narration": "PLACEHOLDER - revenue EUR 2,879,732, up 4.55%; on time 93.28% against a 97% target; EUR 52,955 in service credits.",
+      "cues": [{"at": 0.2, "anim": "panels-in"}, {"at": 0.9, "anim": "charts"}, {"at": 1.4, "anim": "count-up"}]
+    },
+    {
+      "slide": "080-the-storm-week",
+      "seconds": 6.0,
+      "narration": "PLACEHOLDER - the Paris storm week of 13-19 January 2025: what happened, what it cost (EUR 879.25 in credits), and what changed.",
+      "cues": [{"at": 0.2, "anim": "panels-in"}, {"at": 0.9, "anim": "charts"}]
+    },
+    {
+      "slide": "095-amsterdam-bay-3",
+      "seconds": 5.0,
+      "narration": "PLACEHOLDER - the second cause: 15 handling-damage incidents at the Amsterdam hub in 2025, 11 of them at bay 3.",
+      "cues": [{"at": 0.2, "anim": "panels-in"}, {"at": 0.9, "anim": "charts"}, {"at": 1.2, "anim": "count-up"}]
+    },
+    {
+      "slide": "190-from-analytics-engineer-to-context-engineer",
+      "seconds": 5.0,
+      "narration": "PLACEHOLDER - the shift in practice: the same craft, aimed at a reader who never asks a clarifying question.",
+      "cues": [{"at": 0.2, "anim": "panels-in"}, {"at": 0.9, "anim": "charts"}]
+    },
+    {
+      "slide": "240-semantic-layer-to-context-layer",
+      "seconds": 2.0,
+      "narration": "PLACEHOLDER - closing card: start with the semantic layer, add the context layer; same project, same team, same discipline.",
+      "cues": [{"at": 0.2, "anim": "panels-in"}]
+    }
+  ]
+}

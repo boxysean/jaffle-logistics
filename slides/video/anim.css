@@ -1,0 +1,31 @@
+/* Video seek hooks.
+ *
+ * These rules apply ONLY when the video page is open, which is flagged by a .vseek
+ * class on <html>. The normal deck (slides/presentation.html) never has that class,
+ * so nothing here changes how the deck looks or behaves when it is opened normally.
+ *
+ * The animation itself is driven in JS (slides/video/seek.js): at time t it sets
+ * inline opacity / transform / stroke-dashoffset. CSS only supplies the geometry CSS
+ * transforms cannot get right on their own (SVG scaling about a rect's own baseline).
+ */
+
+.vseek .reveal .progress,
+.vseek .reveal .controls,
+.vseek .reveal .slide-number { display: none !important; }
+
+/* chart bars grow from their own baseline, not the SVG viewport origin */
+.vseek svg rect.b {
+  transform-box: fill-box;
+  transform-origin: bottom;
+}
+.vseek svg rect.b,
+.vseek svg line.ln,
+.vseek svg line.tg,
+.vseek svg polyline {
+  will-change: transform, stroke-dashoffset;
+}
+
+/* panels fade + rise; keep them out of layout flow jitter while animating */
+.vseek .frame .panel {
+  will-change: opacity, transform;
+}
