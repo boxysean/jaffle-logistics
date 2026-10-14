@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Build the Reveal.js deck from its parts in slides/deck/.
+"""Build the Reveal.js deck from its parts in slides/deck/ and slides/deck-light/.
 
     slides/deck/deck.html     the page: head, Reveal setup, and three marker lines
     slides/deck/css/*.css     the stylesheet, one file per slide family
-    slides/deck/slides/*.html one file per slide
+    slides/deck/slides/*.html slides the deck borrows, named in slides/deck-light/manifest.txt
     slides/assets/            the status-bar logos, inlined as data URIs so the built file
                               needs nothing beside it (the docs site publishes only the HTML)
 
@@ -11,18 +11,14 @@ A slide's SVG can place the same logos with a marker comment, which the build sw
 inlined <image> carrying the attributes it is given:
     <!-- build_deck.py logo: fivetran x="0" y="0" width="86.25" height="24" -->
 
-Parts are joined in file-name order, so the number prefix sets the order: to add a slide
-between 030 and 040, name it 035-*.html. Slide numbers in the status bar are generated in
-JS at load time, so adding or removing a slide never touches the other slides.
+The slide order is slides/deck-light/manifest.txt (see its README). Slide numbers in the
+status bar are generated in JS at load time, so adding or removing a slide never touches the
+other slides.
 
 The built deck is not committed. It goes to slides/presentation.html (open it from disk),
 and the docs workflow builds it again into docs/shareholder-deck/presentation.html.
 
-A second build, the light deck, is made from the same parts plus slides/deck-light/ (see its
-README): the same story with one idea per slide, the dense working moved to an appendix.
-
 Run:  python3 slides/build_deck.py [--out PATH]
-      python3 slides/build_deck.py --variant light [--out PATH]
 """
 import argparse
 import base64
@@ -34,7 +30,6 @@ SLIDES_DIR = os.path.dirname(os.path.abspath(__file__))
 DECK_DIR = os.path.join(SLIDES_DIR, "deck")
 OUT = os.path.join(SLIDES_DIR, "presentation.html")
 LIGHT_DIR = os.path.join(SLIDES_DIR, "deck-light")
-LIGHT_OUT = os.path.join(SLIDES_DIR, "presentation-light.html")
 NOTES_SCRIPT = '<script src="https://cdn.jsdelivr.net/npm/reveal.js@5/plugin/notes/notes.js"></script>\n'
 CSS_MARK = "/* build_deck.py inserts slides/deck/css/*.css here"
 SLIDE_MARK = "<!-- build_deck.py inserts slides/deck/slides/*.html here"
@@ -102,22 +97,20 @@ def light_slides():
     return "".join(out)
 
 
-def build(variant="full"):
-    light = variant == "light"
+def build():
     out = []
     for line in read(os.path.join(DECK_DIR, "deck.html")).splitlines(keepends=True):
         if line.strip().startswith(CSS_MARK):
             out.append(parts("css/*.css"))
-            if light:
-                out.append(parts_light("css/*.css"))
+            out.append(parts_light("css/*.css"))
         elif line.strip().startswith(SLIDE_MARK):
-            out.append(SVG_LOGO_MARK.sub(svg_logo, light_slides() if light else parts("slides/*.html")))
+            out.append(SVG_LOGO_MARK.sub(svg_logo, light_slides()))
         elif line.strip().startswith(LOGO_MARK):
             out.append(logos())
-        elif light and "reveal.js@5/dist/reveal.js" in line:
-            # the light deck carries speaker notes, opened with S
+        elif "reveal.js@5/dist/reveal.js" in line:
+            # the deck carries speaker notes, opened with S
             out.append(line + NOTES_SCRIPT)
-        elif light and line.strip() == "hash: true,":
+        elif line.strip() == "hash: true,":
             out.append(line + "    plugins: [RevealNotes],\n")
         else:
             out.append(line)
@@ -126,11 +119,10 @@ def build(variant="full"):
 
 def main():
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
-    p.add_argument("--variant", choices=["full", "light"], default="full", help="which deck to build")
-    p.add_argument("--out", help="where to write the deck (default slides/presentation.html, or presentation-light.html)")
+    p.add_argument("--out", help="where to write the deck (default slides/presentation.html)")
     args = p.parse_args()
-    html = build(args.variant)
-    args.out = args.out or (LIGHT_OUT if args.variant == "light" else OUT)
+    html = build()
+    args.out = args.out or OUT
     with open(args.out, "w", encoding="utf-8") as fh:
         fh.write(html)
     print(f"wrote {os.path.relpath(args.out)} ({html.count('<section')} slides)")
