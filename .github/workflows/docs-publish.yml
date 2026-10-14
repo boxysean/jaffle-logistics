@@ -36,4 +36,6 @@ jobs:
       # into the docs tree at publish time so the published copy can never drift from the parts.
       # the deck is published at presentation.html, where the site root redirects
       - run: python3 slides/build_deck.py --out docs/shareholder-deck/presentation.html
+      # the same deck in the Fivetran + dbt Labs corporate theme, published beside it
+      - run: python3 slides/build_deck.py --theme corporate --out docs/shareholder-deck/presentation-corporate.html
       - run: mkdocs gh-deploy --force

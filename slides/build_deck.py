@@ -18,13 +18,17 @@ other slides.
 The built deck is not committed. It goes to slides/presentation.html (open it from disk),
 and the docs workflow builds it again into docs/shareholder-deck/presentation.html.
 
-Run:  python3 slides/build_deck.py [--out PATH]
+--theme corporate re-skins the built deck in the Fivetran + dbt Labs corporate theme (see
+slides/corporate/theme.py); the slides and their order are the same either way.
+
+Run:  python3 slides/build_deck.py [--out PATH] [--theme corporate]
 """
 import argparse
 import base64
 import glob
 import os
 import re
+import sys
 
 SLIDES_DIR = os.path.dirname(os.path.abspath(__file__))
 DECK_DIR = os.path.join(SLIDES_DIR, "deck")
@@ -120,8 +124,15 @@ def build():
 def main():
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     p.add_argument("--out", help="where to write the deck (default slides/presentation.html)")
+    p.add_argument("--theme", choices=["retro", "corporate"], default="retro",
+                   help="retro: the 16-bit game skin (default); corporate: the Fivetran + dbt Labs theme")
     args = p.parse_args()
     html = build()
+    if args.theme == "corporate":
+        sys.path.insert(0, os.path.join(SLIDES_DIR, "corporate"))
+        sys.dont_write_bytecode = True
+        import theme
+        html = theme.apply(html)
     args.out = args.out or OUT
     with open(args.out, "w", encoding="utf-8") as fh:
         fh.write(html)
