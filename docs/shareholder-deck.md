@@ -7,10 +7,11 @@ on top, how a question becomes an answer), and what that shift means for the dat
 analytics engineer to context engineer. The dense working sits in an appendix for questions.
 
 [**Open the deck &rarr;**](shareholder-deck/presentation.html){ .md-button .md-button--primary }
+[**Open it in the Fivetran + dbt Labs theme &rarr;**](shareholder-deck/presentation-corporate.html){ .md-button }
 
 Use the arrow keys to move, `f` for full screen, `s` for speaker notes, and print to PDF for a
 handout. The slide order is `slides/deck-light/manifest.txt`, and `python3 slides/build_deck.py`
-builds the deck.
+builds the deck (`--theme corporate` for the Fivetran + dbt Labs version).
 
 ## The network map and the executive group, in three styles
 
