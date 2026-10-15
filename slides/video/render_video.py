@@ -55,27 +55,45 @@ def chromium():
     raise SystemExit("no chromium under ~/.cache/ms-playwright/")
 
 
-def build_video_page():
-    """Build the deck and inject the seek hook into a separate video-only page."""
-    html = build_deck.build("full")
+def build_video_page(stems):
+    """Build the deck and inject the seek hook into a separate video-only page.
+
+    The manifest's stems go in as window.__vslides, so the hook finds a slide by name."""
+    html = build_deck.build()
     with open(DECK, "w", encoding="utf-8") as fh:
         fh.write(html)
+    # one top-level <section> per manifest line, in manifest order
+    count = len(re.findall(r'<section\b', html))
+    if count != len(stems):
+        raise SystemExit("built deck has %d slides, manifest names %d" % (count, len(stems)))
     with open(os.path.join(HERE, "anim.css"), encoding="utf-8") as fh:
         css = fh.read()
     with open(os.path.join(HERE, "seek.js"), encoding="utf-8") as fh:
         js = fh.read()
     html = html.replace("</head>", f"<style>\n{css}\n</style>\n</head>", 1)
-    html = html.replace("</body>", f"<script>\n{js}\n</script>\n</body>", 1)
+    html = html.replace("</body>", f"<script>window.__vslides = {json.dumps(stems)};</script>\n"
+                                   f"<script>\n{js}\n</script>\n</body>", 1)
     os.makedirs(os.path.dirname(VIDEO_PAGE), exist_ok=True)
     with open(VIDEO_PAGE, "w", encoding="utf-8") as fh:
         fh.write(html)
-    return html.count("<section")
+    return count
 
 
-def slide_index():
-    """Map each slide file's stem to its 0-based position in the built deck (build order)."""
-    files = sorted(glob.glob(os.path.join(SLIDES, "deck", "slides", "*.html")))
-    return {os.path.splitext(os.path.basename(p))[0]: i for i, p in enumerate(files)}
+def manifest_stems():
+    """The deck's slide stems in manifest order (= build order). Each must resolve the way
+    build_deck.py resolves it: deck-light/slides first, then deck/slides."""
+    stems = []
+    with open(os.path.join(SLIDES, "deck-light", "manifest.txt"), encoding="utf-8") as fh:
+        for line in fh:
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            name = line.split(" | ")[0].strip()
+            if not any(os.path.exists(os.path.join(SLIDES, d, "slides", name))
+                       for d in ("deck-light", "deck")):
+                raise SystemExit("manifest names a missing slide file: %r" % name)
+            stems.append(os.path.splitext(name)[0])
+    return stems
 
 
 def free_port():
@@ -151,7 +169,7 @@ async def wait_ready(cdp, timeout=45):
         if v is True:
             return
         flag = await cdp.eval("String(window.__vseekReady)")
-        if flag in ("noreveal", "noslide"):
+        if flag in ("noreveal", "noslide", "nomatch", "noname"):
             raise RuntimeError("seek hook failed: " + flag)
         await asyncio.sleep(0.1)
     raise RuntimeError("deck did not become ready")
@@ -166,17 +184,16 @@ def frame_path(clip_no, slug, i):
 async def render(script, out, force=False):
     fps = script["fps"]
     size = script["size"]
-    count = build_video_page()
-    idx = slide_index()
+    stems = manifest_stems()
+    count = build_video_page(stems)
     print("built video page: %d slides" % count)
 
-    # resolve every clip first, so a bad name fails before we launch a browser
+    # check every clip first, so a bad name fails before we launch a browser
     clips = []
     for i, clip in enumerate(script["clips"], 1):
-        name = clip["slide"]
-        if name not in idx:
-            raise SystemExit("script names an unknown slide: %r" % name)
-        clips.append((i, clip, idx[name]))
+        if clip["slide"] not in stems:
+            raise SystemExit("script names a slide not in the manifest: %r" % clip["slide"])
+        clips.append((i, clip))
 
     profile = os.path.join(HERE, "out", "chrome-profile")
     port = free_port()
@@ -191,11 +208,11 @@ async def render(script, out, force=False):
             await cdp.call("Emulation.setDeviceMetricsOverride",
                            width=size[0], height=size[1], deviceScaleFactor=1, mobile=False)
 
-            for clip_no, clip, sidx in clips:
+            for clip_no, clip in clips:
                 slug = re.sub(r"[^a-z0-9]+", "-", clip["slide"].lower()).strip("-")
                 cues = json.dumps(clip.get("cues", []))
-                url = "file://%s?slide=%d&t=0&cues=%s" % (
-                    VIDEO_PAGE, sidx, urllib.parse.quote(cues))
+                url = "file://%s?name=%s&t=0&cues=%s" % (
+                    VIDEO_PAGE, urllib.parse.quote(clip["slide"]), urllib.parse.quote(cues))
                 await cdp.call("Page.navigate", url=url)
                 await wait_ready(cdp)
                 n = round(clip["seconds"] * fps)
@@ -221,7 +238,7 @@ async def render(script, out, force=False):
     shutil.rmtree(SEQ, ignore_errors=True)
     os.makedirs(SEQ, exist_ok=True)
     k = 0
-    for clip_no, clip, sidx in clips:
+    for clip_no, clip in clips:
         slug = re.sub(r"[^a-z0-9]+", "-", clip["slide"].lower()).strip("-")
         for i in range(round(clip["seconds"] * fps)):
             src = frame_path(clip_no, slug, i)

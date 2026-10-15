@@ -4,44 +4,44 @@
   "clips": [
     {
       "slide": "001-talk-title",
-      "seconds": 2.0,
-      "narration": "PLACEHOLDER - title card, held. Dropped in from Sean's talk track.",
+      "seconds": 2.5,
+      "narration": "Welcome. Do not read the title. Introduce yourself, then the road map.",
       "cues": [{"at": 0.2, "anim": "panels-in"}]
     },
     {
-      "slide": "020-the-business-in-brief",
-      "seconds": 4.0,
-      "narration": "PLACEHOLDER - what Jaffle Logistics is: a European LTL, last-mile and warehousing carrier that sells a promise, not just transport.",
+      "slide": "business-in-brief",
+      "seconds": 4.5,
+      "narration": "A European LTL, last-mile and warehousing carrier. It owns its fleet and drivers; it is not a broker. It moves different freight for different accounts at three service levels. What it sells is an on-time service level, backed by a credit of 1% of monthly spend per point missed, capped at 10%. Zurich is the non-EU leg and crosses customs.",
       "cues": [{"at": 0.2, "anim": "panels-in"}, {"at": 0.9, "anim": "charts"}]
     },
     {
       "slide": "030-the-year-in-numbers",
       "seconds": 6.0,
-      "narration": "PLACEHOLDER - revenue EUR 2,879,732, up 4.55%; on time 93.28% against a 97% target; EUR 52,955 in service credits.",
+      "narration": "Three tiles, three charts. Revenue up 4.55% to EUR 2,879,732. On time 93.28% against a 97% contract, down 3.95 points. EUR 52,955 in service credits, none in 2023-24. Shipments rose only about 3% a year, so 2025 is a reliability fall, not a volume story.",
       "cues": [{"at": 0.2, "anim": "panels-in"}, {"at": 0.9, "anim": "charts"}, {"at": 1.4, "anim": "count-up"}]
     },
     {
-      "slide": "080-the-storm-week",
-      "seconds": 6.0,
-      "narration": "PLACEHOLDER - the Paris storm week of 13-19 January 2025: what happened, what it cost (EUR 879.25 in credits), and what changed.",
+      "slide": "035-product-mix",
+      "seconds": 5.0,
+      "narration": "Left: Jaffle Werke, 33.5% of the book, slid from 86.1 to 78.7 on time through 2025 while the average of the other four stayed between 91.6 and 98.2; Werke's contract is 97%. Right: freight is 23.8% of shipments but 49.6% of the 135 misses, standard 55.9% of volume and 38.5% of misses, expedited 20.3% and 11.9%. Careful: freight is not hard in itself. 416 of freight's 479 shipments are Werke, and the other 63 never missed.",
       "cues": [{"at": 0.2, "anim": "panels-in"}, {"at": 0.9, "anim": "charts"}]
     },
     {
-      "slide": "095-amsterdam-bay-3",
-      "seconds": 5.0,
-      "narration": "PLACEHOLDER - the second cause: 15 handling-damage incidents at the Amsterdam hub in 2025, 11 of them at bay 3.",
+      "slide": "bay3",
+      "seconds": 4.5,
+      "narration": "This is the second contributing factor in Jaffle Werke's 2025 on-time decline, beside the Paris storm (CRM review, 20 Oct). Vehicles and drivers are within ordinary variation, the maintenance record is ordinary, and it is the hub's own freight mix: the fleet is not the cause. It is a place. Bay 3 had no damage in 2023-24 and its staging dwell rose from about 46 to 70 minutes. Confidence is moderate, and the thing that would settle it is bay 3's equipment-inspection results. From Q4 on-time is tracked by cause and the hub runs an SOP audit; peak volume is kept off bay 3. Not measured: damage cost in euros. Damage rose at four of five hubs in 2025, so bay 3 is not the whole network's rise. The sources are messy: 14 of 15 incident reports name dock staging, and 5 reports cite IR-9003, 4 of them filed months before it existed, so free text needs provenance, not just retrieval. Full detail in the appendix.",
       "cues": [{"at": 0.2, "anim": "panels-in"}, {"at": 0.9, "anim": "charts"}, {"at": 1.2, "anim": "count-up"}]
     },
     {
-      "slide": "190-from-analytics-engineer-to-context-engineer",
+      "slide": "ae-ce",
       "seconds": 5.0,
-      "narration": "PLACEHOLDER - the shift in practice: the same craft, aimed at a reader who never asks a clarifying question.",
+      "narration": "For a decade the work product was an answer: a chart, a dashboard. Now it is the meaning, because that is what an agent reads, and an agent cannot ask a clarifying question. A dashboard answers once; meaning answers every question downstream of it. The models are the same. The audience is not. The job changes when the reader changes; the craft does not. And you are already most of the way there: you write meaning down for a living, you own the semantic layer, you already run the gate an agent needs (tests, contracts, freshness, lineage), and you write in the one language both readers share, versioned code.",
       "cues": [{"at": 0.2, "anim": "panels-in"}, {"at": 0.9, "anim": "charts"}]
     },
     {
-      "slide": "240-semantic-layer-to-context-layer",
-      "seconds": 2.0,
-      "narration": "PLACEHOLDER - closing card: start with the semantic layer, add the context layer; same project, same team, same discipline.",
+      "slide": "close",
+      "seconds": 2.5,
+      "narration": "Land on the offer, then stop talking. Repeat the three takeaways in one breath each, then the offer: Fivetran and dbt are here to help you get there faster, more efficiently, with built-in trust. Close by returning to the opening question: the hands that went up at the start are the people who now know how to fix it. Invite questions; the appendix has the working behind every number if someone wants to go deeper.",
       "cues": [{"at": 0.2, "anim": "panels-in"}]
     }
   ]
