@@ -1,0 +1,327 @@
+{
+  "fps": 30,
+  "size": [
+    1280,
+    720
+  ],
+  "intro_seconds": 2.4,
+  "transition_seconds": 0.5,
+  "tail_seconds": 1.8,
+  "deck": "slides/video/deck",
+  "transition": "fade",
+  "audio": "slides/video/voice-overlay-take-2.mp3",
+  "note": "Take 2. at = when the slide is on screen, in seconds into the voiceover (from a word-timestamped transcript). events: reveal = light the next click reveal; hl = highlight the elements matching a CSS selector, timed to the word that names them (null clears). cues: truck = when the storm slide's truck drives in, in seconds local to the clip. A negative at plays before the voiceover (the title card); the voice is delayed to match. robot = when the game-has-changed robot starts walking in, local to the clip.",
+  "clips": [
+    {
+      "slide": "video-title",
+      "at": -4.0
+    },
+    {
+      "slide": "wires-mess",
+      "at": 0.0,
+      "events": [
+        {
+          "at": 7.3,
+          "hl": "g.src[data-k=\"CRMs\"]"
+        },
+        {
+          "at": 8.32,
+          "hl": "g.src[data-k=\"CRMs\"], g.src[data-k=\"ERPs\"]"
+        },
+        {
+          "at": 9.14,
+          "hl": "g.src[data-k=\"CRMs\"], g.src[data-k=\"ERPs\"], g.src[data-k=\"Wiki pages\"]"
+        },
+        {
+          "at": 9.86,
+          "hl": "g.src[data-k=\"CRMs\"], g.src[data-k=\"ERPs\"], g.src[data-k=\"Wiki pages\"], g.src[data-k=\"Docs\"]"
+        },
+        {
+          "at": 10.66,
+          "hl": "g.src[data-k=\"CRMs\"], g.src[data-k=\"ERPs\"], g.src[data-k=\"Wiki pages\"], g.src[data-k=\"Docs\"], g.src[data-k=\"Spreadsheets\"]"
+        },
+        {
+          "at": 11.56,
+          "hl": "g.src[data-k=\"CRMs\"], g.src[data-k=\"ERPs\"], g.src[data-k=\"Wiki pages\"], g.src[data-k=\"Docs\"], g.src[data-k=\"Spreadsheets\"], g.src[data-k=\"Legal contracts\"]"
+        },
+        {
+          "at": 11.88,
+          "hl": "g.src[data-k=\"CRMs\"], g.src[data-k=\"ERPs\"], g.src[data-k=\"Wiki pages\"], g.src[data-k=\"Docs\"], g.src[data-k=\"Spreadsheets\"], g.src[data-k=\"Legal contracts\"], g.src[data-k=\"Email\"]"
+        },
+        {
+          "at": 12.38,
+          "hl": "g.src[data-k=\"CRMs\"], g.src[data-k=\"ERPs\"], g.src[data-k=\"Wiki pages\"], g.src[data-k=\"Docs\"], g.src[data-k=\"Spreadsheets\"], g.src[data-k=\"Legal contracts\"], g.src[data-k=\"Email\"], g.src[data-k=\"Chat\"]"
+        },
+        {
+          "at": 13.58,
+          "hl": "g.ai"
+        },
+        {
+          "at": 16.06,
+          "hl": "svg g[stroke=\"#ff3d6e\"]"
+        },
+        {
+          "at": 20.0,
+          "hl": null
+        }
+      ]
+    },
+    {
+      "slide": "003-the-game-has-changed",
+      "at": 24.9,
+      "events": [],
+      "intro": 13.0,
+      "cues": [
+        {
+          "at": 4.4,
+          "anim": "robot"
+        }
+      ]
+    },
+    {
+      "slide": "wires-layer",
+      "at": 37.8,
+      "events": [
+        {
+          "at": 46.24,
+          "hl": "svg rect[fill=\"#ffb000\"]"
+        },
+        {
+          "at": 49.44,
+          "hl": "g.ai"
+        }
+      ]
+    },
+    {
+      "slide": "data-team-owns",
+      "at": 51.5,
+      "events": [
+        {
+          "at": 54.44,
+          "hl": ".chips"
+        },
+        {
+          "at": 62.58,
+          "hl": ".stmt"
+        }
+      ]
+    },
+    {
+      "slide": "showcase-title",
+      "at": 64.8,
+      "events": [
+        {
+          "at": 73.3,
+          "hl": ".cities"
+        }
+      ]
+    },
+    {
+      "slide": "business-in-brief",
+      "at": 74.4,
+      "events": [
+        {
+          "at": 76.16,
+          "hl": ".facts .v:not(.hot)"
+        },
+        {
+          "at": 78.02,
+          "hl": ".facts .v.hot"
+        }
+      ]
+    },
+    {
+      "slide": "wrong-numbers",
+      "at": 78.8,
+      "events": [
+        {
+          "at": 82.92,
+          "hl": ".strip .tile:nth-child(1)"
+        },
+        {
+          "at": 85.0,
+          "hl": ".strip .tile:nth-child(2)"
+        },
+        {
+          "at": 86.64,
+          "hl": ".grid .ch:nth-child(2)"
+        },
+        {
+          "at": 88.9,
+          "hl": null
+        },
+        {
+          "at": 90.18,
+          "reveal": 1
+        },
+        {
+          "at": 90.8,
+          "reveal": 1
+        },
+        {
+          "at": 91.86,
+          "reveal": 1
+        }
+      ]
+    },
+    {
+      "slide": "030-the-year-in-numbers",
+      "at": 95.3,
+      "events": [
+        {
+          "at": 97.12,
+          "hl": ".strip .tile"
+        },
+        {
+          "at": 102.6,
+          "hl": null
+        }
+      ]
+    },
+    {
+      "slide": "040-the-quarters",
+      "at": 102.9
+    },
+    {
+      "slide": "drilling",
+      "at": 111.6
+    },
+    {
+      "slide": "storm",
+      "at": 117.3,
+      "intro": 7.4,
+      "cues": [
+        {
+          "at": 3.95,
+          "anim": "truck"
+        }
+      ],
+      "events": [
+        {
+          "at": 129.0,
+          "hl": ".figs .v"
+        },
+        {
+          "at": 133.5,
+          "hl": ".pic"
+        }
+      ]
+    },
+    {
+      "slide": "bay3",
+      "at": 135.1,
+      "events": [
+        {
+          "at": 138.78,
+          "hl": "svg rect.b:not(.vol)"
+        },
+        {
+          "at": 141.72,
+          "hl": "g.bay3"
+        },
+        {
+          "at": 146.22,
+          "hl": ".conf"
+        }
+      ]
+    },
+    {
+      "slide": "layering-context",
+      "at": 152.4,
+      "events": [
+        {
+          "at": 155.04,
+          "hl": ".rawp"
+        },
+        {
+          "at": 159.6,
+          "hl": ".srow[data-k=\"Incident reports\"]"
+        },
+        {
+          "at": 160.22,
+          "hl": ".srow[data-k=\"Incident reports\"], .srow[data-k=\"CRM notes\"]"
+        },
+        {
+          "at": 161.1,
+          "hl": ".srow[data-k=\"Incident reports\"], .srow[data-k=\"CRM notes\"], .srow[data-k=\"Slack\"]"
+        },
+        {
+          "at": 164.94,
+          "hl": ".flow .st:nth-child(1)"
+        },
+        {
+          "at": 165.44,
+          "hl": ".flow .st:nth-child(3)"
+        },
+        {
+          "at": 165.94,
+          "hl": ".flow .st:nth-child(5)"
+        },
+        {
+          "at": 166.5,
+          "hl": ".flow .st:nth-child(7)"
+        },
+        {
+          "at": 171.86,
+          "hl": ".foot"
+        }
+      ]
+    },
+    {
+      "slide": "question-answer",
+      "at": 174.4,
+      "events": [
+        {
+          "at": 177.46,
+          "hl": ".flow .st:nth-child(1)"
+        },
+        {
+          "at": 181.16,
+          "hl": ".flow .st:nth-child(5)"
+        },
+        {
+          "at": 185.6,
+          "hl": ".flow .st:nth-child(9)"
+        }
+      ]
+    },
+    {
+      "slide": "240-semantic-layer-to-context-layer",
+      "at": 196.9,
+      "events": [
+        {
+          "at": 198.7,
+          "hl": ".row.sl, .step.sl"
+        },
+        {
+          "at": 200.46,
+          "hl": ".row.cl, .step.cl"
+        },
+        {
+          "at": 204.2,
+          "hl": ".same"
+        }
+      ]
+    },
+    {
+      "slide": "close",
+      "at": 206.8,
+      "events": [
+        {
+          "at": 209.06,
+          "hl": ".hd"
+        }
+      ]
+    },
+    {
+      "slide": "thank-you",
+      "at": 212.0,
+      "events": [
+        {
+          "at": 213.68,
+          "hl": "div:has(> svg[viewBox=\"-2 -2 37 37\"])"
+        }
+      ]
+    }
+  ]
+}

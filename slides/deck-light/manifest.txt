@@ -9,13 +9,15 @@ hook.html
 
 # part 1: the game has changed, and why the data team
 003-the-game-has-changed.html | notes=About 30 seconds. Preparing data for AI-aided analysis and agents is now the game; the model reasons well enough, so what it reads decides whether the answer is right. That is the opportunity the rest of the talk earns.
-ten-wires.html
+wires-mess.html
+wires-layer.html
 data-team-owns.html
 
 # part 2: showcase
-010-title.html | notes=Jaffle Logistics is a synthetic dataset. Everything from here is built from the company's own operating data.
+showcase-title.html | notes=Jaffle Logistics is a synthetic dataset. Everything from here is built from the company's own operating data.
 business-in-brief.html
 025-top-line-numbers.html
+wrong-numbers.html
 030-the-year-in-numbers.html | title=REVENUE GREW. RELIABILITY FELL. | sub=FY2023 to FY2025: on time slipped to 93.28% against a 97% target | notes=Three tiles, three charts. Revenue up 4.55% to EUR 2,879,732. On time 93.28% against a 97% contract, down 3.95 points. EUR 52,955 in service credits, none in 2023-24. Shipments rose only about 3% a year, so 2025 is a reliability fall, not a volume story.
 035-product-mix.html | title=ONE ACCOUNT FELL BEHIND | sub=Werke vs the other four, on time by quarter; and where the 135 misses sit | notes=Left: Jaffle Werke, 33.5% of the book, slid from 86.1 to 78.7 on time through 2025 while the average of the other four stayed between 91.6 and 98.2; Werke's contract is 97%. Right: freight is 23.8% of shipments but 49.6% of the 135 misses, standard 55.9% of volume and 38.5% of misses, expedited 20.3% and 11.9%. Careful: freight is not hard in itself. 416 of freight's 479 shipments are Werke, and the other 63 never missed.
 040-the-quarters.html | title=Q1 BROKE. Q4 SLIPPED AGAIN. | sub=FY2025 by quarter: on time, revenue, dispatch exceptions, service credits | notes=On time by quarter: Q1 90.33 with the storm in week 3, Q2 95.40, Q3 95.12, Q4 92.62. Service credits rose 5.8x through the year, to 27.5k in Q4. The storm explains Q1. It does not explain Q4.

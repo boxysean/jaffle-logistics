@@ -29,3 +29,16 @@
 .vseek .frame .panel {
   will-change: opacity, transform;
 }
+
+/* the voice-synced highlight (seek.js window.__vhl): an amber ring and glow on what is being
+   talked about. HTML elements get an outline; SVG shapes get an amber stroke and a glow */
+.vseek .vhl:not(svg *) {
+  outline: 5px solid #ffb000 !important;
+  outline-offset: 5px;
+  box-shadow: 0 0 28px 8px rgba(255, 176, 0, .55) !important;
+}
+.vseek svg .vhl, .vseek svg.vhl {
+  filter: drop-shadow(0 0 3px #ffb000) drop-shadow(0 0 9px #ffb000);
+}
+.vseek svg .vhl rect, .vseek svg rect.vhl { stroke: #ffb000 !important; stroke-width: 4px !important; }
+.vseek svg g.vhl[stroke] { stroke: #ffb000 !important; opacity: 1 !important; }

@@ -72,19 +72,21 @@ def svg_logo(match):
     return f'<image href="{data_uri(name, mime)}" {match.group(2)}><title>{alt}</title></image>'
 
 
-def light_slides():
+def light_slides(cut_dir=None):
     """The light deck's slides, in manifest order. Each manifest line names a slide file, found in
     deck-light/slides/ first and deck/slides/ second, optionally followed by ' | key=value' edits:
-    title= and sub= swap the heading and its one-line subtitle, notes= adds speaker notes."""
+    title= and sub= swap the heading and its one-line subtitle, notes= adds speaker notes.
+    With cut_dir (another cut of the deck, e.g. slides/video/deck/), its manifest is read instead
+    and its slides/ is looked in first."""
     out = []
-    for line in read(os.path.join(LIGHT_DIR, "manifest.txt")).splitlines():
+    for line in read(os.path.join(cut_dir or LIGHT_DIR, "manifest.txt")).splitlines():
         line = line.strip()
         if not line or line.startswith("#"):
             continue
         name, *edits = [f.strip() for f in line.split(" | ")]
-        path = os.path.join(LIGHT_DIR, "slides", name)
-        if not os.path.exists(path):
-            path = os.path.join(DECK_DIR, "slides", name)
+        dirs = ([cut_dir] if cut_dir else []) + [LIGHT_DIR, DECK_DIR]
+        path = next((p for p in (os.path.join(d, "slides", name) for d in dirs) if os.path.exists(p)),
+                    os.path.join(DECK_DIR, "slides", name))
         html = read(path)
         for edit in edits:
             key, value = edit.split("=", 1)
@@ -101,14 +103,18 @@ def light_slides():
     return "".join(out)
 
 
-def build():
+def build(cut_dir=None):
+    """The deck as one HTML page. cut_dir builds another cut (see light_slides) and adds its
+    css/*.css after the light deck's."""
     out = []
     for line in read(os.path.join(DECK_DIR, "deck.html")).splitlines(keepends=True):
         if line.strip().startswith(CSS_MARK):
             out.append(parts("css/*.css"))
             out.append(parts_light("css/*.css"))
+            if cut_dir:
+                out.append("".join(read(p) for p in sorted(glob.glob(os.path.join(cut_dir, "css", "*.css")))))
         elif line.strip().startswith(SLIDE_MARK):
-            out.append(SVG_LOGO_MARK.sub(svg_logo, light_slides()))
+            out.append(SVG_LOGO_MARK.sub(svg_logo, light_slides(cut_dir)))
         elif line.strip().startswith(LOGO_MARK):
             out.append(logos())
         elif "reveal.js@5/dist/reveal.js" in line:
@@ -124,10 +130,11 @@ def build():
 def main():
     p = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     p.add_argument("--out", help="where to write the deck (default slides/presentation.html)")
+    p.add_argument("--cut", help="build another cut of the deck from this folder (e.g. slides/video/deck)")
     p.add_argument("--theme", choices=["retro", "corporate"], default="retro",
                    help="retro: the 16-bit game skin (default); corporate: the Fivetran + dbt Labs theme")
     args = p.parse_args()
-    html = build()
+    html = build(os.path.abspath(args.cut) if args.cut else None)
     if args.theme == "corporate":
         sys.path.insert(0, os.path.join(SLIDES_DIR, "corporate"))
         sys.dont_write_bytecode = True

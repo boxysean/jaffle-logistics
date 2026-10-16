@@ -1,0 +1,23 @@
+# the video cut: the slides of slides/deck-light/talk-track.md, in talk order, copied here so
+# they can be cut down for video without touching the live deck. built with
+#   python3 slides/build_deck.py --cut slides/video/deck
+
+video-title.html
+hook.html
+003-the-game-has-changed.html
+wires-mess.html
+wires-layer.html
+data-team-owns.html
+showcase-title.html
+business-in-brief.html
+wrong-numbers.html
+030-the-year-in-numbers.html
+040-the-quarters.html
+drilling.html
+storm.html
+bay3.html
+layering-context.html
+question-answer.html
+240-semantic-layer-to-context-layer.html
+close.html
+thank-you.html
