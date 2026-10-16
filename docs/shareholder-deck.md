@@ -13,14 +13,6 @@ Use the arrow keys to move, `f` for full screen, `s` for speaker notes, and prin
 handout. The slide order is `slides/deck-light/manifest.txt`, and `python3 slides/build_deck.py`
 builds the deck (`--theme corporate` for the Fivetran + dbt Labs version).
 
-## The network map and the executive group, in three styles
-
-| Network map | Executive group |
-|---|---|
-| [![Network map, retro](shareholder-deck/png/map-retro.png)](shareholder-deck/png/map-retro.png) | [![Executive group, retro](shareholder-deck/png/exec-retro.png)](shareholder-deck/png/exec-retro.png) |
-| [![Network map, dark](shareholder-deck/png/map-dark.png)](shareholder-deck/png/map-dark.png) | [![Executive group, dark](shareholder-deck/png/exec-dark.png)](shareholder-deck/png/exec-dark.png) |
-| [![Network map, light](shareholder-deck/png/map-light.png)](shareholder-deck/png/map-light.png) | [![Executive group, light](shareholder-deck/png/exec-light.png)](shareholder-deck/png/exec-light.png) |
-
 ## The reports behind every slide
 
 Each slide carries one seat's verified numbers, and names the report it came from. Those reports

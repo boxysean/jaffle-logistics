@@ -25,8 +25,6 @@ site/
 scratch/
 
 .claude
-# deck preview renders (the published copies live in docs/shareholder-deck/png)
-slides/png/deck-*.png
 
 # dispatcher worktrees
 .worktrees/
@@ -44,5 +42,12 @@ docs/shareholder-deck/presentation-full.html
 slides/video/out/frames/
 slides/video/out/seq/
 slides/video/out/chrome-profile/
+slides/video/out/chrome-profile-talk/
+slides/video/out/chrome-talk.log
+slides/video/out/video-deck.html
+slides/video/out/talk/
 slides/video/out/presentation-video.html
 __pycache__/
+# narration audio and rendered talks stay local (too big for git)
+slides/video/*.mp3
+slides/video/out/talk-take-*.mp4

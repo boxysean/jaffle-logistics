@@ -1,0 +1,94 @@
+{
+  "fps": 30,
+  "size": [
+    1280,
+    720
+  ],
+  "audio": "slides/video/voice-overlay-take-1.mp3",
+  "intro_seconds": 2.4,
+  "transition_seconds": 0.5,
+  "tail_seconds": 1.8,
+  "note": "at = when the slide is on screen, in seconds into the voiceover (taken from a word-timestamped transcript of take 1). steps = when each click reveal lands. every slide arrives with the same transition. intro = seconds of entrance animation, when a slide needs more than intro_seconds.",
+  "clips": [
+    {
+      "slide": "hook",
+      "at": 0.0
+    },
+    {
+      "slide": "003-the-game-has-changed",
+      "at": 15.7
+    },
+    {
+      "slide": "wires-mess",
+      "at": 30.3
+    },
+    {
+      "slide": "wires-layer",
+      "at": 52.4
+    },
+    {
+      "slide": "data-team-owns",
+      "at": 67.8
+    },
+    {
+      "slide": "showcase-title",
+      "at": 80.5
+    },
+    {
+      "slide": "business-in-brief",
+      "at": 89.6
+    },
+    {
+      "slide": "wrong-numbers",
+      "at": 94.8,
+      "steps": [
+        109.3,
+        115.4,
+        120.2
+      ]
+    },
+    {
+      "slide": "030-the-year-in-numbers",
+      "at": 129.9
+    },
+    {
+      "slide": "storm",
+      "at": 148.1,
+      "intro": 3.6
+    },
+    {
+      "slide": "bay3",
+      "at": 163.7
+    },
+    {
+      "slide": "trace",
+      "at": 180.8
+    },
+    {
+      "slide": "layering-context",
+      "at": 200.4
+    },
+    {
+      "slide": "question-answer",
+      "at": 223.2
+    },
+    {
+      "slide": "ae-ce",
+      "at": 235.7
+    },
+    {
+      "slide": "240-semantic-layer-to-context-layer",
+      "at": 248.0
+    },
+    {
+      "slide": "close",
+      "at": 257.7
+    },
+    {
+      "slide": "thank-you",
+      "at": 262.8
+    }
+  ],
+  "deck": "slides/video/deck",
+  "transition": "fade"
+}
