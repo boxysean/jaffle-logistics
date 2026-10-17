@@ -2,9 +2,11 @@
  *
  * The renderer opens the built deck as
  *
- *     presentation-video.html?slide=<n>&t=<seconds>&cues=<json>
+ *     presentation-video.html?name=<stem>&t=<seconds>&cues=<json>
  *
- * and, per frame, calls window.__vseek(t) to hold the page at an exact time. No ?t
+ * where <stem> is a slide file's name without .html. The renderer injects the manifest's
+ * stems, in deck order, as window.__vslides; the hook resolves the name to a position at
+ * runtime (?slide=<n> is kept only as a fallback when no name is given). Per frame it calls window.__vseek(t) to hold the page at an exact time. No ?t
  * means the page is being viewed normally: this script returns immediately and the
  * deck is untouched.
  *
@@ -20,6 +22,7 @@
   var params = new URLSearchParams(window.location.search);
   if (!params.has('t')) return;                       // normal viewing: do nothing
 
+  var slideName = params.get('name');
   var slideIndex = parseInt(params.get('slide') || '0', 10) || 0;
   document.documentElement.classList.add('vseek');
 
@@ -88,7 +91,7 @@
       if (/^(19|20)\d\d$/.test(txt)) return;                    // years don't count up
       var spec = parseNumber(txt);
       if (!spec) return;
-      if (Math.abs(spec.value) < 1.5 && spec.decimals === 0) return;   // skip 0 / 1 badges
+      if (Math.abs(spec.value) < 10 && spec.decimals === 0) return;    // skip small ordinal/index badges
       numberEls.push({ el: el, spec: spec });
     });
   }
@@ -179,6 +182,14 @@
   function start() {
     if (ready) return;
     ready = true;
+    if (slideName !== null) {
+      var names = window.__vslides || [];
+      if (names.length !== document.querySelectorAll('.reveal .slides > section').length) {
+        window.__vseekReady = 'nomatch'; return;
+      }
+      slideIndex = names.indexOf(slideName);
+      if (slideIndex < 0) { window.__vseekReady = 'noname'; return; }
+    }
     try {
       Reveal.configure({ transition: 'none', backgroundTransition: 'none', controls: false, progress: false });
       Reveal.slide(slideIndex, 0);

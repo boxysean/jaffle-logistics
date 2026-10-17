@@ -5,11 +5,13 @@ plus one 30-second proof clip.
 
 ## The clip
 
-    slides/video/out/jaffle-30s.mp4   (30.0s, 1280x720, H.264, ~1.9 MB, committed)
+    slides/video/out/jaffle-30s.mp4   (30.0s, 1280x720, H.264, ~1.7 MB, committed)
 
-A 30-second cut of the deck's strongest beats: the title, the business in brief, the year
-in numbers, the storm week, Amsterdam bay 3, the analytics-engineer shift and the closing
-card. The narration strings in the script are placeholders for Sean's talk track.
+A 30-second cut of the deck (the light cut in `slides/deck-light/manifest.txt`): the title,
+the business in brief, the year in numbers, the one account that fell behind, Amsterdam bay 3,
+analytics engineer to context engineer, and the close. Each clip's `narration` is that slide's
+real speaker notes, copied verbatim (the manifest's `notes=` if it has one, else the slide's
+own `<aside class="notes">`).
 
 ## Files
 
@@ -27,7 +29,10 @@ screenshotted, then ffmpeg encodes the sequence.
 
 `render_video.py` builds the deck (`slides/build_deck.py`), injects `anim.css` + `seek.js`
 into a throwaway copy (`out/presentation-video.html` — the real `slides/presentation.html`
-is never touched), launches one persistent Chromium and drives it over CDP. Per frame it
+is never touched), along with the manifest's slide names in deck order as
+`window.__vslides`. Clips address slides by name (`?name=bay3`), never by position, and the
+hook resolves the name at runtime, so reordering the manifest cannot render the wrong slide.
+It then launches one persistent Chromium and drives it over CDP. Per frame it
 calls `window.__vseek(t)`, which recomputes and writes every animated value as inline
 styles, so a screenshot at `t=1.5` is always the same pixels.
 
@@ -53,6 +58,6 @@ services.
 
 ## Adding a clip
 
-Add an entry to `script.json`. `slide` is the deck part's file name without `.html`
-(e.g. `080-the-storm-week`); `seconds` is the clip's length; `cues` shift the start of
+Add an entry to `script.json`. `slide` is a manifest slide's file name without `.html`
+(e.g. `storm`); the render stops if it is not in the manifest. `seconds` is the clip's length; `cues` shift the start of
 each animation group (`panels-in`, `charts`, `count-up`) in seconds local to the clip.
